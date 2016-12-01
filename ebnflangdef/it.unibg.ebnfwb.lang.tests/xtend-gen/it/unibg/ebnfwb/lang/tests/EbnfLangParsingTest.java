@@ -13,6 +13,7 @@ import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.XtextRunner;
 import org.eclipse.xtext.junit4.util.ParseHelper;
 import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -39,6 +40,25 @@ public class EbnfLangParsingTest {
       EList<ProductionRule> _rules = result.getRules();
       int _size = _rules.size();
       System.out.println(_size);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void loadModelRepetition() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("Header  =  {UseDirective}, {ImportDirective},  {ExportDirective}");
+      _builder.newLine();
+      final EbnfGrammar result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      EList<ProductionRule> _rules = result.getRules();
+      int _size = _rules.size();
+      System.out.println(_size);
+      EList<ProductionRule> _rules_1 = result.getRules();
+      ProductionRule _get = _rules_1.get(0);
+      InputOutput.<ProductionRule>println(_get);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

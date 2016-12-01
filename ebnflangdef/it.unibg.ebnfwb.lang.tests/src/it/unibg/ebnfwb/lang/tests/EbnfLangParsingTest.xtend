@@ -31,5 +31,14 @@ class EbnfLangParsingTest{
 		System.out.println(result.rules.size)
 	}
 
+	@Test 
+	def void loadModelRepetition() {
+		val EbnfGrammar result = parseHelper.parse('''
+			Header  =  {UseDirective}, {ImportDirective},  {ExportDirective}
+		''')
+		Assert.assertNotNull(result)
+		System.out.println(result.rules.size)
+		println(result.rules.get(0))
+	}
 
 }
