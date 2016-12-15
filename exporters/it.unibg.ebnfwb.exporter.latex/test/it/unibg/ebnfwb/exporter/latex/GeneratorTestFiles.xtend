@@ -1,23 +1,27 @@
-package it.unibg.ebnfwb.exporter.jparsec
+package it.unibg.ebnfwb.exporter.latex
 
-import com.google.inject.Inject
-import it.unibg.ebnfwb.lang.ebnfLang.EbnfGrammar
-import it.unibg.ebnfwb.lang.tests.EbnfLangInjectorProvider
-import java.io.FileReader
-import java.nio.CharBuffer
-import org.eclipse.xtext.generator.InMemoryFileSystemAccess
-import org.eclipse.xtext.junit4.InjectWith
-import org.eclipse.xtext.junit4.XtextRunner
-import org.eclipse.xtext.junit4.util.ParseHelper
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.eclipse.xtext.junit4.XtextRunner
+import org.eclipse.xtext.junit4.InjectWith
+import org.eclipse.xtext.generator.IGenerator
+import com.google.inject.Inject
+import org.eclipse.xtext.junit4.util.ParseHelper
+import org.eclipse.xtext.generator.InMemoryFileSystemAccess
+import static org.junit.Assert.*
+import org.eclipse.xtext.generator.IFileSystemAccess
+import java.io.FileReader
+import java.nio.CharBuffer
+import java.io.FileWriter
+import it.unibg.ebnfwb.lang.tests.EbnfLangInjectorProvider
+import it.unibg.ebnfwb.lang.ebnfLang.EbnfGrammar
 
 @RunWith(XtextRunner)
 @InjectWith(EbnfLangInjectorProvider)
 
 class GeneratorTestFiles {
      
-    @Inject EbnfLangJParsecGenerator underTest
+    @Inject EbnfLangLatexGenerator underTest
     @Inject ParseHelper<EbnfGrammar> parseHelper 
      
     @Test
@@ -29,15 +33,15 @@ class GeneratorTestFiles {
 		val EbnfGrammar grammar = parseHelper.parse(target)
         val InMemoryFileSystemAccess fsa = new InMemoryFileSystemAccess()
         //
-        underTest.packageName = "numbers"
+        underTest.fileName = "numbers"
         //
         underTest.doGenerate(grammar.eResource, fsa)
         //
         fsa.textFiles.forEach[filename, fileContent|
         	println("writing " + filename + fileContent)
-        	//val file = new FileWriter('examples/numbers/'+filename)
-        	//file.write(fileContent.toString)
-        	//file.close
+        	val file = new FileWriter('examples/numbers/'+filename)
+        	file.write(fileContent.toString)
+        	file.close
         ]
     }
 	     

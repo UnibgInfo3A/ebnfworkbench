@@ -1,20 +1,23 @@
-package it.unibg.ebnfwb.exporter.jparsec
+package it.unibg.ebnfwb.exporter.latex
 
 import com.google.inject.Inject
 import it.unibg.ebnfwb.lang.ebnfLang.EbnfGrammar
-import it.unibg.ebnfwb.lang.tests.EbnfLangInjectorProvider
-import org.eclipse.xtext.generator.InMemoryFileSystemAccess
 import org.eclipse.xtext.junit4.InjectWith
 import org.eclipse.xtext.junit4.XtextRunner
 import org.eclipse.xtext.junit4.util.ParseHelper
+import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
+import it.unibg.ebnfwb.lang.tests.EbnfLangInjectorProvider
+import org.eclipse.xtext.generator.InMemoryFileSystemAccess
+import org.junit.runner.RunWith
+import org.junit.runner.Runner
 
 @RunWith(XtextRunner)
 @InjectWith(EbnfLangInjectorProvider)
 class GeneratorTest {
      
-    @Inject EbnfLangJParsecGenerator underTest
+    @Inject EbnfLangLatexGenerator underTest
     @Inject ParseHelper<EbnfGrammar> parseHelper 
      
     @Test
