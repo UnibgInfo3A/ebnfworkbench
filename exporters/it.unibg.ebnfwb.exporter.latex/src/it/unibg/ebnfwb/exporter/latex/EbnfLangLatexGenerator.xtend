@@ -9,6 +9,9 @@ import org.eclipse.xtext.generator.IFileSystemAccess
 import it.unibg.ebnfwb.lang.ebnfLang.EbnfGrammar
 import it.unibg.ebnfwb.lang.ebnfLang.ProductionRule
 import org.w3c.dom.Comment
+import it.unibg.ebnfwb.lang.ebnfLang.Expression
+import java.io.File
+import it.unibg.ebnfwb.lang.services.EbnfLangGrammarAccess.Expression_AlternativeElements
 
 /**
  * Generates latex from your model files on save.
@@ -25,7 +28,6 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
 //				.filter(typeof(Greeting))
 //				.map[name]
 //				.join(', '))
-	
 
 	override doGenerate(Resource input, IFileSystemAccess fsa) {
 		for (e : input.allContents.toIterable.filter(EbnfGrammar)) {
@@ -48,12 +50,19 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
     «FOR f:e.rules»
          «f.compile»
     «ENDFOR»
+    
 	\end{grammar}
 	\end{document}
 	'''
 	def compile(ProductionRule rule)'''
-		% production rule «rule.name» 
+		«rule.name»
+		«rule.expr.compile»
 	'''
+	
+	def compile(Expression expr)'''
+		
+	'''
+	
 	
 	// the document name (for the tex file)	
 	String fileName

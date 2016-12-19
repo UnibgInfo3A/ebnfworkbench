@@ -825,8 +825,6 @@ ruleExpression_Group returns [EObject current=null]
 	)
 ;
 
-RULE_COMMENT : '(*' ( options {greedy=false;} : . )*'*)';
-
 RULE_NUMBER : '1'..'9' ('0'..'9')*;
 
 RULE_NAME : ('a'..'z'|'A'..'Z'|'_')+;

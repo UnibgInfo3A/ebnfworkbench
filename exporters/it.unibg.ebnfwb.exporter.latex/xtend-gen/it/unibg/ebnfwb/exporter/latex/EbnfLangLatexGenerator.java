@@ -2,6 +2,7 @@ package it.unibg.ebnfwb.exporter.latex;
 
 import com.google.common.collect.Iterables;
 import it.unibg.ebnfwb.lang.ebnfLang.EbnfGrammar;
+import it.unibg.ebnfwb.lang.ebnfLang.Expression;
 import it.unibg.ebnfwb.lang.ebnfLang.ProductionRule;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
@@ -62,6 +63,8 @@ public class EbnfLangLatexGenerator implements IGenerator {
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.append("    ");
+    _builder.newLine();
     _builder.append("\\end{grammar}");
     _builder.newLine();
     _builder.append("\\end{document}");
@@ -71,11 +74,20 @@ public class EbnfLangLatexGenerator implements IGenerator {
   
   public CharSequence compile(final ProductionRule rule) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("% production rule ");
     String _name = rule.getName();
     _builder.append(_name, "");
-    _builder.append(" ");
     _builder.newLineIfNotEmpty();
+    Expression _expr = rule.getExpr();
+    CharSequence _compile = this.compile(_expr);
+    _builder.append(_compile, "");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final Expression expr) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\t\t");
+    _builder.newLine();
     return _builder;
   }
   

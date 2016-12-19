@@ -17,7 +17,7 @@ EbnfGrammar:
     rules+=ProductionRule*;
  
 ProductionRule:
-    name=NAME '=' expr=Expression ';';
+	name=NAME '=' expr=Expression ';';
  
 Expression:
     Expression_Alternative;
@@ -77,8 +77,8 @@ Expression_Group returns Expression:
     {Expression_Group} '(' expr=Expression ')';
  
 // Comments in EBNF are placed within (* and *)
-terminal COMMENT returns ecore::EString:
-    '(*' -> '*)';
+//terminal COMMENT returns ecore::EString:
+ //   '(*' -> '*)';
  
 // A number >0
 terminal NUMBER returns ecore::EInt:

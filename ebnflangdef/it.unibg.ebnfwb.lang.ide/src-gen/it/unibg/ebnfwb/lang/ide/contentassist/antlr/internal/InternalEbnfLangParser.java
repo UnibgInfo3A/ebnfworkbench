@@ -22,28 +22,27 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalEbnfLangParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NAME", "RULE_NUMBER", "RULE_SPECIAL_SEQUENCE", "RULE_TERMINAL_SYMBOL", "RULE_COMMENT", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'='", "';'", "'|'", "','", "'-'", "'*'", "'{'", "'}'", "'['", "']'", "'('", "')'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NAME", "RULE_NUMBER", "RULE_SPECIAL_SEQUENCE", "RULE_TERMINAL_SYMBOL", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'='", "';'", "'|'", "','", "'-'", "'*'", "'{'", "'}'", "'['", "']'", "'('", "')'"
     };
     public static final int RULE_TERMINAL_SYMBOL=7;
     public static final int RULE_NAME=4;
-    public static final int RULE_STRING=11;
-    public static final int RULE_SL_COMMENT=13;
+    public static final int RULE_STRING=10;
+    public static final int RULE_SL_COMMENT=12;
     public static final int T__19=19;
+    public static final int T__15=15;
     public static final int T__16=16;
     public static final int T__17=17;
     public static final int RULE_SPECIAL_SEQUENCE=6;
     public static final int T__18=18;
     public static final int EOF=-1;
-    public static final int RULE_ID=9;
-    public static final int RULE_WS=14;
-    public static final int RULE_COMMENT=8;
-    public static final int RULE_ANY_OTHER=15;
+    public static final int RULE_ID=8;
+    public static final int RULE_WS=13;
+    public static final int RULE_ANY_OTHER=14;
     public static final int RULE_NUMBER=5;
     public static final int T__26=26;
-    public static final int T__27=27;
-    public static final int RULE_INT=10;
+    public static final int RULE_INT=9;
     public static final int T__22=22;
-    public static final int RULE_ML_COMMENT=12;
+    public static final int RULE_ML_COMMENT=11;
     public static final int T__23=23;
     public static final int T__24=24;
     public static final int T__25=25;
@@ -1168,7 +1167,7 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
             int alt1=2;
             int LA1_0 = input.LA(1);
 
-            if ( (LA1_0==RULE_NAME||(LA1_0>=RULE_SPECIAL_SEQUENCE && LA1_0<=RULE_TERMINAL_SYMBOL)||LA1_0==22||LA1_0==24||LA1_0==26) ) {
+            if ( (LA1_0==RULE_NAME||(LA1_0>=RULE_SPECIAL_SEQUENCE && LA1_0<=RULE_TERMINAL_SYMBOL)||LA1_0==21||LA1_0==23||LA1_0==25) ) {
                 alt1=1;
             }
             else if ( (LA1_0==RULE_NUMBER) ) {
@@ -1262,17 +1261,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
                 alt2=2;
                 }
                 break;
-            case 22:
+            case 21:
                 {
                 alt2=3;
                 }
                 break;
-            case 24:
+            case 23:
                 {
                 alt2=4;
                 }
                 break;
-            case 26:
+            case 25:
                 {
                 alt2=5;
                 }
@@ -1731,7 +1730,7 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
             // InternalEbnfLang.g:567:2: '='
             {
              before(grammarAccess.getProductionRuleAccess().getEqualsSignKeyword_1()); 
-            match(input,16,FOLLOW_2); 
+            match(input,15,FOLLOW_2); 
              after(grammarAccess.getProductionRuleAccess().getEqualsSignKeyword_1()); 
 
             }
@@ -1886,7 +1885,7 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
             // InternalEbnfLang.g:620:2: ';'
             {
              before(grammarAccess.getProductionRuleAccess().getSemicolonKeyword_3()); 
-            match(input,17,FOLLOW_2); 
+            match(input,16,FOLLOW_2); 
              after(grammarAccess.getProductionRuleAccess().getSemicolonKeyword_3()); 
 
             }
@@ -2039,7 +2038,7 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
             int alt4=2;
             int LA4_0 = input.LA(1);
 
-            if ( (LA4_0==18) ) {
+            if ( (LA4_0==17) ) {
                 alt4=1;
             }
             switch (alt4) {
@@ -2229,7 +2228,7 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
                 int alt5=2;
                 int LA5_0 = input.LA(1);
 
-                if ( (LA5_0==18) ) {
+                if ( (LA5_0==17) ) {
                     alt5=1;
                 }
 
@@ -2329,7 +2328,7 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
             // InternalEbnfLang.g:763:2: '|'
             {
              before(grammarAccess.getExpression_AlternativeAccess().getVerticalLineKeyword_1_1_0()); 
-            match(input,18,FOLLOW_2); 
+            match(input,17,FOLLOW_2); 
              after(grammarAccess.getExpression_AlternativeAccess().getVerticalLineKeyword_1_1_0()); 
 
             }
@@ -2562,7 +2561,7 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
             int alt6=2;
             int LA6_0 = input.LA(1);
 
-            if ( (LA6_0==19) ) {
+            if ( (LA6_0==18) ) {
                 alt6=1;
             }
             switch (alt6) {
@@ -2752,7 +2751,7 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
                 int alt7=2;
                 int LA7_0 = input.LA(1);
 
-                if ( (LA7_0==19) ) {
+                if ( (LA7_0==18) ) {
                     alt7=1;
                 }
 
@@ -2852,7 +2851,7 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
             // InternalEbnfLang.g:932:2: ','
             {
              before(grammarAccess.getExpression_ConcatenationAccess().getCommaKeyword_1_1_0()); 
-            match(input,19,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getExpression_ConcatenationAccess().getCommaKeyword_1_1_0()); 
 
             }
@@ -3087,7 +3086,7 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
                 int alt8=2;
                 int LA8_0 = input.LA(1);
 
-                if ( (LA8_0==20) ) {
+                if ( (LA8_0==19) ) {
                     alt8=1;
                 }
 
@@ -3259,7 +3258,7 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
             // InternalEbnfLang.g:1067:2: '-'
             {
              before(grammarAccess.getExpression_ExceptionAccess().getHyphenMinusKeyword_1_1()); 
-            match(input,20,FOLLOW_2); 
+            match(input,19,FOLLOW_2); 
              after(grammarAccess.getExpression_ExceptionAccess().getHyphenMinusKeyword_1_1()); 
 
             }
@@ -3574,7 +3573,7 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
             // InternalEbnfLang.g:1175:2: '*'
             {
              before(grammarAccess.getExpression_RepetitionAccess().getAsteriskKeyword_1_2()); 
-            match(input,21,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getExpression_RepetitionAccess().getAsteriskKeyword_1_2()); 
 
             }
@@ -4269,7 +4268,7 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
             // InternalEbnfLang.g:1418:2: '{'
             {
              before(grammarAccess.getExpression_Repetition_GroupAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,22,FOLLOW_2); 
+            match(input,21,FOLLOW_2); 
              after(grammarAccess.getExpression_Repetition_GroupAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -4429,7 +4428,7 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
             // InternalEbnfLang.g:1472:2: '}'
             {
              before(grammarAccess.getExpression_Repetition_GroupAccess().getRightCurlyBracketKeyword_3()); 
-            match(input,23,FOLLOW_2); 
+            match(input,22,FOLLOW_2); 
              after(grammarAccess.getExpression_Repetition_GroupAccess().getRightCurlyBracketKeyword_3()); 
 
             }
@@ -4503,10 +4502,10 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
             int alt9=2;
             int LA9_0 = input.LA(1);
 
-            if ( (LA9_0==20) ) {
+            if ( (LA9_0==19) ) {
                 int LA9_1 = input.LA(2);
 
-                if ( (LA9_1==EOF||(LA9_1>=17 && LA9_1<=20)||LA9_1==23||LA9_1==25||LA9_1==27) ) {
+                if ( (LA9_1==EOF||(LA9_1>=16 && LA9_1<=19)||LA9_1==22||LA9_1==24||LA9_1==26) ) {
                     alt9=1;
                 }
             }
@@ -4674,7 +4673,7 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
             // InternalEbnfLang.g:1553:2: '['
             {
              before(grammarAccess.getExpression_Optional_GroupAccess().getLeftSquareBracketKeyword_1()); 
-            match(input,24,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getExpression_Optional_GroupAccess().getLeftSquareBracketKeyword_1()); 
 
             }
@@ -4829,7 +4828,7 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
             // InternalEbnfLang.g:1606:2: ']'
             {
              before(grammarAccess.getExpression_Optional_GroupAccess().getRightSquareBracketKeyword_3()); 
-            match(input,25,FOLLOW_2); 
+            match(input,24,FOLLOW_2); 
              after(grammarAccess.getExpression_Optional_GroupAccess().getRightSquareBracketKeyword_3()); 
 
             }
@@ -4979,7 +4978,7 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
             // InternalEbnfLang.g:1661:2: '('
             {
              before(grammarAccess.getExpression_GroupAccess().getLeftParenthesisKeyword_1()); 
-            match(input,26,FOLLOW_2); 
+            match(input,25,FOLLOW_2); 
              after(grammarAccess.getExpression_GroupAccess().getLeftParenthesisKeyword_1()); 
 
             }
@@ -5134,7 +5133,7 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
             // InternalEbnfLang.g:1714:2: ')'
             {
              before(grammarAccess.getExpression_GroupAccess().getRightParenthesisKeyword_3()); 
-            match(input,27,FOLLOW_2); 
+            match(input,26,FOLLOW_2); 
              after(grammarAccess.getExpression_GroupAccess().getRightParenthesisKeyword_3()); 
 
             }
@@ -5655,7 +5654,7 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
             // InternalEbnfLang.g:1916:4: '-'
             {
              before(grammarAccess.getExpression_Repetition_GroupAccess().getAtLeastOneHyphenMinusKeyword_4_0()); 
-            match(input,20,FOLLOW_2); 
+            match(input,19,FOLLOW_2); 
              after(grammarAccess.getExpression_Repetition_GroupAccess().getAtLeastOneHyphenMinusKeyword_4_0()); 
 
             }
@@ -5772,23 +5771,23 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x00000000054000F0L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000040002L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000080002L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000100002L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x00000000054000D0L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000002A000F0L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000020002L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000040002L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000080002L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000002A000D0L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000004000000L});
 
 }

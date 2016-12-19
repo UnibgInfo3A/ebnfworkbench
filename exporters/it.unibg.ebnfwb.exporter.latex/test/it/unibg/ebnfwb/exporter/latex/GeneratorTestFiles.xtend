@@ -15,6 +15,10 @@ import java.nio.CharBuffer
 import java.io.FileWriter
 import it.unibg.ebnfwb.lang.tests.EbnfLangInjectorProvider
 import it.unibg.ebnfwb.lang.ebnfLang.EbnfGrammar
+import java.io.FileInputStream
+import java.nio.charset.Charset
+import java.nio.channels.FileChannel
+import java.nio.ByteBuffer
 
 @RunWith(XtextRunner)
 @InjectWith(EbnfLangInjectorProvider)
@@ -26,17 +30,14 @@ class GeneratorTestFiles {
      
     @Test
     def void test() {
-		val CharBuffer target = CharBuffer.allocate(1000);
-    	val nread = new FileReader('examples/numbers/numbers.ebnf').read(target)
-    	print(target);
-    	// check nread
-		val EbnfGrammar grammar = parseHelper.parse(target)
+    	val fis = new FileInputStream('examples/numbers/numbers.ebnf');
+		val fc = fis.getChannel();
+		val bbuf = fc.map(FileChannel.MapMode.READ_ONLY, 0, fc.size());
+		val cbuf = Charset.forName("8859_1").newDecoder().decode(bbuf);
+		val EbnfGrammar grammar = parseHelper.parse(cbuf)
         val InMemoryFileSystemAccess fsa = new InMemoryFileSystemAccess()
-        //
         underTest.fileName = "numbers"
-        //
         underTest.doGenerate(grammar.eResource, fsa)
-        //
         fsa.textFiles.forEach[filename, fileContent|
         	println("writing " + filename + fileContent)
         	val file = new FileWriter('examples/numbers/'+filename)
@@ -44,5 +45,25 @@ class GeneratorTestFiles {
         	file.close
         ]
     }
-	     
+	   
+	   @Test
+    def void test2() {
+    	val pathfile = 'examples/ProgettoLinguaggi/'
+    	val fileebnf = 'esempio2'
+		val fis = new FileInputStream(pathfile+ fileebnf + '.ebnf');
+		val fc = fis.getChannel();
+		val bbuf = fc.map(FileChannel.MapMode.READ_ONLY, 0, fc.size());
+		val cbuf = Charset.forName("8859_1").newDecoder().decode(bbuf);
+		val EbnfGrammar grammar = parseHelper.parse(cbuf)
+        val InMemoryFileSystemAccess fsa = new InMemoryFileSystemAccess()
+        underTest.fileName = fileebnf
+        underTest.doGenerate(grammar.eResource, fsa)
+        fsa.textFiles.forEach[filename, fileContent|
+        	println("writing " + filename + fileContent)
+        	val file = new FileWriter(pathfile+filename)
+        	file.write(fileContent.toString)
+        	file.close
+        ]
+    }
+      
 }

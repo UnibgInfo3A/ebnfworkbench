@@ -492,7 +492,6 @@ public class EbnfLangGrammarAccess extends AbstractGrammarElementFinder {
 	private final Expression_Repetition_GroupElements pExpression_Repetition_Group;
 	private final Expression_Optional_GroupElements pExpression_Optional_Group;
 	private final Expression_GroupElements pExpression_Group;
-	private final TerminalRule tCOMMENT;
 	private final TerminalRule tNUMBER;
 	private final TerminalRule tNAME;
 	private final TerminalRule tTERMINAL_SYMBOL;
@@ -521,7 +520,6 @@ public class EbnfLangGrammarAccess extends AbstractGrammarElementFinder {
 		this.pExpression_Repetition_Group = new Expression_Repetition_GroupElements();
 		this.pExpression_Optional_Group = new Expression_Optional_GroupElements();
 		this.pExpression_Group = new Expression_GroupElements();
-		this.tCOMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibg.ebnfwb.lang.EbnfLang.COMMENT");
 		this.tNUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibg.ebnfwb.lang.EbnfLang.NUMBER");
 		this.tNAME = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibg.ebnfwb.lang.EbnfLang.NAME");
 		this.tTERMINAL_SYMBOL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibg.ebnfwb.lang.EbnfLang.TERMINAL_SYMBOL");
@@ -709,12 +707,6 @@ public class EbnfLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getExpression_GroupRule() {
 		return getExpression_GroupAccess().getRule();
-	}
-	
-	//terminal COMMENT:
-	//	'(*'->'*)';
-	public TerminalRule getCOMMENTRule() {
-		return tCOMMENT;
 	}
 	
 	//terminal NUMBER returns ecore::EInt:
