@@ -17,6 +17,7 @@ import it.unibg.ebnfwb.lang.ebnfLang.Expression_Repetition_Group;
 import it.unibg.ebnfwb.lang.ebnfLang.Expression_Rule_Reference;
 import it.unibg.ebnfwb.lang.ebnfLang.Expression_Special_Sequence;
 import it.unibg.ebnfwb.lang.ebnfLang.Expression_Terminal_Symbol;
+import it.unibg.ebnfwb.lang.ebnfLang.Line;
 import it.unibg.ebnfwb.lang.ebnfLang.ProductionRule;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -40,6 +41,13 @@ public class EbnfLangPackageImpl extends EPackageImpl implements EbnfLangPackage
    * @generated
    */
   private EClass ebnfGrammarEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass lineEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -203,9 +211,19 @@ public class EbnfLangPackageImpl extends EPackageImpl implements EbnfLangPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getEbnfGrammar_Rules()
+  public EReference getEbnfGrammar_Lines()
   {
     return (EReference)ebnfGrammarEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getLine()
+  {
+    return lineEClass;
   }
 
   /**
@@ -509,7 +527,9 @@ public class EbnfLangPackageImpl extends EPackageImpl implements EbnfLangPackage
 
     // Create classes and their features
     ebnfGrammarEClass = createEClass(EBNF_GRAMMAR);
-    createEReference(ebnfGrammarEClass, EBNF_GRAMMAR__RULES);
+    createEReference(ebnfGrammarEClass, EBNF_GRAMMAR__LINES);
+
+    lineEClass = createEClass(LINE);
 
     productionRuleEClass = createEClass(PRODUCTION_RULE);
     createEAttribute(productionRuleEClass, PRODUCTION_RULE__NAME);
@@ -580,6 +600,7 @@ public class EbnfLangPackageImpl extends EPackageImpl implements EbnfLangPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    productionRuleEClass.getESuperTypes().add(this.getLine());
     expression_AlternativeEClass.getESuperTypes().add(this.getExpression());
     expression_ConcatenationEClass.getESuperTypes().add(this.getExpression());
     expression_ExceptionEClass.getESuperTypes().add(this.getExpression());
@@ -593,7 +614,9 @@ public class EbnfLangPackageImpl extends EPackageImpl implements EbnfLangPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(ebnfGrammarEClass, EbnfGrammar.class, "EbnfGrammar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getEbnfGrammar_Rules(), this.getProductionRule(), null, "rules", null, 0, -1, EbnfGrammar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEbnfGrammar_Lines(), this.getLine(), null, "lines", null, 0, -1, EbnfGrammar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(lineEClass, Line.class, "Line", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(productionRuleEClass, ProductionRule.class, "ProductionRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProductionRule_Name(), ecorePackage.getEString(), "name", null, 0, 1, ProductionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

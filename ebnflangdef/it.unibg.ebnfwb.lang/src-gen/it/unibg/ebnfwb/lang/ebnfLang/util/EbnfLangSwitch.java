@@ -80,10 +80,18 @@ public class EbnfLangSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EbnfLangPackage.LINE:
+      {
+        Line line = (Line)theEObject;
+        T result = caseLine(line);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case EbnfLangPackage.PRODUCTION_RULE:
       {
         ProductionRule productionRule = (ProductionRule)theEObject;
         T result = caseProductionRule(productionRule);
+        if (result == null) result = caseLine(productionRule);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -190,6 +198,22 @@ public class EbnfLangSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseEbnfGrammar(EbnfGrammar object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Line</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Line</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLine(Line object)
   {
     return null;
   }

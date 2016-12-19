@@ -21,27 +21,28 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NAME", "RULE_NUMBER", "RULE_SPECIAL_SEQUENCE", "RULE_TERMINAL_SYMBOL", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'='", "';'", "'|'", "','", "'-'", "'*'", "'{'", "'}'", "'['", "']'", "'('", "')'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_EBNF_COMMENT", "RULE_NAME", "RULE_NUMBER", "RULE_SPECIAL_SEQUENCE", "RULE_TERMINAL_SYMBOL", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'='", "';'", "'|'", "','", "'-'", "'*'", "'{'", "'}'", "'['", "']'", "'('", "')'"
     };
-    public static final int RULE_TERMINAL_SYMBOL=7;
-    public static final int RULE_NAME=4;
-    public static final int RULE_STRING=10;
-    public static final int RULE_SL_COMMENT=12;
+    public static final int RULE_TERMINAL_SYMBOL=8;
+    public static final int RULE_NAME=5;
+    public static final int RULE_STRING=11;
+    public static final int RULE_SL_COMMENT=13;
     public static final int T__19=19;
-    public static final int T__15=15;
     public static final int T__16=16;
     public static final int T__17=17;
-    public static final int RULE_SPECIAL_SEQUENCE=6;
+    public static final int RULE_SPECIAL_SEQUENCE=7;
     public static final int T__18=18;
     public static final int EOF=-1;
-    public static final int RULE_ID=8;
-    public static final int RULE_WS=13;
-    public static final int RULE_ANY_OTHER=14;
-    public static final int RULE_NUMBER=5;
+    public static final int RULE_ID=9;
+    public static final int RULE_WS=14;
+    public static final int RULE_EBNF_COMMENT=4;
+    public static final int RULE_ANY_OTHER=15;
+    public static final int RULE_NUMBER=6;
     public static final int T__26=26;
-    public static final int RULE_INT=9;
+    public static final int T__27=27;
+    public static final int RULE_INT=10;
     public static final int T__22=22;
-    public static final int RULE_ML_COMMENT=11;
+    public static final int RULE_ML_COMMENT=12;
     public static final int T__23=23;
     public static final int T__24=24;
     public static final int T__25=25;
@@ -124,22 +125,22 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEbnfGrammar"
-    // InternalEbnfLang.g:71:1: ruleEbnfGrammar returns [EObject current=null] : ( () ( (lv_rules_1_0= ruleProductionRule ) )* ) ;
+    // InternalEbnfLang.g:71:1: ruleEbnfGrammar returns [EObject current=null] : ( () ( (lv_lines_1_0= ruleLine ) )* ) ;
     public final EObject ruleEbnfGrammar() throws RecognitionException {
         EObject current = null;
 
-        EObject lv_rules_1_0 = null;
+        EObject lv_lines_1_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalEbnfLang.g:77:2: ( ( () ( (lv_rules_1_0= ruleProductionRule ) )* ) )
-            // InternalEbnfLang.g:78:2: ( () ( (lv_rules_1_0= ruleProductionRule ) )* )
+            // InternalEbnfLang.g:77:2: ( ( () ( (lv_lines_1_0= ruleLine ) )* ) )
+            // InternalEbnfLang.g:78:2: ( () ( (lv_lines_1_0= ruleLine ) )* )
             {
-            // InternalEbnfLang.g:78:2: ( () ( (lv_rules_1_0= ruleProductionRule ) )* )
-            // InternalEbnfLang.g:79:3: () ( (lv_rules_1_0= ruleProductionRule ) )*
+            // InternalEbnfLang.g:78:2: ( () ( (lv_lines_1_0= ruleLine ) )* )
+            // InternalEbnfLang.g:79:3: () ( (lv_lines_1_0= ruleLine ) )*
             {
             // InternalEbnfLang.g:79:3: ()
             // InternalEbnfLang.g:80:4: 
@@ -152,29 +153,29 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalEbnfLang.g:86:3: ( (lv_rules_1_0= ruleProductionRule ) )*
+            // InternalEbnfLang.g:86:3: ( (lv_lines_1_0= ruleLine ) )*
             loop1:
             do {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( (LA1_0==RULE_NAME) ) {
+                if ( ((LA1_0>=RULE_EBNF_COMMENT && LA1_0<=RULE_NAME)) ) {
                     alt1=1;
                 }
 
 
                 switch (alt1) {
             	case 1 :
-            	    // InternalEbnfLang.g:87:4: (lv_rules_1_0= ruleProductionRule )
+            	    // InternalEbnfLang.g:87:4: (lv_lines_1_0= ruleLine )
             	    {
-            	    // InternalEbnfLang.g:87:4: (lv_rules_1_0= ruleProductionRule )
-            	    // InternalEbnfLang.g:88:5: lv_rules_1_0= ruleProductionRule
+            	    // InternalEbnfLang.g:87:4: (lv_lines_1_0= ruleLine )
+            	    // InternalEbnfLang.g:88:5: lv_lines_1_0= ruleLine
             	    {
 
-            	    					newCompositeNode(grammarAccess.getEbnfGrammarAccess().getRulesProductionRuleParserRuleCall_1_0());
+            	    					newCompositeNode(grammarAccess.getEbnfGrammarAccess().getLinesLineParserRuleCall_1_0());
             	    				
             	    pushFollow(FOLLOW_3);
-            	    lv_rules_1_0=ruleProductionRule();
+            	    lv_lines_1_0=ruleLine();
 
             	    state._fsp--;
 
@@ -184,9 +185,9 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
             	    					}
             	    					add(
             	    						current,
-            	    						"rules",
-            	    						lv_rules_1_0,
-            	    						"it.unibg.ebnfwb.lang.EbnfLang.ProductionRule");
+            	    						"lines",
+            	    						lv_lines_1_0,
+            	    						"it.unibg.ebnfwb.lang.EbnfLang.Line");
             	    					afterParserOrEnumRuleCall();
             	    				
 
@@ -223,8 +224,144 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleEbnfGrammar"
 
 
+    // $ANTLR start "entryRuleLine"
+    // InternalEbnfLang.g:109:1: entryRuleLine returns [EObject current=null] : iv_ruleLine= ruleLine EOF ;
+    public final EObject entryRuleLine() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleLine = null;
+
+
+        try {
+            // InternalEbnfLang.g:109:45: (iv_ruleLine= ruleLine EOF )
+            // InternalEbnfLang.g:110:2: iv_ruleLine= ruleLine EOF
+            {
+             newCompositeNode(grammarAccess.getLineRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleLine=ruleLine();
+
+            state._fsp--;
+
+             current =iv_ruleLine; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleLine"
+
+
+    // $ANTLR start "ruleLine"
+    // InternalEbnfLang.g:116:1: ruleLine returns [EObject current=null] : ( ( () this_EBNF_COMMENT_1= RULE_EBNF_COMMENT ) | this_ProductionRule_2= ruleProductionRule ) ;
+    public final EObject ruleLine() throws RecognitionException {
+        EObject current = null;
+
+        Token this_EBNF_COMMENT_1=null;
+        EObject this_ProductionRule_2 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalEbnfLang.g:122:2: ( ( ( () this_EBNF_COMMENT_1= RULE_EBNF_COMMENT ) | this_ProductionRule_2= ruleProductionRule ) )
+            // InternalEbnfLang.g:123:2: ( ( () this_EBNF_COMMENT_1= RULE_EBNF_COMMENT ) | this_ProductionRule_2= ruleProductionRule )
+            {
+            // InternalEbnfLang.g:123:2: ( ( () this_EBNF_COMMENT_1= RULE_EBNF_COMMENT ) | this_ProductionRule_2= ruleProductionRule )
+            int alt2=2;
+            int LA2_0 = input.LA(1);
+
+            if ( (LA2_0==RULE_EBNF_COMMENT) ) {
+                alt2=1;
+            }
+            else if ( (LA2_0==RULE_NAME) ) {
+                alt2=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 2, 0, input);
+
+                throw nvae;
+            }
+            switch (alt2) {
+                case 1 :
+                    // InternalEbnfLang.g:124:3: ( () this_EBNF_COMMENT_1= RULE_EBNF_COMMENT )
+                    {
+                    // InternalEbnfLang.g:124:3: ( () this_EBNF_COMMENT_1= RULE_EBNF_COMMENT )
+                    // InternalEbnfLang.g:125:4: () this_EBNF_COMMENT_1= RULE_EBNF_COMMENT
+                    {
+                    // InternalEbnfLang.g:125:4: ()
+                    // InternalEbnfLang.g:126:5: 
+                    {
+
+                    					current = forceCreateModelElement(
+                    						grammarAccess.getLineAccess().getLineAction_0_0(),
+                    						current);
+                    				
+
+                    }
+
+                    this_EBNF_COMMENT_1=(Token)match(input,RULE_EBNF_COMMENT,FOLLOW_2); 
+
+                    				newLeafNode(this_EBNF_COMMENT_1, grammarAccess.getLineAccess().getEBNF_COMMENTTerminalRuleCall_0_1());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalEbnfLang.g:138:3: this_ProductionRule_2= ruleProductionRule
+                    {
+
+                    			newCompositeNode(grammarAccess.getLineAccess().getProductionRuleParserRuleCall_1());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_ProductionRule_2=ruleProductionRule();
+
+                    state._fsp--;
+
+
+                    			current = this_ProductionRule_2;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleLine"
+
+
     // $ANTLR start "entryRuleProductionRule"
-    // InternalEbnfLang.g:109:1: entryRuleProductionRule returns [EObject current=null] : iv_ruleProductionRule= ruleProductionRule EOF ;
+    // InternalEbnfLang.g:150:1: entryRuleProductionRule returns [EObject current=null] : iv_ruleProductionRule= ruleProductionRule EOF ;
     public final EObject entryRuleProductionRule() throws RecognitionException {
         EObject current = null;
 
@@ -232,8 +369,8 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalEbnfLang.g:109:55: (iv_ruleProductionRule= ruleProductionRule EOF )
-            // InternalEbnfLang.g:110:2: iv_ruleProductionRule= ruleProductionRule EOF
+            // InternalEbnfLang.g:150:55: (iv_ruleProductionRule= ruleProductionRule EOF )
+            // InternalEbnfLang.g:151:2: iv_ruleProductionRule= ruleProductionRule EOF
             {
              newCompositeNode(grammarAccess.getProductionRuleRule()); 
             pushFollow(FOLLOW_1);
@@ -260,35 +397,46 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleProductionRule"
-    // InternalEbnfLang.g:116:1: ruleProductionRule returns [EObject current=null] : ( ( (lv_name_0_0= RULE_NAME ) ) otherlv_1= '=' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= ';' ) ;
+    // InternalEbnfLang.g:157:1: ruleProductionRule returns [EObject current=null] : ( () ( (lv_name_1_0= RULE_NAME ) ) otherlv_2= '=' ( (lv_expr_3_0= ruleExpression ) ) otherlv_4= ';' ) ;
     public final EObject ruleProductionRule() throws RecognitionException {
         EObject current = null;
 
-        Token lv_name_0_0=null;
-        Token otherlv_1=null;
-        Token otherlv_3=null;
-        EObject lv_expr_2_0 = null;
+        Token lv_name_1_0=null;
+        Token otherlv_2=null;
+        Token otherlv_4=null;
+        EObject lv_expr_3_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalEbnfLang.g:122:2: ( ( ( (lv_name_0_0= RULE_NAME ) ) otherlv_1= '=' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= ';' ) )
-            // InternalEbnfLang.g:123:2: ( ( (lv_name_0_0= RULE_NAME ) ) otherlv_1= '=' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= ';' )
+            // InternalEbnfLang.g:163:2: ( ( () ( (lv_name_1_0= RULE_NAME ) ) otherlv_2= '=' ( (lv_expr_3_0= ruleExpression ) ) otherlv_4= ';' ) )
+            // InternalEbnfLang.g:164:2: ( () ( (lv_name_1_0= RULE_NAME ) ) otherlv_2= '=' ( (lv_expr_3_0= ruleExpression ) ) otherlv_4= ';' )
             {
-            // InternalEbnfLang.g:123:2: ( ( (lv_name_0_0= RULE_NAME ) ) otherlv_1= '=' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= ';' )
-            // InternalEbnfLang.g:124:3: ( (lv_name_0_0= RULE_NAME ) ) otherlv_1= '=' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= ';'
+            // InternalEbnfLang.g:164:2: ( () ( (lv_name_1_0= RULE_NAME ) ) otherlv_2= '=' ( (lv_expr_3_0= ruleExpression ) ) otherlv_4= ';' )
+            // InternalEbnfLang.g:165:3: () ( (lv_name_1_0= RULE_NAME ) ) otherlv_2= '=' ( (lv_expr_3_0= ruleExpression ) ) otherlv_4= ';'
             {
-            // InternalEbnfLang.g:124:3: ( (lv_name_0_0= RULE_NAME ) )
-            // InternalEbnfLang.g:125:4: (lv_name_0_0= RULE_NAME )
+            // InternalEbnfLang.g:165:3: ()
+            // InternalEbnfLang.g:166:4: 
             {
-            // InternalEbnfLang.g:125:4: (lv_name_0_0= RULE_NAME )
-            // InternalEbnfLang.g:126:5: lv_name_0_0= RULE_NAME
-            {
-            lv_name_0_0=(Token)match(input,RULE_NAME,FOLLOW_4); 
 
-            					newLeafNode(lv_name_0_0, grammarAccess.getProductionRuleAccess().getNameNAMETerminalRuleCall_0_0());
+            				current = forceCreateModelElement(
+            					grammarAccess.getProductionRuleAccess().getProductionRuleAction_0(),
+            					current);
+            			
+
+            }
+
+            // InternalEbnfLang.g:172:3: ( (lv_name_1_0= RULE_NAME ) )
+            // InternalEbnfLang.g:173:4: (lv_name_1_0= RULE_NAME )
+            {
+            // InternalEbnfLang.g:173:4: (lv_name_1_0= RULE_NAME )
+            // InternalEbnfLang.g:174:5: lv_name_1_0= RULE_NAME
+            {
+            lv_name_1_0=(Token)match(input,RULE_NAME,FOLLOW_4); 
+
+            					newLeafNode(lv_name_1_0, grammarAccess.getProductionRuleAccess().getNameNAMETerminalRuleCall_1_0());
             				
 
             					if (current==null) {
@@ -297,7 +445,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
             					setWithLastConsumed(
             						current,
             						"name",
-            						lv_name_0_0,
+            						lv_name_1_0,
             						"it.unibg.ebnfwb.lang.EbnfLang.NAME");
             				
 
@@ -306,21 +454,21 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,15,FOLLOW_5); 
+            otherlv_2=(Token)match(input,16,FOLLOW_5); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getProductionRuleAccess().getEqualsSignKeyword_1());
+            			newLeafNode(otherlv_2, grammarAccess.getProductionRuleAccess().getEqualsSignKeyword_2());
             		
-            // InternalEbnfLang.g:146:3: ( (lv_expr_2_0= ruleExpression ) )
-            // InternalEbnfLang.g:147:4: (lv_expr_2_0= ruleExpression )
+            // InternalEbnfLang.g:194:3: ( (lv_expr_3_0= ruleExpression ) )
+            // InternalEbnfLang.g:195:4: (lv_expr_3_0= ruleExpression )
             {
-            // InternalEbnfLang.g:147:4: (lv_expr_2_0= ruleExpression )
-            // InternalEbnfLang.g:148:5: lv_expr_2_0= ruleExpression
+            // InternalEbnfLang.g:195:4: (lv_expr_3_0= ruleExpression )
+            // InternalEbnfLang.g:196:5: lv_expr_3_0= ruleExpression
             {
 
-            					newCompositeNode(grammarAccess.getProductionRuleAccess().getExprExpressionParserRuleCall_2_0());
+            					newCompositeNode(grammarAccess.getProductionRuleAccess().getExprExpressionParserRuleCall_3_0());
             				
             pushFollow(FOLLOW_6);
-            lv_expr_2_0=ruleExpression();
+            lv_expr_3_0=ruleExpression();
 
             state._fsp--;
 
@@ -331,7 +479,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
             					set(
             						current,
             						"expr",
-            						lv_expr_2_0,
+            						lv_expr_3_0,
             						"it.unibg.ebnfwb.lang.EbnfLang.Expression");
             					afterParserOrEnumRuleCall();
             				
@@ -341,9 +489,9 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,16,FOLLOW_2); 
+            otherlv_4=(Token)match(input,17,FOLLOW_2); 
 
-            			newLeafNode(otherlv_3, grammarAccess.getProductionRuleAccess().getSemicolonKeyword_3());
+            			newLeafNode(otherlv_4, grammarAccess.getProductionRuleAccess().getSemicolonKeyword_4());
             		
 
             }
@@ -368,7 +516,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExpression"
-    // InternalEbnfLang.g:173:1: entryRuleExpression returns [EObject current=null] : iv_ruleExpression= ruleExpression EOF ;
+    // InternalEbnfLang.g:221:1: entryRuleExpression returns [EObject current=null] : iv_ruleExpression= ruleExpression EOF ;
     public final EObject entryRuleExpression() throws RecognitionException {
         EObject current = null;
 
@@ -376,8 +524,8 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalEbnfLang.g:173:51: (iv_ruleExpression= ruleExpression EOF )
-            // InternalEbnfLang.g:174:2: iv_ruleExpression= ruleExpression EOF
+            // InternalEbnfLang.g:221:51: (iv_ruleExpression= ruleExpression EOF )
+            // InternalEbnfLang.g:222:2: iv_ruleExpression= ruleExpression EOF
             {
              newCompositeNode(grammarAccess.getExpressionRule()); 
             pushFollow(FOLLOW_1);
@@ -404,7 +552,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExpression"
-    // InternalEbnfLang.g:180:1: ruleExpression returns [EObject current=null] : this_Expression_Alternative_0= ruleExpression_Alternative ;
+    // InternalEbnfLang.g:228:1: ruleExpression returns [EObject current=null] : this_Expression_Alternative_0= ruleExpression_Alternative ;
     public final EObject ruleExpression() throws RecognitionException {
         EObject current = null;
 
@@ -415,8 +563,8 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalEbnfLang.g:186:2: (this_Expression_Alternative_0= ruleExpression_Alternative )
-            // InternalEbnfLang.g:187:2: this_Expression_Alternative_0= ruleExpression_Alternative
+            // InternalEbnfLang.g:234:2: (this_Expression_Alternative_0= ruleExpression_Alternative )
+            // InternalEbnfLang.g:235:2: this_Expression_Alternative_0= ruleExpression_Alternative
             {
 
             		newCompositeNode(grammarAccess.getExpressionAccess().getExpression_AlternativeParserRuleCall());
@@ -450,7 +598,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExpression_Alternative"
-    // InternalEbnfLang.g:198:1: entryRuleExpression_Alternative returns [EObject current=null] : iv_ruleExpression_Alternative= ruleExpression_Alternative EOF ;
+    // InternalEbnfLang.g:246:1: entryRuleExpression_Alternative returns [EObject current=null] : iv_ruleExpression_Alternative= ruleExpression_Alternative EOF ;
     public final EObject entryRuleExpression_Alternative() throws RecognitionException {
         EObject current = null;
 
@@ -458,8 +606,8 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalEbnfLang.g:198:63: (iv_ruleExpression_Alternative= ruleExpression_Alternative EOF )
-            // InternalEbnfLang.g:199:2: iv_ruleExpression_Alternative= ruleExpression_Alternative EOF
+            // InternalEbnfLang.g:246:63: (iv_ruleExpression_Alternative= ruleExpression_Alternative EOF )
+            // InternalEbnfLang.g:247:2: iv_ruleExpression_Alternative= ruleExpression_Alternative EOF
             {
              newCompositeNode(grammarAccess.getExpression_AlternativeRule()); 
             pushFollow(FOLLOW_1);
@@ -486,7 +634,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExpression_Alternative"
-    // InternalEbnfLang.g:205:1: ruleExpression_Alternative returns [EObject current=null] : (this_Expression_Concatenation_0= ruleExpression_Concatenation ( () (otherlv_2= '|' ( (lv_elements_3_0= ruleExpression_Concatenation ) ) )+ )? ) ;
+    // InternalEbnfLang.g:253:1: ruleExpression_Alternative returns [EObject current=null] : (this_Expression_Concatenation_0= ruleExpression_Concatenation ( () (otherlv_2= '|' ( (lv_elements_3_0= ruleExpression_Concatenation ) ) )+ )? ) ;
     public final EObject ruleExpression_Alternative() throws RecognitionException {
         EObject current = null;
 
@@ -500,11 +648,11 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalEbnfLang.g:211:2: ( (this_Expression_Concatenation_0= ruleExpression_Concatenation ( () (otherlv_2= '|' ( (lv_elements_3_0= ruleExpression_Concatenation ) ) )+ )? ) )
-            // InternalEbnfLang.g:212:2: (this_Expression_Concatenation_0= ruleExpression_Concatenation ( () (otherlv_2= '|' ( (lv_elements_3_0= ruleExpression_Concatenation ) ) )+ )? )
+            // InternalEbnfLang.g:259:2: ( (this_Expression_Concatenation_0= ruleExpression_Concatenation ( () (otherlv_2= '|' ( (lv_elements_3_0= ruleExpression_Concatenation ) ) )+ )? ) )
+            // InternalEbnfLang.g:260:2: (this_Expression_Concatenation_0= ruleExpression_Concatenation ( () (otherlv_2= '|' ( (lv_elements_3_0= ruleExpression_Concatenation ) ) )+ )? )
             {
-            // InternalEbnfLang.g:212:2: (this_Expression_Concatenation_0= ruleExpression_Concatenation ( () (otherlv_2= '|' ( (lv_elements_3_0= ruleExpression_Concatenation ) ) )+ )? )
-            // InternalEbnfLang.g:213:3: this_Expression_Concatenation_0= ruleExpression_Concatenation ( () (otherlv_2= '|' ( (lv_elements_3_0= ruleExpression_Concatenation ) ) )+ )?
+            // InternalEbnfLang.g:260:2: (this_Expression_Concatenation_0= ruleExpression_Concatenation ( () (otherlv_2= '|' ( (lv_elements_3_0= ruleExpression_Concatenation ) ) )+ )? )
+            // InternalEbnfLang.g:261:3: this_Expression_Concatenation_0= ruleExpression_Concatenation ( () (otherlv_2= '|' ( (lv_elements_3_0= ruleExpression_Concatenation ) ) )+ )?
             {
 
             			newCompositeNode(grammarAccess.getExpression_AlternativeAccess().getExpression_ConcatenationParserRuleCall_0());
@@ -518,19 +666,19 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
             			current = this_Expression_Concatenation_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalEbnfLang.g:221:3: ( () (otherlv_2= '|' ( (lv_elements_3_0= ruleExpression_Concatenation ) ) )+ )?
-            int alt3=2;
-            int LA3_0 = input.LA(1);
+            // InternalEbnfLang.g:269:3: ( () (otherlv_2= '|' ( (lv_elements_3_0= ruleExpression_Concatenation ) ) )+ )?
+            int alt4=2;
+            int LA4_0 = input.LA(1);
 
-            if ( (LA3_0==17) ) {
-                alt3=1;
+            if ( (LA4_0==18) ) {
+                alt4=1;
             }
-            switch (alt3) {
+            switch (alt4) {
                 case 1 :
-                    // InternalEbnfLang.g:222:4: () (otherlv_2= '|' ( (lv_elements_3_0= ruleExpression_Concatenation ) ) )+
+                    // InternalEbnfLang.g:270:4: () (otherlv_2= '|' ( (lv_elements_3_0= ruleExpression_Concatenation ) ) )+
                     {
-                    // InternalEbnfLang.g:222:4: ()
-                    // InternalEbnfLang.g:223:5: 
+                    // InternalEbnfLang.g:270:4: ()
+                    // InternalEbnfLang.g:271:5: 
                     {
 
                     					current = forceCreateModelElementAndAdd(
@@ -540,31 +688,31 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalEbnfLang.g:229:4: (otherlv_2= '|' ( (lv_elements_3_0= ruleExpression_Concatenation ) ) )+
-                    int cnt2=0;
-                    loop2:
+                    // InternalEbnfLang.g:277:4: (otherlv_2= '|' ( (lv_elements_3_0= ruleExpression_Concatenation ) ) )+
+                    int cnt3=0;
+                    loop3:
                     do {
-                        int alt2=2;
-                        int LA2_0 = input.LA(1);
+                        int alt3=2;
+                        int LA3_0 = input.LA(1);
 
-                        if ( (LA2_0==17) ) {
-                            alt2=1;
+                        if ( (LA3_0==18) ) {
+                            alt3=1;
                         }
 
 
-                        switch (alt2) {
+                        switch (alt3) {
                     	case 1 :
-                    	    // InternalEbnfLang.g:230:5: otherlv_2= '|' ( (lv_elements_3_0= ruleExpression_Concatenation ) )
+                    	    // InternalEbnfLang.g:278:5: otherlv_2= '|' ( (lv_elements_3_0= ruleExpression_Concatenation ) )
                     	    {
-                    	    otherlv_2=(Token)match(input,17,FOLLOW_5); 
+                    	    otherlv_2=(Token)match(input,18,FOLLOW_5); 
 
                     	    					newLeafNode(otherlv_2, grammarAccess.getExpression_AlternativeAccess().getVerticalLineKeyword_1_1_0());
                     	    				
-                    	    // InternalEbnfLang.g:234:5: ( (lv_elements_3_0= ruleExpression_Concatenation ) )
-                    	    // InternalEbnfLang.g:235:6: (lv_elements_3_0= ruleExpression_Concatenation )
+                    	    // InternalEbnfLang.g:282:5: ( (lv_elements_3_0= ruleExpression_Concatenation ) )
+                    	    // InternalEbnfLang.g:283:6: (lv_elements_3_0= ruleExpression_Concatenation )
                     	    {
-                    	    // InternalEbnfLang.g:235:6: (lv_elements_3_0= ruleExpression_Concatenation )
-                    	    // InternalEbnfLang.g:236:7: lv_elements_3_0= ruleExpression_Concatenation
+                    	    // InternalEbnfLang.g:283:6: (lv_elements_3_0= ruleExpression_Concatenation )
+                    	    // InternalEbnfLang.g:284:7: lv_elements_3_0= ruleExpression_Concatenation
                     	    {
 
                     	    							newCompositeNode(grammarAccess.getExpression_AlternativeAccess().getElementsExpression_ConcatenationParserRuleCall_1_1_1_0());
@@ -596,12 +744,12 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt2 >= 1 ) break loop2;
+                    	    if ( cnt3 >= 1 ) break loop3;
                                 EarlyExitException eee =
-                                    new EarlyExitException(2, input);
+                                    new EarlyExitException(3, input);
                                 throw eee;
                         }
-                        cnt2++;
+                        cnt3++;
                     } while (true);
 
 
@@ -633,7 +781,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExpression_Concatenation"
-    // InternalEbnfLang.g:259:1: entryRuleExpression_Concatenation returns [EObject current=null] : iv_ruleExpression_Concatenation= ruleExpression_Concatenation EOF ;
+    // InternalEbnfLang.g:307:1: entryRuleExpression_Concatenation returns [EObject current=null] : iv_ruleExpression_Concatenation= ruleExpression_Concatenation EOF ;
     public final EObject entryRuleExpression_Concatenation() throws RecognitionException {
         EObject current = null;
 
@@ -641,8 +789,8 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalEbnfLang.g:259:65: (iv_ruleExpression_Concatenation= ruleExpression_Concatenation EOF )
-            // InternalEbnfLang.g:260:2: iv_ruleExpression_Concatenation= ruleExpression_Concatenation EOF
+            // InternalEbnfLang.g:307:65: (iv_ruleExpression_Concatenation= ruleExpression_Concatenation EOF )
+            // InternalEbnfLang.g:308:2: iv_ruleExpression_Concatenation= ruleExpression_Concatenation EOF
             {
              newCompositeNode(grammarAccess.getExpression_ConcatenationRule()); 
             pushFollow(FOLLOW_1);
@@ -669,7 +817,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExpression_Concatenation"
-    // InternalEbnfLang.g:266:1: ruleExpression_Concatenation returns [EObject current=null] : (this_Expression_Exception_0= ruleExpression_Exception ( () (otherlv_2= ',' ( (lv_elements_3_0= ruleExpression_Exception ) ) )+ )? ) ;
+    // InternalEbnfLang.g:314:1: ruleExpression_Concatenation returns [EObject current=null] : (this_Expression_Exception_0= ruleExpression_Exception ( () (otherlv_2= ',' ( (lv_elements_3_0= ruleExpression_Exception ) ) )+ )? ) ;
     public final EObject ruleExpression_Concatenation() throws RecognitionException {
         EObject current = null;
 
@@ -683,11 +831,11 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalEbnfLang.g:272:2: ( (this_Expression_Exception_0= ruleExpression_Exception ( () (otherlv_2= ',' ( (lv_elements_3_0= ruleExpression_Exception ) ) )+ )? ) )
-            // InternalEbnfLang.g:273:2: (this_Expression_Exception_0= ruleExpression_Exception ( () (otherlv_2= ',' ( (lv_elements_3_0= ruleExpression_Exception ) ) )+ )? )
+            // InternalEbnfLang.g:320:2: ( (this_Expression_Exception_0= ruleExpression_Exception ( () (otherlv_2= ',' ( (lv_elements_3_0= ruleExpression_Exception ) ) )+ )? ) )
+            // InternalEbnfLang.g:321:2: (this_Expression_Exception_0= ruleExpression_Exception ( () (otherlv_2= ',' ( (lv_elements_3_0= ruleExpression_Exception ) ) )+ )? )
             {
-            // InternalEbnfLang.g:273:2: (this_Expression_Exception_0= ruleExpression_Exception ( () (otherlv_2= ',' ( (lv_elements_3_0= ruleExpression_Exception ) ) )+ )? )
-            // InternalEbnfLang.g:274:3: this_Expression_Exception_0= ruleExpression_Exception ( () (otherlv_2= ',' ( (lv_elements_3_0= ruleExpression_Exception ) ) )+ )?
+            // InternalEbnfLang.g:321:2: (this_Expression_Exception_0= ruleExpression_Exception ( () (otherlv_2= ',' ( (lv_elements_3_0= ruleExpression_Exception ) ) )+ )? )
+            // InternalEbnfLang.g:322:3: this_Expression_Exception_0= ruleExpression_Exception ( () (otherlv_2= ',' ( (lv_elements_3_0= ruleExpression_Exception ) ) )+ )?
             {
 
             			newCompositeNode(grammarAccess.getExpression_ConcatenationAccess().getExpression_ExceptionParserRuleCall_0());
@@ -701,19 +849,19 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
             			current = this_Expression_Exception_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalEbnfLang.g:282:3: ( () (otherlv_2= ',' ( (lv_elements_3_0= ruleExpression_Exception ) ) )+ )?
-            int alt5=2;
-            int LA5_0 = input.LA(1);
+            // InternalEbnfLang.g:330:3: ( () (otherlv_2= ',' ( (lv_elements_3_0= ruleExpression_Exception ) ) )+ )?
+            int alt6=2;
+            int LA6_0 = input.LA(1);
 
-            if ( (LA5_0==18) ) {
-                alt5=1;
+            if ( (LA6_0==19) ) {
+                alt6=1;
             }
-            switch (alt5) {
+            switch (alt6) {
                 case 1 :
-                    // InternalEbnfLang.g:283:4: () (otherlv_2= ',' ( (lv_elements_3_0= ruleExpression_Exception ) ) )+
+                    // InternalEbnfLang.g:331:4: () (otherlv_2= ',' ( (lv_elements_3_0= ruleExpression_Exception ) ) )+
                     {
-                    // InternalEbnfLang.g:283:4: ()
-                    // InternalEbnfLang.g:284:5: 
+                    // InternalEbnfLang.g:331:4: ()
+                    // InternalEbnfLang.g:332:5: 
                     {
 
                     					current = forceCreateModelElementAndAdd(
@@ -723,31 +871,31 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalEbnfLang.g:290:4: (otherlv_2= ',' ( (lv_elements_3_0= ruleExpression_Exception ) ) )+
-                    int cnt4=0;
-                    loop4:
+                    // InternalEbnfLang.g:338:4: (otherlv_2= ',' ( (lv_elements_3_0= ruleExpression_Exception ) ) )+
+                    int cnt5=0;
+                    loop5:
                     do {
-                        int alt4=2;
-                        int LA4_0 = input.LA(1);
+                        int alt5=2;
+                        int LA5_0 = input.LA(1);
 
-                        if ( (LA4_0==18) ) {
-                            alt4=1;
+                        if ( (LA5_0==19) ) {
+                            alt5=1;
                         }
 
 
-                        switch (alt4) {
+                        switch (alt5) {
                     	case 1 :
-                    	    // InternalEbnfLang.g:291:5: otherlv_2= ',' ( (lv_elements_3_0= ruleExpression_Exception ) )
+                    	    // InternalEbnfLang.g:339:5: otherlv_2= ',' ( (lv_elements_3_0= ruleExpression_Exception ) )
                     	    {
-                    	    otherlv_2=(Token)match(input,18,FOLLOW_5); 
+                    	    otherlv_2=(Token)match(input,19,FOLLOW_5); 
 
                     	    					newLeafNode(otherlv_2, grammarAccess.getExpression_ConcatenationAccess().getCommaKeyword_1_1_0());
                     	    				
-                    	    // InternalEbnfLang.g:295:5: ( (lv_elements_3_0= ruleExpression_Exception ) )
-                    	    // InternalEbnfLang.g:296:6: (lv_elements_3_0= ruleExpression_Exception )
+                    	    // InternalEbnfLang.g:343:5: ( (lv_elements_3_0= ruleExpression_Exception ) )
+                    	    // InternalEbnfLang.g:344:6: (lv_elements_3_0= ruleExpression_Exception )
                     	    {
-                    	    // InternalEbnfLang.g:296:6: (lv_elements_3_0= ruleExpression_Exception )
-                    	    // InternalEbnfLang.g:297:7: lv_elements_3_0= ruleExpression_Exception
+                    	    // InternalEbnfLang.g:344:6: (lv_elements_3_0= ruleExpression_Exception )
+                    	    // InternalEbnfLang.g:345:7: lv_elements_3_0= ruleExpression_Exception
                     	    {
 
                     	    							newCompositeNode(grammarAccess.getExpression_ConcatenationAccess().getElementsExpression_ExceptionParserRuleCall_1_1_1_0());
@@ -779,12 +927,12 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt4 >= 1 ) break loop4;
+                    	    if ( cnt5 >= 1 ) break loop5;
                                 EarlyExitException eee =
-                                    new EarlyExitException(4, input);
+                                    new EarlyExitException(5, input);
                                 throw eee;
                         }
-                        cnt4++;
+                        cnt5++;
                     } while (true);
 
 
@@ -816,7 +964,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExpression_Exception"
-    // InternalEbnfLang.g:320:1: entryRuleExpression_Exception returns [EObject current=null] : iv_ruleExpression_Exception= ruleExpression_Exception EOF ;
+    // InternalEbnfLang.g:368:1: entryRuleExpression_Exception returns [EObject current=null] : iv_ruleExpression_Exception= ruleExpression_Exception EOF ;
     public final EObject entryRuleExpression_Exception() throws RecognitionException {
         EObject current = null;
 
@@ -824,8 +972,8 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalEbnfLang.g:320:61: (iv_ruleExpression_Exception= ruleExpression_Exception EOF )
-            // InternalEbnfLang.g:321:2: iv_ruleExpression_Exception= ruleExpression_Exception EOF
+            // InternalEbnfLang.g:368:61: (iv_ruleExpression_Exception= ruleExpression_Exception EOF )
+            // InternalEbnfLang.g:369:2: iv_ruleExpression_Exception= ruleExpression_Exception EOF
             {
              newCompositeNode(grammarAccess.getExpression_ExceptionRule()); 
             pushFollow(FOLLOW_1);
@@ -852,7 +1000,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExpression_Exception"
-    // InternalEbnfLang.g:327:1: ruleExpression_Exception returns [EObject current=null] : (this_Expression_Repetition_0= ruleExpression_Repetition ( () otherlv_2= '-' ( (lv_right_3_0= ruleExpression_Repetition ) ) )* ) ;
+    // InternalEbnfLang.g:375:1: ruleExpression_Exception returns [EObject current=null] : (this_Expression_Repetition_0= ruleExpression_Repetition ( () otherlv_2= '-' ( (lv_right_3_0= ruleExpression_Repetition ) ) )* ) ;
     public final EObject ruleExpression_Exception() throws RecognitionException {
         EObject current = null;
 
@@ -866,11 +1014,11 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalEbnfLang.g:333:2: ( (this_Expression_Repetition_0= ruleExpression_Repetition ( () otherlv_2= '-' ( (lv_right_3_0= ruleExpression_Repetition ) ) )* ) )
-            // InternalEbnfLang.g:334:2: (this_Expression_Repetition_0= ruleExpression_Repetition ( () otherlv_2= '-' ( (lv_right_3_0= ruleExpression_Repetition ) ) )* )
+            // InternalEbnfLang.g:381:2: ( (this_Expression_Repetition_0= ruleExpression_Repetition ( () otherlv_2= '-' ( (lv_right_3_0= ruleExpression_Repetition ) ) )* ) )
+            // InternalEbnfLang.g:382:2: (this_Expression_Repetition_0= ruleExpression_Repetition ( () otherlv_2= '-' ( (lv_right_3_0= ruleExpression_Repetition ) ) )* )
             {
-            // InternalEbnfLang.g:334:2: (this_Expression_Repetition_0= ruleExpression_Repetition ( () otherlv_2= '-' ( (lv_right_3_0= ruleExpression_Repetition ) ) )* )
-            // InternalEbnfLang.g:335:3: this_Expression_Repetition_0= ruleExpression_Repetition ( () otherlv_2= '-' ( (lv_right_3_0= ruleExpression_Repetition ) ) )*
+            // InternalEbnfLang.g:382:2: (this_Expression_Repetition_0= ruleExpression_Repetition ( () otherlv_2= '-' ( (lv_right_3_0= ruleExpression_Repetition ) ) )* )
+            // InternalEbnfLang.g:383:3: this_Expression_Repetition_0= ruleExpression_Repetition ( () otherlv_2= '-' ( (lv_right_3_0= ruleExpression_Repetition ) ) )*
             {
 
             			newCompositeNode(grammarAccess.getExpression_ExceptionAccess().getExpression_RepetitionParserRuleCall_0());
@@ -884,23 +1032,23 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
             			current = this_Expression_Repetition_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalEbnfLang.g:343:3: ( () otherlv_2= '-' ( (lv_right_3_0= ruleExpression_Repetition ) ) )*
-            loop6:
+            // InternalEbnfLang.g:391:3: ( () otherlv_2= '-' ( (lv_right_3_0= ruleExpression_Repetition ) ) )*
+            loop7:
             do {
-                int alt6=2;
-                int LA6_0 = input.LA(1);
+                int alt7=2;
+                int LA7_0 = input.LA(1);
 
-                if ( (LA6_0==19) ) {
-                    alt6=1;
+                if ( (LA7_0==20) ) {
+                    alt7=1;
                 }
 
 
-                switch (alt6) {
+                switch (alt7) {
             	case 1 :
-            	    // InternalEbnfLang.g:344:4: () otherlv_2= '-' ( (lv_right_3_0= ruleExpression_Repetition ) )
+            	    // InternalEbnfLang.g:392:4: () otherlv_2= '-' ( (lv_right_3_0= ruleExpression_Repetition ) )
             	    {
-            	    // InternalEbnfLang.g:344:4: ()
-            	    // InternalEbnfLang.g:345:5: 
+            	    // InternalEbnfLang.g:392:4: ()
+            	    // InternalEbnfLang.g:393:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
@@ -910,15 +1058,15 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_2=(Token)match(input,19,FOLLOW_5); 
+            	    otherlv_2=(Token)match(input,20,FOLLOW_5); 
 
             	    				newLeafNode(otherlv_2, grammarAccess.getExpression_ExceptionAccess().getHyphenMinusKeyword_1_1());
             	    			
-            	    // InternalEbnfLang.g:355:4: ( (lv_right_3_0= ruleExpression_Repetition ) )
-            	    // InternalEbnfLang.g:356:5: (lv_right_3_0= ruleExpression_Repetition )
+            	    // InternalEbnfLang.g:403:4: ( (lv_right_3_0= ruleExpression_Repetition ) )
+            	    // InternalEbnfLang.g:404:5: (lv_right_3_0= ruleExpression_Repetition )
             	    {
-            	    // InternalEbnfLang.g:356:5: (lv_right_3_0= ruleExpression_Repetition )
-            	    // InternalEbnfLang.g:357:6: lv_right_3_0= ruleExpression_Repetition
+            	    // InternalEbnfLang.g:404:5: (lv_right_3_0= ruleExpression_Repetition )
+            	    // InternalEbnfLang.g:405:6: lv_right_3_0= ruleExpression_Repetition
             	    {
 
             	    						newCompositeNode(grammarAccess.getExpression_ExceptionAccess().getRightExpression_RepetitionParserRuleCall_1_2_0());
@@ -950,7 +1098,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop6;
+            	    break loop7;
                 }
             } while (true);
 
@@ -977,7 +1125,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExpression_Repetition"
-    // InternalEbnfLang.g:379:1: entryRuleExpression_Repetition returns [EObject current=null] : iv_ruleExpression_Repetition= ruleExpression_Repetition EOF ;
+    // InternalEbnfLang.g:427:1: entryRuleExpression_Repetition returns [EObject current=null] : iv_ruleExpression_Repetition= ruleExpression_Repetition EOF ;
     public final EObject entryRuleExpression_Repetition() throws RecognitionException {
         EObject current = null;
 
@@ -985,8 +1133,8 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalEbnfLang.g:379:62: (iv_ruleExpression_Repetition= ruleExpression_Repetition EOF )
-            // InternalEbnfLang.g:380:2: iv_ruleExpression_Repetition= ruleExpression_Repetition EOF
+            // InternalEbnfLang.g:427:62: (iv_ruleExpression_Repetition= ruleExpression_Repetition EOF )
+            // InternalEbnfLang.g:428:2: iv_ruleExpression_Repetition= ruleExpression_Repetition EOF
             {
              newCompositeNode(grammarAccess.getExpression_RepetitionRule()); 
             pushFollow(FOLLOW_1);
@@ -1013,7 +1161,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExpression_Repetition"
-    // InternalEbnfLang.g:386:1: ruleExpression_Repetition returns [EObject current=null] : (this_Expression_Terminal_0= ruleExpression_Terminal | ( () ( (lv_repetitions_2_0= RULE_NUMBER ) ) otherlv_3= '*' ( (lv_expr_4_0= ruleExpression_Terminal ) ) ) ) ;
+    // InternalEbnfLang.g:434:1: ruleExpression_Repetition returns [EObject current=null] : (this_Expression_Terminal_0= ruleExpression_Terminal | ( () ( (lv_repetitions_2_0= RULE_NUMBER ) ) otherlv_3= '*' ( (lv_expr_4_0= ruleExpression_Terminal ) ) ) ) ;
     public final EObject ruleExpression_Repetition() throws RecognitionException {
         EObject current = null;
 
@@ -1028,28 +1176,28 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalEbnfLang.g:392:2: ( (this_Expression_Terminal_0= ruleExpression_Terminal | ( () ( (lv_repetitions_2_0= RULE_NUMBER ) ) otherlv_3= '*' ( (lv_expr_4_0= ruleExpression_Terminal ) ) ) ) )
-            // InternalEbnfLang.g:393:2: (this_Expression_Terminal_0= ruleExpression_Terminal | ( () ( (lv_repetitions_2_0= RULE_NUMBER ) ) otherlv_3= '*' ( (lv_expr_4_0= ruleExpression_Terminal ) ) ) )
+            // InternalEbnfLang.g:440:2: ( (this_Expression_Terminal_0= ruleExpression_Terminal | ( () ( (lv_repetitions_2_0= RULE_NUMBER ) ) otherlv_3= '*' ( (lv_expr_4_0= ruleExpression_Terminal ) ) ) ) )
+            // InternalEbnfLang.g:441:2: (this_Expression_Terminal_0= ruleExpression_Terminal | ( () ( (lv_repetitions_2_0= RULE_NUMBER ) ) otherlv_3= '*' ( (lv_expr_4_0= ruleExpression_Terminal ) ) ) )
             {
-            // InternalEbnfLang.g:393:2: (this_Expression_Terminal_0= ruleExpression_Terminal | ( () ( (lv_repetitions_2_0= RULE_NUMBER ) ) otherlv_3= '*' ( (lv_expr_4_0= ruleExpression_Terminal ) ) ) )
-            int alt7=2;
-            int LA7_0 = input.LA(1);
+            // InternalEbnfLang.g:441:2: (this_Expression_Terminal_0= ruleExpression_Terminal | ( () ( (lv_repetitions_2_0= RULE_NUMBER ) ) otherlv_3= '*' ( (lv_expr_4_0= ruleExpression_Terminal ) ) ) )
+            int alt8=2;
+            int LA8_0 = input.LA(1);
 
-            if ( (LA7_0==RULE_NAME||(LA7_0>=RULE_SPECIAL_SEQUENCE && LA7_0<=RULE_TERMINAL_SYMBOL)||LA7_0==21||LA7_0==23||LA7_0==25) ) {
-                alt7=1;
+            if ( (LA8_0==RULE_NAME||(LA8_0>=RULE_SPECIAL_SEQUENCE && LA8_0<=RULE_TERMINAL_SYMBOL)||LA8_0==22||LA8_0==24||LA8_0==26) ) {
+                alt8=1;
             }
-            else if ( (LA7_0==RULE_NUMBER) ) {
-                alt7=2;
+            else if ( (LA8_0==RULE_NUMBER) ) {
+                alt8=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 7, 0, input);
+                    new NoViableAltException("", 8, 0, input);
 
                 throw nvae;
             }
-            switch (alt7) {
+            switch (alt8) {
                 case 1 :
-                    // InternalEbnfLang.g:394:3: this_Expression_Terminal_0= ruleExpression_Terminal
+                    // InternalEbnfLang.g:442:3: this_Expression_Terminal_0= ruleExpression_Terminal
                     {
 
                     			newCompositeNode(grammarAccess.getExpression_RepetitionAccess().getExpression_TerminalParserRuleCall_0());
@@ -1067,13 +1215,13 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalEbnfLang.g:403:3: ( () ( (lv_repetitions_2_0= RULE_NUMBER ) ) otherlv_3= '*' ( (lv_expr_4_0= ruleExpression_Terminal ) ) )
+                    // InternalEbnfLang.g:451:3: ( () ( (lv_repetitions_2_0= RULE_NUMBER ) ) otherlv_3= '*' ( (lv_expr_4_0= ruleExpression_Terminal ) ) )
                     {
-                    // InternalEbnfLang.g:403:3: ( () ( (lv_repetitions_2_0= RULE_NUMBER ) ) otherlv_3= '*' ( (lv_expr_4_0= ruleExpression_Terminal ) ) )
-                    // InternalEbnfLang.g:404:4: () ( (lv_repetitions_2_0= RULE_NUMBER ) ) otherlv_3= '*' ( (lv_expr_4_0= ruleExpression_Terminal ) )
+                    // InternalEbnfLang.g:451:3: ( () ( (lv_repetitions_2_0= RULE_NUMBER ) ) otherlv_3= '*' ( (lv_expr_4_0= ruleExpression_Terminal ) ) )
+                    // InternalEbnfLang.g:452:4: () ( (lv_repetitions_2_0= RULE_NUMBER ) ) otherlv_3= '*' ( (lv_expr_4_0= ruleExpression_Terminal ) )
                     {
-                    // InternalEbnfLang.g:404:4: ()
-                    // InternalEbnfLang.g:405:5: 
+                    // InternalEbnfLang.g:452:4: ()
+                    // InternalEbnfLang.g:453:5: 
                     {
 
                     					current = forceCreateModelElement(
@@ -1083,11 +1231,11 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalEbnfLang.g:411:4: ( (lv_repetitions_2_0= RULE_NUMBER ) )
-                    // InternalEbnfLang.g:412:5: (lv_repetitions_2_0= RULE_NUMBER )
+                    // InternalEbnfLang.g:459:4: ( (lv_repetitions_2_0= RULE_NUMBER ) )
+                    // InternalEbnfLang.g:460:5: (lv_repetitions_2_0= RULE_NUMBER )
                     {
-                    // InternalEbnfLang.g:412:5: (lv_repetitions_2_0= RULE_NUMBER )
-                    // InternalEbnfLang.g:413:6: lv_repetitions_2_0= RULE_NUMBER
+                    // InternalEbnfLang.g:460:5: (lv_repetitions_2_0= RULE_NUMBER )
+                    // InternalEbnfLang.g:461:6: lv_repetitions_2_0= RULE_NUMBER
                     {
                     lv_repetitions_2_0=(Token)match(input,RULE_NUMBER,FOLLOW_10); 
 
@@ -1109,15 +1257,15 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_3=(Token)match(input,20,FOLLOW_11); 
+                    otherlv_3=(Token)match(input,21,FOLLOW_11); 
 
                     				newLeafNode(otherlv_3, grammarAccess.getExpression_RepetitionAccess().getAsteriskKeyword_1_2());
                     			
-                    // InternalEbnfLang.g:433:4: ( (lv_expr_4_0= ruleExpression_Terminal ) )
-                    // InternalEbnfLang.g:434:5: (lv_expr_4_0= ruleExpression_Terminal )
+                    // InternalEbnfLang.g:481:4: ( (lv_expr_4_0= ruleExpression_Terminal ) )
+                    // InternalEbnfLang.g:482:5: (lv_expr_4_0= ruleExpression_Terminal )
                     {
-                    // InternalEbnfLang.g:434:5: (lv_expr_4_0= ruleExpression_Terminal )
-                    // InternalEbnfLang.g:435:6: lv_expr_4_0= ruleExpression_Terminal
+                    // InternalEbnfLang.g:482:5: (lv_expr_4_0= ruleExpression_Terminal )
+                    // InternalEbnfLang.g:483:6: lv_expr_4_0= ruleExpression_Terminal
                     {
 
                     						newCompositeNode(grammarAccess.getExpression_RepetitionAccess().getExprExpression_TerminalParserRuleCall_1_3_0());
@@ -1173,7 +1321,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExpression_Terminal"
-    // InternalEbnfLang.g:457:1: entryRuleExpression_Terminal returns [EObject current=null] : iv_ruleExpression_Terminal= ruleExpression_Terminal EOF ;
+    // InternalEbnfLang.g:505:1: entryRuleExpression_Terminal returns [EObject current=null] : iv_ruleExpression_Terminal= ruleExpression_Terminal EOF ;
     public final EObject entryRuleExpression_Terminal() throws RecognitionException {
         EObject current = null;
 
@@ -1181,8 +1329,8 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalEbnfLang.g:457:60: (iv_ruleExpression_Terminal= ruleExpression_Terminal EOF )
-            // InternalEbnfLang.g:458:2: iv_ruleExpression_Terminal= ruleExpression_Terminal EOF
+            // InternalEbnfLang.g:505:60: (iv_ruleExpression_Terminal= ruleExpression_Terminal EOF )
+            // InternalEbnfLang.g:506:2: iv_ruleExpression_Terminal= ruleExpression_Terminal EOF
             {
              newCompositeNode(grammarAccess.getExpression_TerminalRule()); 
             pushFollow(FOLLOW_1);
@@ -1209,7 +1357,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExpression_Terminal"
-    // InternalEbnfLang.g:464:1: ruleExpression_Terminal returns [EObject current=null] : (this_Expression_Rule_Reference_0= ruleExpression_Rule_Reference | this_Expression_Terminal_Symbol_1= ruleExpression_Terminal_Symbol | this_Expression_Repetition_Group_2= ruleExpression_Repetition_Group | this_Expression_Optional_Group_3= ruleExpression_Optional_Group | this_Expression_Group_4= ruleExpression_Group | this_Expression_Special_Sequence_5= ruleExpression_Special_Sequence ) ;
+    // InternalEbnfLang.g:512:1: ruleExpression_Terminal returns [EObject current=null] : (this_Expression_Rule_Reference_0= ruleExpression_Rule_Reference | this_Expression_Terminal_Symbol_1= ruleExpression_Terminal_Symbol | this_Expression_Repetition_Group_2= ruleExpression_Repetition_Group | this_Expression_Optional_Group_3= ruleExpression_Optional_Group | this_Expression_Group_4= ruleExpression_Group | this_Expression_Special_Sequence_5= ruleExpression_Special_Sequence ) ;
     public final EObject ruleExpression_Terminal() throws RecognitionException {
         EObject current = null;
 
@@ -1230,52 +1378,52 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalEbnfLang.g:470:2: ( (this_Expression_Rule_Reference_0= ruleExpression_Rule_Reference | this_Expression_Terminal_Symbol_1= ruleExpression_Terminal_Symbol | this_Expression_Repetition_Group_2= ruleExpression_Repetition_Group | this_Expression_Optional_Group_3= ruleExpression_Optional_Group | this_Expression_Group_4= ruleExpression_Group | this_Expression_Special_Sequence_5= ruleExpression_Special_Sequence ) )
-            // InternalEbnfLang.g:471:2: (this_Expression_Rule_Reference_0= ruleExpression_Rule_Reference | this_Expression_Terminal_Symbol_1= ruleExpression_Terminal_Symbol | this_Expression_Repetition_Group_2= ruleExpression_Repetition_Group | this_Expression_Optional_Group_3= ruleExpression_Optional_Group | this_Expression_Group_4= ruleExpression_Group | this_Expression_Special_Sequence_5= ruleExpression_Special_Sequence )
+            // InternalEbnfLang.g:518:2: ( (this_Expression_Rule_Reference_0= ruleExpression_Rule_Reference | this_Expression_Terminal_Symbol_1= ruleExpression_Terminal_Symbol | this_Expression_Repetition_Group_2= ruleExpression_Repetition_Group | this_Expression_Optional_Group_3= ruleExpression_Optional_Group | this_Expression_Group_4= ruleExpression_Group | this_Expression_Special_Sequence_5= ruleExpression_Special_Sequence ) )
+            // InternalEbnfLang.g:519:2: (this_Expression_Rule_Reference_0= ruleExpression_Rule_Reference | this_Expression_Terminal_Symbol_1= ruleExpression_Terminal_Symbol | this_Expression_Repetition_Group_2= ruleExpression_Repetition_Group | this_Expression_Optional_Group_3= ruleExpression_Optional_Group | this_Expression_Group_4= ruleExpression_Group | this_Expression_Special_Sequence_5= ruleExpression_Special_Sequence )
             {
-            // InternalEbnfLang.g:471:2: (this_Expression_Rule_Reference_0= ruleExpression_Rule_Reference | this_Expression_Terminal_Symbol_1= ruleExpression_Terminal_Symbol | this_Expression_Repetition_Group_2= ruleExpression_Repetition_Group | this_Expression_Optional_Group_3= ruleExpression_Optional_Group | this_Expression_Group_4= ruleExpression_Group | this_Expression_Special_Sequence_5= ruleExpression_Special_Sequence )
-            int alt8=6;
+            // InternalEbnfLang.g:519:2: (this_Expression_Rule_Reference_0= ruleExpression_Rule_Reference | this_Expression_Terminal_Symbol_1= ruleExpression_Terminal_Symbol | this_Expression_Repetition_Group_2= ruleExpression_Repetition_Group | this_Expression_Optional_Group_3= ruleExpression_Optional_Group | this_Expression_Group_4= ruleExpression_Group | this_Expression_Special_Sequence_5= ruleExpression_Special_Sequence )
+            int alt9=6;
             switch ( input.LA(1) ) {
             case RULE_NAME:
                 {
-                alt8=1;
+                alt9=1;
                 }
                 break;
             case RULE_TERMINAL_SYMBOL:
                 {
-                alt8=2;
+                alt9=2;
                 }
                 break;
-            case 21:
+            case 22:
                 {
-                alt8=3;
+                alt9=3;
                 }
                 break;
-            case 23:
+            case 24:
                 {
-                alt8=4;
+                alt9=4;
                 }
                 break;
-            case 25:
+            case 26:
                 {
-                alt8=5;
+                alt9=5;
                 }
                 break;
             case RULE_SPECIAL_SEQUENCE:
                 {
-                alt8=6;
+                alt9=6;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 8, 0, input);
+                    new NoViableAltException("", 9, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt8) {
+            switch (alt9) {
                 case 1 :
-                    // InternalEbnfLang.g:472:3: this_Expression_Rule_Reference_0= ruleExpression_Rule_Reference
+                    // InternalEbnfLang.g:520:3: this_Expression_Rule_Reference_0= ruleExpression_Rule_Reference
                     {
 
                     			newCompositeNode(grammarAccess.getExpression_TerminalAccess().getExpression_Rule_ReferenceParserRuleCall_0());
@@ -1293,7 +1441,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalEbnfLang.g:481:3: this_Expression_Terminal_Symbol_1= ruleExpression_Terminal_Symbol
+                    // InternalEbnfLang.g:529:3: this_Expression_Terminal_Symbol_1= ruleExpression_Terminal_Symbol
                     {
 
                     			newCompositeNode(grammarAccess.getExpression_TerminalAccess().getExpression_Terminal_SymbolParserRuleCall_1());
@@ -1311,7 +1459,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalEbnfLang.g:490:3: this_Expression_Repetition_Group_2= ruleExpression_Repetition_Group
+                    // InternalEbnfLang.g:538:3: this_Expression_Repetition_Group_2= ruleExpression_Repetition_Group
                     {
 
                     			newCompositeNode(grammarAccess.getExpression_TerminalAccess().getExpression_Repetition_GroupParserRuleCall_2());
@@ -1329,7 +1477,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalEbnfLang.g:499:3: this_Expression_Optional_Group_3= ruleExpression_Optional_Group
+                    // InternalEbnfLang.g:547:3: this_Expression_Optional_Group_3= ruleExpression_Optional_Group
                     {
 
                     			newCompositeNode(grammarAccess.getExpression_TerminalAccess().getExpression_Optional_GroupParserRuleCall_3());
@@ -1347,7 +1495,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalEbnfLang.g:508:3: this_Expression_Group_4= ruleExpression_Group
+                    // InternalEbnfLang.g:556:3: this_Expression_Group_4= ruleExpression_Group
                     {
 
                     			newCompositeNode(grammarAccess.getExpression_TerminalAccess().getExpression_GroupParserRuleCall_4());
@@ -1365,7 +1513,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalEbnfLang.g:517:3: this_Expression_Special_Sequence_5= ruleExpression_Special_Sequence
+                    // InternalEbnfLang.g:565:3: this_Expression_Special_Sequence_5= ruleExpression_Special_Sequence
                     {
 
                     			newCompositeNode(grammarAccess.getExpression_TerminalAccess().getExpression_Special_SequenceParserRuleCall_5());
@@ -1405,7 +1553,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExpression_Rule_Reference"
-    // InternalEbnfLang.g:529:1: entryRuleExpression_Rule_Reference returns [EObject current=null] : iv_ruleExpression_Rule_Reference= ruleExpression_Rule_Reference EOF ;
+    // InternalEbnfLang.g:577:1: entryRuleExpression_Rule_Reference returns [EObject current=null] : iv_ruleExpression_Rule_Reference= ruleExpression_Rule_Reference EOF ;
     public final EObject entryRuleExpression_Rule_Reference() throws RecognitionException {
         EObject current = null;
 
@@ -1413,8 +1561,8 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalEbnfLang.g:529:66: (iv_ruleExpression_Rule_Reference= ruleExpression_Rule_Reference EOF )
-            // InternalEbnfLang.g:530:2: iv_ruleExpression_Rule_Reference= ruleExpression_Rule_Reference EOF
+            // InternalEbnfLang.g:577:66: (iv_ruleExpression_Rule_Reference= ruleExpression_Rule_Reference EOF )
+            // InternalEbnfLang.g:578:2: iv_ruleExpression_Rule_Reference= ruleExpression_Rule_Reference EOF
             {
              newCompositeNode(grammarAccess.getExpression_Rule_ReferenceRule()); 
             pushFollow(FOLLOW_1);
@@ -1441,7 +1589,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExpression_Rule_Reference"
-    // InternalEbnfLang.g:536:1: ruleExpression_Rule_Reference returns [EObject current=null] : ( () ( (otherlv_1= RULE_NAME ) ) ) ;
+    // InternalEbnfLang.g:584:1: ruleExpression_Rule_Reference returns [EObject current=null] : ( () ( (otherlv_1= RULE_NAME ) ) ) ;
     public final EObject ruleExpression_Rule_Reference() throws RecognitionException {
         EObject current = null;
 
@@ -1451,14 +1599,14 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalEbnfLang.g:542:2: ( ( () ( (otherlv_1= RULE_NAME ) ) ) )
-            // InternalEbnfLang.g:543:2: ( () ( (otherlv_1= RULE_NAME ) ) )
+            // InternalEbnfLang.g:590:2: ( ( () ( (otherlv_1= RULE_NAME ) ) ) )
+            // InternalEbnfLang.g:591:2: ( () ( (otherlv_1= RULE_NAME ) ) )
             {
-            // InternalEbnfLang.g:543:2: ( () ( (otherlv_1= RULE_NAME ) ) )
-            // InternalEbnfLang.g:544:3: () ( (otherlv_1= RULE_NAME ) )
+            // InternalEbnfLang.g:591:2: ( () ( (otherlv_1= RULE_NAME ) ) )
+            // InternalEbnfLang.g:592:3: () ( (otherlv_1= RULE_NAME ) )
             {
-            // InternalEbnfLang.g:544:3: ()
-            // InternalEbnfLang.g:545:4: 
+            // InternalEbnfLang.g:592:3: ()
+            // InternalEbnfLang.g:593:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1468,11 +1616,11 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalEbnfLang.g:551:3: ( (otherlv_1= RULE_NAME ) )
-            // InternalEbnfLang.g:552:4: (otherlv_1= RULE_NAME )
+            // InternalEbnfLang.g:599:3: ( (otherlv_1= RULE_NAME ) )
+            // InternalEbnfLang.g:600:4: (otherlv_1= RULE_NAME )
             {
-            // InternalEbnfLang.g:552:4: (otherlv_1= RULE_NAME )
-            // InternalEbnfLang.g:553:5: otherlv_1= RULE_NAME
+            // InternalEbnfLang.g:600:4: (otherlv_1= RULE_NAME )
+            // InternalEbnfLang.g:601:5: otherlv_1= RULE_NAME
             {
 
             					if (current==null) {
@@ -1512,7 +1660,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExpression_Special_Sequence"
-    // InternalEbnfLang.g:568:1: entryRuleExpression_Special_Sequence returns [EObject current=null] : iv_ruleExpression_Special_Sequence= ruleExpression_Special_Sequence EOF ;
+    // InternalEbnfLang.g:616:1: entryRuleExpression_Special_Sequence returns [EObject current=null] : iv_ruleExpression_Special_Sequence= ruleExpression_Special_Sequence EOF ;
     public final EObject entryRuleExpression_Special_Sequence() throws RecognitionException {
         EObject current = null;
 
@@ -1520,8 +1668,8 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalEbnfLang.g:568:68: (iv_ruleExpression_Special_Sequence= ruleExpression_Special_Sequence EOF )
-            // InternalEbnfLang.g:569:2: iv_ruleExpression_Special_Sequence= ruleExpression_Special_Sequence EOF
+            // InternalEbnfLang.g:616:68: (iv_ruleExpression_Special_Sequence= ruleExpression_Special_Sequence EOF )
+            // InternalEbnfLang.g:617:2: iv_ruleExpression_Special_Sequence= ruleExpression_Special_Sequence EOF
             {
              newCompositeNode(grammarAccess.getExpression_Special_SequenceRule()); 
             pushFollow(FOLLOW_1);
@@ -1548,7 +1696,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExpression_Special_Sequence"
-    // InternalEbnfLang.g:575:1: ruleExpression_Special_Sequence returns [EObject current=null] : ( () ( (lv_text_1_0= RULE_SPECIAL_SEQUENCE ) ) ) ;
+    // InternalEbnfLang.g:623:1: ruleExpression_Special_Sequence returns [EObject current=null] : ( () ( (lv_text_1_0= RULE_SPECIAL_SEQUENCE ) ) ) ;
     public final EObject ruleExpression_Special_Sequence() throws RecognitionException {
         EObject current = null;
 
@@ -1558,14 +1706,14 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalEbnfLang.g:581:2: ( ( () ( (lv_text_1_0= RULE_SPECIAL_SEQUENCE ) ) ) )
-            // InternalEbnfLang.g:582:2: ( () ( (lv_text_1_0= RULE_SPECIAL_SEQUENCE ) ) )
+            // InternalEbnfLang.g:629:2: ( ( () ( (lv_text_1_0= RULE_SPECIAL_SEQUENCE ) ) ) )
+            // InternalEbnfLang.g:630:2: ( () ( (lv_text_1_0= RULE_SPECIAL_SEQUENCE ) ) )
             {
-            // InternalEbnfLang.g:582:2: ( () ( (lv_text_1_0= RULE_SPECIAL_SEQUENCE ) ) )
-            // InternalEbnfLang.g:583:3: () ( (lv_text_1_0= RULE_SPECIAL_SEQUENCE ) )
+            // InternalEbnfLang.g:630:2: ( () ( (lv_text_1_0= RULE_SPECIAL_SEQUENCE ) ) )
+            // InternalEbnfLang.g:631:3: () ( (lv_text_1_0= RULE_SPECIAL_SEQUENCE ) )
             {
-            // InternalEbnfLang.g:583:3: ()
-            // InternalEbnfLang.g:584:4: 
+            // InternalEbnfLang.g:631:3: ()
+            // InternalEbnfLang.g:632:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1575,11 +1723,11 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalEbnfLang.g:590:3: ( (lv_text_1_0= RULE_SPECIAL_SEQUENCE ) )
-            // InternalEbnfLang.g:591:4: (lv_text_1_0= RULE_SPECIAL_SEQUENCE )
+            // InternalEbnfLang.g:638:3: ( (lv_text_1_0= RULE_SPECIAL_SEQUENCE ) )
+            // InternalEbnfLang.g:639:4: (lv_text_1_0= RULE_SPECIAL_SEQUENCE )
             {
-            // InternalEbnfLang.g:591:4: (lv_text_1_0= RULE_SPECIAL_SEQUENCE )
-            // InternalEbnfLang.g:592:5: lv_text_1_0= RULE_SPECIAL_SEQUENCE
+            // InternalEbnfLang.g:639:4: (lv_text_1_0= RULE_SPECIAL_SEQUENCE )
+            // InternalEbnfLang.g:640:5: lv_text_1_0= RULE_SPECIAL_SEQUENCE
             {
             lv_text_1_0=(Token)match(input,RULE_SPECIAL_SEQUENCE,FOLLOW_2); 
 
@@ -1624,7 +1772,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExpression_Terminal_Symbol"
-    // InternalEbnfLang.g:612:1: entryRuleExpression_Terminal_Symbol returns [EObject current=null] : iv_ruleExpression_Terminal_Symbol= ruleExpression_Terminal_Symbol EOF ;
+    // InternalEbnfLang.g:660:1: entryRuleExpression_Terminal_Symbol returns [EObject current=null] : iv_ruleExpression_Terminal_Symbol= ruleExpression_Terminal_Symbol EOF ;
     public final EObject entryRuleExpression_Terminal_Symbol() throws RecognitionException {
         EObject current = null;
 
@@ -1632,8 +1780,8 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalEbnfLang.g:612:67: (iv_ruleExpression_Terminal_Symbol= ruleExpression_Terminal_Symbol EOF )
-            // InternalEbnfLang.g:613:2: iv_ruleExpression_Terminal_Symbol= ruleExpression_Terminal_Symbol EOF
+            // InternalEbnfLang.g:660:67: (iv_ruleExpression_Terminal_Symbol= ruleExpression_Terminal_Symbol EOF )
+            // InternalEbnfLang.g:661:2: iv_ruleExpression_Terminal_Symbol= ruleExpression_Terminal_Symbol EOF
             {
              newCompositeNode(grammarAccess.getExpression_Terminal_SymbolRule()); 
             pushFollow(FOLLOW_1);
@@ -1660,7 +1808,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExpression_Terminal_Symbol"
-    // InternalEbnfLang.g:619:1: ruleExpression_Terminal_Symbol returns [EObject current=null] : ( () ( (lv_text_1_0= RULE_TERMINAL_SYMBOL ) ) ) ;
+    // InternalEbnfLang.g:667:1: ruleExpression_Terminal_Symbol returns [EObject current=null] : ( () ( (lv_text_1_0= RULE_TERMINAL_SYMBOL ) ) ) ;
     public final EObject ruleExpression_Terminal_Symbol() throws RecognitionException {
         EObject current = null;
 
@@ -1670,14 +1818,14 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalEbnfLang.g:625:2: ( ( () ( (lv_text_1_0= RULE_TERMINAL_SYMBOL ) ) ) )
-            // InternalEbnfLang.g:626:2: ( () ( (lv_text_1_0= RULE_TERMINAL_SYMBOL ) ) )
+            // InternalEbnfLang.g:673:2: ( ( () ( (lv_text_1_0= RULE_TERMINAL_SYMBOL ) ) ) )
+            // InternalEbnfLang.g:674:2: ( () ( (lv_text_1_0= RULE_TERMINAL_SYMBOL ) ) )
             {
-            // InternalEbnfLang.g:626:2: ( () ( (lv_text_1_0= RULE_TERMINAL_SYMBOL ) ) )
-            // InternalEbnfLang.g:627:3: () ( (lv_text_1_0= RULE_TERMINAL_SYMBOL ) )
+            // InternalEbnfLang.g:674:2: ( () ( (lv_text_1_0= RULE_TERMINAL_SYMBOL ) ) )
+            // InternalEbnfLang.g:675:3: () ( (lv_text_1_0= RULE_TERMINAL_SYMBOL ) )
             {
-            // InternalEbnfLang.g:627:3: ()
-            // InternalEbnfLang.g:628:4: 
+            // InternalEbnfLang.g:675:3: ()
+            // InternalEbnfLang.g:676:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1687,11 +1835,11 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalEbnfLang.g:634:3: ( (lv_text_1_0= RULE_TERMINAL_SYMBOL ) )
-            // InternalEbnfLang.g:635:4: (lv_text_1_0= RULE_TERMINAL_SYMBOL )
+            // InternalEbnfLang.g:682:3: ( (lv_text_1_0= RULE_TERMINAL_SYMBOL ) )
+            // InternalEbnfLang.g:683:4: (lv_text_1_0= RULE_TERMINAL_SYMBOL )
             {
-            // InternalEbnfLang.g:635:4: (lv_text_1_0= RULE_TERMINAL_SYMBOL )
-            // InternalEbnfLang.g:636:5: lv_text_1_0= RULE_TERMINAL_SYMBOL
+            // InternalEbnfLang.g:683:4: (lv_text_1_0= RULE_TERMINAL_SYMBOL )
+            // InternalEbnfLang.g:684:5: lv_text_1_0= RULE_TERMINAL_SYMBOL
             {
             lv_text_1_0=(Token)match(input,RULE_TERMINAL_SYMBOL,FOLLOW_2); 
 
@@ -1736,7 +1884,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExpression_Repetition_Group"
-    // InternalEbnfLang.g:656:1: entryRuleExpression_Repetition_Group returns [EObject current=null] : iv_ruleExpression_Repetition_Group= ruleExpression_Repetition_Group EOF ;
+    // InternalEbnfLang.g:704:1: entryRuleExpression_Repetition_Group returns [EObject current=null] : iv_ruleExpression_Repetition_Group= ruleExpression_Repetition_Group EOF ;
     public final EObject entryRuleExpression_Repetition_Group() throws RecognitionException {
         EObject current = null;
 
@@ -1744,8 +1892,8 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalEbnfLang.g:656:68: (iv_ruleExpression_Repetition_Group= ruleExpression_Repetition_Group EOF )
-            // InternalEbnfLang.g:657:2: iv_ruleExpression_Repetition_Group= ruleExpression_Repetition_Group EOF
+            // InternalEbnfLang.g:704:68: (iv_ruleExpression_Repetition_Group= ruleExpression_Repetition_Group EOF )
+            // InternalEbnfLang.g:705:2: iv_ruleExpression_Repetition_Group= ruleExpression_Repetition_Group EOF
             {
              newCompositeNode(grammarAccess.getExpression_Repetition_GroupRule()); 
             pushFollow(FOLLOW_1);
@@ -1772,7 +1920,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExpression_Repetition_Group"
-    // InternalEbnfLang.g:663:1: ruleExpression_Repetition_Group returns [EObject current=null] : ( () otherlv_1= '{' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= '}' ( (lv_atLeastOne_4_0= '-' ) )? ) ;
+    // InternalEbnfLang.g:711:1: ruleExpression_Repetition_Group returns [EObject current=null] : ( () otherlv_1= '{' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= '}' ( (lv_atLeastOne_4_0= '-' ) )? ) ;
     public final EObject ruleExpression_Repetition_Group() throws RecognitionException {
         EObject current = null;
 
@@ -1786,14 +1934,14 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalEbnfLang.g:669:2: ( ( () otherlv_1= '{' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= '}' ( (lv_atLeastOne_4_0= '-' ) )? ) )
-            // InternalEbnfLang.g:670:2: ( () otherlv_1= '{' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= '}' ( (lv_atLeastOne_4_0= '-' ) )? )
+            // InternalEbnfLang.g:717:2: ( ( () otherlv_1= '{' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= '}' ( (lv_atLeastOne_4_0= '-' ) )? ) )
+            // InternalEbnfLang.g:718:2: ( () otherlv_1= '{' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= '}' ( (lv_atLeastOne_4_0= '-' ) )? )
             {
-            // InternalEbnfLang.g:670:2: ( () otherlv_1= '{' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= '}' ( (lv_atLeastOne_4_0= '-' ) )? )
-            // InternalEbnfLang.g:671:3: () otherlv_1= '{' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= '}' ( (lv_atLeastOne_4_0= '-' ) )?
+            // InternalEbnfLang.g:718:2: ( () otherlv_1= '{' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= '}' ( (lv_atLeastOne_4_0= '-' ) )? )
+            // InternalEbnfLang.g:719:3: () otherlv_1= '{' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= '}' ( (lv_atLeastOne_4_0= '-' ) )?
             {
-            // InternalEbnfLang.g:671:3: ()
-            // InternalEbnfLang.g:672:4: 
+            // InternalEbnfLang.g:719:3: ()
+            // InternalEbnfLang.g:720:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1803,15 +1951,15 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,21,FOLLOW_5); 
+            otherlv_1=(Token)match(input,22,FOLLOW_5); 
 
             			newLeafNode(otherlv_1, grammarAccess.getExpression_Repetition_GroupAccess().getLeftCurlyBracketKeyword_1());
             		
-            // InternalEbnfLang.g:682:3: ( (lv_expr_2_0= ruleExpression ) )
-            // InternalEbnfLang.g:683:4: (lv_expr_2_0= ruleExpression )
+            // InternalEbnfLang.g:730:3: ( (lv_expr_2_0= ruleExpression ) )
+            // InternalEbnfLang.g:731:4: (lv_expr_2_0= ruleExpression )
             {
-            // InternalEbnfLang.g:683:4: (lv_expr_2_0= ruleExpression )
-            // InternalEbnfLang.g:684:5: lv_expr_2_0= ruleExpression
+            // InternalEbnfLang.g:731:4: (lv_expr_2_0= ruleExpression )
+            // InternalEbnfLang.g:732:5: lv_expr_2_0= ruleExpression
             {
 
             					newCompositeNode(grammarAccess.getExpression_Repetition_GroupAccess().getExprExpressionParserRuleCall_2_0());
@@ -1838,29 +1986,29 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,22,FOLLOW_9); 
+            otherlv_3=(Token)match(input,23,FOLLOW_9); 
 
             			newLeafNode(otherlv_3, grammarAccess.getExpression_Repetition_GroupAccess().getRightCurlyBracketKeyword_3());
             		
-            // InternalEbnfLang.g:705:3: ( (lv_atLeastOne_4_0= '-' ) )?
-            int alt9=2;
-            int LA9_0 = input.LA(1);
+            // InternalEbnfLang.g:753:3: ( (lv_atLeastOne_4_0= '-' ) )?
+            int alt10=2;
+            int LA10_0 = input.LA(1);
 
-            if ( (LA9_0==19) ) {
-                int LA9_1 = input.LA(2);
+            if ( (LA10_0==20) ) {
+                int LA10_1 = input.LA(2);
 
-                if ( (LA9_1==EOF||(LA9_1>=16 && LA9_1<=19)||LA9_1==22||LA9_1==24||LA9_1==26) ) {
-                    alt9=1;
+                if ( (LA10_1==EOF||(LA10_1>=17 && LA10_1<=20)||LA10_1==23||LA10_1==25||LA10_1==27) ) {
+                    alt10=1;
                 }
             }
-            switch (alt9) {
+            switch (alt10) {
                 case 1 :
-                    // InternalEbnfLang.g:706:4: (lv_atLeastOne_4_0= '-' )
+                    // InternalEbnfLang.g:754:4: (lv_atLeastOne_4_0= '-' )
                     {
-                    // InternalEbnfLang.g:706:4: (lv_atLeastOne_4_0= '-' )
-                    // InternalEbnfLang.g:707:5: lv_atLeastOne_4_0= '-'
+                    // InternalEbnfLang.g:754:4: (lv_atLeastOne_4_0= '-' )
+                    // InternalEbnfLang.g:755:5: lv_atLeastOne_4_0= '-'
                     {
-                    lv_atLeastOne_4_0=(Token)match(input,19,FOLLOW_2); 
+                    lv_atLeastOne_4_0=(Token)match(input,20,FOLLOW_2); 
 
                     					newLeafNode(lv_atLeastOne_4_0, grammarAccess.getExpression_Repetition_GroupAccess().getAtLeastOneHyphenMinusKeyword_4_0());
                     				
@@ -1902,7 +2050,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExpression_Optional_Group"
-    // InternalEbnfLang.g:723:1: entryRuleExpression_Optional_Group returns [EObject current=null] : iv_ruleExpression_Optional_Group= ruleExpression_Optional_Group EOF ;
+    // InternalEbnfLang.g:771:1: entryRuleExpression_Optional_Group returns [EObject current=null] : iv_ruleExpression_Optional_Group= ruleExpression_Optional_Group EOF ;
     public final EObject entryRuleExpression_Optional_Group() throws RecognitionException {
         EObject current = null;
 
@@ -1910,8 +2058,8 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalEbnfLang.g:723:66: (iv_ruleExpression_Optional_Group= ruleExpression_Optional_Group EOF )
-            // InternalEbnfLang.g:724:2: iv_ruleExpression_Optional_Group= ruleExpression_Optional_Group EOF
+            // InternalEbnfLang.g:771:66: (iv_ruleExpression_Optional_Group= ruleExpression_Optional_Group EOF )
+            // InternalEbnfLang.g:772:2: iv_ruleExpression_Optional_Group= ruleExpression_Optional_Group EOF
             {
              newCompositeNode(grammarAccess.getExpression_Optional_GroupRule()); 
             pushFollow(FOLLOW_1);
@@ -1938,7 +2086,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExpression_Optional_Group"
-    // InternalEbnfLang.g:730:1: ruleExpression_Optional_Group returns [EObject current=null] : ( () otherlv_1= '[' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= ']' ) ;
+    // InternalEbnfLang.g:778:1: ruleExpression_Optional_Group returns [EObject current=null] : ( () otherlv_1= '[' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= ']' ) ;
     public final EObject ruleExpression_Optional_Group() throws RecognitionException {
         EObject current = null;
 
@@ -1951,14 +2099,14 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalEbnfLang.g:736:2: ( ( () otherlv_1= '[' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= ']' ) )
-            // InternalEbnfLang.g:737:2: ( () otherlv_1= '[' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= ']' )
+            // InternalEbnfLang.g:784:2: ( ( () otherlv_1= '[' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= ']' ) )
+            // InternalEbnfLang.g:785:2: ( () otherlv_1= '[' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= ']' )
             {
-            // InternalEbnfLang.g:737:2: ( () otherlv_1= '[' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= ']' )
-            // InternalEbnfLang.g:738:3: () otherlv_1= '[' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= ']'
+            // InternalEbnfLang.g:785:2: ( () otherlv_1= '[' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= ']' )
+            // InternalEbnfLang.g:786:3: () otherlv_1= '[' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= ']'
             {
-            // InternalEbnfLang.g:738:3: ()
-            // InternalEbnfLang.g:739:4: 
+            // InternalEbnfLang.g:786:3: ()
+            // InternalEbnfLang.g:787:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1968,15 +2116,15 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,23,FOLLOW_5); 
+            otherlv_1=(Token)match(input,24,FOLLOW_5); 
 
             			newLeafNode(otherlv_1, grammarAccess.getExpression_Optional_GroupAccess().getLeftSquareBracketKeyword_1());
             		
-            // InternalEbnfLang.g:749:3: ( (lv_expr_2_0= ruleExpression ) )
-            // InternalEbnfLang.g:750:4: (lv_expr_2_0= ruleExpression )
+            // InternalEbnfLang.g:797:3: ( (lv_expr_2_0= ruleExpression ) )
+            // InternalEbnfLang.g:798:4: (lv_expr_2_0= ruleExpression )
             {
-            // InternalEbnfLang.g:750:4: (lv_expr_2_0= ruleExpression )
-            // InternalEbnfLang.g:751:5: lv_expr_2_0= ruleExpression
+            // InternalEbnfLang.g:798:4: (lv_expr_2_0= ruleExpression )
+            // InternalEbnfLang.g:799:5: lv_expr_2_0= ruleExpression
             {
 
             					newCompositeNode(grammarAccess.getExpression_Optional_GroupAccess().getExprExpressionParserRuleCall_2_0());
@@ -2003,7 +2151,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,24,FOLLOW_2); 
+            otherlv_3=(Token)match(input,25,FOLLOW_2); 
 
             			newLeafNode(otherlv_3, grammarAccess.getExpression_Optional_GroupAccess().getRightSquareBracketKeyword_3());
             		
@@ -2030,7 +2178,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExpression_Group"
-    // InternalEbnfLang.g:776:1: entryRuleExpression_Group returns [EObject current=null] : iv_ruleExpression_Group= ruleExpression_Group EOF ;
+    // InternalEbnfLang.g:824:1: entryRuleExpression_Group returns [EObject current=null] : iv_ruleExpression_Group= ruleExpression_Group EOF ;
     public final EObject entryRuleExpression_Group() throws RecognitionException {
         EObject current = null;
 
@@ -2038,8 +2186,8 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalEbnfLang.g:776:57: (iv_ruleExpression_Group= ruleExpression_Group EOF )
-            // InternalEbnfLang.g:777:2: iv_ruleExpression_Group= ruleExpression_Group EOF
+            // InternalEbnfLang.g:824:57: (iv_ruleExpression_Group= ruleExpression_Group EOF )
+            // InternalEbnfLang.g:825:2: iv_ruleExpression_Group= ruleExpression_Group EOF
             {
              newCompositeNode(grammarAccess.getExpression_GroupRule()); 
             pushFollow(FOLLOW_1);
@@ -2066,7 +2214,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExpression_Group"
-    // InternalEbnfLang.g:783:1: ruleExpression_Group returns [EObject current=null] : ( () otherlv_1= '(' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= ')' ) ;
+    // InternalEbnfLang.g:831:1: ruleExpression_Group returns [EObject current=null] : ( () otherlv_1= '(' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= ')' ) ;
     public final EObject ruleExpression_Group() throws RecognitionException {
         EObject current = null;
 
@@ -2079,14 +2227,14 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalEbnfLang.g:789:2: ( ( () otherlv_1= '(' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= ')' ) )
-            // InternalEbnfLang.g:790:2: ( () otherlv_1= '(' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= ')' )
+            // InternalEbnfLang.g:837:2: ( ( () otherlv_1= '(' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= ')' ) )
+            // InternalEbnfLang.g:838:2: ( () otherlv_1= '(' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= ')' )
             {
-            // InternalEbnfLang.g:790:2: ( () otherlv_1= '(' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= ')' )
-            // InternalEbnfLang.g:791:3: () otherlv_1= '(' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= ')'
+            // InternalEbnfLang.g:838:2: ( () otherlv_1= '(' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= ')' )
+            // InternalEbnfLang.g:839:3: () otherlv_1= '(' ( (lv_expr_2_0= ruleExpression ) ) otherlv_3= ')'
             {
-            // InternalEbnfLang.g:791:3: ()
-            // InternalEbnfLang.g:792:4: 
+            // InternalEbnfLang.g:839:3: ()
+            // InternalEbnfLang.g:840:4: 
             {
 
             				current = forceCreateModelElement(
@@ -2096,15 +2244,15 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,25,FOLLOW_5); 
+            otherlv_1=(Token)match(input,26,FOLLOW_5); 
 
             			newLeafNode(otherlv_1, grammarAccess.getExpression_GroupAccess().getLeftParenthesisKeyword_1());
             		
-            // InternalEbnfLang.g:802:3: ( (lv_expr_2_0= ruleExpression ) )
-            // InternalEbnfLang.g:803:4: (lv_expr_2_0= ruleExpression )
+            // InternalEbnfLang.g:850:3: ( (lv_expr_2_0= ruleExpression ) )
+            // InternalEbnfLang.g:851:4: (lv_expr_2_0= ruleExpression )
             {
-            // InternalEbnfLang.g:803:4: (lv_expr_2_0= ruleExpression )
-            // InternalEbnfLang.g:804:5: lv_expr_2_0= ruleExpression
+            // InternalEbnfLang.g:851:4: (lv_expr_2_0= ruleExpression )
+            // InternalEbnfLang.g:852:5: lv_expr_2_0= ruleExpression
             {
 
             					newCompositeNode(grammarAccess.getExpression_GroupAccess().getExprExpressionParserRuleCall_2_0());
@@ -2131,7 +2279,7 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,26,FOLLOW_2); 
+            otherlv_3=(Token)match(input,27,FOLLOW_2); 
 
             			newLeafNode(otherlv_3, grammarAccess.getExpression_GroupAccess().getRightParenthesisKeyword_3());
             		
@@ -2163,17 +2311,17 @@ public class InternalEbnfLangParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000002A000F0L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000020002L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000040002L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000080002L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000002A000D0L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000032L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x00000000054001E0L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000040002L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000080002L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000100002L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x00000000054001A0L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000008000000L});
 
 }

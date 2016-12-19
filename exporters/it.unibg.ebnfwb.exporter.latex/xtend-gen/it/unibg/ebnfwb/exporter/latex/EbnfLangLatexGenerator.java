@@ -3,6 +3,7 @@ package it.unibg.ebnfwb.exporter.latex;
 import com.google.common.collect.Iterables;
 import it.unibg.ebnfwb.lang.ebnfLang.EbnfGrammar;
 import it.unibg.ebnfwb.lang.ebnfLang.Expression;
+import it.unibg.ebnfwb.lang.ebnfLang.Line;
 import it.unibg.ebnfwb.lang.ebnfLang.ProductionRule;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
@@ -11,6 +12,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 
@@ -51,36 +53,47 @@ public class EbnfLangLatexGenerator implements IGenerator {
     _builder.newLine();
     _builder.append("\\begin{document}");
     _builder.newLine();
-    _builder.append("\\begin{grammar}");
-    _builder.newLine();
-    _builder.newLine();
     {
-      EList<ProductionRule> _rules = e.getRules();
-      for(final ProductionRule f : _rules) {
+      EList<Line> _lines = e.getLines();
+      for(final Line f : _lines) {
         _builder.append("    ");
         CharSequence _compile = this.compile(f);
         _builder.append(_compile, "    ");
+        _builder.append("\t");
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("    ");
-    _builder.newLine();
-    _builder.append("\\end{grammar}");
-    _builder.newLine();
     _builder.append("\\end{document}");
     _builder.newLine();
     return _builder;
   }
   
+  public CharSequence compile(final Line line) {
+    CharSequence _xifexpression = null;
+    if ((line instanceof ProductionRule)) {
+      _xifexpression = this.compile(((ProductionRule) line));
+    } else {
+      String _string = line.toString();
+      _xifexpression = InputOutput.<String>println(_string);
+    }
+    return _xifexpression;
+  }
+  
   public CharSequence compile(final ProductionRule rule) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\\begin{grammar}");
+    _builder.newLine();
+    _builder.append("\t");
     String _name = rule.getName();
-    _builder.append(_name, "");
+    _builder.append(_name, "\t");
     _builder.newLineIfNotEmpty();
+    _builder.append("\t");
     Expression _expr = rule.getExpr();
     CharSequence _compile = this.compile(_expr);
-    _builder.append(_compile, "");
+    _builder.append(_compile, "\t");
     _builder.newLineIfNotEmpty();
+    _builder.append("\\end{grammar}");
+    _builder.newLine();
     return _builder;
   }
   

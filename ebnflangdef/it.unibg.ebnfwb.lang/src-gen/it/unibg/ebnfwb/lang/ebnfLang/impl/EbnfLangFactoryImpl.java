@@ -66,6 +66,7 @@ public class EbnfLangFactoryImpl extends EFactoryImpl implements EbnfLangFactory
     switch (eClass.getClassifierID())
     {
       case EbnfLangPackage.EBNF_GRAMMAR: return createEbnfGrammar();
+      case EbnfLangPackage.LINE: return createLine();
       case EbnfLangPackage.PRODUCTION_RULE: return createProductionRule();
       case EbnfLangPackage.EXPRESSION: return createExpression();
       case EbnfLangPackage.EXPRESSION_ALTERNATIVE: return createExpression_Alternative();
@@ -92,6 +93,17 @@ public class EbnfLangFactoryImpl extends EFactoryImpl implements EbnfLangFactory
   {
     EbnfGrammarImpl ebnfGrammar = new EbnfGrammarImpl();
     return ebnfGrammar;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Line createLine()
+  {
+    LineImpl line = new LineImpl();
+    return line;
   }
 
   /**

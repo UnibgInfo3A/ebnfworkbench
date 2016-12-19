@@ -2,6 +2,7 @@ package it.unibg.ebnfwb.exporter.jparsec;
 
 import com.google.common.collect.Iterables;
 import it.unibg.ebnfwb.lang.ebnfLang.EbnfGrammar;
+import it.unibg.ebnfwb.lang.ebnfLang.Line;
 import it.unibg.ebnfwb.lang.ebnfLang.ProductionRule;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
@@ -45,8 +46,8 @@ public class EbnfLangJParsecGenerator implements IGenerator {
     _builder.append("{");
     _builder.newLineIfNotEmpty();
     {
-      EList<ProductionRule> _rules = e.getRules();
-      for(final ProductionRule f : _rules) {
+      EList<Line> _lines = e.getLines();
+      for(final Line f : _lines) {
         _builder.append("\t        ");
         CharSequence _compile = this.compile(f);
         _builder.append(_compile, "\t        ");
@@ -57,6 +58,11 @@ public class EbnfLangJParsecGenerator implements IGenerator {
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compile(final Line rule) {
+    StringConcatenation _builder = new StringConcatenation();
     return _builder;
   }
   

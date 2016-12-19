@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link it.unibg.ebnfwb.lang.ebnfLang.EbnfGrammar#getRules <em>Rules</em>}</li>
+ *   <li>{@link it.unibg.ebnfwb.lang.ebnfLang.EbnfGrammar#getLines <em>Lines</em>}</li>
  * </ul>
  *
  * @see it.unibg.ebnfwb.lang.ebnfLang.EbnfLangPackage#getEbnfGrammar()
@@ -26,19 +26,19 @@ import org.eclipse.emf.ecore.EObject;
 public interface EbnfGrammar extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Rules</b></em>' containment reference list.
-   * The list contents are of type {@link it.unibg.ebnfwb.lang.ebnfLang.ProductionRule}.
+   * Returns the value of the '<em><b>Lines</b></em>' containment reference list.
+   * The list contents are of type {@link it.unibg.ebnfwb.lang.ebnfLang.Line}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Rules</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Lines</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Rules</em>' containment reference list.
-   * @see it.unibg.ebnfwb.lang.ebnfLang.EbnfLangPackage#getEbnfGrammar_Rules()
+   * @return the value of the '<em>Lines</em>' containment reference list.
+   * @see it.unibg.ebnfwb.lang.ebnfLang.EbnfLangPackage#getEbnfGrammar_Lines()
    * @model containment="true"
    * @generated
    */
-  EList<ProductionRule> getRules();
+  EList<Line> getLines();
 
 } // EbnfGrammar

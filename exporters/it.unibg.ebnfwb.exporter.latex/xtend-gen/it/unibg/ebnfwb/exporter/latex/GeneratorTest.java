@@ -46,4 +46,25 @@ public class GeneratorTest {
       throw Exceptions.sneakyThrow(_e);
     }
   }
+  
+  @Test
+  public void testComments() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("// comments");
+      _builder.newLine();
+      _builder.append("(* my comments*)");
+      _builder.newLine();
+      _builder.append("sign = +|-");
+      _builder.newLine();
+      final EbnfGrammar grammar = this.parseHelper.parse(_builder);
+      final InMemoryFileSystemAccess fsa = new InMemoryFileSystemAccess();
+      Resource _eResource = grammar.eResource();
+      this.underTest.doGenerate(_eResource, fsa);
+      Map<String, Object> _allFiles = fsa.getAllFiles();
+      InputOutput.<Map<String, Object>>println(_allFiles);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
 }

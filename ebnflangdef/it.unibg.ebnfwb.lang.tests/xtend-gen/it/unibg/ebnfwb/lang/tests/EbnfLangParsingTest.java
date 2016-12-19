@@ -5,7 +5,7 @@ package it.unibg.ebnfwb.lang.tests;
 
 import com.google.inject.Inject;
 import it.unibg.ebnfwb.lang.ebnfLang.EbnfGrammar;
-import it.unibg.ebnfwb.lang.ebnfLang.ProductionRule;
+import it.unibg.ebnfwb.lang.ebnfLang.Line;
 import it.unibg.ebnfwb.lang.tests.EbnfLangInjectorProvider;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -37,8 +37,8 @@ public class EbnfLangParsingTest {
       _builder.newLine();
       final EbnfGrammar result = this.parseHelper.parse(_builder);
       Assert.assertNotNull(result);
-      EList<ProductionRule> _rules = result.getRules();
-      int _size = _rules.size();
+      EList<Line> _lines = result.getLines();
+      int _size = _lines.size();
       System.out.println(_size);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -53,12 +53,36 @@ public class EbnfLangParsingTest {
       _builder.newLine();
       final EbnfGrammar result = this.parseHelper.parse(_builder);
       Assert.assertNotNull(result);
-      EList<ProductionRule> _rules = result.getRules();
-      int _size = _rules.size();
+      EList<Line> _lines = result.getLines();
+      int _size = _lines.size();
       System.out.println(_size);
-      EList<ProductionRule> _rules_1 = result.getRules();
-      ProductionRule _get = _rules_1.get(0);
-      InputOutput.<ProductionRule>println(_get);
+      EList<Line> _lines_1 = result.getLines();
+      Line _get = _lines_1.get(0);
+      InputOutput.<Line>println(_get);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void loadModelComment() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("// comment in C");
+      _builder.newLine();
+      _builder.append("(* ebnf comment *)");
+      _builder.newLine();
+      _builder.append("Header  =  {UseDirective}, {ImportDirective},  {ExportDirective}");
+      _builder.newLine();
+      final EbnfGrammar result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      EList<Line> _lines = result.getLines();
+      int _size = _lines.size();
+      System.out.println(_size);
+      EList<Line> _lines_1 = result.getLines();
+      Line _get = _lines_1.get(0);
+      String _string = _get.toString();
+      InputOutput.<String>println(_string);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

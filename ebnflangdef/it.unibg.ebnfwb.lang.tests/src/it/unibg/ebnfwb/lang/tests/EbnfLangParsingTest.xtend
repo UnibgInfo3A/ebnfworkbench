@@ -28,7 +28,7 @@ class EbnfLangParsingTest{
 			integer = [sign]digit{digit}
 		''')
 		Assert.assertNotNull(result)
-		System.out.println(result.rules.size)
+		System.out.println(result.lines.size)
 	}
 
 	@Test 
@@ -37,8 +37,22 @@ class EbnfLangParsingTest{
 			Header  =  {UseDirective}, {ImportDirective},  {ExportDirective}
 		''')
 		Assert.assertNotNull(result)
-		System.out.println(result.rules.size)
-		println(result.rules.get(0))
+		System.out.println(result.lines.size)
+		println(result.lines.get(0))
 	}
+	@Test 
+	def void loadModelComment() {
+		val EbnfGrammar result = parseHelper.parse('''
+			// comment in C
+			(* ebnf comment *)
+			Header  =  {UseDirective}, {ImportDirective},  {ExportDirective}
+		''')
+		Assert.assertNotNull(result)
+		System.out.println(result.lines.size)
+		println(result.lines.get(0).toString())
+	}
+	
+	
+	
 
 }

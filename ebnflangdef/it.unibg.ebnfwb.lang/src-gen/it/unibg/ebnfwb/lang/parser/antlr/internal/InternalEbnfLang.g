@@ -86,22 +86,63 @@ ruleEbnfGrammar returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getEbnfGrammarAccess().getRulesProductionRuleParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getEbnfGrammarAccess().getLinesLineParserRuleCall_1_0());
 				}
-				lv_rules_1_0=ruleProductionRule
+				lv_lines_1_0=ruleLine
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getEbnfGrammarRule());
 					}
 					add(
 						$current,
-						"rules",
-						lv_rules_1_0,
-						"it.unibg.ebnfwb.lang.EbnfLang.ProductionRule");
+						"lines",
+						lv_lines_1_0,
+						"it.unibg.ebnfwb.lang.EbnfLang.Line");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
+	)
+;
+
+// Entry rule entryRuleLine
+entryRuleLine returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getLineRule()); }
+	iv_ruleLine=ruleLine
+	{ $current=$iv_ruleLine.current; }
+	EOF;
+
+// Rule Line
+ruleLine returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getLineAccess().getLineAction_0_0(),
+						$current);
+				}
+			)
+			this_EBNF_COMMENT_1=RULE_EBNF_COMMENT
+			{
+				newLeafNode(this_EBNF_COMMENT_1, grammarAccess.getLineAccess().getEBNF_COMMENTTerminalRuleCall_0_1());
+			}
+		)
+		    |
+		{
+			newCompositeNode(grammarAccess.getLineAccess().getProductionRuleParserRuleCall_1());
+		}
+		this_ProductionRule_2=ruleProductionRule
+		{
+			$current = $this_ProductionRule_2.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -122,10 +163,17 @@ ruleProductionRule returns [EObject current=null]
 }:
 	(
 		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getProductionRuleAccess().getProductionRuleAction_0(),
+					$current);
+			}
+		)
+		(
 			(
-				lv_name_0_0=RULE_NAME
+				lv_name_1_0=RULE_NAME
 				{
-					newLeafNode(lv_name_0_0, grammarAccess.getProductionRuleAccess().getNameNAMETerminalRuleCall_0_0());
+					newLeafNode(lv_name_1_0, grammarAccess.getProductionRuleAccess().getNameNAMETerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -134,21 +182,21 @@ ruleProductionRule returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"name",
-						lv_name_0_0,
+						lv_name_1_0,
 						"it.unibg.ebnfwb.lang.EbnfLang.NAME");
 				}
 			)
 		)
-		otherlv_1='='
+		otherlv_2='='
 		{
-			newLeafNode(otherlv_1, grammarAccess.getProductionRuleAccess().getEqualsSignKeyword_1());
+			newLeafNode(otherlv_2, grammarAccess.getProductionRuleAccess().getEqualsSignKeyword_2());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getProductionRuleAccess().getExprExpressionParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getProductionRuleAccess().getExprExpressionParserRuleCall_3_0());
 				}
-				lv_expr_2_0=ruleExpression
+				lv_expr_3_0=ruleExpression
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getProductionRuleRule());
@@ -156,15 +204,15 @@ ruleProductionRule returns [EObject current=null]
 					set(
 						$current,
 						"expr",
-						lv_expr_2_0,
+						lv_expr_3_0,
 						"it.unibg.ebnfwb.lang.EbnfLang.Expression");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_3=';'
+		otherlv_4=';'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getProductionRuleAccess().getSemicolonKeyword_3());
+			newLeafNode(otherlv_4, grammarAccess.getProductionRuleAccess().getSemicolonKeyword_4());
 		}
 	)
 ;
@@ -824,6 +872,8 @@ ruleExpression_Group returns [EObject current=null]
 		}
 	)
 ;
+
+RULE_EBNF_COMMENT : '(*' ( options {greedy=false;} : . )*'*)';
 
 RULE_NUMBER : '1'..'9' ('0'..'9')*;
 

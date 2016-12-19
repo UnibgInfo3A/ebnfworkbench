@@ -33,6 +33,15 @@ public interface EbnfLangFactory extends EFactory
   EbnfGrammar createEbnfGrammar();
 
   /**
+   * Returns a new object of class '<em>Line</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Line</em>'.
+   * @generated
+   */
+  Line createLine();
+
+  /**
    * Returns a new object of class '<em>Production Rule</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

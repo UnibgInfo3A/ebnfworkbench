@@ -16,6 +16,7 @@ import it.unibg.ebnfwb.lang.ebnfLang.Expression_Repetition_Group;
 import it.unibg.ebnfwb.lang.ebnfLang.Expression_Rule_Reference;
 import it.unibg.ebnfwb.lang.ebnfLang.Expression_Special_Sequence;
 import it.unibg.ebnfwb.lang.ebnfLang.Expression_Terminal_Symbol;
+import it.unibg.ebnfwb.lang.ebnfLang.Line;
 import it.unibg.ebnfwb.lang.ebnfLang.ProductionRule;
 import it.unibg.ebnfwb.lang.services.EbnfLangGrammarAccess;
 import java.util.Set;
@@ -76,6 +77,9 @@ public class EbnfLangSemanticSequencer extends AbstractDelegatingSemanticSequenc
 			case EbnfLangPackage.EXPRESSION_TERMINAL_SYMBOL:
 				sequence_Expression_Terminal_Symbol(context, (Expression_Terminal_Symbol) semanticObject); 
 				return; 
+			case EbnfLangPackage.LINE:
+				sequence_Line(context, (Line) semanticObject); 
+				return; 
 			case EbnfLangPackage.PRODUCTION_RULE:
 				sequence_ProductionRule(context, (ProductionRule) semanticObject); 
 				return; 
@@ -89,7 +93,7 @@ public class EbnfLangSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     EbnfGrammar returns EbnfGrammar
 	 *
 	 * Constraint:
-	 *     rules+=ProductionRule*
+	 *     lines+=Line*
 	 */
 	protected void sequence_EbnfGrammar(ISerializationContext context, EbnfGrammar semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -337,6 +341,19 @@ public class EbnfLangSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Contexts:
+	 *     Line returns Line
+	 *
+	 * Constraint:
+	 *     {Line}
+	 */
+	protected void sequence_Line(ISerializationContext context, Line semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Line returns ProductionRule
 	 *     ProductionRule returns ProductionRule
 	 *
 	 * Constraint:
@@ -350,8 +367,8 @@ public class EbnfLangSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EbnfLangPackage.Literals.PRODUCTION_RULE__EXPR));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getProductionRuleAccess().getNameNAMETerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getProductionRuleAccess().getExprExpressionParserRuleCall_2_0(), semanticObject.getExpr());
+		feeder.accept(grammarAccess.getProductionRuleAccess().getNameNAMETerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getProductionRuleAccess().getExprExpressionParserRuleCall_3_0(), semanticObject.getExpr());
 		feeder.finish();
 	}
 	

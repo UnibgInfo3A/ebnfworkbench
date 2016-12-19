@@ -16,20 +16,32 @@ import org.junit.runner.Runner
 @RunWith(XtextRunner)
 @InjectWith(EbnfLangInjectorProvider)
 class GeneratorTest {
-     
-    @Inject EbnfLangLatexGenerator underTest
-    @Inject ParseHelper<EbnfGrammar> parseHelper 
-     
-    @Test
-    def void test() {
+
+	@Inject EbnfLangLatexGenerator underTest
+	@Inject ParseHelper<EbnfGrammar> parseHelper
+
+	@Test
+	def void test() {
 		val EbnfGrammar grammar = parseHelper.parse('''
 			sign = +|-
 			digit = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 			integer = [sign]digit{digit}
 		''')
-        val fsa = new InMemoryFileSystemAccess()
-        underTest.doGenerate(grammar.eResource, fsa)
-        println(fsa.allFiles)
-    }
-     
+		val fsa = new InMemoryFileSystemAccess()
+		underTest.doGenerate(grammar.eResource, fsa)
+		println(fsa.allFiles)
+	}
+
+	@Test
+	def void testComments() {
+		val EbnfGrammar grammar = parseHelper.parse('''
+			// comments
+			(* my comments*)
+			sign = +|-
+		''')
+		val fsa = new InMemoryFileSystemAccess()
+		underTest.doGenerate(grammar.eResource, fsa)
+		println(fsa.allFiles)
+	}
+
 }

@@ -3,7 +3,6 @@
  */
 package it.unibg.ebnfwb.lang.ebnfLang;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ProductionRule extends EObject
+public interface ProductionRule extends Line
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

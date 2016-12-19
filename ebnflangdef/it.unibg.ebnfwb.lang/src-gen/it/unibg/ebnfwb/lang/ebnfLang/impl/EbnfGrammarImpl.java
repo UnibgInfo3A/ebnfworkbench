@@ -5,7 +5,7 @@ package it.unibg.ebnfwb.lang.ebnfLang.impl;
 
 import it.unibg.ebnfwb.lang.ebnfLang.EbnfGrammar;
 import it.unibg.ebnfwb.lang.ebnfLang.EbnfLangPackage;
-import it.unibg.ebnfwb.lang.ebnfLang.ProductionRule;
+import it.unibg.ebnfwb.lang.ebnfLang.Line;
 
 import java.util.Collection;
 
@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfGrammarImpl#getRules <em>Rules</em>}</li>
+ *   <li>{@link it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfGrammarImpl#getLines <em>Lines</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,14 +37,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class EbnfGrammarImpl extends MinimalEObjectImpl.Container implements EbnfGrammar
 {
   /**
-   * The cached value of the '{@link #getRules() <em>Rules</em>}' containment reference list.
+   * The cached value of the '{@link #getLines() <em>Lines</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRules()
+   * @see #getLines()
    * @generated
    * @ordered
    */
-  protected EList<ProductionRule> rules;
+  protected EList<Line> lines;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,13 +72,13 @@ public class EbnfGrammarImpl extends MinimalEObjectImpl.Container implements Ebn
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ProductionRule> getRules()
+  public EList<Line> getLines()
   {
-    if (rules == null)
+    if (lines == null)
     {
-      rules = new EObjectContainmentEList<ProductionRule>(ProductionRule.class, this, EbnfLangPackage.EBNF_GRAMMAR__RULES);
+      lines = new EObjectContainmentEList<Line>(Line.class, this, EbnfLangPackage.EBNF_GRAMMAR__LINES);
     }
-    return rules;
+    return lines;
   }
 
   /**
@@ -91,8 +91,8 @@ public class EbnfGrammarImpl extends MinimalEObjectImpl.Container implements Ebn
   {
     switch (featureID)
     {
-      case EbnfLangPackage.EBNF_GRAMMAR__RULES:
-        return ((InternalEList<?>)getRules()).basicRemove(otherEnd, msgs);
+      case EbnfLangPackage.EBNF_GRAMMAR__LINES:
+        return ((InternalEList<?>)getLines()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -107,8 +107,8 @@ public class EbnfGrammarImpl extends MinimalEObjectImpl.Container implements Ebn
   {
     switch (featureID)
     {
-      case EbnfLangPackage.EBNF_GRAMMAR__RULES:
-        return getRules();
+      case EbnfLangPackage.EBNF_GRAMMAR__LINES:
+        return getLines();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -124,9 +124,9 @@ public class EbnfGrammarImpl extends MinimalEObjectImpl.Container implements Ebn
   {
     switch (featureID)
     {
-      case EbnfLangPackage.EBNF_GRAMMAR__RULES:
-        getRules().clear();
-        getRules().addAll((Collection<? extends ProductionRule>)newValue);
+      case EbnfLangPackage.EBNF_GRAMMAR__LINES:
+        getLines().clear();
+        getLines().addAll((Collection<? extends Line>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,8 +142,8 @@ public class EbnfGrammarImpl extends MinimalEObjectImpl.Container implements Ebn
   {
     switch (featureID)
     {
-      case EbnfLangPackage.EBNF_GRAMMAR__RULES:
-        getRules().clear();
+      case EbnfLangPackage.EBNF_GRAMMAR__LINES:
+        getLines().clear();
         return;
     }
     super.eUnset(featureID);
@@ -159,8 +159,8 @@ public class EbnfGrammarImpl extends MinimalEObjectImpl.Container implements Ebn
   {
     switch (featureID)
     {
-      case EbnfLangPackage.EBNF_GRAMMAR__RULES:
-        return rules != null && !rules.isEmpty();
+      case EbnfLangPackage.EBNF_GRAMMAR__LINES:
+        return lines != null && !lines.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -28,60 +28,91 @@ public class EbnfLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibg.ebnfwb.lang.EbnfLang.EbnfGrammar");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cEbnfGrammarAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cRulesAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cRulesProductionRuleParserRuleCall_1_0 = (RuleCall)cRulesAssignment_1.eContents().get(0);
+		private final Assignment cLinesAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cLinesLineParserRuleCall_1_0 = (RuleCall)cLinesAssignment_1.eContents().get(0);
 		
 		//EbnfGrammar:
-		//	{EbnfGrammar} rules+=ProductionRule*;
+		//	{EbnfGrammar} lines+=Line*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{EbnfGrammar} rules+=ProductionRule*
+		//{EbnfGrammar} lines+=Line*
 		public Group getGroup() { return cGroup; }
 		
 		//{EbnfGrammar}
 		public Action getEbnfGrammarAction_0() { return cEbnfGrammarAction_0; }
 		
 		//// Enforce object creation
-		//rules+=ProductionRule*
-		public Assignment getRulesAssignment_1() { return cRulesAssignment_1; }
+		//lines+=Line*
+		public Assignment getLinesAssignment_1() { return cLinesAssignment_1; }
+		
+		//Line
+		public RuleCall getLinesLineParserRuleCall_1_0() { return cLinesLineParserRuleCall_1_0; }
+	}
+	public class LineElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibg.ebnfwb.lang.EbnfLang.Line");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cLineAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final RuleCall cEBNF_COMMENTTerminalRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
+		private final RuleCall cProductionRuleParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//Line:
+		//	{Line} EBNF_COMMENT | ProductionRule;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Line} EBNF_COMMENT | ProductionRule
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//{Line} EBNF_COMMENT
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//{Line}
+		public Action getLineAction_0_0() { return cLineAction_0_0; }
+		
+		//EBNF_COMMENT
+		public RuleCall getEBNF_COMMENTTerminalRuleCall_0_1() { return cEBNF_COMMENTTerminalRuleCall_0_1; }
 		
 		//ProductionRule
-		public RuleCall getRulesProductionRuleParserRuleCall_1_0() { return cRulesProductionRuleParserRuleCall_1_0; }
+		public RuleCall getProductionRuleParserRuleCall_1() { return cProductionRuleParserRuleCall_1; }
 	}
 	public class ProductionRuleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibg.ebnfwb.lang.EbnfLang.ProductionRule");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNameNAMETerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cExprAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cExprExpressionParserRuleCall_2_0 = (RuleCall)cExprAssignment_2.eContents().get(0);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Action cProductionRuleAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameNAMETerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cExprAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cExprExpressionParserRuleCall_3_0 = (RuleCall)cExprAssignment_3.eContents().get(0);
+		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//ProductionRule:
-		//	name=NAME '=' expr=Expression ';';
+		//	{ProductionRule} name=NAME '=' expr=Expression ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=NAME '=' expr=Expression ';'
+		//{ProductionRule} name=NAME '=' expr=Expression ';'
 		public Group getGroup() { return cGroup; }
 		
+		//{ProductionRule}
+		public Action getProductionRuleAction_0() { return cProductionRuleAction_0; }
+		
 		//name=NAME
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//NAME
-		public RuleCall getNameNAMETerminalRuleCall_0_0() { return cNameNAMETerminalRuleCall_0_0; }
+		public RuleCall getNameNAMETerminalRuleCall_1_0() { return cNameNAMETerminalRuleCall_1_0; }
 		
 		//'='
-		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
+		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
 		
 		//expr=Expression
-		public Assignment getExprAssignment_2() { return cExprAssignment_2; }
+		public Assignment getExprAssignment_3() { return cExprAssignment_3; }
 		
 		//Expression
-		public RuleCall getExprExpressionParserRuleCall_2_0() { return cExprExpressionParserRuleCall_2_0; }
+		public RuleCall getExprExpressionParserRuleCall_3_0() { return cExprExpressionParserRuleCall_3_0; }
 		
 		//';'
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
 	}
 	public class ExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibg.ebnfwb.lang.EbnfLang.Expression");
@@ -479,6 +510,7 @@ public class EbnfLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	
 	private final EbnfGrammarElements pEbnfGrammar;
+	private final LineElements pLine;
 	private final ProductionRuleElements pProductionRule;
 	private final ExpressionElements pExpression;
 	private final Expression_AlternativeElements pExpression_Alternative;
@@ -492,6 +524,7 @@ public class EbnfLangGrammarAccess extends AbstractGrammarElementFinder {
 	private final Expression_Repetition_GroupElements pExpression_Repetition_Group;
 	private final Expression_Optional_GroupElements pExpression_Optional_Group;
 	private final Expression_GroupElements pExpression_Group;
+	private final TerminalRule tEBNF_COMMENT;
 	private final TerminalRule tNUMBER;
 	private final TerminalRule tNAME;
 	private final TerminalRule tTERMINAL_SYMBOL;
@@ -507,6 +540,7 @@ public class EbnfLangGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pEbnfGrammar = new EbnfGrammarElements();
+		this.pLine = new LineElements();
 		this.pProductionRule = new ProductionRuleElements();
 		this.pExpression = new ExpressionElements();
 		this.pExpression_Alternative = new Expression_AlternativeElements();
@@ -520,6 +554,7 @@ public class EbnfLangGrammarAccess extends AbstractGrammarElementFinder {
 		this.pExpression_Repetition_Group = new Expression_Repetition_GroupElements();
 		this.pExpression_Optional_Group = new Expression_Optional_GroupElements();
 		this.pExpression_Group = new Expression_GroupElements();
+		this.tEBNF_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibg.ebnfwb.lang.EbnfLang.EBNF_COMMENT");
 		this.tNUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibg.ebnfwb.lang.EbnfLang.NUMBER");
 		this.tNAME = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibg.ebnfwb.lang.EbnfLang.NAME");
 		this.tTERMINAL_SYMBOL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibg.ebnfwb.lang.EbnfLang.TERMINAL_SYMBOL");
@@ -554,7 +589,7 @@ public class EbnfLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//EbnfGrammar:
-	//	{EbnfGrammar} rules+=ProductionRule*;
+	//	{EbnfGrammar} lines+=Line*;
 	public EbnfGrammarElements getEbnfGrammarAccess() {
 		return pEbnfGrammar;
 	}
@@ -563,8 +598,18 @@ public class EbnfLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getEbnfGrammarAccess().getRule();
 	}
 	
+	//Line:
+	//	{Line} EBNF_COMMENT | ProductionRule;
+	public LineElements getLineAccess() {
+		return pLine;
+	}
+	
+	public ParserRule getLineRule() {
+		return getLineAccess().getRule();
+	}
+	
 	//ProductionRule:
-	//	name=NAME '=' expr=Expression ';';
+	//	{ProductionRule} name=NAME '=' expr=Expression ';';
 	public ProductionRuleElements getProductionRuleAccess() {
 		return pProductionRule;
 	}
@@ -707,6 +752,12 @@ public class EbnfLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getExpression_GroupRule() {
 		return getExpression_GroupAccess().getRule();
+	}
+	
+	//terminal EBNF_COMMENT:
+	//	'(*'->'*)';
+	public TerminalRule getEBNF_COMMENTRule() {
+		return tEBNF_COMMENT;
 	}
 	
 	//terminal NUMBER returns ecore::EInt:

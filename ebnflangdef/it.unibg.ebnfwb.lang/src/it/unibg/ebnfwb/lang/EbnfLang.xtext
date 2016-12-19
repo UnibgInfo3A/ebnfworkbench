@@ -14,9 +14,11 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
  
 EbnfGrammar:
     {EbnfGrammar} // Enforce object creation
-    rules+=ProductionRule*;
+    lines+=Line*;
  
-ProductionRule:
+Line:{Line} EBNF_COMMENT | ProductionRule;
+ 
+ProductionRule:{ProductionRule}
 	name=NAME '=' expr=Expression ';';
  
 Expression:
@@ -77,8 +79,8 @@ Expression_Group returns Expression:
     {Expression_Group} '(' expr=Expression ')';
  
 // Comments in EBNF are placed within (* and *)
-//terminal COMMENT returns ecore::EString:
- //   '(*' -> '*)';
+terminal EBNF_COMMENT returns ecore::EString:
+    '(*' -> '*)';
  
 // A number >0
 terminal NUMBER returns ecore::EInt:

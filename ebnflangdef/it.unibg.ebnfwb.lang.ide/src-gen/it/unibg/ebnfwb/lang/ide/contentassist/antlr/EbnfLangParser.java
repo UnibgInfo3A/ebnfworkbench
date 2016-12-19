@@ -35,9 +35,11 @@ public class EbnfLangParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getLineAccess().getAlternatives(), "rule__Line__Alternatives");
 					put(grammarAccess.getExpression_RepetitionAccess().getAlternatives(), "rule__Expression_Repetition__Alternatives");
 					put(grammarAccess.getExpression_TerminalAccess().getAlternatives(), "rule__Expression_Terminal__Alternatives");
 					put(grammarAccess.getEbnfGrammarAccess().getGroup(), "rule__EbnfGrammar__Group__0");
+					put(grammarAccess.getLineAccess().getGroup_0(), "rule__Line__Group_0__0");
 					put(grammarAccess.getProductionRuleAccess().getGroup(), "rule__ProductionRule__Group__0");
 					put(grammarAccess.getExpression_AlternativeAccess().getGroup(), "rule__Expression_Alternative__Group__0");
 					put(grammarAccess.getExpression_AlternativeAccess().getGroup_1(), "rule__Expression_Alternative__Group_1__0");
@@ -54,9 +56,9 @@ public class EbnfLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getExpression_Repetition_GroupAccess().getGroup(), "rule__Expression_Repetition_Group__Group__0");
 					put(grammarAccess.getExpression_Optional_GroupAccess().getGroup(), "rule__Expression_Optional_Group__Group__0");
 					put(grammarAccess.getExpression_GroupAccess().getGroup(), "rule__Expression_Group__Group__0");
-					put(grammarAccess.getEbnfGrammarAccess().getRulesAssignment_1(), "rule__EbnfGrammar__RulesAssignment_1");
-					put(grammarAccess.getProductionRuleAccess().getNameAssignment_0(), "rule__ProductionRule__NameAssignment_0");
-					put(grammarAccess.getProductionRuleAccess().getExprAssignment_2(), "rule__ProductionRule__ExprAssignment_2");
+					put(grammarAccess.getEbnfGrammarAccess().getLinesAssignment_1(), "rule__EbnfGrammar__LinesAssignment_1");
+					put(grammarAccess.getProductionRuleAccess().getNameAssignment_1(), "rule__ProductionRule__NameAssignment_1");
+					put(grammarAccess.getProductionRuleAccess().getExprAssignment_3(), "rule__ProductionRule__ExprAssignment_3");
 					put(grammarAccess.getExpression_AlternativeAccess().getElementsAssignment_1_1_1(), "rule__Expression_Alternative__ElementsAssignment_1_1_1");
 					put(grammarAccess.getExpression_ConcatenationAccess().getElementsAssignment_1_1_1(), "rule__Expression_Concatenation__ElementsAssignment_1_1_1");
 					put(grammarAccess.getExpression_ExceptionAccess().getRightAssignment_1_2(), "rule__Expression_Exception__RightAssignment_1_2");

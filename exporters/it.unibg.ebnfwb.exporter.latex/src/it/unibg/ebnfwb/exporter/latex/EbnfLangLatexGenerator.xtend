@@ -12,6 +12,7 @@ import org.w3c.dom.Comment
 import it.unibg.ebnfwb.lang.ebnfLang.Expression
 import java.io.File
 import it.unibg.ebnfwb.lang.services.EbnfLangGrammarAccess.Expression_AlternativeElements
+import it.unibg.ebnfwb.lang.ebnfLang.Line
 
 /**
  * Generates latex from your model files on save.
@@ -28,46 +29,50 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
 //				.filter(typeof(Greeting))
 //				.map[name]
 //				.join(', '))
-
 	override doGenerate(Resource input, IFileSystemAccess fsa) {
 		for (e : input.allContents.toIterable.filter(EbnfGrammar)) {
-			fsa.generateFile(fileName.toFirstUpper +".tex", e.compile)
+			fsa.generateFile(fileName.toFirstUpper + ".tex", e.compile)
 		}
 	}
 
-/*	Accedere ai commenti
- * e«if (*****(value) instanceof Comment) {
-		
-	}»*/
-	
+	/*	Accedere ai commenti
+	 * e«if (*****(value) instanceof Comment) {
+	 * 		
+	 }»*/
 	def compile(EbnfGrammar e) '''
 	\documentclass{article}
 	\usepackage{syntax}
 	
 	\begin{document}
-	\begin{grammar}
-	
-    «FOR f:e.rules»
-         «f.compile»
-    «ENDFOR»
-    
-	\end{grammar}
+    «FOR f:e.lines»
+    	«f.compile»	
+    «ENDFOR»    
 	\end{document}
 	'''
-	def compile(ProductionRule rule)'''
+
+	def compile(Line line) {
+    	if (line instanceof ProductionRule)
+    		(line as ProductionRule).compile	
+    	else
+    		println(line.toString())		
+	}
+
+	def compile(ProductionRule rule) '''
+	\begin{grammar}
 		«rule.name»
 		«rule.expr.compile»
+	\end{grammar}
 	'''
-	
-	def compile(Expression expr)'''
+
+	def compile(Expression expr) '''
 		
 	'''
-	
-	
+
 	// the document name (for the tex file)	
 	String fileName
+
 	def setFileName(String pn) {
 		fileName = pn;
 	}
-	
+
 }

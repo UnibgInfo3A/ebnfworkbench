@@ -8,6 +8,7 @@ import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
 import it.unibg.ebnfwb.lang.ebnfLang.EbnfGrammar
 import it.unibg.ebnfwb.lang.ebnfLang.ProductionRule
+import it.unibg.ebnfwb.lang.ebnfLang.Line
 
 /**
  * Generates code from your model files on save.
@@ -32,12 +33,15 @@ class EbnfLangJParsecGenerator implements IGenerator { //extends AbstractGenerat
 	def compile(EbnfGrammar e) '''
 		package «packageName»;
 		public class «packageName.toFirstUpper»{
-			        «FOR f:e.rules»
+			        «FOR f:e.lines»
 			            «f.compile»
 			        «ENDFOR»
 			
 		}
 	'''
+	def compile(Line rule)'''
+	'''
+
 	def compile(ProductionRule rule)'''
 		// production rule «rule.name» 
 	'''

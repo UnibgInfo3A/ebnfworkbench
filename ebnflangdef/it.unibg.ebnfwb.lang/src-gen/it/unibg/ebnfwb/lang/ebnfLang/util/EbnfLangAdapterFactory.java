@@ -81,6 +81,11 @@ public class EbnfLangAdapterFactory extends AdapterFactoryImpl
         return createEbnfGrammarAdapter();
       }
       @Override
+      public Adapter caseLine(Line object)
+      {
+        return createLineAdapter();
+      }
+      @Override
       public Adapter caseProductionRule(ProductionRule object)
       {
         return createProductionRuleAdapter();
@@ -173,6 +178,21 @@ public class EbnfLangAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createEbnfGrammarAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link it.unibg.ebnfwb.lang.ebnfLang.Line <em>Line</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see it.unibg.ebnfwb.lang.ebnfLang.Line
+   * @generated
+   */
+  public Adapter createLineAdapter()
   {
     return null;
   }

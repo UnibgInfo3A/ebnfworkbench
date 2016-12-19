@@ -68,13 +68,13 @@ public interface EbnfLangPackage extends EPackage
   int EBNF_GRAMMAR = 0;
 
   /**
-   * The feature id for the '<em><b>Rules</b></em>' containment reference list.
+   * The feature id for the '<em><b>Lines</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EBNF_GRAMMAR__RULES = 0;
+  int EBNF_GRAMMAR__LINES = 0;
 
   /**
    * The number of structural features of the '<em>Ebnf Grammar</em>' class.
@@ -86,6 +86,25 @@ public interface EbnfLangPackage extends EPackage
   int EBNF_GRAMMAR_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link it.unibg.ebnfwb.lang.ebnfLang.impl.LineImpl <em>Line</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see it.unibg.ebnfwb.lang.ebnfLang.impl.LineImpl
+   * @see it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfLangPackageImpl#getLine()
+   * @generated
+   */
+  int LINE = 1;
+
+  /**
+   * The number of structural features of the '<em>Line</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LINE_FEATURE_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link it.unibg.ebnfwb.lang.ebnfLang.impl.ProductionRuleImpl <em>Production Rule</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -93,7 +112,7 @@ public interface EbnfLangPackage extends EPackage
    * @see it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfLangPackageImpl#getProductionRule()
    * @generated
    */
-  int PRODUCTION_RULE = 1;
+  int PRODUCTION_RULE = 2;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -102,7 +121,7 @@ public interface EbnfLangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRODUCTION_RULE__NAME = 0;
+  int PRODUCTION_RULE__NAME = LINE_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -111,7 +130,7 @@ public interface EbnfLangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRODUCTION_RULE__EXPR = 1;
+  int PRODUCTION_RULE__EXPR = LINE_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Production Rule</em>' class.
@@ -120,7 +139,7 @@ public interface EbnfLangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRODUCTION_RULE_FEATURE_COUNT = 2;
+  int PRODUCTION_RULE_FEATURE_COUNT = LINE_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link it.unibg.ebnfwb.lang.ebnfLang.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -130,7 +149,7 @@ public interface EbnfLangPackage extends EPackage
    * @see it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfLangPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 2;
+  int EXPRESSION = 3;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -149,7 +168,7 @@ public interface EbnfLangPackage extends EPackage
    * @see it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfLangPackageImpl#getExpression_Alternative()
    * @generated
    */
-  int EXPRESSION_ALTERNATIVE = 3;
+  int EXPRESSION_ALTERNATIVE = 4;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -177,7 +196,7 @@ public interface EbnfLangPackage extends EPackage
    * @see it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfLangPackageImpl#getExpression_Concatenation()
    * @generated
    */
-  int EXPRESSION_CONCATENATION = 4;
+  int EXPRESSION_CONCATENATION = 5;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -205,7 +224,7 @@ public interface EbnfLangPackage extends EPackage
    * @see it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfLangPackageImpl#getExpression_Exception()
    * @generated
    */
-  int EXPRESSION_EXCEPTION = 5;
+  int EXPRESSION_EXCEPTION = 6;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -242,7 +261,7 @@ public interface EbnfLangPackage extends EPackage
    * @see it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfLangPackageImpl#getExpression_Repetition()
    * @generated
    */
-  int EXPRESSION_REPETITION = 6;
+  int EXPRESSION_REPETITION = 7;
 
   /**
    * The feature id for the '<em><b>Repetitions</b></em>' attribute.
@@ -279,7 +298,7 @@ public interface EbnfLangPackage extends EPackage
    * @see it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfLangPackageImpl#getExpression_Rule_Reference()
    * @generated
    */
-  int EXPRESSION_RULE_REFERENCE = 7;
+  int EXPRESSION_RULE_REFERENCE = 8;
 
   /**
    * The feature id for the '<em><b>Rule</b></em>' reference.
@@ -307,7 +326,7 @@ public interface EbnfLangPackage extends EPackage
    * @see it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfLangPackageImpl#getExpression_Special_Sequence()
    * @generated
    */
-  int EXPRESSION_SPECIAL_SEQUENCE = 8;
+  int EXPRESSION_SPECIAL_SEQUENCE = 9;
 
   /**
    * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -335,7 +354,7 @@ public interface EbnfLangPackage extends EPackage
    * @see it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfLangPackageImpl#getExpression_Terminal_Symbol()
    * @generated
    */
-  int EXPRESSION_TERMINAL_SYMBOL = 9;
+  int EXPRESSION_TERMINAL_SYMBOL = 10;
 
   /**
    * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -363,7 +382,7 @@ public interface EbnfLangPackage extends EPackage
    * @see it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfLangPackageImpl#getExpression_Repetition_Group()
    * @generated
    */
-  int EXPRESSION_REPETITION_GROUP = 10;
+  int EXPRESSION_REPETITION_GROUP = 11;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -400,7 +419,7 @@ public interface EbnfLangPackage extends EPackage
    * @see it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfLangPackageImpl#getExpression_Optional_Group()
    * @generated
    */
-  int EXPRESSION_OPTIONAL_GROUP = 11;
+  int EXPRESSION_OPTIONAL_GROUP = 12;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -428,7 +447,7 @@ public interface EbnfLangPackage extends EPackage
    * @see it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfLangPackageImpl#getExpression_Group()
    * @generated
    */
-  int EXPRESSION_GROUP = 12;
+  int EXPRESSION_GROUP = 13;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -460,15 +479,25 @@ public interface EbnfLangPackage extends EPackage
   EClass getEbnfGrammar();
 
   /**
-   * Returns the meta object for the containment reference list '{@link it.unibg.ebnfwb.lang.ebnfLang.EbnfGrammar#getRules <em>Rules</em>}'.
+   * Returns the meta object for the containment reference list '{@link it.unibg.ebnfwb.lang.ebnfLang.EbnfGrammar#getLines <em>Lines</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Rules</em>'.
-   * @see it.unibg.ebnfwb.lang.ebnfLang.EbnfGrammar#getRules()
+   * @return the meta object for the containment reference list '<em>Lines</em>'.
+   * @see it.unibg.ebnfwb.lang.ebnfLang.EbnfGrammar#getLines()
    * @see #getEbnfGrammar()
    * @generated
    */
-  EReference getEbnfGrammar_Rules();
+  EReference getEbnfGrammar_Lines();
+
+  /**
+   * Returns the meta object for class '{@link it.unibg.ebnfwb.lang.ebnfLang.Line <em>Line</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Line</em>'.
+   * @see it.unibg.ebnfwb.lang.ebnfLang.Line
+   * @generated
+   */
+  EClass getLine();
 
   /**
    * Returns the meta object for class '{@link it.unibg.ebnfwb.lang.ebnfLang.ProductionRule <em>Production Rule</em>}'.
@@ -789,12 +818,22 @@ public interface EbnfLangPackage extends EPackage
     EClass EBNF_GRAMMAR = eINSTANCE.getEbnfGrammar();
 
     /**
-     * The meta object literal for the '<em><b>Rules</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Lines</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EBNF_GRAMMAR__RULES = eINSTANCE.getEbnfGrammar_Rules();
+    EReference EBNF_GRAMMAR__LINES = eINSTANCE.getEbnfGrammar_Lines();
+
+    /**
+     * The meta object literal for the '{@link it.unibg.ebnfwb.lang.ebnfLang.impl.LineImpl <em>Line</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see it.unibg.ebnfwb.lang.ebnfLang.impl.LineImpl
+     * @see it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfLangPackageImpl#getLine()
+     * @generated
+     */
+    EClass LINE = eINSTANCE.getLine();
 
     /**
      * The meta object literal for the '{@link it.unibg.ebnfwb.lang.ebnfLang.impl.ProductionRuleImpl <em>Production Rule</em>}' class.
