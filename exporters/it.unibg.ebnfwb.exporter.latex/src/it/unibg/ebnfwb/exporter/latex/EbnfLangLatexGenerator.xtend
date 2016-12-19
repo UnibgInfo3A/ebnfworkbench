@@ -8,6 +8,7 @@ import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
 import it.unibg.ebnfwb.lang.ebnfLang.EbnfGrammar
 import it.unibg.ebnfwb.lang.ebnfLang.ProductionRule
+import org.w3c.dom.Comment
 
 /**
  * Generates latex from your model files on save.
@@ -32,6 +33,11 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
 		}
 	}
 
+/*	Accedere ai commenti
+ * e«if (*****(value) instanceof Comment) {
+		
+	}»*/
+	
 	def compile(EbnfGrammar e) '''
 	\documentclass{article}
 	\usepackage{syntax}

@@ -35,6 +35,12 @@ public class EbnfLangLatexGenerator implements IGenerator {
     }
   }
   
+  /**
+   * Accedere ai commenti
+   * e«if (*****(value) instanceof Comment) {
+   * 
+   * }»
+   */
   public CharSequence compile(final EbnfGrammar e) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("\\documentclass{article}");
