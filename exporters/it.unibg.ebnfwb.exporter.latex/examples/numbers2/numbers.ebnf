@@ -1,0 +1,9 @@
+//#SECTION Esempio section
+
+sign = '+';
+
+//#SUBSECTION Esempio subsection
+digit = '0' | '1' | '2' | '3' | '4'| '5' | '6' | '7' | '8' | '9';
+
+//#PARAGRAPH Esempio paragraph
+integer = [sign], digit, {digit} ;
