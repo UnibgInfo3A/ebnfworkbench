@@ -7,7 +7,6 @@ import com.google.inject.Inject;
 import it.unibg.ebnfwb.lang.ebnfLang.EbnfGrammar;
 import it.unibg.ebnfwb.lang.ebnfLang.Line;
 import it.unibg.ebnfwb.lang.tests.EbnfLangInjectorProvider;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.XtextRunner;
@@ -37,9 +36,7 @@ public class EbnfLangParsingTest {
       _builder.newLine();
       final EbnfGrammar result = this.parseHelper.parse(_builder);
       Assert.assertNotNull(result);
-      EList<Line> _lines = result.getLines();
-      int _size = _lines.size();
-      System.out.println(_size);
+      System.out.println(result.getLines().size());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
@@ -53,12 +50,8 @@ public class EbnfLangParsingTest {
       _builder.newLine();
       final EbnfGrammar result = this.parseHelper.parse(_builder);
       Assert.assertNotNull(result);
-      EList<Line> _lines = result.getLines();
-      int _size = _lines.size();
-      System.out.println(_size);
-      EList<Line> _lines_1 = result.getLines();
-      Line _get = _lines_1.get(0);
-      InputOutput.<Line>println(_get);
+      System.out.println(result.getLines().size());
+      InputOutput.<Line>println(result.getLines().get(0));
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
@@ -76,13 +69,8 @@ public class EbnfLangParsingTest {
       _builder.newLine();
       final EbnfGrammar result = this.parseHelper.parse(_builder);
       Assert.assertNotNull(result);
-      EList<Line> _lines = result.getLines();
-      int _size = _lines.size();
-      System.out.println(_size);
-      EList<Line> _lines_1 = result.getLines();
-      Line _get = _lines_1.get(0);
-      String _string = _get.toString();
-      InputOutput.<String>println(_string);
+      System.out.println(result.getLines().size());
+      InputOutput.<String>println(result.getLines().get(0).toString());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

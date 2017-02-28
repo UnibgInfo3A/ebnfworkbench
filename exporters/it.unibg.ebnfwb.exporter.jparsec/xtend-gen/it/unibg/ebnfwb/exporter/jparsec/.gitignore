@@ -2,3 +2,6 @@
 /.GeneratorTestFiles.java._trace
 /.EbnfLangJParsecGenerator.java._trace
 /.EbnfLangLatexGenerator.java._trace
+/EbnfLangJParsecGenerator.java
+/GeneratorTest.java
+/GeneratorTestFiles.java

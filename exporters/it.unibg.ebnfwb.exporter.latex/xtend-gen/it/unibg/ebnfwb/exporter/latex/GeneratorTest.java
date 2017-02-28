@@ -5,7 +5,6 @@ import it.unibg.ebnfwb.exporter.latex.EbnfLangLatexGenerator;
 import it.unibg.ebnfwb.lang.ebnfLang.EbnfGrammar;
 import it.unibg.ebnfwb.lang.tests.EbnfLangInjectorProvider;
 import java.util.Map;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.InMemoryFileSystemAccess;
 import org.eclipse.xtext.junit4.InjectWith;
@@ -38,10 +37,8 @@ public class GeneratorTest {
       _builder.newLine();
       final EbnfGrammar grammar = this.parseHelper.parse(_builder);
       final InMemoryFileSystemAccess fsa = new InMemoryFileSystemAccess();
-      Resource _eResource = grammar.eResource();
-      this.underTest.doGenerate(_eResource, fsa);
-      Map<String, Object> _allFiles = fsa.getAllFiles();
-      InputOutput.<Map<String, Object>>println(_allFiles);
+      this.underTest.doGenerate(grammar.eResource(), fsa);
+      InputOutput.<Map<String, Object>>println(fsa.getAllFiles());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
@@ -59,10 +56,8 @@ public class GeneratorTest {
       _builder.newLine();
       final EbnfGrammar grammar = this.parseHelper.parse(_builder);
       final InMemoryFileSystemAccess fsa = new InMemoryFileSystemAccess();
-      Resource _eResource = grammar.eResource();
-      this.underTest.doGenerate(_eResource, fsa);
-      Map<String, Object> _allFiles = fsa.getAllFiles();
-      InputOutput.<Map<String, Object>>println(_allFiles);
+      this.underTest.doGenerate(grammar.eResource(), fsa);
+      InputOutput.<Map<String, Object>>println(fsa.getAllFiles());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

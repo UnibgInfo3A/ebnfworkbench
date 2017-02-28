@@ -13,6 +13,7 @@ import it.unibg.ebnfwb.lang.ebnfLang.Expression
 import java.io.File
 import it.unibg.ebnfwb.lang.services.EbnfLangGrammarAccess.Expression_AlternativeElements
 import it.unibg.ebnfwb.lang.ebnfLang.Line
+import it.unibg.ebnfwb.lang.ebnfLang.Expression_Alternative
 
 /**
  * Generates latex from your model files on save.
@@ -29,6 +30,9 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
 //				.filter(typeof(Greeting))
 //				.map[name]
 //				.join(', '))
+	
+	int i
+	
 	override doGenerate(Resource input, IFileSystemAccess fsa) {
 		for (e : input.allContents.toIterable.filter(EbnfGrammar)) {
 			fsa.generateFile(fileName.toFirstUpper + ".tex", e.compile)
@@ -59,20 +63,32 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
 
 	def compile(ProductionRule rule) '''
 	\begin{grammar}
-		«rule.name»
-		«rule.expr.compile»
+		«rule.name» =
+		«rule.expr.compile» ;
 	\end{grammar}
 	'''
-
-	def compile(Expression expr) '''
-		
-	'''
-
+	
+  	def compile (Expression expr) {
+  		
+  		if (expr instanceof Expression_Alternative)
+  		
+  		return '''
+  		
+  		 	«new ToString().doSwitch(expr)»
+  		
+  		'''		  }
+  		
+  		
+  
+	
 	// the document name (for the tex file)	
 	String fileName
+	
+	String expression
 
 	def setFileName(String pn) {
 		fileName = pn;
 	}
 
 }
+	
