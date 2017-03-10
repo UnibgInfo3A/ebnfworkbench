@@ -5,6 +5,7 @@ import it.unibg.ebnfwb.lang.ebnfLang.EbnfGrammar;
 import it.unibg.ebnfwb.lang.ebnfLang.Line;
 import it.unibg.ebnfwb.lang.ebnfLang.ProductionRule;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -22,23 +23,26 @@ import org.eclipse.xtext.xbase.lib.StringExtensions;
 public class EbnfLangJParsecGenerator implements IGenerator {
   @Override
   public void doGenerate(final Resource input, final IFileSystemAccess fsa) {
-    Iterable<EbnfGrammar> _filter = Iterables.<EbnfGrammar>filter(IteratorExtensions.<EObject>toIterable(input.getAllContents()), EbnfGrammar.class);
+    TreeIterator<EObject> _allContents = input.getAllContents();
+    Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_allContents);
+    Iterable<EbnfGrammar> _filter = Iterables.<EbnfGrammar>filter(_iterable, EbnfGrammar.class);
     for (final EbnfGrammar e : _filter) {
       String _firstUpper = StringExtensions.toFirstUpper(this.packageName);
       String _plus = (_firstUpper + ".java");
-      fsa.generateFile(_plus, this.compile(e));
+      CharSequence _compile = this.compile(e);
+      fsa.generateFile(_plus, _compile);
     }
   }
   
   public CharSequence compile(final EbnfGrammar e) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package ");
-    _builder.append(this.packageName);
+    _builder.append(this.packageName, "");
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.append("public class ");
     String _firstUpper = StringExtensions.toFirstUpper(this.packageName);
-    _builder.append(_firstUpper);
+    _builder.append(_firstUpper, "");
     _builder.append("{");
     _builder.newLineIfNotEmpty();
     {
@@ -66,7 +70,7 @@ public class EbnfLangJParsecGenerator implements IGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("// production rule ");
     String _name = rule.getName();
-    _builder.append(_name);
+    _builder.append(_name, "");
     _builder.append(" ");
     _builder.newLineIfNotEmpty();
     return _builder;

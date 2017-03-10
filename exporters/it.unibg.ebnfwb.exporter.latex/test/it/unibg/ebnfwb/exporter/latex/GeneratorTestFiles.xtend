@@ -48,7 +48,7 @@ class GeneratorTestFiles {
 	   
 	   @Test
     def void test2() {
-    	val pathfile = 'examples/ProgettoLinguaggi/'
+    	val pathfile = 'examples/PascalLikeLanguage/'
     	val fileebnf = 'esempio2'
 		val fis = new FileInputStream(pathfile+ fileebnf + '.ebnf');
 		val fc = fis.getChannel();

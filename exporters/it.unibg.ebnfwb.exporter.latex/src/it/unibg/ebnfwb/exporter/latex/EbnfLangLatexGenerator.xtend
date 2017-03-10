@@ -14,6 +14,15 @@ import java.io.File
 import it.unibg.ebnfwb.lang.services.EbnfLangGrammarAccess.Expression_AlternativeElements
 import it.unibg.ebnfwb.lang.ebnfLang.Line
 import it.unibg.ebnfwb.lang.ebnfLang.Expression_Alternative
+import it.unibg.ebnfwb.lang.ebnfLang.Expression_Concatenation
+import it.unibg.ebnfwb.lang.ebnfLang.Expression_Exception
+import it.unibg.ebnfwb.lang.ebnfLang.Expression_Group
+import it.unibg.ebnfwb.lang.ebnfLang.Expression_Optional_Group
+import it.unibg.ebnfwb.lang.ebnfLang.Expression_Repetition
+import it.unibg.ebnfwb.lang.ebnfLang.Expression_Repetition_Group
+import it.unibg.ebnfwb.lang.ebnfLang.Expression_Rule_Reference
+import it.unibg.ebnfwb.lang.ebnfLang.Expression_Special_Sequence
+import it.unibg.ebnfwb.lang.ebnfLang.Expression_Terminal_Symbol
 
 /**
  * Generates latex from your model files on save.
@@ -48,9 +57,11 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
 	\usepackage{syntax}
 	
 	\begin{document}
+	\begin{grammar}
     «FOR f:e.lines»
     	«f.compile»	
     «ENDFOR»    
+    \end{grammar}
 	\end{document}
 	'''
 
@@ -58,25 +69,113 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
     	if (line instanceof ProductionRule)
     		(line as ProductionRule).compile	
     	else
-    		println(line.toString())		
+    		println(new ToString().caseLine(line))		
 	}
 
-	def compile(ProductionRule rule) '''
-	\begin{grammar}
-		«rule.name» =
-		«rule.expr.compile» ;
-	\end{grammar}
+	def compile(ProductionRule rule) {
+		
+		var s = '<'+rule.name+'>' + ' ='+rule.expr.compile
+		
+		var r =s.replaceAll("[\r\n]+", "")
+		
 	'''
+	 «r»
+	'''
+	
+	}
 	
   	def compile (Expression expr) {
   		
   		if (expr instanceof Expression_Alternative)
   		
+  		
   		return '''
   		
   		 	«new ToString().doSwitch(expr)»
   		
-  		'''		  }
+  		'''		
+  		if (expr instanceof Expression_Concatenation) 
+  		
+  		return '''
+  		
+  		 	«new ToString().doSwitch(expr)»
+  		
+  		'''		
+  		
+  		if (expr instanceof Expression_Exception) 
+  		
+  		return '''
+  		
+  		 	«new ToString().doSwitch(expr)»
+  		
+  		'''		
+  		
+  		if (expr instanceof Expression_Group) 
+  		
+  		return '''
+  		
+  		 	«new ToString().doSwitch(expr)»
+  		
+  		'''		
+  		if (expr instanceof Expression_Optional_Group) 
+  		
+  		return '''
+  		
+  		 	«new ToString().doSwitch(expr)»
+  		
+  		'''		
+  		
+  		if (expr instanceof Expression_Repetition) 
+  		
+  		return '''
+  		
+  		 	«new ToString().doSwitch(expr)»
+  		
+  		'''		
+  		
+  		if (expr instanceof Expression_Repetition_Group) 
+  		
+  		return '''
+  		
+  		 	«new ToString().doSwitch(expr)»
+  		
+  		'''		
+  		
+  		if (expr instanceof Expression_Rule_Reference) 
+  		
+  		return '''
+  		
+  		 	«new ToString().doSwitch(expr)»
+  		
+  		'''		
+  		
+  		if (expr instanceof Expression_Special_Sequence) 
+  		
+  		return '''
+  		
+  		 	«new ToString().doSwitch(expr)»
+  		
+  		'''		
+  		
+  		if (expr instanceof Expression_Terminal_Symbol) 
+  		
+  		return '''
+  		
+  		 	«new ToString().doSwitch(expr)»
+  		
+  		'''		
+  		
+  		if (expr instanceof Expression_Terminal_Symbol) 
+  		
+  		return '''
+  		
+  		 	«new ToString().doSwitch(expr)»
+  		
+  		'''		
+  		
+  		
+  		 }
+  		 
   		
   		
   
@@ -84,7 +183,7 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
 	// the document name (for the tex file)	
 	String fileName
 	
-	String expression
+//	String expression
 
 	def setFileName(String pn) {
 		fileName = pn;

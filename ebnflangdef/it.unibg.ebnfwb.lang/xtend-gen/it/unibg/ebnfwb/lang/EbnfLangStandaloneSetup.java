@@ -11,6 +11,7 @@ import it.unibg.ebnfwb.lang.EbnfLangStandaloneSetupGenerated;
 @SuppressWarnings("all")
 public class EbnfLangStandaloneSetup extends EbnfLangStandaloneSetupGenerated {
   public static void doSetup() {
-    new EbnfLangStandaloneSetup().createInjectorAndDoEMFRegistration();
+    EbnfLangStandaloneSetup _ebnfLangStandaloneSetup = new EbnfLangStandaloneSetup();
+    _ebnfLangStandaloneSetup.createInjectorAndDoEMFRegistration();
   }
 }

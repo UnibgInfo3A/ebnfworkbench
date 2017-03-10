@@ -2,19 +2,9 @@
 \usepackage{syntax}
 
 \begin{document}
-    \begin{grammar}
-    	sign =
-    	 ;
-    \end{grammar}
-    \begin{grammar}
-    	digit =
-    	
-    	 	10null|null|null|null|null|null|null|null|null|
-    	
-    	 ;
-    \end{grammar}
-    \begin{grammar}
-    	integer =
-    	 ;
+\begin{grammar}
+    <sign> = 	'+'
+    <digit> = 	'0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9'
+    <integer> = 	[<sign>],<digit>,{<digit>}
     \end{grammar}
 \end{document}

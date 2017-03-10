@@ -6,7 +6,9 @@ import it.unibg.ebnfwb.lang.ebnfLang.EbnfGrammar;
 import it.unibg.ebnfwb.lang.tests.EbnfLangInjectorProvider;
 import java.io.FileReader;
 import java.nio.CharBuffer;
+import java.util.Map;
 import java.util.function.BiConsumer;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.InMemoryFileSystemAccess;
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.XtextRunner;
@@ -30,16 +32,19 @@ public class GeneratorTestFiles {
   public void test() {
     try {
       final CharBuffer target = CharBuffer.allocate(1000);
-      final int nread = new FileReader("examples/numbers/numbers.ebnf").read(target);
+      FileReader _fileReader = new FileReader("examples/numbers/numbers.ebnf");
+      final int nread = _fileReader.read(target);
       InputOutput.<CharBuffer>print(target);
       final EbnfGrammar grammar = this.parseHelper.parse(target);
       final InMemoryFileSystemAccess fsa = new InMemoryFileSystemAccess();
       this.underTest.setPackageName("numbers");
-      this.underTest.doGenerate(grammar.eResource(), fsa);
+      Resource _eResource = grammar.eResource();
+      this.underTest.doGenerate(_eResource, fsa);
+      Map<String, CharSequence> _textFiles = fsa.getTextFiles();
       final BiConsumer<String, CharSequence> _function = (String filename, CharSequence fileContent) -> {
         InputOutput.<String>println((("writing " + filename) + fileContent));
       };
-      fsa.getTextFiles().forEach(_function);
+      _textFiles.forEach(_function);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
