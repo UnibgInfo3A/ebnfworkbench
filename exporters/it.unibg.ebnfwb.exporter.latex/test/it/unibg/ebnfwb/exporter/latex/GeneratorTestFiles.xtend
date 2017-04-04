@@ -29,7 +29,7 @@ class GeneratorTestFiles {
     @Inject ParseHelper<EbnfGrammar> parseHelper 
      
     @Test
-    def void test() {
+   def void test() {
     	val fis = new FileInputStream('examples/numbers/numbers.ebnf');
 		val fc = fis.getChannel();
 		val bbuf = fc.map(FileChannel.MapMode.READ_ONLY, 0, fc.size());
@@ -45,25 +45,60 @@ class GeneratorTestFiles {
         	file.close
         ]
     }
-	   
-	   @Test
-    def void test2() {
-    	val pathfile = 'examples/PascalLikeLanguage/'
-    	val fileebnf = 'esempio2'
-		val fis = new FileInputStream(pathfile+ fileebnf + '.ebnf');
+    
+    @Test
+   def void test1() {
+    	val fis = new FileInputStream('examples/numbers2/numbers.ebnf');
 		val fc = fis.getChannel();
 		val bbuf = fc.map(FileChannel.MapMode.READ_ONLY, 0, fc.size());
 		val cbuf = Charset.forName("8859_1").newDecoder().decode(bbuf);
 		val EbnfGrammar grammar = parseHelper.parse(cbuf)
         val InMemoryFileSystemAccess fsa = new InMemoryFileSystemAccess()
-        underTest.fileName = fileebnf
+        underTest.fileName = "numbers"
         underTest.doGenerate(grammar.eResource, fsa)
         fsa.textFiles.forEach[filename, fileContent|
         	println("writing " + filename + fileContent)
-        	val file = new FileWriter(pathfile+filename)
+        	val file = new FileWriter('examples/numbers2/'+filename)
+        	file.write(fileContent.toString)
+        	file.close
+        ]
+    }
+
+    
+    
+    @Test
+    def void test2() {
+    	val fis = new FileInputStream('examples/UASMExample/UASM_ebnf_iso.ebnf');
+		val fc = fis.getChannel();
+		val bbuf = fc.map(FileChannel.MapMode.READ_ONLY, 0, fc.size());
+		val cbuf = Charset.forName("8859_1").newDecoder().decode(bbuf);
+		val EbnfGrammar grammar = parseHelper.parse(cbuf)
+        val InMemoryFileSystemAccess fsa = new InMemoryFileSystemAccess()
+        underTest.fileName = "UASM_ebnf_iso"
+        underTest.doGenerate(grammar.eResource, fsa)
+        fsa.textFiles.forEach[filename, fileContent|
+        	println("writing " + filename + fileContent)
+        	val file = new FileWriter('examples/UASMExample/'+filename)
         	file.write(fileContent.toString)
         	file.close
         ]
     }
       
+      @Test
+    def void test3() {
+    	val fis = new FileInputStream('examples/PascalLikeLanguage/esempio2.ebnf');
+		val fc = fis.getChannel();
+		val bbuf = fc.map(FileChannel.MapMode.READ_ONLY, 0, fc.size());
+		val cbuf = Charset.forName("8859_1").newDecoder().decode(bbuf);
+		val EbnfGrammar grammar = parseHelper.parse(cbuf)
+        val InMemoryFileSystemAccess fsa = new InMemoryFileSystemAccess()
+        underTest.fileName = "esempio2"
+        underTest.doGenerate(grammar.eResource, fsa)
+        fsa.textFiles.forEach[filename, fileContent|
+        	println("writing " + filename + fileContent)
+        	val file = new FileWriter('examples/PascalLikeLanguage/'+filename)
+        	file.write(fileContent.toString)
+        	file.close
+        ]
+    }
 }

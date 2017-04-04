@@ -22,6 +22,7 @@ public class ToString extends EbnfLangSwitch<String>{
 		// TODO Auto-generated constructor stub
 	}
 	
+	
 	@Override
 	public String caseExpression_Alternative(Expression_Alternative object) {
 		String s="";
@@ -66,7 +67,7 @@ public class ToString extends EbnfLangSwitch<String>{
 		
 		s = "(" + new ToString().doSwitch(object.getExpr())+ ")";
 		
-		return s.toString();
+		return s;
 		
 		
 	}
@@ -76,7 +77,7 @@ public class ToString extends EbnfLangSwitch<String>{
 		String s = "";
 		
 		s = "["+ new ToString().doSwitch(object.getExpr())+ "]";
-		return s.toString();
+		return s;
 		
 	}
 	
@@ -103,7 +104,7 @@ public class ToString extends EbnfLangSwitch<String>{
 	public String caseExpression_Rule_Reference(Expression_Rule_Reference object){
 		String s = "";
 		
-		s= "<" +object.getRule().getName()+">";
+		s= ""+object.getRule().getName()+"";
 		
 		return s;
 		
@@ -113,7 +114,7 @@ public class ToString extends EbnfLangSwitch<String>{
 	public String caseExpression_Special_Sequence(Expression_Special_Sequence object){
 		String s = "";
 		
-		s = object.getText();
+		s = object.getText().toString();
 		return s;
 		
 	}
@@ -122,8 +123,8 @@ public class ToString extends EbnfLangSwitch<String>{
 	public String caseExpression_Terminal_Symbol(Expression_Terminal_Symbol object){
 		String s = "";
 		s = object.getText().toString();
-		return s;
 		
+		return s;
 	}
 	
 	@Override
@@ -133,5 +134,5 @@ public class ToString extends EbnfLangSwitch<String>{
 		return s;
 	}
 	
-
+	
 }

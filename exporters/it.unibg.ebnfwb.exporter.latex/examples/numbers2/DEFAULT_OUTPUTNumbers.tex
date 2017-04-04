@@ -1,18 +1,28 @@
 \documentclass{article}
-\usepackage{syntax}
+\usepackage{color}
+\definecolor{isabelline}{rgb}{0.96, 0.94, 0.93}
+\pagecolor{isabelline}
+\usepackage[a4paper,top=2cm,bottom=2cm,left=1cm,right=1cm]{geometry}
+\usepackage{listings}
+\lstset{
+	basicstyle=\ttfamily,
+	columns=flexible,
+	breaklines=false,
+	extendedchars= true
+}
+
 
 \begin{document}
-\begin{grammar}
-
-    Size comm 0
-    	
-    	sign
-    Size comm 0
-    	
-    	digit
-    Size comm 0
-    	
-    	integer
+    \begin{lstlisting}[mathescape=true]
+     sign= 	'+';
+    \end{lstlisting}
     
-\end{grammar}
+    \begin{lstlisting}[mathescape=true]
+     digit= 	'0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9';
+    \end{lstlisting}
+    
+    \begin{lstlisting}[mathescape=true]
+     integer= 	[sign],digit,{digit};
+    \end{lstlisting}
+    
 \end{document}

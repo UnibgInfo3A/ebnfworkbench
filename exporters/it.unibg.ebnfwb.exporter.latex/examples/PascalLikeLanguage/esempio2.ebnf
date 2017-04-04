@@ -1,7 +1,7 @@
 //#(* a simple program syntax in EBNF − Wikipedia *)
- program = 'PROGRAM', white_space, identifier, white_space, 
-            'BEGIN', white_space, 
-            { assignment, ";", white_space }, 
+ program = 'PROGRAM', white_spac, identifier, white_spac, 
+            'BEGIN', white_spac, 
+            { assignment, ";", white_spac }, 
             'END.' ;
  identifier = alphabetic_character, { alphabetic_character | digit } ;
  number = [ "-" ], digit, { digit } ;
@@ -12,5 +12,5 @@
                       | "O" | "P" | "Q" | "R" | "S" | "T" | "U"
                       | "V" | "W" | "X" | "Y" | "Z" ;
  digit = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
- white_space = ? white_space_characters ? ;
+ white_spac = ? white_spac_characters ? ;
  all_characters = ? all_visible_characters ? ;

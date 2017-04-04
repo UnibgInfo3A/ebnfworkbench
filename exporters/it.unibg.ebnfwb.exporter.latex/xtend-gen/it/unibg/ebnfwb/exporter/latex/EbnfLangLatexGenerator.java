@@ -36,8 +36,6 @@ import org.eclipse.xtext.xbase.lib.StringExtensions;
  */
 @SuppressWarnings("all")
 public class EbnfLangLatexGenerator implements IGenerator {
-  private int i;
-  
   @Override
   public void doGenerate(final Resource input, final IFileSystemAccess fsa) {
     TreeIterator<EObject> _allContents = input.getAllContents();
@@ -53,20 +51,43 @@ public class EbnfLangLatexGenerator implements IGenerator {
   
   /**
    * Accedere ai commenti
-   * e�if (*****(value) instanceof Comment) {
+   * e«if (*****(value) instanceof Comment) {
    * 
-   * }�
+   * }»
    */
   public CharSequence compile(final EbnfGrammar e) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("\\documentclass{article}");
     _builder.newLine();
-    _builder.append("\\usepackage{syntax}");
+    _builder.append("\\usepackage{color}");
+    _builder.newLine();
+    _builder.append("\\definecolor{isabelline}{rgb}{0.96, 0.94, 0.93}");
+    _builder.newLine();
+    _builder.append("\\pagecolor{isabelline}");
+    _builder.newLine();
+    _builder.append("\\usepackage[a4paper,top=2cm,bottom=2cm,left=1cm,right=1cm]{geometry}");
+    _builder.newLine();
+    _builder.append("\\usepackage{listings}");
+    _builder.newLine();
+    _builder.append("\\lstset{");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("basicstyle=\\ttfamily,");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("columns=flexible,");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("breaklines=false,");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("extendedchars= true");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
     _builder.newLine();
     _builder.newLine();
     _builder.append("\\begin{document}");
-    _builder.newLine();
-    _builder.append("\\begin{grammar}");
     _builder.newLine();
     {
       EList<Line> _lines = e.getLines();
@@ -78,9 +99,6 @@ public class EbnfLangLatexGenerator implements IGenerator {
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("    ");
-    _builder.append("\\end{grammar}");
-    _builder.newLine();
     _builder.append("\\end{document}");
     _builder.newLine();
     return _builder;
@@ -101,17 +119,68 @@ public class EbnfLangLatexGenerator implements IGenerator {
   public CharSequence compile(final ProductionRule rule) {
     CharSequence _xblockexpression = null;
     {
-      String _name = rule.getName();
-      String _plus = ("<" + _name);
-      String _plus_1 = (_plus + ">");
-      String _plus_2 = (_plus_1 + " =");
       Expression _expr = rule.getExpr();
-      String _compile = this.compile(_expr);
-      String s = (_plus_2 + _compile);
-      String r = s.replaceAll("[\r\n]+", "");
+      String r = this.compile(_expr);
+      String s = "";
+      String sf = "";
+      String _replace = s.replace("\'", "´");
+      s = _replace;
+      String _replace_1 = s.replace("\'∧  (U+2227)\'", "$\\wedge$");
+      s = _replace_1;
+      String _replace_2 = s.replace("´âª  (U+222A)´", "$\\cap$");
+      s = _replace_2;
+      String _replace_3 = s.replace("´â©  (U+2229)´", "$\\cup$");
+      s = _replace_3;
+      String _replace_4 = s.replace("´\\  (U+2216)´", "$\\setminus$");
+      s = _replace_4;
+      String _replace_5 = s.replace("´=Â Â (U+2260)´", "$\\neq$");
+      s = _replace_5;
+      String _replace_6 = s.replace("´Â¬  (U+00AC)´", "$\\lnot$");
+      s = _replace_6;
+      String _replace_7 = s.replace("´â§  (U+2227)´", "$\\wedge$");
+      s = _replace_7;
+      String _replace_8 = s.replace("´â¨Â Â (U+2228)´", "$\\vee$");
+      s = _replace_8;
+      String _replace_9 = s.replace("´Â Â (U+22BB)´", "$\\oplus$");
+      s = _replace_9;
+      String _replace_10 = s.replace("´â  (U+2192)´", "$\\rightarrow$");
+      s = _replace_10;
+      String _replace_11 = s.replace("´â (U+2192)´", "$\\rightarrow$");
+      s = _replace_11;
+      String _replace_12 = s.replace("´âÂ Â (U+21D2)´", "$\\Rightarrow$");
+      s = _replace_12;
+      String _replace_13 = s.replace("´âÂ Â (U+2194)´", "$\\leftrightarrow$");
+      s = _replace_13;
+      String _replace_14 = s.replace("´â  (U+21D4)´", "$\\Leftrightarrow$");
+      s = _replace_14;
+      String _replace_15 = s.replace("´â¤Â (U+2264)´", "$\\leq$");
+      s = _replace_15;
+      String _replace_16 = s.replace("´â¥Â (U+2265)´", "$\\geq$");
+      s = _replace_16;
+      String _replace_17 = s.replace("´â´", "$\\in$");
+      s = _replace_17;
+      String _replace_18 = s.replace("´â´", "$\\notin$");
+      s = _replace_18;
+      String _replace_19 = s.replace("´â  (U+2282)´", "$\\subset$");
+      s = _replace_19;
+      String _replace_20 = s.replace("´â  (U+2286)´", "$\\subseteq$");
+      s = _replace_20;
+      String _name = rule.getName();
+      String _plus = (_name + "=");
+      String _plus_1 = (_plus + r);
+      String _plus_2 = (_plus_1 + ";");
+      s = _plus_2;
+      String _replaceAll = s.replaceAll("[\r\n]+", "");
+      sf = _replaceAll;
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append(r, "");
+      _builder.append("\\begin{lstlisting}[mathescape=true]");
+      _builder.newLine();
+      _builder.append(" ");
+      _builder.append(sf, " ");
       _builder.newLineIfNotEmpty();
+      _builder.append("\\end{lstlisting}");
+      _builder.newLine();
+      _builder.newLine();
       _xblockexpression = _builder;
     }
     return _xblockexpression;

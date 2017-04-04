@@ -67,11 +67,9 @@ public class GeneratorTestFiles {
   }
   
   @Test
-  public void test2() {
+  public void test1() {
     try {
-      final String pathfile = "examples/PascalLikeLanguage/";
-      final String fileebnf = "esempio2";
-      final FileInputStream fis = new FileInputStream(((pathfile + fileebnf) + ".ebnf"));
+      final FileInputStream fis = new FileInputStream("examples/numbers2/numbers.ebnf");
       final FileChannel fc = fis.getChannel();
       long _size = fc.size();
       final MappedByteBuffer bbuf = fc.map(FileChannel.MapMode.READ_ONLY, 0, _size);
@@ -80,14 +78,80 @@ public class GeneratorTestFiles {
       final CharBuffer cbuf = _newDecoder.decode(bbuf);
       final EbnfGrammar grammar = this.parseHelper.parse(cbuf);
       final InMemoryFileSystemAccess fsa = new InMemoryFileSystemAccess();
-      this.underTest.setFileName(fileebnf);
+      this.underTest.setFileName("numbers");
       Resource _eResource = grammar.eResource();
       this.underTest.doGenerate(_eResource, fsa);
       Map<String, CharSequence> _textFiles = fsa.getTextFiles();
       final BiConsumer<String, CharSequence> _function = (String filename, CharSequence fileContent) -> {
         try {
           InputOutput.<String>println((("writing " + filename) + fileContent));
-          final FileWriter file = new FileWriter((pathfile + filename));
+          final FileWriter file = new FileWriter(("examples/numbers2/" + filename));
+          String _string = fileContent.toString();
+          file.write(_string);
+          file.close();
+        } catch (Throwable _e) {
+          throw Exceptions.sneakyThrow(_e);
+        }
+      };
+      _textFiles.forEach(_function);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void test2() {
+    try {
+      final FileInputStream fis = new FileInputStream("examples/UASMExample/UASM_ebnf_iso.ebnf");
+      final FileChannel fc = fis.getChannel();
+      long _size = fc.size();
+      final MappedByteBuffer bbuf = fc.map(FileChannel.MapMode.READ_ONLY, 0, _size);
+      Charset _forName = Charset.forName("8859_1");
+      CharsetDecoder _newDecoder = _forName.newDecoder();
+      final CharBuffer cbuf = _newDecoder.decode(bbuf);
+      final EbnfGrammar grammar = this.parseHelper.parse(cbuf);
+      final InMemoryFileSystemAccess fsa = new InMemoryFileSystemAccess();
+      this.underTest.setFileName("UASM_ebnf_iso");
+      Resource _eResource = grammar.eResource();
+      this.underTest.doGenerate(_eResource, fsa);
+      Map<String, CharSequence> _textFiles = fsa.getTextFiles();
+      final BiConsumer<String, CharSequence> _function = (String filename, CharSequence fileContent) -> {
+        try {
+          InputOutput.<String>println((("writing " + filename) + fileContent));
+          final FileWriter file = new FileWriter(("examples/UASMExample/" + filename));
+          String _string = fileContent.toString();
+          file.write(_string);
+          file.close();
+        } catch (Throwable _e) {
+          throw Exceptions.sneakyThrow(_e);
+        }
+      };
+      _textFiles.forEach(_function);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void test3() {
+    try {
+      final FileInputStream fis = new FileInputStream("examples/PascalLikeLanguage/esempio2.ebnf");
+      final FileChannel fc = fis.getChannel();
+      long _size = fc.size();
+      final MappedByteBuffer bbuf = fc.map(FileChannel.MapMode.READ_ONLY, 0, _size);
+      Charset _forName = Charset.forName("8859_1");
+      CharsetDecoder _newDecoder = _forName.newDecoder();
+      final CharBuffer cbuf = _newDecoder.decode(bbuf);
+      final EbnfGrammar grammar = this.parseHelper.parse(cbuf);
+      final InMemoryFileSystemAccess fsa = new InMemoryFileSystemAccess();
+      this.underTest.setFileName("esempio2");
+      Resource _eResource = grammar.eResource();
+      this.underTest.doGenerate(_eResource, fsa);
+      Map<String, CharSequence> _textFiles = fsa.getTextFiles();
+      final BiConsumer<String, CharSequence> _function = (String filename, CharSequence fileContent) -> {
+        try {
+          InputOutput.<String>println((("writing " + filename) + fileContent));
+          final FileWriter file = new FileWriter(("examples/PascalLikeLanguage/" + filename));
           String _string = fileContent.toString();
           file.write(_string);
           file.close();

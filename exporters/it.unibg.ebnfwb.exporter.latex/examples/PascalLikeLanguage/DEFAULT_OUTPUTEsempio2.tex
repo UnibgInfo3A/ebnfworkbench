@@ -1,16 +1,52 @@
 \documentclass{article}
-\usepackage{syntax}
+\usepackage{color}
+\definecolor{isabelline}{rgb}{0.96, 0.94, 0.93}
+\pagecolor{isabelline}
+\usepackage[a4paper,top=2cm,bottom=2cm,left=1cm,right=1cm]{geometry}
+\usepackage{listings}
+\lstset{
+	basicstyle=\ttfamily,
+	columns=flexible,
+	breaklines=false,
+	extendedchars= true
+}
+
 
 \begin{document}
-\begin{grammar}
-    <program> = 	'PROGRAM',<white_space>,<identifier>,<white_space>,'BEGIN',<white_space>,{<assignment>,";",<white_space>},'END.'
-    <identifier> = 	<alphabetic_character>,{<alphabetic_character>|<digit>}
-    <number> = 	["-"],<digit>,{<digit>}
-    <string> = 	'"',{<all_characters>-'"'},'"'
-    <assignment> = 	<identifier>,":=",(<number>|<identifier>|<string>)
-    <alphabetic_character> = 	"A"|"B"|"C"|"D"|"E"|"F"|"G"|"H"|"I"|"J"|"K"|"L"|"M"|"N"|"O"|"P"|"Q"|"R"|"S"|"T"|"U"|"V"|"W"|"X"|"Y"|"Z"
-    <digit> = 	"0"|"1"|"2"|"3"|"4"|"5"|"6"|"7"|"8"|"9"
-    <white_space> = 	? white_space_characters ?
-    <all_characters> = 	? all_visible_characters ?
-    \end{grammar}
+    \begin{lstlisting}[mathescape=true]
+     program= 	'PROGRAM',white_spac,identifier,white_spac,'BEGIN',white_spac,{assignment,";",white_spac},'END.';
+    \end{lstlisting}
+    
+    \begin{lstlisting}[mathescape=true]
+     identifier= 	alphabetic_character,{alphabetic_character|digit};
+    \end{lstlisting}
+    
+    \begin{lstlisting}[mathescape=true]
+     number= 	["-"],digit,{digit};
+    \end{lstlisting}
+    
+    \begin{lstlisting}[mathescape=true]
+     string= 	'"',{all_characters-'"'},'"';
+    \end{lstlisting}
+    
+    \begin{lstlisting}[mathescape=true]
+     assignment= 	identifier,":=",(number|identifier|string);
+    \end{lstlisting}
+    
+    \begin{lstlisting}[mathescape=true]
+     alphabetic_character= 	"A"|"B"|"C"|"D"|"E"|"F"|"G"|"H"|"I"|"J"|"K"|"L"|"M"|"N"|"O"|"P"|"Q"|"R"|"S"|"T"|"U"|"V"|"W"|"X"|"Y"|"Z";
+    \end{lstlisting}
+    
+    \begin{lstlisting}[mathescape=true]
+     digit= 	"0"|"1"|"2"|"3"|"4"|"5"|"6"|"7"|"8"|"9";
+    \end{lstlisting}
+    
+    \begin{lstlisting}[mathescape=true]
+     white_spac= 	? white_spac_characters ?;
+    \end{lstlisting}
+    
+    \begin{lstlisting}[mathescape=true]
+     all_characters= 	? all_visible_characters ?;
+    \end{lstlisting}
+    
 \end{document}

@@ -4,7 +4,6 @@ import com.google.common.collect.Iterables;
 import it.unibg.ebnfwb.lang.ebnfLang.EbnfGrammar;
 import it.unibg.ebnfwb.lang.ebnfLang.Line;
 import it.unibg.ebnfwb.lang.ebnfLang.ProductionRule;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -36,24 +35,19 @@ public class EbnfLangJParsecGenerator implements IGenerator {
   
   public CharSequence compile(final EbnfGrammar e) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("package ");
-    _builder.append(this.packageName, "");
-    _builder.append(";");
-    _builder.newLineIfNotEmpty();
-    _builder.append("public class ");
-    String _firstUpper = StringExtensions.toFirstUpper(this.packageName);
-    _builder.append(_firstUpper, "");
-    _builder.append("{");
-    _builder.newLineIfNotEmpty();
-    {
-      EList<Line> _lines = e.getLines();
-      for(final Line f : _lines) {
-        _builder.append("\t        ");
-        CharSequence _compile = this.compile(f);
-        _builder.append(_compile, "\t        ");
-        _builder.newLineIfNotEmpty();
-      }
-    }
+    _builder.append("package �packageName�;");
+    _builder.newLine();
+    _builder.append("public class �packageName.toFirstUpper�{");
+    _builder.newLine();
+    _builder.append("\t        ");
+    _builder.append("�FOR f:e.lines�");
+    _builder.newLine();
+    _builder.append("\t            ");
+    _builder.append("�f.compile�");
+    _builder.newLine();
+    _builder.append("\t        ");
+    _builder.append("�ENDFOR�");
+    _builder.newLine();
     _builder.append("\t");
     _builder.newLine();
     _builder.append("}");
@@ -68,11 +62,8 @@ public class EbnfLangJParsecGenerator implements IGenerator {
   
   public CharSequence compile(final ProductionRule rule) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("// production rule ");
-    String _name = rule.getName();
-    _builder.append(_name, "");
-    _builder.append(" ");
-    _builder.newLineIfNotEmpty();
+    _builder.append("// production rule �rule.name� ");
+    _builder.newLine();
     return _builder;
   }
   

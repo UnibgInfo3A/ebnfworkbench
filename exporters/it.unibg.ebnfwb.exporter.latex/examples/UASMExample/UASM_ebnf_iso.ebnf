@@ -1,0 +1,466 @@
+// UASM Structure.
+
+Asm  =  ('asm'  |  'asmmodule'),   ID,   Header,   Body;
+
+// Header
+
+Header  =    {UseDirective},  {ImportDirective},  {ExportDirective};
+
+// UseDirective
+
+UseDirective = 'use', ID;
+
+//ImportDirective 
+
+ImportDirective = 'import', ID, [ '(', ( IdDomain | IdFunction | IdRule ), {',', ( IdDomain | IdFunction | IdRule )}, ')' ];
+
+//ExportDirective 
+
+ExportDirective = 'export', ID, ['(', ( IdDomain | IdFunction | IdRule ), {',', ( IdDomain | IdFunction | IdRule )}, ')' | '*'];
+
+// Body
+
+Body  = {Definition}, [('exec',  IdRule)];
+
+// Definition
+
+Definition  = TypeDefinition  |  FunctionDefinition  |  RuleDefinition;
+
+// Transition  Rules  Deﬁnition
+
+RuleDefinition  =  'rule', ID, [ParameterDefinition], '=', Rule;
+
+// Type of Rules
+
+Rule  =   ParBlock
+          | SeqBlock
+          | SeqNext
+          | CaseRule
+          | ChooseRule
+          | ConditionalRule
+          | ExtendRule
+          | ForAllRule
+          | ImportRule
+          | IterateRule
+          | LetRule
+          | TurboReturnRule
+          | WhileRule
+          | UpdateRule
+          | SkipRule
+          | CallRule
+          | LocalRule
+          | PrintRule;
+
+ParBlock =  ('par',  Rule,  'endpar')  |  ('{',  Rule ,  '}');
+
+SeqBlock =  ('seq',  Rule,  'endseq')  |  ('[',  Rule,  ']');
+
+SeqNext =  'seq', Rule,  ('next',  Rule  ), ['endseq'];
+
+CaseRule =  'case',  Term,  'of',  (  Term,  ':', Rule  ), [('otherwise',  Rule )], 'endcase';
+
+ChooseRule =  'choose',  VariableTerm , 'in',  EnumTerm, {( VariableTerm,  'in',  EnumTerm  )}, [('with',  Term  )],  'do',  Rule,  [('ifnone',  Rule  )] , ['endchoose'];
+
+ConditionalRule =  'if',  Term,  'then',  Rule,  [('else',  Rule  )],  'endif';
+
+SkipRule = 'skip';
+
+UpdateRule = LocationTerm,  ':=',  Term;
+
+ExtendRule =  'extend',  ExtendableDomain , 'with',  VariableTerm, {( VariableTerm  )},  [('as',  VariableTerm  )],  'do',  Rule, ['endextend'];
+
+ForAllRule =  'forall',  VariableTerm , 'in' , EnumTerm , {( VariableTerm , 'in',  EnumTerm  )},  [('with',  Term  )],  'do',  Rule, [('ifnone', Rule  )], ['endforall'];
+
+ImportRule = 'import', VariableTerm ,'do' ,Rule, ['endimport'];
+
+IterateRule = 'iterate', Rule, ['enditerate'];
+
+LetRule = 'let', VariableTerm , '=', Term, {(',', VariableTerm, '=,', Term)}, 'in', Rule, ['endlet'];
+
+TurboReturnRule = LocationTerm, ('<-' | '←'), CallRule;
+
+WhileRule = 'while', Term, 'do', Rule, ['endwhile'];
+
+CallRule = IdRule, [('(', Term , {(',' ,Term)}, ')' )];
+
+LocalRule = 'local', ID, [ParameterDefinition], [(('->' | '→'), Domain)], [( 'initially', InitialFunctionDefinition )],{(',', ID, [ParameterDefinition], [(('->' | '→'), Domain)], [('initially', InitialFunctionDefinition)])} ,'in', Rule, ['endlocal'];
+
+PrintRule = 'print', Term;
+
+// Type Definition
+
+TypeDefinition = DomainDefinition | EnumerateDefinition;
+
+// Domains
+
+Domain = StructuredDomain | BasicDomain | ExtendableDomain;
+
+// Structured domains
+
+StructuredDomain = 'SET', [('(Domain)')] | 'BAG', [('(Domain)')] | 'LIST', [('(Domain)')] | 'MAP', [('(Domain , Domain)')];
+
+ExtendableDomain = 'ANY' | 'AGENT' | IdDomain;
+
+BasicDomain = 'NUMBER' | 'INTEGER' | 'STRING' | 'CHAR' | 'BOOLEAN' | 'RULE';
+
+// Enumerative Domain Definition
+
+EnumerateDefinition = 'enum', ID, '=' ,'{', EnumTerm, {(',' , EnumTerm )}, '}';
+
+// Domain definition
+
+DomainDefinition = 'domain', ID, [('of', DomainParameterDefinition)], [(InitialDomainDefinition)];
+
+DomainParameterDefinition = Domain | ParameterDefinition;
+
+ParameterDefinition = '(', (ID, ('in' | '∈'), Domain | ID | Domain), {(',', (ID, ('in' | '∈'), Domain | ID | Domain))}, ')';
+
+// Initial Domain Definition
+
+InitialDomainDefinition = 'initially', '{', (TupleLiteral | Literal), {(',', (TupleLiteral | Literal))}, '}' ;
+
+TupleLiteral = '(', Literal, (',', Literal), ')' ;
+
+Literal =    NumberLiteral
+             | BooleanLiteral
+             | KernelLiteral
+             | StringLiteral
+             | CharLiteral
+             | EnumTerm;
+
+// Functions definition
+
+FunctionDefinition =   ControlledFunction
+                       | StaticFunction
+                       | DerivedFunction
+                       | MonitoredFunction
+                       | SharedFunction
+                       | OutFunction;
+
+// Controlled functions are read and written by the machine.
+
+ControlledFunction = 'controlled' | ('function'| ('controlled', ('function'))), IdFunction, [ParameterDefinition], [('->' | ('→') , Domain)], [('initially', InitialFunctionDefinition)];
+
+// Static functions do not change the value depending on the current state.
+
+StaticFunction = 'static', ['function'], IdFunction, [ParameterDefinition], [('->' | ('→'), Domain)], ('always', InitialFunctionDefinition);
+
+// Derived functions return value that depends on the current value of its inputs.
+
+DerivedFunction = 'derived', ['function'], IdFunction, [ParameterDefinition], [('->' | ('→'), Domain)], ('=', InitialFunctionDefinition);
+
+// Monitored functions are read by the machine and written by the environment.
+
+MonitoredFunction = 'monitored', ['function'], IdFunction, [ParameterDefinition], [('->' | ('→'), Domain)];
+
+// Shared functions are read and written by the machine and the environment.
+
+SharedFunction = 'shared', ['function'], IdFunction, [ParameterDefinition], [('->' | ('→'), Domain)], ('initially', InitialFunctionDefinition);
+
+// Out functions are read by the machine and written by the environment.
+
+OutFunction = 'out', ['function'], IdFunction, [ParameterDefinition], [('->' | ('→'), Domain)], ('initially', InitialFunctionDefinition);
+
+// Initial function definition
+
+InitialFunctionDefinition = ['from'], Term;
+
+// Terminals - Unicode   escapes
+
+UnicodeInputCharacter =  UnicodeEscape  |  RawInputCharacter;
+
+UnicodeEscape =  '\u',  HexDigit, HexDigit, HexDigit, HexDigit ;
+
+HexDigit =  '0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9'|'a'|'b'|'c'|'d'|'e'|'f'|'A'|'B'|'C'|'D'|'E'|'F';
+
+RawInputCharacter = ['Any Unicode Character'];
+
+// Line   Terminator
+
+LineTerminator =  '\u000A'  |  '\u000D'  |  '\u000A\u000D';
+
+// Whitespaces
+
+WhiteSpace =   '\u0020'
+               | '\u0009'
+               | '\u000C'
+               | LineTerminator;
+
+InputCharacter = UnicodeInputCharacter, 'but not', WhiteSpace;
+
+// Comments
+
+Comment = LineComment | BlockComment;
+
+LineComment =  ('--'  |  '//'), {InputCharacter};
+
+BlockComment =  ('{-', {InputCharacter }, '-}'  |  '/*', {InputCharacter}, '*/');
+
+// Identifiers
+
+Identifier = Letter, {( Letter | CurrencySymbol | PunctuationCharacter | Digit | NumericLetter | CombiningMark | NonSpacingMark | '′')};
+
+// Escape Sequences
+
+EscapeSequence =  '\b',  ('backspace BS, Unicode \u0008')
+                  | '\t',  ('horizontal tab HT, Unicode \u0009')
+                  | '\n',  ('linefeed LF, Unicode \u000a')
+                  | '\f',  ('form  feed FF, Unicode \u000c')
+                  | '\r',  ('carriage return CR, Unicode \u000d')
+                  | "\'",  ('double quote "", Unicode \u0022')
+                  | '\’',  ('single  quote  ’,  Unicode  \u0027')
+                  | '\\',  ('backslash \, Unicode \u005c');
+
+// Terms
+
+Term =	NumberTerm
+              |	StringTerm
+              |	BooleanTerm
+              |	EnumTerm
+              |	UndefLiteral
+              |	SelfLiteral
+              |	RuleAsTerm
+              |	ValueTerm
+              | StructureTerm;
+
+//Exp
+
+Exp = Term | Formula | '(', Exp, ')';
+
+// VarTerms, FunctionTerm, VariableTerm, LocationTerm
+
+VarTerm	= VariableTerm  |  LocationTerm;
+
+VariableTerm = Identifier;
+
+LocationTerm = FunctionTerm  |  'result';
+
+FunctionTerm = (Identifier, [( '(', Exp, ')' | TupleTerm )] );
+
+// NumberTerm
+
+NumberTerm = NumberLiteral | MathOperationTerm;
+
+MathOperationTerm =  MathOperand, ('+'| '-' | '*' | 'div' | '/' | 'mod' | '^'), MathOperand;
+
+MathOperand = NumberTerm | VarTermN;
+
+// StringTerm
+
+StringTerm = [StringLiteral | Exp, '+', Exp];
+
+// BooleanTerm
+
+BooleanTerm = BooleanLiteral | RelationalTerm | MemberofTerm | SubsetTerm;
+
+// RelationalTerm
+
+RelationalTerm = RelationOperand | RelationOperator | RelationOperand;
+
+RelationOperand = NumberTerm | StringTerm | VarTerm;
+
+RelationOperator =  '<'
+                     | '>'
+                     | '<='
+                     | '≤ (U+2264)'
+                     | '>='
+                     | '≥ (U+2265)';
+
+// MemberofTerm
+
+MemberofTerm = Exp, MembershipOperator, ( CollectionTerm | VarTermC );
+
+MembershipOperator = 'memberof' | '∈'  | '∉' ;
+
+// SubsetofTerm
+
+SubsetTerm = ( CollectionTerm | VarTermC ), 'subsetof', ( CollectionTerm  | VarTermC);
+
+SubsetOperator	=  'subsetof'  |  '⊂  (U+2282)'  |  'subseteqof'  |  '⊆  (U+2286)';
+
+// EnumTerm
+
+EnumTerm = Identifier;
+
+//RulesAsTerm
+
+RuleAsTerm = '@', Identifier;
+
+// Value Terms
+
+ValueTerm =   VarTerm
+              |	LetTerm
+              |	ReturnTerm
+              |	ConditionalTerm
+              |	CaseTerm
+              |	PickTerm
+              |	CardinalityTerm;
+
+// Let-Term
+
+LetTerm	= 'let', VariableTerm,	'=', Exp, {(',', VariableTerm, '=', Exp )}, 'in', Exp;
+
+// Return Term
+
+ReturnTerm = 'return', Exp, 'in', Rule;
+
+// Conditional Term
+
+ConditionalTerm = Formula, '?', Exp, ':', Exp, 'if', Formula, 'then', Exp, 'else', Exp;
+
+// Case Term
+
+CaseTerm = 'case', Exp, 'of', ( Exp, ':', Exp, ';' ), [( 'otherwise', Exp )], 'endcase';
+
+// Pick Term
+
+PickTerm = 'pick', VariableTerm, 'in', ( CollectionTerm | VarTerm ), [( 'with', Formula )];
+
+// Cardinality
+
+CardinalityTerm = '|', CollectionTerm, '|' ;
+
+// Structured Terms
+
+StructureTerm =     TupleTerm
+                  | CollectionTerm;
+
+// Tuples
+
+TupleTerm =     TupleDefTerm
+              | GetComponentTerm
+              |	SetComponentTerm;
+
+TupleDefTerm = '(', Exp, ',', Exp, {( ',', Exp )}, ')';
+
+GetComponentTerm = 'get', ExpT, 'at', ExpN;
+
+SetComponentTerm = 'set',  ExpT, 'at', ExpN, 'to', Exp;
+
+// Collections
+
+CollectionTerm =   Domain
+                   | SetTerm
+                   | BagTerm
+                   | ListTerm
+                   | MapTerm
+                   | PowersetTerm
+                   | ComprehensionTerm;
+
+SetTerm = '{', Exp, {(',', Exp )}, '}' | '{','}';
+
+BagTerm = '<', Exp, {(',', Exp )}, '>' | '<','>';
+
+ListTerm = '[', Exp, {(',', Exp )}, ']' | '[',']';
+
+MapTerm = '{', Exp, RightArrow, Exp, {(',', Exp, RightArrow, Exp )}, '}' | '{', RightArrow, '}';
+
+RightArrow = '->' | '→ (U+2192)';
+
+// Powerset
+
+PowersetTerm = 'powerset(', CollectionTerm, ')';
+
+// Comprehension   Terms
+
+ComprehensionTerm =    SetComprehensionTerm
+                      |  ListComprehensionTerm
+                      |  MapComprehensionTerm
+                      |  BagComprehensionTerm
+                      |  NumberRangeTerm;
+
+SetComprehensionTerm = '{', Exp, '|', VariableTerm, 'in', CollectionTerm, {(',', VariableTerm, 'in', CollectionTerm )}, [('with', Formula )], '}';
+
+ListComprehensionTerm = '[', Exp, '|', VariableTerm, 'in', CollectionTerm, {(',', VariableTerm, 'in', CollectionTerm )}, [('with', Formula )], ']';
+
+BagComprehensionTerm = '<', Exp, '|', VariableTerm, 'in', CollectionTerm, {(',', VariableTerm, 'in', CollectionTerm )}, [('with', Formula )], '>';
+
+MapComprehensionTerm = '{', Exp, '->', Exp, '|', VariableTerm, 'in', CollectionTerm, {(',', VariableTerm, 'in', CollectionTerm )}, [('with', Formula )], '}';
+
+NumberRangeTerm =      '[', ExpN, '..', ExpN, [('step', ExpN )], ']'
+                    |  '{', ExpN, '..', ExpN, [( 'step', ExpN )], '}';
+
+//Collection Operations
+
+CollectionOperationTerm = CollectionTerm,   CollectionOperator,   CollectionTerm;
+
+CollectionOperator =     'union'
+                        |  '∪  (U+222A)'
+                        |  'intersect'
+                        |  '∩  (U+2229)'
+                        |  'difference'
+                        |  '\  (U+2216)';
+
+// Formulas
+
+Formula =    Equation
+            |  Negation
+            |  LogicFormula
+            |  QuantifierFormula
+            |  BooleanTerm
+            |  VarTermB;
+
+// Equality  is  deﬁned  for  every  expression:
+
+Equation =  ( Exp,  EqualityOperator,  Exp );
+
+EqualityOperator = '!=' | '=  (U+2260)'  | '=';
+
+// Inequality  x  !=  y  is  an  abbreviation  for  not  (x  =  y).
+// Negation  and  logical  operators  are  only  deﬁned  for  formulas.
+
+Negation = ('not'  |  '¬  (U+00AC)'), Formula;
+
+LogicFormula = Formula,  LogicalOperator,  Formula;
+
+LogicalOperator =   'and'
+                    | '∧  (U+2227)'
+                    | 'or'
+                    | '∨  (U+2228)'
+                    | 'xor'
+                    |  '  (U+22BB)'
+                    | 'implies'
+                    | '→  (U+2192)'
+                    | '⇒  (U+21D2)'
+                    | 'iff'
+                    | '↔  (U+2194)'
+                    | '⇔  (U+21D4)';
+
+// Quantiﬁers  are  also  formulas.  These  deﬁnitions  have  to  be  distinguished  from
+// the  corresponding  rule  deﬁnitions.  While  the  rule  deﬁnitions  perform  rules
+// on  found  values,  the  terms  just  return  true  or  false.
+
+QuantifierFormula = ForAllFormula  |  ExistsFormula;
+
+ForAllFormula = 'forall',  VariableTerm,  'in',  CollectionTerm, {(',',  VariableTerm, 'in',  CollectionTerm )}, 'hold',  Formula;
+
+ExistsFormula = 'exists',  ['unique'], VariableTerm,  'in',  CollectionTerm,{(',',  VariableTerm,  'in',  CollectionTerm )}, 'with',  Formula;
+
+LowerCaseLetter = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u'
+					  | 'v' | 'w' | 'x' | 'y'| 'z';
+UpperCaseLetter =  'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I' | 'J' | 'K' | 'L' | 'M' | 'N' | 'O' | 'P' | 'Q' | 'R' | 'S' | 'T' | 'U'
+                       | 'V' | 'W' | 'X' | 'Y' | 'Z';
+                       
+DecDigit = '0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9';
+
+ID =  [[LowerCaseLetter],[UpperCaseLetter]],{[LowerCaseLetter],[UpperCaseLetter],[DecDigit]};
+
+IdRule = ID;
+
+IdFunction = ID;
+
+IdDomain = ID;
+
+BooleanLiteral = 'true' | 'false';
+
+KernelLiteral = UndefLiteral | SelfLiteral;
+
+StringLiteral = '"', {'^' | '"'}, '"';
+
+CharLiteral = "'", {'^' | "'"}, "'";
+
+UndefLiteral = 'undef';
+
+SelfLiteral = 'self';
+
+NumberLiteral = {[DecDigit]}, ['.',{[DecDigit]}], [('E'|'e'),( '+' | '-' ),{[DecDigit]}];

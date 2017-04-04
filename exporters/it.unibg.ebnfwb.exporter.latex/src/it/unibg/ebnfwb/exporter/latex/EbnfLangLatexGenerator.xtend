@@ -1,17 +1,11 @@
 package it.unibg.ebnfwb.exporter.latex
 
 import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.xtext.generator.AbstractGenerator
-import org.eclipse.xtext.generator.IFileSystemAccess2
-import org.eclipse.xtext.generator.IGeneratorContext
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
 import it.unibg.ebnfwb.lang.ebnfLang.EbnfGrammar
 import it.unibg.ebnfwb.lang.ebnfLang.ProductionRule
-import org.w3c.dom.Comment
 import it.unibg.ebnfwb.lang.ebnfLang.Expression
-import java.io.File
-import it.unibg.ebnfwb.lang.services.EbnfLangGrammarAccess.Expression_AlternativeElements
 import it.unibg.ebnfwb.lang.ebnfLang.Line
 import it.unibg.ebnfwb.lang.ebnfLang.Expression_Alternative
 import it.unibg.ebnfwb.lang.ebnfLang.Expression_Concatenation
@@ -40,7 +34,7 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
 //				.map[name]
 //				.join(', '))
 	
-	int i
+	
 	
 	override doGenerate(Resource input, IFileSystemAccess fsa) {
 		for (e : input.allContents.toIterable.filter(EbnfGrammar)) {
@@ -49,19 +43,28 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
 	}
 
 	/*	Accedere ai commenti
-	 * e�if (*****(value) instanceof Comment) {
+	 * e«if (*****(value) instanceof Comment) {
 	 * 		
-	 }�*/
+	 }»*/
 	def compile(EbnfGrammar e) '''
 	\documentclass{article}
-	\usepackage{syntax}
+	\usepackage{color}
+	\definecolor{isabelline}{rgb}{0.96, 0.94, 0.93}
+	\pagecolor{isabelline}
+	\usepackage[a4paper,top=2cm,bottom=2cm,left=1cm,right=1cm]{geometry}
+	\usepackage{listings}
+	\lstset{
+		basicstyle=\ttfamily,
+		columns=flexible,
+		breaklines=false,
+		extendedchars= true
+	}
+	
 	
 	\begin{document}
-	\begin{grammar}
-    �FOR f:e.lines�
-    	�f.compile�	
-    �ENDFOR�    
-    \end{grammar}
+    «FOR f:e.lines»
+    	«f.compile»	
+    «ENDFOR»    
 	\end{document}
 	'''
 
@@ -74,31 +77,76 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
 
 	def compile(ProductionRule rule) {
 		
-		var s = '<'+rule.name+'>' + ' ='+rule.expr.compile
-		
-		var r =s.replaceAll("[\r\n]+", "")
-		
+		var r = rule.expr.compile
+	   
+	    var s = ""
+	    var sf = ""
+	  
+	    s = s.replace("'" , "´");
+	    
+	    
+		s = s.replace("'∧  (U+2227)'","$\\wedge$");
+		s = s.replace("´âª  (U+222A)´","$\\cap$");
+  		s = s.replace("´â©  (U+2229)´","$\\cup$");
+	    s = s.replace("´\\  (U+2216)´","$\\setminus$");
+	    s = s.replace("´=Â Â (U+2260)´","$\\neq$");
+	    s = s.replace("´Â¬  (U+00AC)´","$\\lnot$");
+	    s = s.replace("´â§  (U+2227)´","$\\wedge$");
+	    s = s.replace("´â¨Â Â (U+2228)´","$\\vee$");
+	    s = s.replace("´Â Â (U+22BB)´","$\\oplus$");
+	    s = s.replace("´â  (U+2192)´","$\\rightarrow$");
+	    s = s.replace("´â (U+2192)´", "$\\rightarrow$");
+	    s = s.replace("´âÂ Â (U+21D2)´","$\\Rightarrow$");
+	    s = s.replace("´âÂ Â (U+2194)´","$\\leftrightarrow$");
+	    s = s.replace("´â  (U+21D4)´","$\\Leftrightarrow$");
+	    s = s.replace("´â¤Â (U+2264)´","$\\leq$");
+	    s = s.replace("´â¥Â (U+2265)´","$\\geq$");
+	    s = s.replace("´â´", "$\\in$");
+	    s = s.replace("´â´", "$\\notin$");
+	    s = s.replace("´â  (U+2282)´","$\\subset$");
+	    s = s.replace("´â  (U+2286)´","$\\subseteq$");
+	      
+	    s = rule.name+ '='+ r + ';'
+	    sf = s.replaceAll("[\r\n]+", "")
 	'''
-	 �r�
+	\begin{lstlisting}[mathescape=true]
+	 «sf»
+	\end{lstlisting}
+	
 	'''
+	//	}
+		//else{
+//		 s = rule.name+ '='+ r + ';'
+//		 q = s.replaceAll("[\r\n]+", "")
+//	'''
+//	\begin{lstlisting}
+//	 «q»
+//	\end{lstlisting}
+//	
+//	'''
+//		}
+		
+	
 	
 	}
 	
   	def compile (Expression expr) {
+  		
+  		
   		
   		if (expr instanceof Expression_Alternative)
   		
   		
   		return '''
   		
-  		 	�new ToString().doSwitch(expr)�
+  		 	«new ToString().doSwitch(expr)»
   		
   		'''		
   		if (expr instanceof Expression_Concatenation) 
   		
   		return '''
   		
-  		 	�new ToString().doSwitch(expr)�
+  		 	«new ToString().doSwitch(expr)»
   		
   		'''		
   		
@@ -106,7 +154,7 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
   		
   		return '''
   		
-  		 	�new ToString().doSwitch(expr)�
+  		 	«new ToString().doSwitch(expr)»
   		
   		'''		
   		
@@ -114,14 +162,14 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
   		
   		return '''
   		
-  		 	�new ToString().doSwitch(expr)�
+  		 	«new ToString().doSwitch(expr)»
   		
   		'''		
   		if (expr instanceof Expression_Optional_Group) 
   		
   		return '''
   		
-  		 	�new ToString().doSwitch(expr)�
+  		 	«new ToString().doSwitch(expr)»
   		
   		'''		
   		
@@ -129,7 +177,7 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
   		
   		return '''
   		
-  		 	�new ToString().doSwitch(expr)�
+  		 	«new ToString().doSwitch(expr)»
   		
   		'''		
   		
@@ -137,7 +185,7 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
   		
   		return '''
   		
-  		 	�new ToString().doSwitch(expr)�
+  		 	«new ToString().doSwitch(expr)»
   		
   		'''		
   		
@@ -145,7 +193,7 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
   		
   		return '''
   		
-  		 	�new ToString().doSwitch(expr)�
+  		 	«new ToString().doSwitch(expr)»
   		
   		'''		
   		
@@ -153,7 +201,7 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
   		
   		return '''
   		
-  		 	�new ToString().doSwitch(expr)�
+  		 	«new ToString().doSwitch(expr)»
   		
   		'''		
   		
@@ -161,7 +209,7 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
   		
   		return '''
   		
-  		 	�new ToString().doSwitch(expr)�
+  		 	«new ToString().doSwitch(expr)»
   		
   		'''		
   		
@@ -169,7 +217,7 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
   		
   		return '''
   		
-  		 	�new ToString().doSwitch(expr)�
+  		 	«new ToString().doSwitch(expr)»
   		
   		'''		
   		
