@@ -12,7 +12,11 @@ import it.unibg.ebnfwb.lang.ebnfLang.Expression_Special_Sequence;
 import it.unibg.ebnfwb.lang.ebnfLang.Expression_Terminal_Symbol;
 import it.unibg.ebnfwb.lang.ebnfLang.Line;
 import it.unibg.ebnfwb.lang.ebnfLang.ProductionRule;
+import it.unibg.ebnfwb.lang.ebnfLang.UserComment;
 import it.unibg.ebnfwb.lang.ebnfLang.util.EbnfLangSwitch;
+
+import java.util.ArrayList;
+
 import it.unibg.ebnfwb.lang.ebnfLang.Expression;
 
 public class ToString extends EbnfLangSwitch<String>{
@@ -124,6 +128,33 @@ public class ToString extends EbnfLangSwitch<String>{
 		String s = "";
 		s = object.getText().toString();
 		
+		return s;
+	}
+	
+	@Override
+	public String caseUserComment(UserComment object) {
+		String s = "";
+		s = object.getContentComment();
+		
+		//String[] specialCharList = {"{", "}", "&", "%", "$", "#", "^", "_", "~"};
+		ArrayList<String> specialCharList = new ArrayList<>();
+		specialCharList.add("{");
+		specialCharList.add("}");
+		specialCharList.add("&");
+		specialCharList.add("%");
+		specialCharList.add("$");
+		specialCharList.add("#");
+		specialCharList.add("^");
+		specialCharList.add("_");
+		specialCharList.add("~");
+		
+		//	{"{", "}", "&", "%", "$", "#", "^", "_", "~"};
+		for(int i = 0; i<specialCharList.size(); i++){
+			String special = specialCharList.get(i);
+			if(s.contains(special)){
+				s = s.replace(special,"\\"+special);
+			}
+		}
 		return s;
 	}
 	

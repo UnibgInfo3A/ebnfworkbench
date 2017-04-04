@@ -16,7 +16,8 @@ EbnfGrammar:
     {EbnfGrammar} // Enforce object creation
     lines+=Line*;
  
-Line:{Line} EBNF_COMMENT | ProductionRule;
+//Line:{Line} EBNF_COMMENT | ProductionRule;
+Line: CommentEBNF | ProductionRule;
  
 ProductionRule:{ProductionRule}
 	name=NAME '=' expr=Expression ';';
@@ -77,6 +78,10 @@ Expression_Optional_Group returns Expression:
 // Parts of an expression can be put in paranthesis to influence the parsing order
 Expression_Group returns Expression:
     {Expression_Group} '(' expr=Expression ')';
+
+//Comments 
+CommentEBNF returns UserComment:
+  contentComment = EBNF_COMMENT;
     
 // Comments in EBNF are placed within (* and *)
 terminal EBNF_COMMENT returns ecore::EString:

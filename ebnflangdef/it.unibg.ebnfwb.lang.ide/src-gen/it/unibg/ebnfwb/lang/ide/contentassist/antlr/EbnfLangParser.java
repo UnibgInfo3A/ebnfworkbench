@@ -39,7 +39,6 @@ public class EbnfLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getExpression_RepetitionAccess().getAlternatives(), "rule__Expression_Repetition__Alternatives");
 					put(grammarAccess.getExpression_TerminalAccess().getAlternatives(), "rule__Expression_Terminal__Alternatives");
 					put(grammarAccess.getEbnfGrammarAccess().getGroup(), "rule__EbnfGrammar__Group__0");
-					put(grammarAccess.getLineAccess().getGroup_0(), "rule__Line__Group_0__0");
 					put(grammarAccess.getProductionRuleAccess().getGroup(), "rule__ProductionRule__Group__0");
 					put(grammarAccess.getExpression_AlternativeAccess().getGroup(), "rule__Expression_Alternative__Group__0");
 					put(grammarAccess.getExpression_AlternativeAccess().getGroup_1(), "rule__Expression_Alternative__Group_1__0");
@@ -71,6 +70,7 @@ public class EbnfLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getExpression_Repetition_GroupAccess().getAtLeastOneAssignment_4(), "rule__Expression_Repetition_Group__AtLeastOneAssignment_4");
 					put(grammarAccess.getExpression_Optional_GroupAccess().getExprAssignment_2(), "rule__Expression_Optional_Group__ExprAssignment_2");
 					put(grammarAccess.getExpression_GroupAccess().getExprAssignment_2(), "rule__Expression_Group__ExprAssignment_2");
+					put(grammarAccess.getCommentEBNFAccess().getContentCommentAssignment(), "rule__CommentEBNF__ContentCommentAssignment");
 				}
 			};
 		}

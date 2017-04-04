@@ -19,6 +19,7 @@ import it.unibg.ebnfwb.lang.ebnfLang.Expression_Special_Sequence;
 import it.unibg.ebnfwb.lang.ebnfLang.Expression_Terminal_Symbol;
 import it.unibg.ebnfwb.lang.ebnfLang.Line;
 import it.unibg.ebnfwb.lang.ebnfLang.ProductionRule;
+import it.unibg.ebnfwb.lang.ebnfLang.UserComment;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -62,6 +63,13 @@ public class EbnfLangPackageImpl extends EPackageImpl implements EbnfLangPackage
    * @generated
    */
   private EClass expressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass userCommentEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -264,6 +272,26 @@ public class EbnfLangPackageImpl extends EPackageImpl implements EbnfLangPackage
   public EClass getExpression()
   {
     return expressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getUserComment()
+  {
+    return userCommentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUserComment_ContentComment()
+  {
+    return (EAttribute)userCommentEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -537,6 +565,9 @@ public class EbnfLangPackageImpl extends EPackageImpl implements EbnfLangPackage
 
     expressionEClass = createEClass(EXPRESSION);
 
+    userCommentEClass = createEClass(USER_COMMENT);
+    createEAttribute(userCommentEClass, USER_COMMENT__CONTENT_COMMENT);
+
     expression_AlternativeEClass = createEClass(EXPRESSION_ALTERNATIVE);
     createEReference(expression_AlternativeEClass, EXPRESSION_ALTERNATIVE__ELEMENTS);
 
@@ -601,6 +632,7 @@ public class EbnfLangPackageImpl extends EPackageImpl implements EbnfLangPackage
 
     // Add supertypes to classes
     productionRuleEClass.getESuperTypes().add(this.getLine());
+    userCommentEClass.getESuperTypes().add(this.getLine());
     expression_AlternativeEClass.getESuperTypes().add(this.getExpression());
     expression_ConcatenationEClass.getESuperTypes().add(this.getExpression());
     expression_ExceptionEClass.getESuperTypes().add(this.getExpression());
@@ -623,6 +655,9 @@ public class EbnfLangPackageImpl extends EPackageImpl implements EbnfLangPackage
     initEReference(getProductionRule_Expr(), this.getExpression(), null, "expr", null, 0, 1, ProductionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(userCommentEClass, UserComment.class, "UserComment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUserComment_ContentComment(), ecorePackage.getEString(), "contentComment", null, 0, 1, UserComment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expression_AlternativeEClass, Expression_Alternative.class, "Expression_Alternative", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExpression_Alternative_Elements(), this.getExpression(), null, "elements", null, 0, -1, Expression_Alternative.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -14,7 +14,7 @@
 
 \begin{document}
     \begin{lstlisting}[mathescape=true]
-     Asm= 	('asm'|'asmmodule'),ID,Header,Body;
+     Asm= 	(´asm´|´asmmodule´),ID,Header,Body;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -34,7 +34,7 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     Body= 	{Definition},[('exec',IdRule)];
+     Body= 	{Definition},[(´exec´,IdRule)];
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -50,11 +50,11 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     ParBlock= 	('par',Rule,'endpar')|('{',Rule,'}');
+     ParBlock= 	(´par´,Rule,´endpar´)|(´{´,Rule,´}´);
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     SeqBlock= 	('seq',Rule,'endseq')|('[',Rule,']');
+     SeqBlock= 	(´seq´,Rule,´endseq´)|(´[´,Rule,´]´);
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -78,7 +78,7 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     UpdateRule= 	LocationTerm,':=',Term;
+     UpdateRule= 	LocationTerm,´:=´,Term;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -110,7 +110,7 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     CallRule= 	IdRule,[('(',Term,{(',',Term)},')')];
+     CallRule= 	IdRule,[(´(´,Term,{(´,´,Term)},´)´)];
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -198,7 +198,7 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     InitialFunctionDefinition= 	['from'],Term;
+     InitialFunctionDefinition= 	[´from´],Term;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -214,7 +214,7 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     RawInputCharacter= 	['Any Unicode Character'];
+     RawInputCharacter= 	[´Any Unicode Character´];
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -234,11 +234,11 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     LineComment= 	('--'|'//'),{InputCharacter};
+     LineComment= 	(´--´|´//´),{InputCharacter};
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     BlockComment= 	('{-',{InputCharacter},'-}'|'/*',{InputCharacter},'*/');
+     BlockComment= 	(´{-´,{InputCharacter},´-}´|´/*´,{InputCharacter},´*/´);
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -254,7 +254,7 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     Exp= 	Term|Formula|'(',Exp,')';
+     Exp= 	Term|Formula|´(´,Exp,´)´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -266,7 +266,7 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     LocationTerm= 	FunctionTerm|'result';
+     LocationTerm= 	FunctionTerm|´result´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -278,7 +278,7 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     MathOperationTerm= 	MathOperand,('+'|'-'|'*'|'div'|'/'|'mod'|'^'),MathOperand;
+     MathOperationTerm= 	MathOperand,(´+´|´-´|´*´|´div´|´/´|´mod´|´^´),MathOperand;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -286,7 +286,7 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     StringTerm= 	[StringLiteral|Exp,'+',Exp];
+     StringTerm= 	[StringLiteral|Exp,´+´,Exp];
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -450,7 +450,7 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     Negation= 	('not'|'Â¬  (U+00AC)'),Formula;
+     Negation= 	(´not´|´Â¬  (U+00AC)´),Formula;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -514,7 +514,7 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     CharLiteral= 	"'",{'^'|"'"},"'";
+     CharLiteral= 	"´",{´^´|"´"},"´";
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]

@@ -1,4 +1,4 @@
-//#SECTION Esempio section
+(*SECTION Esempio section $ { abbba } *)
 
 sign = '+';
 

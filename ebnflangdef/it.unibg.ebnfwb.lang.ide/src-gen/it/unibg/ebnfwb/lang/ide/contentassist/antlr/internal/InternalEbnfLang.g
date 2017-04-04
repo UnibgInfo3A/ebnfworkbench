@@ -424,15 +424,40 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleCommentEBNF
+entryRuleCommentEBNF
+:
+{ before(grammarAccess.getCommentEBNFRule()); }
+	 ruleCommentEBNF
+{ after(grammarAccess.getCommentEBNFRule()); } 
+	 EOF 
+;
+
+// Rule CommentEBNF
+ruleCommentEBNF 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getCommentEBNFAccess().getContentCommentAssignment()); }
+		(rule__CommentEBNF__ContentCommentAssignment)
+		{ after(grammarAccess.getCommentEBNFAccess().getContentCommentAssignment()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__Line__Alternatives
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getLineAccess().getGroup_0()); }
-		(rule__Line__Group_0__0)
-		{ after(grammarAccess.getLineAccess().getGroup_0()); }
+		{ before(grammarAccess.getLineAccess().getCommentEBNFParserRuleCall_0()); }
+		ruleCommentEBNF
+		{ after(grammarAccess.getLineAccess().getCommentEBNFParserRuleCall_0()); }
 	)
 	|
 	(
@@ -558,60 +583,6 @@ rule__EbnfGrammar__Group__1__Impl
 	{ before(grammarAccess.getEbnfGrammarAccess().getLinesAssignment_1()); }
 	(rule__EbnfGrammar__LinesAssignment_1)*
 	{ after(grammarAccess.getEbnfGrammarAccess().getLinesAssignment_1()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__Line__Group_0__0
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__Line__Group_0__0__Impl
-	rule__Line__Group_0__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Line__Group_0__0__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getLineAccess().getLineAction_0_0()); }
-	()
-	{ after(grammarAccess.getLineAccess().getLineAction_0_0()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Line__Group_0__1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__Line__Group_0__1__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Line__Group_0__1__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getLineAccess().getEBNF_COMMENTTerminalRuleCall_0_1()); }
-	RULE_EBNF_COMMENT
-	{ after(grammarAccess.getLineAccess().getEBNF_COMMENTTerminalRuleCall_0_1()); }
 )
 ;
 finally {
@@ -2075,6 +2046,21 @@ rule__Expression_Group__ExprAssignment_2
 		{ before(grammarAccess.getExpression_GroupAccess().getExprExpressionParserRuleCall_2_0()); }
 		ruleExpression
 		{ after(grammarAccess.getExpression_GroupAccess().getExprExpressionParserRuleCall_2_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__CommentEBNF__ContentCommentAssignment
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getCommentEBNFAccess().getContentCommentEBNF_COMMENTTerminalRuleCall_0()); }
+		RULE_EBNF_COMMENT
+		{ after(grammarAccess.getCommentEBNFAccess().getContentCommentEBNF_COMMENTTerminalRuleCall_0()); }
 	)
 ;
 finally {

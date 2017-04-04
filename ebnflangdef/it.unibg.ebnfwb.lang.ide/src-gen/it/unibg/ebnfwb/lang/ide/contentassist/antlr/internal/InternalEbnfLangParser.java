@@ -22,23 +22,23 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalEbnfLangParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_EBNF_COMMENT", "RULE_NAME", "RULE_NUMBER", "RULE_SPECIAL_SEQUENCE", "RULE_TERMINAL_SYMBOL", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'='", "';'", "'|'", "','", "'-'", "'*'", "'{'", "'}'", "'['", "']'", "'('", "')'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NAME", "RULE_NUMBER", "RULE_SPECIAL_SEQUENCE", "RULE_TERMINAL_SYMBOL", "RULE_EBNF_COMMENT", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'='", "';'", "'|'", "','", "'-'", "'*'", "'{'", "'}'", "'['", "']'", "'('", "')'"
     };
-    public static final int RULE_TERMINAL_SYMBOL=8;
-    public static final int RULE_NAME=5;
+    public static final int RULE_TERMINAL_SYMBOL=7;
+    public static final int RULE_NAME=4;
     public static final int RULE_STRING=11;
     public static final int RULE_SL_COMMENT=13;
     public static final int T__19=19;
     public static final int T__16=16;
     public static final int T__17=17;
-    public static final int RULE_SPECIAL_SEQUENCE=7;
+    public static final int RULE_SPECIAL_SEQUENCE=6;
     public static final int T__18=18;
     public static final int EOF=-1;
     public static final int RULE_ID=9;
     public static final int RULE_WS=14;
-    public static final int RULE_EBNF_COMMENT=4;
+    public static final int RULE_EBNF_COMMENT=8;
     public static final int RULE_ANY_OTHER=15;
-    public static final int RULE_NUMBER=6;
+    public static final int RULE_NUMBER=5;
     public static final int T__26=26;
     public static final int T__27=27;
     public static final int RULE_INT=10;
@@ -1234,14 +1234,91 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "ruleExpression_Group"
 
 
+    // $ANTLR start "entryRuleCommentEBNF"
+    // InternalEbnfLang.g:428:1: entryRuleCommentEBNF : ruleCommentEBNF EOF ;
+    public final void entryRuleCommentEBNF() throws RecognitionException {
+        try {
+            // InternalEbnfLang.g:429:1: ( ruleCommentEBNF EOF )
+            // InternalEbnfLang.g:430:1: ruleCommentEBNF EOF
+            {
+             before(grammarAccess.getCommentEBNFRule()); 
+            pushFollow(FOLLOW_1);
+            ruleCommentEBNF();
+
+            state._fsp--;
+
+             after(grammarAccess.getCommentEBNFRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleCommentEBNF"
+
+
+    // $ANTLR start "ruleCommentEBNF"
+    // InternalEbnfLang.g:437:1: ruleCommentEBNF : ( ( rule__CommentEBNF__ContentCommentAssignment ) ) ;
+    public final void ruleCommentEBNF() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEbnfLang.g:441:2: ( ( ( rule__CommentEBNF__ContentCommentAssignment ) ) )
+            // InternalEbnfLang.g:442:2: ( ( rule__CommentEBNF__ContentCommentAssignment ) )
+            {
+            // InternalEbnfLang.g:442:2: ( ( rule__CommentEBNF__ContentCommentAssignment ) )
+            // InternalEbnfLang.g:443:3: ( rule__CommentEBNF__ContentCommentAssignment )
+            {
+             before(grammarAccess.getCommentEBNFAccess().getContentCommentAssignment()); 
+            // InternalEbnfLang.g:444:3: ( rule__CommentEBNF__ContentCommentAssignment )
+            // InternalEbnfLang.g:444:4: rule__CommentEBNF__ContentCommentAssignment
+            {
+            pushFollow(FOLLOW_2);
+            rule__CommentEBNF__ContentCommentAssignment();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getCommentEBNFAccess().getContentCommentAssignment()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleCommentEBNF"
+
+
     // $ANTLR start "rule__Line__Alternatives"
-    // InternalEbnfLang.g:427:1: rule__Line__Alternatives : ( ( ( rule__Line__Group_0__0 ) ) | ( ruleProductionRule ) );
+    // InternalEbnfLang.g:452:1: rule__Line__Alternatives : ( ( ruleCommentEBNF ) | ( ruleProductionRule ) );
     public final void rule__Line__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:431:1: ( ( ( rule__Line__Group_0__0 ) ) | ( ruleProductionRule ) )
+            // InternalEbnfLang.g:456:1: ( ( ruleCommentEBNF ) | ( ruleProductionRule ) )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -1259,24 +1336,18 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
             }
             switch (alt1) {
                 case 1 :
-                    // InternalEbnfLang.g:432:2: ( ( rule__Line__Group_0__0 ) )
+                    // InternalEbnfLang.g:457:2: ( ruleCommentEBNF )
                     {
-                    // InternalEbnfLang.g:432:2: ( ( rule__Line__Group_0__0 ) )
-                    // InternalEbnfLang.g:433:3: ( rule__Line__Group_0__0 )
+                    // InternalEbnfLang.g:457:2: ( ruleCommentEBNF )
+                    // InternalEbnfLang.g:458:3: ruleCommentEBNF
                     {
-                     before(grammarAccess.getLineAccess().getGroup_0()); 
-                    // InternalEbnfLang.g:434:3: ( rule__Line__Group_0__0 )
-                    // InternalEbnfLang.g:434:4: rule__Line__Group_0__0
-                    {
+                     before(grammarAccess.getLineAccess().getCommentEBNFParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
-                    rule__Line__Group_0__0();
+                    ruleCommentEBNF();
 
                     state._fsp--;
 
-
-                    }
-
-                     after(grammarAccess.getLineAccess().getGroup_0()); 
+                     after(grammarAccess.getLineAccess().getCommentEBNFParserRuleCall_0()); 
 
                     }
 
@@ -1284,10 +1355,10 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 2 :
-                    // InternalEbnfLang.g:438:2: ( ruleProductionRule )
+                    // InternalEbnfLang.g:463:2: ( ruleProductionRule )
                     {
-                    // InternalEbnfLang.g:438:2: ( ruleProductionRule )
-                    // InternalEbnfLang.g:439:3: ruleProductionRule
+                    // InternalEbnfLang.g:463:2: ( ruleProductionRule )
+                    // InternalEbnfLang.g:464:3: ruleProductionRule
                     {
                      before(grammarAccess.getLineAccess().getProductionRuleParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -1320,13 +1391,13 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Repetition__Alternatives"
-    // InternalEbnfLang.g:448:1: rule__Expression_Repetition__Alternatives : ( ( ruleExpression_Terminal ) | ( ( rule__Expression_Repetition__Group_1__0 ) ) );
+    // InternalEbnfLang.g:473:1: rule__Expression_Repetition__Alternatives : ( ( ruleExpression_Terminal ) | ( ( rule__Expression_Repetition__Group_1__0 ) ) );
     public final void rule__Expression_Repetition__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:452:1: ( ( ruleExpression_Terminal ) | ( ( rule__Expression_Repetition__Group_1__0 ) ) )
+            // InternalEbnfLang.g:477:1: ( ( ruleExpression_Terminal ) | ( ( rule__Expression_Repetition__Group_1__0 ) ) )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -1344,10 +1415,10 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
             }
             switch (alt2) {
                 case 1 :
-                    // InternalEbnfLang.g:453:2: ( ruleExpression_Terminal )
+                    // InternalEbnfLang.g:478:2: ( ruleExpression_Terminal )
                     {
-                    // InternalEbnfLang.g:453:2: ( ruleExpression_Terminal )
-                    // InternalEbnfLang.g:454:3: ruleExpression_Terminal
+                    // InternalEbnfLang.g:478:2: ( ruleExpression_Terminal )
+                    // InternalEbnfLang.g:479:3: ruleExpression_Terminal
                     {
                      before(grammarAccess.getExpression_RepetitionAccess().getExpression_TerminalParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -1363,14 +1434,14 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 2 :
-                    // InternalEbnfLang.g:459:2: ( ( rule__Expression_Repetition__Group_1__0 ) )
+                    // InternalEbnfLang.g:484:2: ( ( rule__Expression_Repetition__Group_1__0 ) )
                     {
-                    // InternalEbnfLang.g:459:2: ( ( rule__Expression_Repetition__Group_1__0 ) )
-                    // InternalEbnfLang.g:460:3: ( rule__Expression_Repetition__Group_1__0 )
+                    // InternalEbnfLang.g:484:2: ( ( rule__Expression_Repetition__Group_1__0 ) )
+                    // InternalEbnfLang.g:485:3: ( rule__Expression_Repetition__Group_1__0 )
                     {
                      before(grammarAccess.getExpression_RepetitionAccess().getGroup_1()); 
-                    // InternalEbnfLang.g:461:3: ( rule__Expression_Repetition__Group_1__0 )
-                    // InternalEbnfLang.g:461:4: rule__Expression_Repetition__Group_1__0
+                    // InternalEbnfLang.g:486:3: ( rule__Expression_Repetition__Group_1__0 )
+                    // InternalEbnfLang.g:486:4: rule__Expression_Repetition__Group_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Expression_Repetition__Group_1__0();
@@ -1405,13 +1476,13 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Terminal__Alternatives"
-    // InternalEbnfLang.g:469:1: rule__Expression_Terminal__Alternatives : ( ( ruleExpression_Rule_Reference ) | ( ruleExpression_Terminal_Symbol ) | ( ruleExpression_Repetition_Group ) | ( ruleExpression_Optional_Group ) | ( ruleExpression_Group ) | ( ruleExpression_Special_Sequence ) );
+    // InternalEbnfLang.g:494:1: rule__Expression_Terminal__Alternatives : ( ( ruleExpression_Rule_Reference ) | ( ruleExpression_Terminal_Symbol ) | ( ruleExpression_Repetition_Group ) | ( ruleExpression_Optional_Group ) | ( ruleExpression_Group ) | ( ruleExpression_Special_Sequence ) );
     public final void rule__Expression_Terminal__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:473:1: ( ( ruleExpression_Rule_Reference ) | ( ruleExpression_Terminal_Symbol ) | ( ruleExpression_Repetition_Group ) | ( ruleExpression_Optional_Group ) | ( ruleExpression_Group ) | ( ruleExpression_Special_Sequence ) )
+            // InternalEbnfLang.g:498:1: ( ( ruleExpression_Rule_Reference ) | ( ruleExpression_Terminal_Symbol ) | ( ruleExpression_Repetition_Group ) | ( ruleExpression_Optional_Group ) | ( ruleExpression_Group ) | ( ruleExpression_Special_Sequence ) )
             int alt3=6;
             switch ( input.LA(1) ) {
             case RULE_NAME:
@@ -1453,10 +1524,10 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
             switch (alt3) {
                 case 1 :
-                    // InternalEbnfLang.g:474:2: ( ruleExpression_Rule_Reference )
+                    // InternalEbnfLang.g:499:2: ( ruleExpression_Rule_Reference )
                     {
-                    // InternalEbnfLang.g:474:2: ( ruleExpression_Rule_Reference )
-                    // InternalEbnfLang.g:475:3: ruleExpression_Rule_Reference
+                    // InternalEbnfLang.g:499:2: ( ruleExpression_Rule_Reference )
+                    // InternalEbnfLang.g:500:3: ruleExpression_Rule_Reference
                     {
                      before(grammarAccess.getExpression_TerminalAccess().getExpression_Rule_ReferenceParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -1472,10 +1543,10 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 2 :
-                    // InternalEbnfLang.g:480:2: ( ruleExpression_Terminal_Symbol )
+                    // InternalEbnfLang.g:505:2: ( ruleExpression_Terminal_Symbol )
                     {
-                    // InternalEbnfLang.g:480:2: ( ruleExpression_Terminal_Symbol )
-                    // InternalEbnfLang.g:481:3: ruleExpression_Terminal_Symbol
+                    // InternalEbnfLang.g:505:2: ( ruleExpression_Terminal_Symbol )
+                    // InternalEbnfLang.g:506:3: ruleExpression_Terminal_Symbol
                     {
                      before(grammarAccess.getExpression_TerminalAccess().getExpression_Terminal_SymbolParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -1491,10 +1562,10 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 3 :
-                    // InternalEbnfLang.g:486:2: ( ruleExpression_Repetition_Group )
+                    // InternalEbnfLang.g:511:2: ( ruleExpression_Repetition_Group )
                     {
-                    // InternalEbnfLang.g:486:2: ( ruleExpression_Repetition_Group )
-                    // InternalEbnfLang.g:487:3: ruleExpression_Repetition_Group
+                    // InternalEbnfLang.g:511:2: ( ruleExpression_Repetition_Group )
+                    // InternalEbnfLang.g:512:3: ruleExpression_Repetition_Group
                     {
                      before(grammarAccess.getExpression_TerminalAccess().getExpression_Repetition_GroupParserRuleCall_2()); 
                     pushFollow(FOLLOW_2);
@@ -1510,10 +1581,10 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 4 :
-                    // InternalEbnfLang.g:492:2: ( ruleExpression_Optional_Group )
+                    // InternalEbnfLang.g:517:2: ( ruleExpression_Optional_Group )
                     {
-                    // InternalEbnfLang.g:492:2: ( ruleExpression_Optional_Group )
-                    // InternalEbnfLang.g:493:3: ruleExpression_Optional_Group
+                    // InternalEbnfLang.g:517:2: ( ruleExpression_Optional_Group )
+                    // InternalEbnfLang.g:518:3: ruleExpression_Optional_Group
                     {
                      before(grammarAccess.getExpression_TerminalAccess().getExpression_Optional_GroupParserRuleCall_3()); 
                     pushFollow(FOLLOW_2);
@@ -1529,10 +1600,10 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 5 :
-                    // InternalEbnfLang.g:498:2: ( ruleExpression_Group )
+                    // InternalEbnfLang.g:523:2: ( ruleExpression_Group )
                     {
-                    // InternalEbnfLang.g:498:2: ( ruleExpression_Group )
-                    // InternalEbnfLang.g:499:3: ruleExpression_Group
+                    // InternalEbnfLang.g:523:2: ( ruleExpression_Group )
+                    // InternalEbnfLang.g:524:3: ruleExpression_Group
                     {
                      before(grammarAccess.getExpression_TerminalAccess().getExpression_GroupParserRuleCall_4()); 
                     pushFollow(FOLLOW_2);
@@ -1548,10 +1619,10 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 6 :
-                    // InternalEbnfLang.g:504:2: ( ruleExpression_Special_Sequence )
+                    // InternalEbnfLang.g:529:2: ( ruleExpression_Special_Sequence )
                     {
-                    // InternalEbnfLang.g:504:2: ( ruleExpression_Special_Sequence )
-                    // InternalEbnfLang.g:505:3: ruleExpression_Special_Sequence
+                    // InternalEbnfLang.g:529:2: ( ruleExpression_Special_Sequence )
+                    // InternalEbnfLang.g:530:3: ruleExpression_Special_Sequence
                     {
                      before(grammarAccess.getExpression_TerminalAccess().getExpression_Special_SequenceParserRuleCall_5()); 
                     pushFollow(FOLLOW_2);
@@ -1584,14 +1655,14 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EbnfGrammar__Group__0"
-    // InternalEbnfLang.g:514:1: rule__EbnfGrammar__Group__0 : rule__EbnfGrammar__Group__0__Impl rule__EbnfGrammar__Group__1 ;
+    // InternalEbnfLang.g:539:1: rule__EbnfGrammar__Group__0 : rule__EbnfGrammar__Group__0__Impl rule__EbnfGrammar__Group__1 ;
     public final void rule__EbnfGrammar__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:518:1: ( rule__EbnfGrammar__Group__0__Impl rule__EbnfGrammar__Group__1 )
-            // InternalEbnfLang.g:519:2: rule__EbnfGrammar__Group__0__Impl rule__EbnfGrammar__Group__1
+            // InternalEbnfLang.g:543:1: ( rule__EbnfGrammar__Group__0__Impl rule__EbnfGrammar__Group__1 )
+            // InternalEbnfLang.g:544:2: rule__EbnfGrammar__Group__0__Impl rule__EbnfGrammar__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__EbnfGrammar__Group__0__Impl();
@@ -1622,21 +1693,21 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EbnfGrammar__Group__0__Impl"
-    // InternalEbnfLang.g:526:1: rule__EbnfGrammar__Group__0__Impl : ( () ) ;
+    // InternalEbnfLang.g:551:1: rule__EbnfGrammar__Group__0__Impl : ( () ) ;
     public final void rule__EbnfGrammar__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:530:1: ( ( () ) )
-            // InternalEbnfLang.g:531:1: ( () )
+            // InternalEbnfLang.g:555:1: ( ( () ) )
+            // InternalEbnfLang.g:556:1: ( () )
             {
-            // InternalEbnfLang.g:531:1: ( () )
-            // InternalEbnfLang.g:532:2: ()
+            // InternalEbnfLang.g:556:1: ( () )
+            // InternalEbnfLang.g:557:2: ()
             {
              before(grammarAccess.getEbnfGrammarAccess().getEbnfGrammarAction_0()); 
-            // InternalEbnfLang.g:533:2: ()
-            // InternalEbnfLang.g:533:3: 
+            // InternalEbnfLang.g:558:2: ()
+            // InternalEbnfLang.g:558:3: 
             {
             }
 
@@ -1659,14 +1730,14 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EbnfGrammar__Group__1"
-    // InternalEbnfLang.g:541:1: rule__EbnfGrammar__Group__1 : rule__EbnfGrammar__Group__1__Impl ;
+    // InternalEbnfLang.g:566:1: rule__EbnfGrammar__Group__1 : rule__EbnfGrammar__Group__1__Impl ;
     public final void rule__EbnfGrammar__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:545:1: ( rule__EbnfGrammar__Group__1__Impl )
-            // InternalEbnfLang.g:546:2: rule__EbnfGrammar__Group__1__Impl
+            // InternalEbnfLang.g:570:1: ( rule__EbnfGrammar__Group__1__Impl )
+            // InternalEbnfLang.g:571:2: rule__EbnfGrammar__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EbnfGrammar__Group__1__Impl();
@@ -1692,33 +1763,33 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EbnfGrammar__Group__1__Impl"
-    // InternalEbnfLang.g:552:1: rule__EbnfGrammar__Group__1__Impl : ( ( rule__EbnfGrammar__LinesAssignment_1 )* ) ;
+    // InternalEbnfLang.g:577:1: rule__EbnfGrammar__Group__1__Impl : ( ( rule__EbnfGrammar__LinesAssignment_1 )* ) ;
     public final void rule__EbnfGrammar__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:556:1: ( ( ( rule__EbnfGrammar__LinesAssignment_1 )* ) )
-            // InternalEbnfLang.g:557:1: ( ( rule__EbnfGrammar__LinesAssignment_1 )* )
+            // InternalEbnfLang.g:581:1: ( ( ( rule__EbnfGrammar__LinesAssignment_1 )* ) )
+            // InternalEbnfLang.g:582:1: ( ( rule__EbnfGrammar__LinesAssignment_1 )* )
             {
-            // InternalEbnfLang.g:557:1: ( ( rule__EbnfGrammar__LinesAssignment_1 )* )
-            // InternalEbnfLang.g:558:2: ( rule__EbnfGrammar__LinesAssignment_1 )*
+            // InternalEbnfLang.g:582:1: ( ( rule__EbnfGrammar__LinesAssignment_1 )* )
+            // InternalEbnfLang.g:583:2: ( rule__EbnfGrammar__LinesAssignment_1 )*
             {
              before(grammarAccess.getEbnfGrammarAccess().getLinesAssignment_1()); 
-            // InternalEbnfLang.g:559:2: ( rule__EbnfGrammar__LinesAssignment_1 )*
+            // InternalEbnfLang.g:584:2: ( rule__EbnfGrammar__LinesAssignment_1 )*
             loop4:
             do {
                 int alt4=2;
                 int LA4_0 = input.LA(1);
 
-                if ( ((LA4_0>=RULE_EBNF_COMMENT && LA4_0<=RULE_NAME)) ) {
+                if ( (LA4_0==RULE_NAME||LA4_0==RULE_EBNF_COMMENT) ) {
                     alt4=1;
                 }
 
 
                 switch (alt4) {
             	case 1 :
-            	    // InternalEbnfLang.g:559:3: rule__EbnfGrammar__LinesAssignment_1
+            	    // InternalEbnfLang.g:584:3: rule__EbnfGrammar__LinesAssignment_1
             	    {
             	    pushFollow(FOLLOW_4);
             	    rule__EbnfGrammar__LinesAssignment_1();
@@ -1756,160 +1827,15 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__EbnfGrammar__Group__1__Impl"
 
 
-    // $ANTLR start "rule__Line__Group_0__0"
-    // InternalEbnfLang.g:568:1: rule__Line__Group_0__0 : rule__Line__Group_0__0__Impl rule__Line__Group_0__1 ;
-    public final void rule__Line__Group_0__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalEbnfLang.g:572:1: ( rule__Line__Group_0__0__Impl rule__Line__Group_0__1 )
-            // InternalEbnfLang.g:573:2: rule__Line__Group_0__0__Impl rule__Line__Group_0__1
-            {
-            pushFollow(FOLLOW_5);
-            rule__Line__Group_0__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Line__Group_0__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Line__Group_0__0"
-
-
-    // $ANTLR start "rule__Line__Group_0__0__Impl"
-    // InternalEbnfLang.g:580:1: rule__Line__Group_0__0__Impl : ( () ) ;
-    public final void rule__Line__Group_0__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalEbnfLang.g:584:1: ( ( () ) )
-            // InternalEbnfLang.g:585:1: ( () )
-            {
-            // InternalEbnfLang.g:585:1: ( () )
-            // InternalEbnfLang.g:586:2: ()
-            {
-             before(grammarAccess.getLineAccess().getLineAction_0_0()); 
-            // InternalEbnfLang.g:587:2: ()
-            // InternalEbnfLang.g:587:3: 
-            {
-            }
-
-             after(grammarAccess.getLineAccess().getLineAction_0_0()); 
-
-            }
-
-
-            }
-
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Line__Group_0__0__Impl"
-
-
-    // $ANTLR start "rule__Line__Group_0__1"
-    // InternalEbnfLang.g:595:1: rule__Line__Group_0__1 : rule__Line__Group_0__1__Impl ;
-    public final void rule__Line__Group_0__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalEbnfLang.g:599:1: ( rule__Line__Group_0__1__Impl )
-            // InternalEbnfLang.g:600:2: rule__Line__Group_0__1__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Line__Group_0__1__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Line__Group_0__1"
-
-
-    // $ANTLR start "rule__Line__Group_0__1__Impl"
-    // InternalEbnfLang.g:606:1: rule__Line__Group_0__1__Impl : ( RULE_EBNF_COMMENT ) ;
-    public final void rule__Line__Group_0__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalEbnfLang.g:610:1: ( ( RULE_EBNF_COMMENT ) )
-            // InternalEbnfLang.g:611:1: ( RULE_EBNF_COMMENT )
-            {
-            // InternalEbnfLang.g:611:1: ( RULE_EBNF_COMMENT )
-            // InternalEbnfLang.g:612:2: RULE_EBNF_COMMENT
-            {
-             before(grammarAccess.getLineAccess().getEBNF_COMMENTTerminalRuleCall_0_1()); 
-            match(input,RULE_EBNF_COMMENT,FOLLOW_2); 
-             after(grammarAccess.getLineAccess().getEBNF_COMMENTTerminalRuleCall_0_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Line__Group_0__1__Impl"
-
-
     // $ANTLR start "rule__ProductionRule__Group__0"
-    // InternalEbnfLang.g:622:1: rule__ProductionRule__Group__0 : rule__ProductionRule__Group__0__Impl rule__ProductionRule__Group__1 ;
+    // InternalEbnfLang.g:593:1: rule__ProductionRule__Group__0 : rule__ProductionRule__Group__0__Impl rule__ProductionRule__Group__1 ;
     public final void rule__ProductionRule__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:626:1: ( rule__ProductionRule__Group__0__Impl rule__ProductionRule__Group__1 )
-            // InternalEbnfLang.g:627:2: rule__ProductionRule__Group__0__Impl rule__ProductionRule__Group__1
+            // InternalEbnfLang.g:597:1: ( rule__ProductionRule__Group__0__Impl rule__ProductionRule__Group__1 )
+            // InternalEbnfLang.g:598:2: rule__ProductionRule__Group__0__Impl rule__ProductionRule__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__ProductionRule__Group__0__Impl();
@@ -1940,21 +1866,21 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProductionRule__Group__0__Impl"
-    // InternalEbnfLang.g:634:1: rule__ProductionRule__Group__0__Impl : ( () ) ;
+    // InternalEbnfLang.g:605:1: rule__ProductionRule__Group__0__Impl : ( () ) ;
     public final void rule__ProductionRule__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:638:1: ( ( () ) )
-            // InternalEbnfLang.g:639:1: ( () )
+            // InternalEbnfLang.g:609:1: ( ( () ) )
+            // InternalEbnfLang.g:610:1: ( () )
             {
-            // InternalEbnfLang.g:639:1: ( () )
-            // InternalEbnfLang.g:640:2: ()
+            // InternalEbnfLang.g:610:1: ( () )
+            // InternalEbnfLang.g:611:2: ()
             {
              before(grammarAccess.getProductionRuleAccess().getProductionRuleAction_0()); 
-            // InternalEbnfLang.g:641:2: ()
-            // InternalEbnfLang.g:641:3: 
+            // InternalEbnfLang.g:612:2: ()
+            // InternalEbnfLang.g:612:3: 
             {
             }
 
@@ -1977,16 +1903,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProductionRule__Group__1"
-    // InternalEbnfLang.g:649:1: rule__ProductionRule__Group__1 : rule__ProductionRule__Group__1__Impl rule__ProductionRule__Group__2 ;
+    // InternalEbnfLang.g:620:1: rule__ProductionRule__Group__1 : rule__ProductionRule__Group__1__Impl rule__ProductionRule__Group__2 ;
     public final void rule__ProductionRule__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:653:1: ( rule__ProductionRule__Group__1__Impl rule__ProductionRule__Group__2 )
-            // InternalEbnfLang.g:654:2: rule__ProductionRule__Group__1__Impl rule__ProductionRule__Group__2
+            // InternalEbnfLang.g:624:1: ( rule__ProductionRule__Group__1__Impl rule__ProductionRule__Group__2 )
+            // InternalEbnfLang.g:625:2: rule__ProductionRule__Group__1__Impl rule__ProductionRule__Group__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__ProductionRule__Group__1__Impl();
 
             state._fsp--;
@@ -2015,21 +1941,21 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProductionRule__Group__1__Impl"
-    // InternalEbnfLang.g:661:1: rule__ProductionRule__Group__1__Impl : ( ( rule__ProductionRule__NameAssignment_1 ) ) ;
+    // InternalEbnfLang.g:632:1: rule__ProductionRule__Group__1__Impl : ( ( rule__ProductionRule__NameAssignment_1 ) ) ;
     public final void rule__ProductionRule__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:665:1: ( ( ( rule__ProductionRule__NameAssignment_1 ) ) )
-            // InternalEbnfLang.g:666:1: ( ( rule__ProductionRule__NameAssignment_1 ) )
+            // InternalEbnfLang.g:636:1: ( ( ( rule__ProductionRule__NameAssignment_1 ) ) )
+            // InternalEbnfLang.g:637:1: ( ( rule__ProductionRule__NameAssignment_1 ) )
             {
-            // InternalEbnfLang.g:666:1: ( ( rule__ProductionRule__NameAssignment_1 ) )
-            // InternalEbnfLang.g:667:2: ( rule__ProductionRule__NameAssignment_1 )
+            // InternalEbnfLang.g:637:1: ( ( rule__ProductionRule__NameAssignment_1 ) )
+            // InternalEbnfLang.g:638:2: ( rule__ProductionRule__NameAssignment_1 )
             {
              before(grammarAccess.getProductionRuleAccess().getNameAssignment_1()); 
-            // InternalEbnfLang.g:668:2: ( rule__ProductionRule__NameAssignment_1 )
-            // InternalEbnfLang.g:668:3: rule__ProductionRule__NameAssignment_1
+            // InternalEbnfLang.g:639:2: ( rule__ProductionRule__NameAssignment_1 )
+            // InternalEbnfLang.g:639:3: rule__ProductionRule__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__ProductionRule__NameAssignment_1();
@@ -2062,16 +1988,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProductionRule__Group__2"
-    // InternalEbnfLang.g:676:1: rule__ProductionRule__Group__2 : rule__ProductionRule__Group__2__Impl rule__ProductionRule__Group__3 ;
+    // InternalEbnfLang.g:647:1: rule__ProductionRule__Group__2 : rule__ProductionRule__Group__2__Impl rule__ProductionRule__Group__3 ;
     public final void rule__ProductionRule__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:680:1: ( rule__ProductionRule__Group__2__Impl rule__ProductionRule__Group__3 )
-            // InternalEbnfLang.g:681:2: rule__ProductionRule__Group__2__Impl rule__ProductionRule__Group__3
+            // InternalEbnfLang.g:651:1: ( rule__ProductionRule__Group__2__Impl rule__ProductionRule__Group__3 )
+            // InternalEbnfLang.g:652:2: rule__ProductionRule__Group__2__Impl rule__ProductionRule__Group__3
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_6);
             rule__ProductionRule__Group__2__Impl();
 
             state._fsp--;
@@ -2100,17 +2026,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProductionRule__Group__2__Impl"
-    // InternalEbnfLang.g:688:1: rule__ProductionRule__Group__2__Impl : ( '=' ) ;
+    // InternalEbnfLang.g:659:1: rule__ProductionRule__Group__2__Impl : ( '=' ) ;
     public final void rule__ProductionRule__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:692:1: ( ( '=' ) )
-            // InternalEbnfLang.g:693:1: ( '=' )
+            // InternalEbnfLang.g:663:1: ( ( '=' ) )
+            // InternalEbnfLang.g:664:1: ( '=' )
             {
-            // InternalEbnfLang.g:693:1: ( '=' )
-            // InternalEbnfLang.g:694:2: '='
+            // InternalEbnfLang.g:664:1: ( '=' )
+            // InternalEbnfLang.g:665:2: '='
             {
              before(grammarAccess.getProductionRuleAccess().getEqualsSignKeyword_2()); 
             match(input,16,FOLLOW_2); 
@@ -2137,16 +2063,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProductionRule__Group__3"
-    // InternalEbnfLang.g:703:1: rule__ProductionRule__Group__3 : rule__ProductionRule__Group__3__Impl rule__ProductionRule__Group__4 ;
+    // InternalEbnfLang.g:674:1: rule__ProductionRule__Group__3 : rule__ProductionRule__Group__3__Impl rule__ProductionRule__Group__4 ;
     public final void rule__ProductionRule__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:707:1: ( rule__ProductionRule__Group__3__Impl rule__ProductionRule__Group__4 )
-            // InternalEbnfLang.g:708:2: rule__ProductionRule__Group__3__Impl rule__ProductionRule__Group__4
+            // InternalEbnfLang.g:678:1: ( rule__ProductionRule__Group__3__Impl rule__ProductionRule__Group__4 )
+            // InternalEbnfLang.g:679:2: rule__ProductionRule__Group__3__Impl rule__ProductionRule__Group__4
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_7);
             rule__ProductionRule__Group__3__Impl();
 
             state._fsp--;
@@ -2175,21 +2101,21 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProductionRule__Group__3__Impl"
-    // InternalEbnfLang.g:715:1: rule__ProductionRule__Group__3__Impl : ( ( rule__ProductionRule__ExprAssignment_3 ) ) ;
+    // InternalEbnfLang.g:686:1: rule__ProductionRule__Group__3__Impl : ( ( rule__ProductionRule__ExprAssignment_3 ) ) ;
     public final void rule__ProductionRule__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:719:1: ( ( ( rule__ProductionRule__ExprAssignment_3 ) ) )
-            // InternalEbnfLang.g:720:1: ( ( rule__ProductionRule__ExprAssignment_3 ) )
+            // InternalEbnfLang.g:690:1: ( ( ( rule__ProductionRule__ExprAssignment_3 ) ) )
+            // InternalEbnfLang.g:691:1: ( ( rule__ProductionRule__ExprAssignment_3 ) )
             {
-            // InternalEbnfLang.g:720:1: ( ( rule__ProductionRule__ExprAssignment_3 ) )
-            // InternalEbnfLang.g:721:2: ( rule__ProductionRule__ExprAssignment_3 )
+            // InternalEbnfLang.g:691:1: ( ( rule__ProductionRule__ExprAssignment_3 ) )
+            // InternalEbnfLang.g:692:2: ( rule__ProductionRule__ExprAssignment_3 )
             {
              before(grammarAccess.getProductionRuleAccess().getExprAssignment_3()); 
-            // InternalEbnfLang.g:722:2: ( rule__ProductionRule__ExprAssignment_3 )
-            // InternalEbnfLang.g:722:3: rule__ProductionRule__ExprAssignment_3
+            // InternalEbnfLang.g:693:2: ( rule__ProductionRule__ExprAssignment_3 )
+            // InternalEbnfLang.g:693:3: rule__ProductionRule__ExprAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__ProductionRule__ExprAssignment_3();
@@ -2222,14 +2148,14 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProductionRule__Group__4"
-    // InternalEbnfLang.g:730:1: rule__ProductionRule__Group__4 : rule__ProductionRule__Group__4__Impl ;
+    // InternalEbnfLang.g:701:1: rule__ProductionRule__Group__4 : rule__ProductionRule__Group__4__Impl ;
     public final void rule__ProductionRule__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:734:1: ( rule__ProductionRule__Group__4__Impl )
-            // InternalEbnfLang.g:735:2: rule__ProductionRule__Group__4__Impl
+            // InternalEbnfLang.g:705:1: ( rule__ProductionRule__Group__4__Impl )
+            // InternalEbnfLang.g:706:2: rule__ProductionRule__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ProductionRule__Group__4__Impl();
@@ -2255,17 +2181,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProductionRule__Group__4__Impl"
-    // InternalEbnfLang.g:741:1: rule__ProductionRule__Group__4__Impl : ( ';' ) ;
+    // InternalEbnfLang.g:712:1: rule__ProductionRule__Group__4__Impl : ( ';' ) ;
     public final void rule__ProductionRule__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:745:1: ( ( ';' ) )
-            // InternalEbnfLang.g:746:1: ( ';' )
+            // InternalEbnfLang.g:716:1: ( ( ';' ) )
+            // InternalEbnfLang.g:717:1: ( ';' )
             {
-            // InternalEbnfLang.g:746:1: ( ';' )
-            // InternalEbnfLang.g:747:2: ';'
+            // InternalEbnfLang.g:717:1: ( ';' )
+            // InternalEbnfLang.g:718:2: ';'
             {
              before(grammarAccess.getProductionRuleAccess().getSemicolonKeyword_4()); 
             match(input,17,FOLLOW_2); 
@@ -2292,16 +2218,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Alternative__Group__0"
-    // InternalEbnfLang.g:757:1: rule__Expression_Alternative__Group__0 : rule__Expression_Alternative__Group__0__Impl rule__Expression_Alternative__Group__1 ;
+    // InternalEbnfLang.g:728:1: rule__Expression_Alternative__Group__0 : rule__Expression_Alternative__Group__0__Impl rule__Expression_Alternative__Group__1 ;
     public final void rule__Expression_Alternative__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:761:1: ( rule__Expression_Alternative__Group__0__Impl rule__Expression_Alternative__Group__1 )
-            // InternalEbnfLang.g:762:2: rule__Expression_Alternative__Group__0__Impl rule__Expression_Alternative__Group__1
+            // InternalEbnfLang.g:732:1: ( rule__Expression_Alternative__Group__0__Impl rule__Expression_Alternative__Group__1 )
+            // InternalEbnfLang.g:733:2: rule__Expression_Alternative__Group__0__Impl rule__Expression_Alternative__Group__1
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_8);
             rule__Expression_Alternative__Group__0__Impl();
 
             state._fsp--;
@@ -2330,17 +2256,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Alternative__Group__0__Impl"
-    // InternalEbnfLang.g:769:1: rule__Expression_Alternative__Group__0__Impl : ( ruleExpression_Concatenation ) ;
+    // InternalEbnfLang.g:740:1: rule__Expression_Alternative__Group__0__Impl : ( ruleExpression_Concatenation ) ;
     public final void rule__Expression_Alternative__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:773:1: ( ( ruleExpression_Concatenation ) )
-            // InternalEbnfLang.g:774:1: ( ruleExpression_Concatenation )
+            // InternalEbnfLang.g:744:1: ( ( ruleExpression_Concatenation ) )
+            // InternalEbnfLang.g:745:1: ( ruleExpression_Concatenation )
             {
-            // InternalEbnfLang.g:774:1: ( ruleExpression_Concatenation )
-            // InternalEbnfLang.g:775:2: ruleExpression_Concatenation
+            // InternalEbnfLang.g:745:1: ( ruleExpression_Concatenation )
+            // InternalEbnfLang.g:746:2: ruleExpression_Concatenation
             {
              before(grammarAccess.getExpression_AlternativeAccess().getExpression_ConcatenationParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -2371,14 +2297,14 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Alternative__Group__1"
-    // InternalEbnfLang.g:784:1: rule__Expression_Alternative__Group__1 : rule__Expression_Alternative__Group__1__Impl ;
+    // InternalEbnfLang.g:755:1: rule__Expression_Alternative__Group__1 : rule__Expression_Alternative__Group__1__Impl ;
     public final void rule__Expression_Alternative__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:788:1: ( rule__Expression_Alternative__Group__1__Impl )
-            // InternalEbnfLang.g:789:2: rule__Expression_Alternative__Group__1__Impl
+            // InternalEbnfLang.g:759:1: ( rule__Expression_Alternative__Group__1__Impl )
+            // InternalEbnfLang.g:760:2: rule__Expression_Alternative__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Expression_Alternative__Group__1__Impl();
@@ -2404,20 +2330,20 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Alternative__Group__1__Impl"
-    // InternalEbnfLang.g:795:1: rule__Expression_Alternative__Group__1__Impl : ( ( rule__Expression_Alternative__Group_1__0 )? ) ;
+    // InternalEbnfLang.g:766:1: rule__Expression_Alternative__Group__1__Impl : ( ( rule__Expression_Alternative__Group_1__0 )? ) ;
     public final void rule__Expression_Alternative__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:799:1: ( ( ( rule__Expression_Alternative__Group_1__0 )? ) )
-            // InternalEbnfLang.g:800:1: ( ( rule__Expression_Alternative__Group_1__0 )? )
+            // InternalEbnfLang.g:770:1: ( ( ( rule__Expression_Alternative__Group_1__0 )? ) )
+            // InternalEbnfLang.g:771:1: ( ( rule__Expression_Alternative__Group_1__0 )? )
             {
-            // InternalEbnfLang.g:800:1: ( ( rule__Expression_Alternative__Group_1__0 )? )
-            // InternalEbnfLang.g:801:2: ( rule__Expression_Alternative__Group_1__0 )?
+            // InternalEbnfLang.g:771:1: ( ( rule__Expression_Alternative__Group_1__0 )? )
+            // InternalEbnfLang.g:772:2: ( rule__Expression_Alternative__Group_1__0 )?
             {
              before(grammarAccess.getExpression_AlternativeAccess().getGroup_1()); 
-            // InternalEbnfLang.g:802:2: ( rule__Expression_Alternative__Group_1__0 )?
+            // InternalEbnfLang.g:773:2: ( rule__Expression_Alternative__Group_1__0 )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -2426,7 +2352,7 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
             }
             switch (alt5) {
                 case 1 :
-                    // InternalEbnfLang.g:802:3: rule__Expression_Alternative__Group_1__0
+                    // InternalEbnfLang.g:773:3: rule__Expression_Alternative__Group_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Expression_Alternative__Group_1__0();
@@ -2462,16 +2388,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Alternative__Group_1__0"
-    // InternalEbnfLang.g:811:1: rule__Expression_Alternative__Group_1__0 : rule__Expression_Alternative__Group_1__0__Impl rule__Expression_Alternative__Group_1__1 ;
+    // InternalEbnfLang.g:782:1: rule__Expression_Alternative__Group_1__0 : rule__Expression_Alternative__Group_1__0__Impl rule__Expression_Alternative__Group_1__1 ;
     public final void rule__Expression_Alternative__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:815:1: ( rule__Expression_Alternative__Group_1__0__Impl rule__Expression_Alternative__Group_1__1 )
-            // InternalEbnfLang.g:816:2: rule__Expression_Alternative__Group_1__0__Impl rule__Expression_Alternative__Group_1__1
+            // InternalEbnfLang.g:786:1: ( rule__Expression_Alternative__Group_1__0__Impl rule__Expression_Alternative__Group_1__1 )
+            // InternalEbnfLang.g:787:2: rule__Expression_Alternative__Group_1__0__Impl rule__Expression_Alternative__Group_1__1
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_8);
             rule__Expression_Alternative__Group_1__0__Impl();
 
             state._fsp--;
@@ -2500,21 +2426,21 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Alternative__Group_1__0__Impl"
-    // InternalEbnfLang.g:823:1: rule__Expression_Alternative__Group_1__0__Impl : ( () ) ;
+    // InternalEbnfLang.g:794:1: rule__Expression_Alternative__Group_1__0__Impl : ( () ) ;
     public final void rule__Expression_Alternative__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:827:1: ( ( () ) )
-            // InternalEbnfLang.g:828:1: ( () )
+            // InternalEbnfLang.g:798:1: ( ( () ) )
+            // InternalEbnfLang.g:799:1: ( () )
             {
-            // InternalEbnfLang.g:828:1: ( () )
-            // InternalEbnfLang.g:829:2: ()
+            // InternalEbnfLang.g:799:1: ( () )
+            // InternalEbnfLang.g:800:2: ()
             {
              before(grammarAccess.getExpression_AlternativeAccess().getExpression_AlternativeElementsAction_1_0()); 
-            // InternalEbnfLang.g:830:2: ()
-            // InternalEbnfLang.g:830:3: 
+            // InternalEbnfLang.g:801:2: ()
+            // InternalEbnfLang.g:801:3: 
             {
             }
 
@@ -2537,14 +2463,14 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Alternative__Group_1__1"
-    // InternalEbnfLang.g:838:1: rule__Expression_Alternative__Group_1__1 : rule__Expression_Alternative__Group_1__1__Impl ;
+    // InternalEbnfLang.g:809:1: rule__Expression_Alternative__Group_1__1 : rule__Expression_Alternative__Group_1__1__Impl ;
     public final void rule__Expression_Alternative__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:842:1: ( rule__Expression_Alternative__Group_1__1__Impl )
-            // InternalEbnfLang.g:843:2: rule__Expression_Alternative__Group_1__1__Impl
+            // InternalEbnfLang.g:813:1: ( rule__Expression_Alternative__Group_1__1__Impl )
+            // InternalEbnfLang.g:814:2: rule__Expression_Alternative__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Expression_Alternative__Group_1__1__Impl();
@@ -2570,26 +2496,26 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Alternative__Group_1__1__Impl"
-    // InternalEbnfLang.g:849:1: rule__Expression_Alternative__Group_1__1__Impl : ( ( ( rule__Expression_Alternative__Group_1_1__0 ) ) ( ( rule__Expression_Alternative__Group_1_1__0 )* ) ) ;
+    // InternalEbnfLang.g:820:1: rule__Expression_Alternative__Group_1__1__Impl : ( ( ( rule__Expression_Alternative__Group_1_1__0 ) ) ( ( rule__Expression_Alternative__Group_1_1__0 )* ) ) ;
     public final void rule__Expression_Alternative__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:853:1: ( ( ( ( rule__Expression_Alternative__Group_1_1__0 ) ) ( ( rule__Expression_Alternative__Group_1_1__0 )* ) ) )
-            // InternalEbnfLang.g:854:1: ( ( ( rule__Expression_Alternative__Group_1_1__0 ) ) ( ( rule__Expression_Alternative__Group_1_1__0 )* ) )
+            // InternalEbnfLang.g:824:1: ( ( ( ( rule__Expression_Alternative__Group_1_1__0 ) ) ( ( rule__Expression_Alternative__Group_1_1__0 )* ) ) )
+            // InternalEbnfLang.g:825:1: ( ( ( rule__Expression_Alternative__Group_1_1__0 ) ) ( ( rule__Expression_Alternative__Group_1_1__0 )* ) )
             {
-            // InternalEbnfLang.g:854:1: ( ( ( rule__Expression_Alternative__Group_1_1__0 ) ) ( ( rule__Expression_Alternative__Group_1_1__0 )* ) )
-            // InternalEbnfLang.g:855:2: ( ( rule__Expression_Alternative__Group_1_1__0 ) ) ( ( rule__Expression_Alternative__Group_1_1__0 )* )
+            // InternalEbnfLang.g:825:1: ( ( ( rule__Expression_Alternative__Group_1_1__0 ) ) ( ( rule__Expression_Alternative__Group_1_1__0 )* ) )
+            // InternalEbnfLang.g:826:2: ( ( rule__Expression_Alternative__Group_1_1__0 ) ) ( ( rule__Expression_Alternative__Group_1_1__0 )* )
             {
-            // InternalEbnfLang.g:855:2: ( ( rule__Expression_Alternative__Group_1_1__0 ) )
-            // InternalEbnfLang.g:856:3: ( rule__Expression_Alternative__Group_1_1__0 )
+            // InternalEbnfLang.g:826:2: ( ( rule__Expression_Alternative__Group_1_1__0 ) )
+            // InternalEbnfLang.g:827:3: ( rule__Expression_Alternative__Group_1_1__0 )
             {
              before(grammarAccess.getExpression_AlternativeAccess().getGroup_1_1()); 
-            // InternalEbnfLang.g:857:3: ( rule__Expression_Alternative__Group_1_1__0 )
-            // InternalEbnfLang.g:857:4: rule__Expression_Alternative__Group_1_1__0
+            // InternalEbnfLang.g:828:3: ( rule__Expression_Alternative__Group_1_1__0 )
+            // InternalEbnfLang.g:828:4: rule__Expression_Alternative__Group_1_1__0
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_9);
             rule__Expression_Alternative__Group_1_1__0();
 
             state._fsp--;
@@ -2601,11 +2527,11 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
             }
 
-            // InternalEbnfLang.g:860:2: ( ( rule__Expression_Alternative__Group_1_1__0 )* )
-            // InternalEbnfLang.g:861:3: ( rule__Expression_Alternative__Group_1_1__0 )*
+            // InternalEbnfLang.g:831:2: ( ( rule__Expression_Alternative__Group_1_1__0 )* )
+            // InternalEbnfLang.g:832:3: ( rule__Expression_Alternative__Group_1_1__0 )*
             {
              before(grammarAccess.getExpression_AlternativeAccess().getGroup_1_1()); 
-            // InternalEbnfLang.g:862:3: ( rule__Expression_Alternative__Group_1_1__0 )*
+            // InternalEbnfLang.g:833:3: ( rule__Expression_Alternative__Group_1_1__0 )*
             loop6:
             do {
                 int alt6=2;
@@ -2618,9 +2544,9 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalEbnfLang.g:862:4: rule__Expression_Alternative__Group_1_1__0
+            	    // InternalEbnfLang.g:833:4: rule__Expression_Alternative__Group_1_1__0
             	    {
-            	    pushFollow(FOLLOW_10);
+            	    pushFollow(FOLLOW_9);
             	    rule__Expression_Alternative__Group_1_1__0();
 
             	    state._fsp--;
@@ -2660,16 +2586,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Alternative__Group_1_1__0"
-    // InternalEbnfLang.g:872:1: rule__Expression_Alternative__Group_1_1__0 : rule__Expression_Alternative__Group_1_1__0__Impl rule__Expression_Alternative__Group_1_1__1 ;
+    // InternalEbnfLang.g:843:1: rule__Expression_Alternative__Group_1_1__0 : rule__Expression_Alternative__Group_1_1__0__Impl rule__Expression_Alternative__Group_1_1__1 ;
     public final void rule__Expression_Alternative__Group_1_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:876:1: ( rule__Expression_Alternative__Group_1_1__0__Impl rule__Expression_Alternative__Group_1_1__1 )
-            // InternalEbnfLang.g:877:2: rule__Expression_Alternative__Group_1_1__0__Impl rule__Expression_Alternative__Group_1_1__1
+            // InternalEbnfLang.g:847:1: ( rule__Expression_Alternative__Group_1_1__0__Impl rule__Expression_Alternative__Group_1_1__1 )
+            // InternalEbnfLang.g:848:2: rule__Expression_Alternative__Group_1_1__0__Impl rule__Expression_Alternative__Group_1_1__1
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_6);
             rule__Expression_Alternative__Group_1_1__0__Impl();
 
             state._fsp--;
@@ -2698,17 +2624,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Alternative__Group_1_1__0__Impl"
-    // InternalEbnfLang.g:884:1: rule__Expression_Alternative__Group_1_1__0__Impl : ( '|' ) ;
+    // InternalEbnfLang.g:855:1: rule__Expression_Alternative__Group_1_1__0__Impl : ( '|' ) ;
     public final void rule__Expression_Alternative__Group_1_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:888:1: ( ( '|' ) )
-            // InternalEbnfLang.g:889:1: ( '|' )
+            // InternalEbnfLang.g:859:1: ( ( '|' ) )
+            // InternalEbnfLang.g:860:1: ( '|' )
             {
-            // InternalEbnfLang.g:889:1: ( '|' )
-            // InternalEbnfLang.g:890:2: '|'
+            // InternalEbnfLang.g:860:1: ( '|' )
+            // InternalEbnfLang.g:861:2: '|'
             {
              before(grammarAccess.getExpression_AlternativeAccess().getVerticalLineKeyword_1_1_0()); 
             match(input,18,FOLLOW_2); 
@@ -2735,14 +2661,14 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Alternative__Group_1_1__1"
-    // InternalEbnfLang.g:899:1: rule__Expression_Alternative__Group_1_1__1 : rule__Expression_Alternative__Group_1_1__1__Impl ;
+    // InternalEbnfLang.g:870:1: rule__Expression_Alternative__Group_1_1__1 : rule__Expression_Alternative__Group_1_1__1__Impl ;
     public final void rule__Expression_Alternative__Group_1_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:903:1: ( rule__Expression_Alternative__Group_1_1__1__Impl )
-            // InternalEbnfLang.g:904:2: rule__Expression_Alternative__Group_1_1__1__Impl
+            // InternalEbnfLang.g:874:1: ( rule__Expression_Alternative__Group_1_1__1__Impl )
+            // InternalEbnfLang.g:875:2: rule__Expression_Alternative__Group_1_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Expression_Alternative__Group_1_1__1__Impl();
@@ -2768,21 +2694,21 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Alternative__Group_1_1__1__Impl"
-    // InternalEbnfLang.g:910:1: rule__Expression_Alternative__Group_1_1__1__Impl : ( ( rule__Expression_Alternative__ElementsAssignment_1_1_1 ) ) ;
+    // InternalEbnfLang.g:881:1: rule__Expression_Alternative__Group_1_1__1__Impl : ( ( rule__Expression_Alternative__ElementsAssignment_1_1_1 ) ) ;
     public final void rule__Expression_Alternative__Group_1_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:914:1: ( ( ( rule__Expression_Alternative__ElementsAssignment_1_1_1 ) ) )
-            // InternalEbnfLang.g:915:1: ( ( rule__Expression_Alternative__ElementsAssignment_1_1_1 ) )
+            // InternalEbnfLang.g:885:1: ( ( ( rule__Expression_Alternative__ElementsAssignment_1_1_1 ) ) )
+            // InternalEbnfLang.g:886:1: ( ( rule__Expression_Alternative__ElementsAssignment_1_1_1 ) )
             {
-            // InternalEbnfLang.g:915:1: ( ( rule__Expression_Alternative__ElementsAssignment_1_1_1 ) )
-            // InternalEbnfLang.g:916:2: ( rule__Expression_Alternative__ElementsAssignment_1_1_1 )
+            // InternalEbnfLang.g:886:1: ( ( rule__Expression_Alternative__ElementsAssignment_1_1_1 ) )
+            // InternalEbnfLang.g:887:2: ( rule__Expression_Alternative__ElementsAssignment_1_1_1 )
             {
              before(grammarAccess.getExpression_AlternativeAccess().getElementsAssignment_1_1_1()); 
-            // InternalEbnfLang.g:917:2: ( rule__Expression_Alternative__ElementsAssignment_1_1_1 )
-            // InternalEbnfLang.g:917:3: rule__Expression_Alternative__ElementsAssignment_1_1_1
+            // InternalEbnfLang.g:888:2: ( rule__Expression_Alternative__ElementsAssignment_1_1_1 )
+            // InternalEbnfLang.g:888:3: rule__Expression_Alternative__ElementsAssignment_1_1_1
             {
             pushFollow(FOLLOW_2);
             rule__Expression_Alternative__ElementsAssignment_1_1_1();
@@ -2815,16 +2741,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Concatenation__Group__0"
-    // InternalEbnfLang.g:926:1: rule__Expression_Concatenation__Group__0 : rule__Expression_Concatenation__Group__0__Impl rule__Expression_Concatenation__Group__1 ;
+    // InternalEbnfLang.g:897:1: rule__Expression_Concatenation__Group__0 : rule__Expression_Concatenation__Group__0__Impl rule__Expression_Concatenation__Group__1 ;
     public final void rule__Expression_Concatenation__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:930:1: ( rule__Expression_Concatenation__Group__0__Impl rule__Expression_Concatenation__Group__1 )
-            // InternalEbnfLang.g:931:2: rule__Expression_Concatenation__Group__0__Impl rule__Expression_Concatenation__Group__1
+            // InternalEbnfLang.g:901:1: ( rule__Expression_Concatenation__Group__0__Impl rule__Expression_Concatenation__Group__1 )
+            // InternalEbnfLang.g:902:2: rule__Expression_Concatenation__Group__0__Impl rule__Expression_Concatenation__Group__1
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_10);
             rule__Expression_Concatenation__Group__0__Impl();
 
             state._fsp--;
@@ -2853,17 +2779,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Concatenation__Group__0__Impl"
-    // InternalEbnfLang.g:938:1: rule__Expression_Concatenation__Group__0__Impl : ( ruleExpression_Exception ) ;
+    // InternalEbnfLang.g:909:1: rule__Expression_Concatenation__Group__0__Impl : ( ruleExpression_Exception ) ;
     public final void rule__Expression_Concatenation__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:942:1: ( ( ruleExpression_Exception ) )
-            // InternalEbnfLang.g:943:1: ( ruleExpression_Exception )
+            // InternalEbnfLang.g:913:1: ( ( ruleExpression_Exception ) )
+            // InternalEbnfLang.g:914:1: ( ruleExpression_Exception )
             {
-            // InternalEbnfLang.g:943:1: ( ruleExpression_Exception )
-            // InternalEbnfLang.g:944:2: ruleExpression_Exception
+            // InternalEbnfLang.g:914:1: ( ruleExpression_Exception )
+            // InternalEbnfLang.g:915:2: ruleExpression_Exception
             {
              before(grammarAccess.getExpression_ConcatenationAccess().getExpression_ExceptionParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -2894,14 +2820,14 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Concatenation__Group__1"
-    // InternalEbnfLang.g:953:1: rule__Expression_Concatenation__Group__1 : rule__Expression_Concatenation__Group__1__Impl ;
+    // InternalEbnfLang.g:924:1: rule__Expression_Concatenation__Group__1 : rule__Expression_Concatenation__Group__1__Impl ;
     public final void rule__Expression_Concatenation__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:957:1: ( rule__Expression_Concatenation__Group__1__Impl )
-            // InternalEbnfLang.g:958:2: rule__Expression_Concatenation__Group__1__Impl
+            // InternalEbnfLang.g:928:1: ( rule__Expression_Concatenation__Group__1__Impl )
+            // InternalEbnfLang.g:929:2: rule__Expression_Concatenation__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Expression_Concatenation__Group__1__Impl();
@@ -2927,20 +2853,20 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Concatenation__Group__1__Impl"
-    // InternalEbnfLang.g:964:1: rule__Expression_Concatenation__Group__1__Impl : ( ( rule__Expression_Concatenation__Group_1__0 )? ) ;
+    // InternalEbnfLang.g:935:1: rule__Expression_Concatenation__Group__1__Impl : ( ( rule__Expression_Concatenation__Group_1__0 )? ) ;
     public final void rule__Expression_Concatenation__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:968:1: ( ( ( rule__Expression_Concatenation__Group_1__0 )? ) )
-            // InternalEbnfLang.g:969:1: ( ( rule__Expression_Concatenation__Group_1__0 )? )
+            // InternalEbnfLang.g:939:1: ( ( ( rule__Expression_Concatenation__Group_1__0 )? ) )
+            // InternalEbnfLang.g:940:1: ( ( rule__Expression_Concatenation__Group_1__0 )? )
             {
-            // InternalEbnfLang.g:969:1: ( ( rule__Expression_Concatenation__Group_1__0 )? )
-            // InternalEbnfLang.g:970:2: ( rule__Expression_Concatenation__Group_1__0 )?
+            // InternalEbnfLang.g:940:1: ( ( rule__Expression_Concatenation__Group_1__0 )? )
+            // InternalEbnfLang.g:941:2: ( rule__Expression_Concatenation__Group_1__0 )?
             {
              before(grammarAccess.getExpression_ConcatenationAccess().getGroup_1()); 
-            // InternalEbnfLang.g:971:2: ( rule__Expression_Concatenation__Group_1__0 )?
+            // InternalEbnfLang.g:942:2: ( rule__Expression_Concatenation__Group_1__0 )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -2949,7 +2875,7 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
             }
             switch (alt7) {
                 case 1 :
-                    // InternalEbnfLang.g:971:3: rule__Expression_Concatenation__Group_1__0
+                    // InternalEbnfLang.g:942:3: rule__Expression_Concatenation__Group_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Expression_Concatenation__Group_1__0();
@@ -2985,16 +2911,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Concatenation__Group_1__0"
-    // InternalEbnfLang.g:980:1: rule__Expression_Concatenation__Group_1__0 : rule__Expression_Concatenation__Group_1__0__Impl rule__Expression_Concatenation__Group_1__1 ;
+    // InternalEbnfLang.g:951:1: rule__Expression_Concatenation__Group_1__0 : rule__Expression_Concatenation__Group_1__0__Impl rule__Expression_Concatenation__Group_1__1 ;
     public final void rule__Expression_Concatenation__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:984:1: ( rule__Expression_Concatenation__Group_1__0__Impl rule__Expression_Concatenation__Group_1__1 )
-            // InternalEbnfLang.g:985:2: rule__Expression_Concatenation__Group_1__0__Impl rule__Expression_Concatenation__Group_1__1
+            // InternalEbnfLang.g:955:1: ( rule__Expression_Concatenation__Group_1__0__Impl rule__Expression_Concatenation__Group_1__1 )
+            // InternalEbnfLang.g:956:2: rule__Expression_Concatenation__Group_1__0__Impl rule__Expression_Concatenation__Group_1__1
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_10);
             rule__Expression_Concatenation__Group_1__0__Impl();
 
             state._fsp--;
@@ -3023,21 +2949,21 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Concatenation__Group_1__0__Impl"
-    // InternalEbnfLang.g:992:1: rule__Expression_Concatenation__Group_1__0__Impl : ( () ) ;
+    // InternalEbnfLang.g:963:1: rule__Expression_Concatenation__Group_1__0__Impl : ( () ) ;
     public final void rule__Expression_Concatenation__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:996:1: ( ( () ) )
-            // InternalEbnfLang.g:997:1: ( () )
+            // InternalEbnfLang.g:967:1: ( ( () ) )
+            // InternalEbnfLang.g:968:1: ( () )
             {
-            // InternalEbnfLang.g:997:1: ( () )
-            // InternalEbnfLang.g:998:2: ()
+            // InternalEbnfLang.g:968:1: ( () )
+            // InternalEbnfLang.g:969:2: ()
             {
              before(grammarAccess.getExpression_ConcatenationAccess().getExpression_ConcatenationElementsAction_1_0()); 
-            // InternalEbnfLang.g:999:2: ()
-            // InternalEbnfLang.g:999:3: 
+            // InternalEbnfLang.g:970:2: ()
+            // InternalEbnfLang.g:970:3: 
             {
             }
 
@@ -3060,14 +2986,14 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Concatenation__Group_1__1"
-    // InternalEbnfLang.g:1007:1: rule__Expression_Concatenation__Group_1__1 : rule__Expression_Concatenation__Group_1__1__Impl ;
+    // InternalEbnfLang.g:978:1: rule__Expression_Concatenation__Group_1__1 : rule__Expression_Concatenation__Group_1__1__Impl ;
     public final void rule__Expression_Concatenation__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1011:1: ( rule__Expression_Concatenation__Group_1__1__Impl )
-            // InternalEbnfLang.g:1012:2: rule__Expression_Concatenation__Group_1__1__Impl
+            // InternalEbnfLang.g:982:1: ( rule__Expression_Concatenation__Group_1__1__Impl )
+            // InternalEbnfLang.g:983:2: rule__Expression_Concatenation__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Expression_Concatenation__Group_1__1__Impl();
@@ -3093,26 +3019,26 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Concatenation__Group_1__1__Impl"
-    // InternalEbnfLang.g:1018:1: rule__Expression_Concatenation__Group_1__1__Impl : ( ( ( rule__Expression_Concatenation__Group_1_1__0 ) ) ( ( rule__Expression_Concatenation__Group_1_1__0 )* ) ) ;
+    // InternalEbnfLang.g:989:1: rule__Expression_Concatenation__Group_1__1__Impl : ( ( ( rule__Expression_Concatenation__Group_1_1__0 ) ) ( ( rule__Expression_Concatenation__Group_1_1__0 )* ) ) ;
     public final void rule__Expression_Concatenation__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1022:1: ( ( ( ( rule__Expression_Concatenation__Group_1_1__0 ) ) ( ( rule__Expression_Concatenation__Group_1_1__0 )* ) ) )
-            // InternalEbnfLang.g:1023:1: ( ( ( rule__Expression_Concatenation__Group_1_1__0 ) ) ( ( rule__Expression_Concatenation__Group_1_1__0 )* ) )
+            // InternalEbnfLang.g:993:1: ( ( ( ( rule__Expression_Concatenation__Group_1_1__0 ) ) ( ( rule__Expression_Concatenation__Group_1_1__0 )* ) ) )
+            // InternalEbnfLang.g:994:1: ( ( ( rule__Expression_Concatenation__Group_1_1__0 ) ) ( ( rule__Expression_Concatenation__Group_1_1__0 )* ) )
             {
-            // InternalEbnfLang.g:1023:1: ( ( ( rule__Expression_Concatenation__Group_1_1__0 ) ) ( ( rule__Expression_Concatenation__Group_1_1__0 )* ) )
-            // InternalEbnfLang.g:1024:2: ( ( rule__Expression_Concatenation__Group_1_1__0 ) ) ( ( rule__Expression_Concatenation__Group_1_1__0 )* )
+            // InternalEbnfLang.g:994:1: ( ( ( rule__Expression_Concatenation__Group_1_1__0 ) ) ( ( rule__Expression_Concatenation__Group_1_1__0 )* ) )
+            // InternalEbnfLang.g:995:2: ( ( rule__Expression_Concatenation__Group_1_1__0 ) ) ( ( rule__Expression_Concatenation__Group_1_1__0 )* )
             {
-            // InternalEbnfLang.g:1024:2: ( ( rule__Expression_Concatenation__Group_1_1__0 ) )
-            // InternalEbnfLang.g:1025:3: ( rule__Expression_Concatenation__Group_1_1__0 )
+            // InternalEbnfLang.g:995:2: ( ( rule__Expression_Concatenation__Group_1_1__0 ) )
+            // InternalEbnfLang.g:996:3: ( rule__Expression_Concatenation__Group_1_1__0 )
             {
              before(grammarAccess.getExpression_ConcatenationAccess().getGroup_1_1()); 
-            // InternalEbnfLang.g:1026:3: ( rule__Expression_Concatenation__Group_1_1__0 )
-            // InternalEbnfLang.g:1026:4: rule__Expression_Concatenation__Group_1_1__0
+            // InternalEbnfLang.g:997:3: ( rule__Expression_Concatenation__Group_1_1__0 )
+            // InternalEbnfLang.g:997:4: rule__Expression_Concatenation__Group_1_1__0
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_11);
             rule__Expression_Concatenation__Group_1_1__0();
 
             state._fsp--;
@@ -3124,11 +3050,11 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
             }
 
-            // InternalEbnfLang.g:1029:2: ( ( rule__Expression_Concatenation__Group_1_1__0 )* )
-            // InternalEbnfLang.g:1030:3: ( rule__Expression_Concatenation__Group_1_1__0 )*
+            // InternalEbnfLang.g:1000:2: ( ( rule__Expression_Concatenation__Group_1_1__0 )* )
+            // InternalEbnfLang.g:1001:3: ( rule__Expression_Concatenation__Group_1_1__0 )*
             {
              before(grammarAccess.getExpression_ConcatenationAccess().getGroup_1_1()); 
-            // InternalEbnfLang.g:1031:3: ( rule__Expression_Concatenation__Group_1_1__0 )*
+            // InternalEbnfLang.g:1002:3: ( rule__Expression_Concatenation__Group_1_1__0 )*
             loop8:
             do {
                 int alt8=2;
@@ -3141,9 +3067,9 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalEbnfLang.g:1031:4: rule__Expression_Concatenation__Group_1_1__0
+            	    // InternalEbnfLang.g:1002:4: rule__Expression_Concatenation__Group_1_1__0
             	    {
-            	    pushFollow(FOLLOW_12);
+            	    pushFollow(FOLLOW_11);
             	    rule__Expression_Concatenation__Group_1_1__0();
 
             	    state._fsp--;
@@ -3183,16 +3109,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Concatenation__Group_1_1__0"
-    // InternalEbnfLang.g:1041:1: rule__Expression_Concatenation__Group_1_1__0 : rule__Expression_Concatenation__Group_1_1__0__Impl rule__Expression_Concatenation__Group_1_1__1 ;
+    // InternalEbnfLang.g:1012:1: rule__Expression_Concatenation__Group_1_1__0 : rule__Expression_Concatenation__Group_1_1__0__Impl rule__Expression_Concatenation__Group_1_1__1 ;
     public final void rule__Expression_Concatenation__Group_1_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1045:1: ( rule__Expression_Concatenation__Group_1_1__0__Impl rule__Expression_Concatenation__Group_1_1__1 )
-            // InternalEbnfLang.g:1046:2: rule__Expression_Concatenation__Group_1_1__0__Impl rule__Expression_Concatenation__Group_1_1__1
+            // InternalEbnfLang.g:1016:1: ( rule__Expression_Concatenation__Group_1_1__0__Impl rule__Expression_Concatenation__Group_1_1__1 )
+            // InternalEbnfLang.g:1017:2: rule__Expression_Concatenation__Group_1_1__0__Impl rule__Expression_Concatenation__Group_1_1__1
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_6);
             rule__Expression_Concatenation__Group_1_1__0__Impl();
 
             state._fsp--;
@@ -3221,17 +3147,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Concatenation__Group_1_1__0__Impl"
-    // InternalEbnfLang.g:1053:1: rule__Expression_Concatenation__Group_1_1__0__Impl : ( ',' ) ;
+    // InternalEbnfLang.g:1024:1: rule__Expression_Concatenation__Group_1_1__0__Impl : ( ',' ) ;
     public final void rule__Expression_Concatenation__Group_1_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1057:1: ( ( ',' ) )
-            // InternalEbnfLang.g:1058:1: ( ',' )
+            // InternalEbnfLang.g:1028:1: ( ( ',' ) )
+            // InternalEbnfLang.g:1029:1: ( ',' )
             {
-            // InternalEbnfLang.g:1058:1: ( ',' )
-            // InternalEbnfLang.g:1059:2: ','
+            // InternalEbnfLang.g:1029:1: ( ',' )
+            // InternalEbnfLang.g:1030:2: ','
             {
              before(grammarAccess.getExpression_ConcatenationAccess().getCommaKeyword_1_1_0()); 
             match(input,19,FOLLOW_2); 
@@ -3258,14 +3184,14 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Concatenation__Group_1_1__1"
-    // InternalEbnfLang.g:1068:1: rule__Expression_Concatenation__Group_1_1__1 : rule__Expression_Concatenation__Group_1_1__1__Impl ;
+    // InternalEbnfLang.g:1039:1: rule__Expression_Concatenation__Group_1_1__1 : rule__Expression_Concatenation__Group_1_1__1__Impl ;
     public final void rule__Expression_Concatenation__Group_1_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1072:1: ( rule__Expression_Concatenation__Group_1_1__1__Impl )
-            // InternalEbnfLang.g:1073:2: rule__Expression_Concatenation__Group_1_1__1__Impl
+            // InternalEbnfLang.g:1043:1: ( rule__Expression_Concatenation__Group_1_1__1__Impl )
+            // InternalEbnfLang.g:1044:2: rule__Expression_Concatenation__Group_1_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Expression_Concatenation__Group_1_1__1__Impl();
@@ -3291,21 +3217,21 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Concatenation__Group_1_1__1__Impl"
-    // InternalEbnfLang.g:1079:1: rule__Expression_Concatenation__Group_1_1__1__Impl : ( ( rule__Expression_Concatenation__ElementsAssignment_1_1_1 ) ) ;
+    // InternalEbnfLang.g:1050:1: rule__Expression_Concatenation__Group_1_1__1__Impl : ( ( rule__Expression_Concatenation__ElementsAssignment_1_1_1 ) ) ;
     public final void rule__Expression_Concatenation__Group_1_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1083:1: ( ( ( rule__Expression_Concatenation__ElementsAssignment_1_1_1 ) ) )
-            // InternalEbnfLang.g:1084:1: ( ( rule__Expression_Concatenation__ElementsAssignment_1_1_1 ) )
+            // InternalEbnfLang.g:1054:1: ( ( ( rule__Expression_Concatenation__ElementsAssignment_1_1_1 ) ) )
+            // InternalEbnfLang.g:1055:1: ( ( rule__Expression_Concatenation__ElementsAssignment_1_1_1 ) )
             {
-            // InternalEbnfLang.g:1084:1: ( ( rule__Expression_Concatenation__ElementsAssignment_1_1_1 ) )
-            // InternalEbnfLang.g:1085:2: ( rule__Expression_Concatenation__ElementsAssignment_1_1_1 )
+            // InternalEbnfLang.g:1055:1: ( ( rule__Expression_Concatenation__ElementsAssignment_1_1_1 ) )
+            // InternalEbnfLang.g:1056:2: ( rule__Expression_Concatenation__ElementsAssignment_1_1_1 )
             {
              before(grammarAccess.getExpression_ConcatenationAccess().getElementsAssignment_1_1_1()); 
-            // InternalEbnfLang.g:1086:2: ( rule__Expression_Concatenation__ElementsAssignment_1_1_1 )
-            // InternalEbnfLang.g:1086:3: rule__Expression_Concatenation__ElementsAssignment_1_1_1
+            // InternalEbnfLang.g:1057:2: ( rule__Expression_Concatenation__ElementsAssignment_1_1_1 )
+            // InternalEbnfLang.g:1057:3: rule__Expression_Concatenation__ElementsAssignment_1_1_1
             {
             pushFollow(FOLLOW_2);
             rule__Expression_Concatenation__ElementsAssignment_1_1_1();
@@ -3338,16 +3264,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Exception__Group__0"
-    // InternalEbnfLang.g:1095:1: rule__Expression_Exception__Group__0 : rule__Expression_Exception__Group__0__Impl rule__Expression_Exception__Group__1 ;
+    // InternalEbnfLang.g:1066:1: rule__Expression_Exception__Group__0 : rule__Expression_Exception__Group__0__Impl rule__Expression_Exception__Group__1 ;
     public final void rule__Expression_Exception__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1099:1: ( rule__Expression_Exception__Group__0__Impl rule__Expression_Exception__Group__1 )
-            // InternalEbnfLang.g:1100:2: rule__Expression_Exception__Group__0__Impl rule__Expression_Exception__Group__1
+            // InternalEbnfLang.g:1070:1: ( rule__Expression_Exception__Group__0__Impl rule__Expression_Exception__Group__1 )
+            // InternalEbnfLang.g:1071:2: rule__Expression_Exception__Group__0__Impl rule__Expression_Exception__Group__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_12);
             rule__Expression_Exception__Group__0__Impl();
 
             state._fsp--;
@@ -3376,17 +3302,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Exception__Group__0__Impl"
-    // InternalEbnfLang.g:1107:1: rule__Expression_Exception__Group__0__Impl : ( ruleExpression_Repetition ) ;
+    // InternalEbnfLang.g:1078:1: rule__Expression_Exception__Group__0__Impl : ( ruleExpression_Repetition ) ;
     public final void rule__Expression_Exception__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1111:1: ( ( ruleExpression_Repetition ) )
-            // InternalEbnfLang.g:1112:1: ( ruleExpression_Repetition )
+            // InternalEbnfLang.g:1082:1: ( ( ruleExpression_Repetition ) )
+            // InternalEbnfLang.g:1083:1: ( ruleExpression_Repetition )
             {
-            // InternalEbnfLang.g:1112:1: ( ruleExpression_Repetition )
-            // InternalEbnfLang.g:1113:2: ruleExpression_Repetition
+            // InternalEbnfLang.g:1083:1: ( ruleExpression_Repetition )
+            // InternalEbnfLang.g:1084:2: ruleExpression_Repetition
             {
              before(grammarAccess.getExpression_ExceptionAccess().getExpression_RepetitionParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -3417,14 +3343,14 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Exception__Group__1"
-    // InternalEbnfLang.g:1122:1: rule__Expression_Exception__Group__1 : rule__Expression_Exception__Group__1__Impl ;
+    // InternalEbnfLang.g:1093:1: rule__Expression_Exception__Group__1 : rule__Expression_Exception__Group__1__Impl ;
     public final void rule__Expression_Exception__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1126:1: ( rule__Expression_Exception__Group__1__Impl )
-            // InternalEbnfLang.g:1127:2: rule__Expression_Exception__Group__1__Impl
+            // InternalEbnfLang.g:1097:1: ( rule__Expression_Exception__Group__1__Impl )
+            // InternalEbnfLang.g:1098:2: rule__Expression_Exception__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Expression_Exception__Group__1__Impl();
@@ -3450,20 +3376,20 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Exception__Group__1__Impl"
-    // InternalEbnfLang.g:1133:1: rule__Expression_Exception__Group__1__Impl : ( ( rule__Expression_Exception__Group_1__0 )* ) ;
+    // InternalEbnfLang.g:1104:1: rule__Expression_Exception__Group__1__Impl : ( ( rule__Expression_Exception__Group_1__0 )* ) ;
     public final void rule__Expression_Exception__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1137:1: ( ( ( rule__Expression_Exception__Group_1__0 )* ) )
-            // InternalEbnfLang.g:1138:1: ( ( rule__Expression_Exception__Group_1__0 )* )
+            // InternalEbnfLang.g:1108:1: ( ( ( rule__Expression_Exception__Group_1__0 )* ) )
+            // InternalEbnfLang.g:1109:1: ( ( rule__Expression_Exception__Group_1__0 )* )
             {
-            // InternalEbnfLang.g:1138:1: ( ( rule__Expression_Exception__Group_1__0 )* )
-            // InternalEbnfLang.g:1139:2: ( rule__Expression_Exception__Group_1__0 )*
+            // InternalEbnfLang.g:1109:1: ( ( rule__Expression_Exception__Group_1__0 )* )
+            // InternalEbnfLang.g:1110:2: ( rule__Expression_Exception__Group_1__0 )*
             {
              before(grammarAccess.getExpression_ExceptionAccess().getGroup_1()); 
-            // InternalEbnfLang.g:1140:2: ( rule__Expression_Exception__Group_1__0 )*
+            // InternalEbnfLang.g:1111:2: ( rule__Expression_Exception__Group_1__0 )*
             loop9:
             do {
                 int alt9=2;
@@ -3476,9 +3402,9 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalEbnfLang.g:1140:3: rule__Expression_Exception__Group_1__0
+            	    // InternalEbnfLang.g:1111:3: rule__Expression_Exception__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_14);
+            	    pushFollow(FOLLOW_13);
             	    rule__Expression_Exception__Group_1__0();
 
             	    state._fsp--;
@@ -3515,16 +3441,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Exception__Group_1__0"
-    // InternalEbnfLang.g:1149:1: rule__Expression_Exception__Group_1__0 : rule__Expression_Exception__Group_1__0__Impl rule__Expression_Exception__Group_1__1 ;
+    // InternalEbnfLang.g:1120:1: rule__Expression_Exception__Group_1__0 : rule__Expression_Exception__Group_1__0__Impl rule__Expression_Exception__Group_1__1 ;
     public final void rule__Expression_Exception__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1153:1: ( rule__Expression_Exception__Group_1__0__Impl rule__Expression_Exception__Group_1__1 )
-            // InternalEbnfLang.g:1154:2: rule__Expression_Exception__Group_1__0__Impl rule__Expression_Exception__Group_1__1
+            // InternalEbnfLang.g:1124:1: ( rule__Expression_Exception__Group_1__0__Impl rule__Expression_Exception__Group_1__1 )
+            // InternalEbnfLang.g:1125:2: rule__Expression_Exception__Group_1__0__Impl rule__Expression_Exception__Group_1__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_12);
             rule__Expression_Exception__Group_1__0__Impl();
 
             state._fsp--;
@@ -3553,21 +3479,21 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Exception__Group_1__0__Impl"
-    // InternalEbnfLang.g:1161:1: rule__Expression_Exception__Group_1__0__Impl : ( () ) ;
+    // InternalEbnfLang.g:1132:1: rule__Expression_Exception__Group_1__0__Impl : ( () ) ;
     public final void rule__Expression_Exception__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1165:1: ( ( () ) )
-            // InternalEbnfLang.g:1166:1: ( () )
+            // InternalEbnfLang.g:1136:1: ( ( () ) )
+            // InternalEbnfLang.g:1137:1: ( () )
             {
-            // InternalEbnfLang.g:1166:1: ( () )
-            // InternalEbnfLang.g:1167:2: ()
+            // InternalEbnfLang.g:1137:1: ( () )
+            // InternalEbnfLang.g:1138:2: ()
             {
              before(grammarAccess.getExpression_ExceptionAccess().getExpression_ExceptionLeftAction_1_0()); 
-            // InternalEbnfLang.g:1168:2: ()
-            // InternalEbnfLang.g:1168:3: 
+            // InternalEbnfLang.g:1139:2: ()
+            // InternalEbnfLang.g:1139:3: 
             {
             }
 
@@ -3590,16 +3516,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Exception__Group_1__1"
-    // InternalEbnfLang.g:1176:1: rule__Expression_Exception__Group_1__1 : rule__Expression_Exception__Group_1__1__Impl rule__Expression_Exception__Group_1__2 ;
+    // InternalEbnfLang.g:1147:1: rule__Expression_Exception__Group_1__1 : rule__Expression_Exception__Group_1__1__Impl rule__Expression_Exception__Group_1__2 ;
     public final void rule__Expression_Exception__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1180:1: ( rule__Expression_Exception__Group_1__1__Impl rule__Expression_Exception__Group_1__2 )
-            // InternalEbnfLang.g:1181:2: rule__Expression_Exception__Group_1__1__Impl rule__Expression_Exception__Group_1__2
+            // InternalEbnfLang.g:1151:1: ( rule__Expression_Exception__Group_1__1__Impl rule__Expression_Exception__Group_1__2 )
+            // InternalEbnfLang.g:1152:2: rule__Expression_Exception__Group_1__1__Impl rule__Expression_Exception__Group_1__2
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_6);
             rule__Expression_Exception__Group_1__1__Impl();
 
             state._fsp--;
@@ -3628,17 +3554,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Exception__Group_1__1__Impl"
-    // InternalEbnfLang.g:1188:1: rule__Expression_Exception__Group_1__1__Impl : ( '-' ) ;
+    // InternalEbnfLang.g:1159:1: rule__Expression_Exception__Group_1__1__Impl : ( '-' ) ;
     public final void rule__Expression_Exception__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1192:1: ( ( '-' ) )
-            // InternalEbnfLang.g:1193:1: ( '-' )
+            // InternalEbnfLang.g:1163:1: ( ( '-' ) )
+            // InternalEbnfLang.g:1164:1: ( '-' )
             {
-            // InternalEbnfLang.g:1193:1: ( '-' )
-            // InternalEbnfLang.g:1194:2: '-'
+            // InternalEbnfLang.g:1164:1: ( '-' )
+            // InternalEbnfLang.g:1165:2: '-'
             {
              before(grammarAccess.getExpression_ExceptionAccess().getHyphenMinusKeyword_1_1()); 
             match(input,20,FOLLOW_2); 
@@ -3665,14 +3591,14 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Exception__Group_1__2"
-    // InternalEbnfLang.g:1203:1: rule__Expression_Exception__Group_1__2 : rule__Expression_Exception__Group_1__2__Impl ;
+    // InternalEbnfLang.g:1174:1: rule__Expression_Exception__Group_1__2 : rule__Expression_Exception__Group_1__2__Impl ;
     public final void rule__Expression_Exception__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1207:1: ( rule__Expression_Exception__Group_1__2__Impl )
-            // InternalEbnfLang.g:1208:2: rule__Expression_Exception__Group_1__2__Impl
+            // InternalEbnfLang.g:1178:1: ( rule__Expression_Exception__Group_1__2__Impl )
+            // InternalEbnfLang.g:1179:2: rule__Expression_Exception__Group_1__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Expression_Exception__Group_1__2__Impl();
@@ -3698,21 +3624,21 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Exception__Group_1__2__Impl"
-    // InternalEbnfLang.g:1214:1: rule__Expression_Exception__Group_1__2__Impl : ( ( rule__Expression_Exception__RightAssignment_1_2 ) ) ;
+    // InternalEbnfLang.g:1185:1: rule__Expression_Exception__Group_1__2__Impl : ( ( rule__Expression_Exception__RightAssignment_1_2 ) ) ;
     public final void rule__Expression_Exception__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1218:1: ( ( ( rule__Expression_Exception__RightAssignment_1_2 ) ) )
-            // InternalEbnfLang.g:1219:1: ( ( rule__Expression_Exception__RightAssignment_1_2 ) )
+            // InternalEbnfLang.g:1189:1: ( ( ( rule__Expression_Exception__RightAssignment_1_2 ) ) )
+            // InternalEbnfLang.g:1190:1: ( ( rule__Expression_Exception__RightAssignment_1_2 ) )
             {
-            // InternalEbnfLang.g:1219:1: ( ( rule__Expression_Exception__RightAssignment_1_2 ) )
-            // InternalEbnfLang.g:1220:2: ( rule__Expression_Exception__RightAssignment_1_2 )
+            // InternalEbnfLang.g:1190:1: ( ( rule__Expression_Exception__RightAssignment_1_2 ) )
+            // InternalEbnfLang.g:1191:2: ( rule__Expression_Exception__RightAssignment_1_2 )
             {
              before(grammarAccess.getExpression_ExceptionAccess().getRightAssignment_1_2()); 
-            // InternalEbnfLang.g:1221:2: ( rule__Expression_Exception__RightAssignment_1_2 )
-            // InternalEbnfLang.g:1221:3: rule__Expression_Exception__RightAssignment_1_2
+            // InternalEbnfLang.g:1192:2: ( rule__Expression_Exception__RightAssignment_1_2 )
+            // InternalEbnfLang.g:1192:3: rule__Expression_Exception__RightAssignment_1_2
             {
             pushFollow(FOLLOW_2);
             rule__Expression_Exception__RightAssignment_1_2();
@@ -3745,16 +3671,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Repetition__Group_1__0"
-    // InternalEbnfLang.g:1230:1: rule__Expression_Repetition__Group_1__0 : rule__Expression_Repetition__Group_1__0__Impl rule__Expression_Repetition__Group_1__1 ;
+    // InternalEbnfLang.g:1201:1: rule__Expression_Repetition__Group_1__0 : rule__Expression_Repetition__Group_1__0__Impl rule__Expression_Repetition__Group_1__1 ;
     public final void rule__Expression_Repetition__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1234:1: ( rule__Expression_Repetition__Group_1__0__Impl rule__Expression_Repetition__Group_1__1 )
-            // InternalEbnfLang.g:1235:2: rule__Expression_Repetition__Group_1__0__Impl rule__Expression_Repetition__Group_1__1
+            // InternalEbnfLang.g:1205:1: ( rule__Expression_Repetition__Group_1__0__Impl rule__Expression_Repetition__Group_1__1 )
+            // InternalEbnfLang.g:1206:2: rule__Expression_Repetition__Group_1__0__Impl rule__Expression_Repetition__Group_1__1
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_6);
             rule__Expression_Repetition__Group_1__0__Impl();
 
             state._fsp--;
@@ -3783,21 +3709,21 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Repetition__Group_1__0__Impl"
-    // InternalEbnfLang.g:1242:1: rule__Expression_Repetition__Group_1__0__Impl : ( () ) ;
+    // InternalEbnfLang.g:1213:1: rule__Expression_Repetition__Group_1__0__Impl : ( () ) ;
     public final void rule__Expression_Repetition__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1246:1: ( ( () ) )
-            // InternalEbnfLang.g:1247:1: ( () )
+            // InternalEbnfLang.g:1217:1: ( ( () ) )
+            // InternalEbnfLang.g:1218:1: ( () )
             {
-            // InternalEbnfLang.g:1247:1: ( () )
-            // InternalEbnfLang.g:1248:2: ()
+            // InternalEbnfLang.g:1218:1: ( () )
+            // InternalEbnfLang.g:1219:2: ()
             {
              before(grammarAccess.getExpression_RepetitionAccess().getExpression_RepetitionAction_1_0()); 
-            // InternalEbnfLang.g:1249:2: ()
-            // InternalEbnfLang.g:1249:3: 
+            // InternalEbnfLang.g:1220:2: ()
+            // InternalEbnfLang.g:1220:3: 
             {
             }
 
@@ -3820,16 +3746,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Repetition__Group_1__1"
-    // InternalEbnfLang.g:1257:1: rule__Expression_Repetition__Group_1__1 : rule__Expression_Repetition__Group_1__1__Impl rule__Expression_Repetition__Group_1__2 ;
+    // InternalEbnfLang.g:1228:1: rule__Expression_Repetition__Group_1__1 : rule__Expression_Repetition__Group_1__1__Impl rule__Expression_Repetition__Group_1__2 ;
     public final void rule__Expression_Repetition__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1261:1: ( rule__Expression_Repetition__Group_1__1__Impl rule__Expression_Repetition__Group_1__2 )
-            // InternalEbnfLang.g:1262:2: rule__Expression_Repetition__Group_1__1__Impl rule__Expression_Repetition__Group_1__2
+            // InternalEbnfLang.g:1232:1: ( rule__Expression_Repetition__Group_1__1__Impl rule__Expression_Repetition__Group_1__2 )
+            // InternalEbnfLang.g:1233:2: rule__Expression_Repetition__Group_1__1__Impl rule__Expression_Repetition__Group_1__2
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_14);
             rule__Expression_Repetition__Group_1__1__Impl();
 
             state._fsp--;
@@ -3858,21 +3784,21 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Repetition__Group_1__1__Impl"
-    // InternalEbnfLang.g:1269:1: rule__Expression_Repetition__Group_1__1__Impl : ( ( rule__Expression_Repetition__RepetitionsAssignment_1_1 ) ) ;
+    // InternalEbnfLang.g:1240:1: rule__Expression_Repetition__Group_1__1__Impl : ( ( rule__Expression_Repetition__RepetitionsAssignment_1_1 ) ) ;
     public final void rule__Expression_Repetition__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1273:1: ( ( ( rule__Expression_Repetition__RepetitionsAssignment_1_1 ) ) )
-            // InternalEbnfLang.g:1274:1: ( ( rule__Expression_Repetition__RepetitionsAssignment_1_1 ) )
+            // InternalEbnfLang.g:1244:1: ( ( ( rule__Expression_Repetition__RepetitionsAssignment_1_1 ) ) )
+            // InternalEbnfLang.g:1245:1: ( ( rule__Expression_Repetition__RepetitionsAssignment_1_1 ) )
             {
-            // InternalEbnfLang.g:1274:1: ( ( rule__Expression_Repetition__RepetitionsAssignment_1_1 ) )
-            // InternalEbnfLang.g:1275:2: ( rule__Expression_Repetition__RepetitionsAssignment_1_1 )
+            // InternalEbnfLang.g:1245:1: ( ( rule__Expression_Repetition__RepetitionsAssignment_1_1 ) )
+            // InternalEbnfLang.g:1246:2: ( rule__Expression_Repetition__RepetitionsAssignment_1_1 )
             {
              before(grammarAccess.getExpression_RepetitionAccess().getRepetitionsAssignment_1_1()); 
-            // InternalEbnfLang.g:1276:2: ( rule__Expression_Repetition__RepetitionsAssignment_1_1 )
-            // InternalEbnfLang.g:1276:3: rule__Expression_Repetition__RepetitionsAssignment_1_1
+            // InternalEbnfLang.g:1247:2: ( rule__Expression_Repetition__RepetitionsAssignment_1_1 )
+            // InternalEbnfLang.g:1247:3: rule__Expression_Repetition__RepetitionsAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__Expression_Repetition__RepetitionsAssignment_1_1();
@@ -3905,16 +3831,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Repetition__Group_1__2"
-    // InternalEbnfLang.g:1284:1: rule__Expression_Repetition__Group_1__2 : rule__Expression_Repetition__Group_1__2__Impl rule__Expression_Repetition__Group_1__3 ;
+    // InternalEbnfLang.g:1255:1: rule__Expression_Repetition__Group_1__2 : rule__Expression_Repetition__Group_1__2__Impl rule__Expression_Repetition__Group_1__3 ;
     public final void rule__Expression_Repetition__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1288:1: ( rule__Expression_Repetition__Group_1__2__Impl rule__Expression_Repetition__Group_1__3 )
-            // InternalEbnfLang.g:1289:2: rule__Expression_Repetition__Group_1__2__Impl rule__Expression_Repetition__Group_1__3
+            // InternalEbnfLang.g:1259:1: ( rule__Expression_Repetition__Group_1__2__Impl rule__Expression_Repetition__Group_1__3 )
+            // InternalEbnfLang.g:1260:2: rule__Expression_Repetition__Group_1__2__Impl rule__Expression_Repetition__Group_1__3
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_15);
             rule__Expression_Repetition__Group_1__2__Impl();
 
             state._fsp--;
@@ -3943,17 +3869,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Repetition__Group_1__2__Impl"
-    // InternalEbnfLang.g:1296:1: rule__Expression_Repetition__Group_1__2__Impl : ( '*' ) ;
+    // InternalEbnfLang.g:1267:1: rule__Expression_Repetition__Group_1__2__Impl : ( '*' ) ;
     public final void rule__Expression_Repetition__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1300:1: ( ( '*' ) )
-            // InternalEbnfLang.g:1301:1: ( '*' )
+            // InternalEbnfLang.g:1271:1: ( ( '*' ) )
+            // InternalEbnfLang.g:1272:1: ( '*' )
             {
-            // InternalEbnfLang.g:1301:1: ( '*' )
-            // InternalEbnfLang.g:1302:2: '*'
+            // InternalEbnfLang.g:1272:1: ( '*' )
+            // InternalEbnfLang.g:1273:2: '*'
             {
              before(grammarAccess.getExpression_RepetitionAccess().getAsteriskKeyword_1_2()); 
             match(input,21,FOLLOW_2); 
@@ -3980,14 +3906,14 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Repetition__Group_1__3"
-    // InternalEbnfLang.g:1311:1: rule__Expression_Repetition__Group_1__3 : rule__Expression_Repetition__Group_1__3__Impl ;
+    // InternalEbnfLang.g:1282:1: rule__Expression_Repetition__Group_1__3 : rule__Expression_Repetition__Group_1__3__Impl ;
     public final void rule__Expression_Repetition__Group_1__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1315:1: ( rule__Expression_Repetition__Group_1__3__Impl )
-            // InternalEbnfLang.g:1316:2: rule__Expression_Repetition__Group_1__3__Impl
+            // InternalEbnfLang.g:1286:1: ( rule__Expression_Repetition__Group_1__3__Impl )
+            // InternalEbnfLang.g:1287:2: rule__Expression_Repetition__Group_1__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Expression_Repetition__Group_1__3__Impl();
@@ -4013,21 +3939,21 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Repetition__Group_1__3__Impl"
-    // InternalEbnfLang.g:1322:1: rule__Expression_Repetition__Group_1__3__Impl : ( ( rule__Expression_Repetition__ExprAssignment_1_3 ) ) ;
+    // InternalEbnfLang.g:1293:1: rule__Expression_Repetition__Group_1__3__Impl : ( ( rule__Expression_Repetition__ExprAssignment_1_3 ) ) ;
     public final void rule__Expression_Repetition__Group_1__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1326:1: ( ( ( rule__Expression_Repetition__ExprAssignment_1_3 ) ) )
-            // InternalEbnfLang.g:1327:1: ( ( rule__Expression_Repetition__ExprAssignment_1_3 ) )
+            // InternalEbnfLang.g:1297:1: ( ( ( rule__Expression_Repetition__ExprAssignment_1_3 ) ) )
+            // InternalEbnfLang.g:1298:1: ( ( rule__Expression_Repetition__ExprAssignment_1_3 ) )
             {
-            // InternalEbnfLang.g:1327:1: ( ( rule__Expression_Repetition__ExprAssignment_1_3 ) )
-            // InternalEbnfLang.g:1328:2: ( rule__Expression_Repetition__ExprAssignment_1_3 )
+            // InternalEbnfLang.g:1298:1: ( ( rule__Expression_Repetition__ExprAssignment_1_3 ) )
+            // InternalEbnfLang.g:1299:2: ( rule__Expression_Repetition__ExprAssignment_1_3 )
             {
              before(grammarAccess.getExpression_RepetitionAccess().getExprAssignment_1_3()); 
-            // InternalEbnfLang.g:1329:2: ( rule__Expression_Repetition__ExprAssignment_1_3 )
-            // InternalEbnfLang.g:1329:3: rule__Expression_Repetition__ExprAssignment_1_3
+            // InternalEbnfLang.g:1300:2: ( rule__Expression_Repetition__ExprAssignment_1_3 )
+            // InternalEbnfLang.g:1300:3: rule__Expression_Repetition__ExprAssignment_1_3
             {
             pushFollow(FOLLOW_2);
             rule__Expression_Repetition__ExprAssignment_1_3();
@@ -4060,16 +3986,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Rule_Reference__Group__0"
-    // InternalEbnfLang.g:1338:1: rule__Expression_Rule_Reference__Group__0 : rule__Expression_Rule_Reference__Group__0__Impl rule__Expression_Rule_Reference__Group__1 ;
+    // InternalEbnfLang.g:1309:1: rule__Expression_Rule_Reference__Group__0 : rule__Expression_Rule_Reference__Group__0__Impl rule__Expression_Rule_Reference__Group__1 ;
     public final void rule__Expression_Rule_Reference__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1342:1: ( rule__Expression_Rule_Reference__Group__0__Impl rule__Expression_Rule_Reference__Group__1 )
-            // InternalEbnfLang.g:1343:2: rule__Expression_Rule_Reference__Group__0__Impl rule__Expression_Rule_Reference__Group__1
+            // InternalEbnfLang.g:1313:1: ( rule__Expression_Rule_Reference__Group__0__Impl rule__Expression_Rule_Reference__Group__1 )
+            // InternalEbnfLang.g:1314:2: rule__Expression_Rule_Reference__Group__0__Impl rule__Expression_Rule_Reference__Group__1
             {
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_16);
             rule__Expression_Rule_Reference__Group__0__Impl();
 
             state._fsp--;
@@ -4098,21 +4024,21 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Rule_Reference__Group__0__Impl"
-    // InternalEbnfLang.g:1350:1: rule__Expression_Rule_Reference__Group__0__Impl : ( () ) ;
+    // InternalEbnfLang.g:1321:1: rule__Expression_Rule_Reference__Group__0__Impl : ( () ) ;
     public final void rule__Expression_Rule_Reference__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1354:1: ( ( () ) )
-            // InternalEbnfLang.g:1355:1: ( () )
+            // InternalEbnfLang.g:1325:1: ( ( () ) )
+            // InternalEbnfLang.g:1326:1: ( () )
             {
-            // InternalEbnfLang.g:1355:1: ( () )
-            // InternalEbnfLang.g:1356:2: ()
+            // InternalEbnfLang.g:1326:1: ( () )
+            // InternalEbnfLang.g:1327:2: ()
             {
              before(grammarAccess.getExpression_Rule_ReferenceAccess().getExpression_Rule_ReferenceAction_0()); 
-            // InternalEbnfLang.g:1357:2: ()
-            // InternalEbnfLang.g:1357:3: 
+            // InternalEbnfLang.g:1328:2: ()
+            // InternalEbnfLang.g:1328:3: 
             {
             }
 
@@ -4135,14 +4061,14 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Rule_Reference__Group__1"
-    // InternalEbnfLang.g:1365:1: rule__Expression_Rule_Reference__Group__1 : rule__Expression_Rule_Reference__Group__1__Impl ;
+    // InternalEbnfLang.g:1336:1: rule__Expression_Rule_Reference__Group__1 : rule__Expression_Rule_Reference__Group__1__Impl ;
     public final void rule__Expression_Rule_Reference__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1369:1: ( rule__Expression_Rule_Reference__Group__1__Impl )
-            // InternalEbnfLang.g:1370:2: rule__Expression_Rule_Reference__Group__1__Impl
+            // InternalEbnfLang.g:1340:1: ( rule__Expression_Rule_Reference__Group__1__Impl )
+            // InternalEbnfLang.g:1341:2: rule__Expression_Rule_Reference__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Expression_Rule_Reference__Group__1__Impl();
@@ -4168,21 +4094,21 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Rule_Reference__Group__1__Impl"
-    // InternalEbnfLang.g:1376:1: rule__Expression_Rule_Reference__Group__1__Impl : ( ( rule__Expression_Rule_Reference__RuleAssignment_1 ) ) ;
+    // InternalEbnfLang.g:1347:1: rule__Expression_Rule_Reference__Group__1__Impl : ( ( rule__Expression_Rule_Reference__RuleAssignment_1 ) ) ;
     public final void rule__Expression_Rule_Reference__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1380:1: ( ( ( rule__Expression_Rule_Reference__RuleAssignment_1 ) ) )
-            // InternalEbnfLang.g:1381:1: ( ( rule__Expression_Rule_Reference__RuleAssignment_1 ) )
+            // InternalEbnfLang.g:1351:1: ( ( ( rule__Expression_Rule_Reference__RuleAssignment_1 ) ) )
+            // InternalEbnfLang.g:1352:1: ( ( rule__Expression_Rule_Reference__RuleAssignment_1 ) )
             {
-            // InternalEbnfLang.g:1381:1: ( ( rule__Expression_Rule_Reference__RuleAssignment_1 ) )
-            // InternalEbnfLang.g:1382:2: ( rule__Expression_Rule_Reference__RuleAssignment_1 )
+            // InternalEbnfLang.g:1352:1: ( ( rule__Expression_Rule_Reference__RuleAssignment_1 ) )
+            // InternalEbnfLang.g:1353:2: ( rule__Expression_Rule_Reference__RuleAssignment_1 )
             {
              before(grammarAccess.getExpression_Rule_ReferenceAccess().getRuleAssignment_1()); 
-            // InternalEbnfLang.g:1383:2: ( rule__Expression_Rule_Reference__RuleAssignment_1 )
-            // InternalEbnfLang.g:1383:3: rule__Expression_Rule_Reference__RuleAssignment_1
+            // InternalEbnfLang.g:1354:2: ( rule__Expression_Rule_Reference__RuleAssignment_1 )
+            // InternalEbnfLang.g:1354:3: rule__Expression_Rule_Reference__RuleAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Expression_Rule_Reference__RuleAssignment_1();
@@ -4215,16 +4141,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Special_Sequence__Group__0"
-    // InternalEbnfLang.g:1392:1: rule__Expression_Special_Sequence__Group__0 : rule__Expression_Special_Sequence__Group__0__Impl rule__Expression_Special_Sequence__Group__1 ;
+    // InternalEbnfLang.g:1363:1: rule__Expression_Special_Sequence__Group__0 : rule__Expression_Special_Sequence__Group__0__Impl rule__Expression_Special_Sequence__Group__1 ;
     public final void rule__Expression_Special_Sequence__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1396:1: ( rule__Expression_Special_Sequence__Group__0__Impl rule__Expression_Special_Sequence__Group__1 )
-            // InternalEbnfLang.g:1397:2: rule__Expression_Special_Sequence__Group__0__Impl rule__Expression_Special_Sequence__Group__1
+            // InternalEbnfLang.g:1367:1: ( rule__Expression_Special_Sequence__Group__0__Impl rule__Expression_Special_Sequence__Group__1 )
+            // InternalEbnfLang.g:1368:2: rule__Expression_Special_Sequence__Group__0__Impl rule__Expression_Special_Sequence__Group__1
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_15);
             rule__Expression_Special_Sequence__Group__0__Impl();
 
             state._fsp--;
@@ -4253,21 +4179,21 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Special_Sequence__Group__0__Impl"
-    // InternalEbnfLang.g:1404:1: rule__Expression_Special_Sequence__Group__0__Impl : ( () ) ;
+    // InternalEbnfLang.g:1375:1: rule__Expression_Special_Sequence__Group__0__Impl : ( () ) ;
     public final void rule__Expression_Special_Sequence__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1408:1: ( ( () ) )
-            // InternalEbnfLang.g:1409:1: ( () )
+            // InternalEbnfLang.g:1379:1: ( ( () ) )
+            // InternalEbnfLang.g:1380:1: ( () )
             {
-            // InternalEbnfLang.g:1409:1: ( () )
-            // InternalEbnfLang.g:1410:2: ()
+            // InternalEbnfLang.g:1380:1: ( () )
+            // InternalEbnfLang.g:1381:2: ()
             {
              before(grammarAccess.getExpression_Special_SequenceAccess().getExpression_Special_SequenceAction_0()); 
-            // InternalEbnfLang.g:1411:2: ()
-            // InternalEbnfLang.g:1411:3: 
+            // InternalEbnfLang.g:1382:2: ()
+            // InternalEbnfLang.g:1382:3: 
             {
             }
 
@@ -4290,14 +4216,14 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Special_Sequence__Group__1"
-    // InternalEbnfLang.g:1419:1: rule__Expression_Special_Sequence__Group__1 : rule__Expression_Special_Sequence__Group__1__Impl ;
+    // InternalEbnfLang.g:1390:1: rule__Expression_Special_Sequence__Group__1 : rule__Expression_Special_Sequence__Group__1__Impl ;
     public final void rule__Expression_Special_Sequence__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1423:1: ( rule__Expression_Special_Sequence__Group__1__Impl )
-            // InternalEbnfLang.g:1424:2: rule__Expression_Special_Sequence__Group__1__Impl
+            // InternalEbnfLang.g:1394:1: ( rule__Expression_Special_Sequence__Group__1__Impl )
+            // InternalEbnfLang.g:1395:2: rule__Expression_Special_Sequence__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Expression_Special_Sequence__Group__1__Impl();
@@ -4323,21 +4249,21 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Special_Sequence__Group__1__Impl"
-    // InternalEbnfLang.g:1430:1: rule__Expression_Special_Sequence__Group__1__Impl : ( ( rule__Expression_Special_Sequence__TextAssignment_1 ) ) ;
+    // InternalEbnfLang.g:1401:1: rule__Expression_Special_Sequence__Group__1__Impl : ( ( rule__Expression_Special_Sequence__TextAssignment_1 ) ) ;
     public final void rule__Expression_Special_Sequence__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1434:1: ( ( ( rule__Expression_Special_Sequence__TextAssignment_1 ) ) )
-            // InternalEbnfLang.g:1435:1: ( ( rule__Expression_Special_Sequence__TextAssignment_1 ) )
+            // InternalEbnfLang.g:1405:1: ( ( ( rule__Expression_Special_Sequence__TextAssignment_1 ) ) )
+            // InternalEbnfLang.g:1406:1: ( ( rule__Expression_Special_Sequence__TextAssignment_1 ) )
             {
-            // InternalEbnfLang.g:1435:1: ( ( rule__Expression_Special_Sequence__TextAssignment_1 ) )
-            // InternalEbnfLang.g:1436:2: ( rule__Expression_Special_Sequence__TextAssignment_1 )
+            // InternalEbnfLang.g:1406:1: ( ( rule__Expression_Special_Sequence__TextAssignment_1 ) )
+            // InternalEbnfLang.g:1407:2: ( rule__Expression_Special_Sequence__TextAssignment_1 )
             {
              before(grammarAccess.getExpression_Special_SequenceAccess().getTextAssignment_1()); 
-            // InternalEbnfLang.g:1437:2: ( rule__Expression_Special_Sequence__TextAssignment_1 )
-            // InternalEbnfLang.g:1437:3: rule__Expression_Special_Sequence__TextAssignment_1
+            // InternalEbnfLang.g:1408:2: ( rule__Expression_Special_Sequence__TextAssignment_1 )
+            // InternalEbnfLang.g:1408:3: rule__Expression_Special_Sequence__TextAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Expression_Special_Sequence__TextAssignment_1();
@@ -4370,16 +4296,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Terminal_Symbol__Group__0"
-    // InternalEbnfLang.g:1446:1: rule__Expression_Terminal_Symbol__Group__0 : rule__Expression_Terminal_Symbol__Group__0__Impl rule__Expression_Terminal_Symbol__Group__1 ;
+    // InternalEbnfLang.g:1417:1: rule__Expression_Terminal_Symbol__Group__0 : rule__Expression_Terminal_Symbol__Group__0__Impl rule__Expression_Terminal_Symbol__Group__1 ;
     public final void rule__Expression_Terminal_Symbol__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1450:1: ( rule__Expression_Terminal_Symbol__Group__0__Impl rule__Expression_Terminal_Symbol__Group__1 )
-            // InternalEbnfLang.g:1451:2: rule__Expression_Terminal_Symbol__Group__0__Impl rule__Expression_Terminal_Symbol__Group__1
+            // InternalEbnfLang.g:1421:1: ( rule__Expression_Terminal_Symbol__Group__0__Impl rule__Expression_Terminal_Symbol__Group__1 )
+            // InternalEbnfLang.g:1422:2: rule__Expression_Terminal_Symbol__Group__0__Impl rule__Expression_Terminal_Symbol__Group__1
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_17);
             rule__Expression_Terminal_Symbol__Group__0__Impl();
 
             state._fsp--;
@@ -4408,21 +4334,21 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Terminal_Symbol__Group__0__Impl"
-    // InternalEbnfLang.g:1458:1: rule__Expression_Terminal_Symbol__Group__0__Impl : ( () ) ;
+    // InternalEbnfLang.g:1429:1: rule__Expression_Terminal_Symbol__Group__0__Impl : ( () ) ;
     public final void rule__Expression_Terminal_Symbol__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1462:1: ( ( () ) )
-            // InternalEbnfLang.g:1463:1: ( () )
+            // InternalEbnfLang.g:1433:1: ( ( () ) )
+            // InternalEbnfLang.g:1434:1: ( () )
             {
-            // InternalEbnfLang.g:1463:1: ( () )
-            // InternalEbnfLang.g:1464:2: ()
+            // InternalEbnfLang.g:1434:1: ( () )
+            // InternalEbnfLang.g:1435:2: ()
             {
              before(grammarAccess.getExpression_Terminal_SymbolAccess().getExpression_Terminal_SymbolAction_0()); 
-            // InternalEbnfLang.g:1465:2: ()
-            // InternalEbnfLang.g:1465:3: 
+            // InternalEbnfLang.g:1436:2: ()
+            // InternalEbnfLang.g:1436:3: 
             {
             }
 
@@ -4445,14 +4371,14 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Terminal_Symbol__Group__1"
-    // InternalEbnfLang.g:1473:1: rule__Expression_Terminal_Symbol__Group__1 : rule__Expression_Terminal_Symbol__Group__1__Impl ;
+    // InternalEbnfLang.g:1444:1: rule__Expression_Terminal_Symbol__Group__1 : rule__Expression_Terminal_Symbol__Group__1__Impl ;
     public final void rule__Expression_Terminal_Symbol__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1477:1: ( rule__Expression_Terminal_Symbol__Group__1__Impl )
-            // InternalEbnfLang.g:1478:2: rule__Expression_Terminal_Symbol__Group__1__Impl
+            // InternalEbnfLang.g:1448:1: ( rule__Expression_Terminal_Symbol__Group__1__Impl )
+            // InternalEbnfLang.g:1449:2: rule__Expression_Terminal_Symbol__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Expression_Terminal_Symbol__Group__1__Impl();
@@ -4478,21 +4404,21 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Terminal_Symbol__Group__1__Impl"
-    // InternalEbnfLang.g:1484:1: rule__Expression_Terminal_Symbol__Group__1__Impl : ( ( rule__Expression_Terminal_Symbol__TextAssignment_1 ) ) ;
+    // InternalEbnfLang.g:1455:1: rule__Expression_Terminal_Symbol__Group__1__Impl : ( ( rule__Expression_Terminal_Symbol__TextAssignment_1 ) ) ;
     public final void rule__Expression_Terminal_Symbol__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1488:1: ( ( ( rule__Expression_Terminal_Symbol__TextAssignment_1 ) ) )
-            // InternalEbnfLang.g:1489:1: ( ( rule__Expression_Terminal_Symbol__TextAssignment_1 ) )
+            // InternalEbnfLang.g:1459:1: ( ( ( rule__Expression_Terminal_Symbol__TextAssignment_1 ) ) )
+            // InternalEbnfLang.g:1460:1: ( ( rule__Expression_Terminal_Symbol__TextAssignment_1 ) )
             {
-            // InternalEbnfLang.g:1489:1: ( ( rule__Expression_Terminal_Symbol__TextAssignment_1 ) )
-            // InternalEbnfLang.g:1490:2: ( rule__Expression_Terminal_Symbol__TextAssignment_1 )
+            // InternalEbnfLang.g:1460:1: ( ( rule__Expression_Terminal_Symbol__TextAssignment_1 ) )
+            // InternalEbnfLang.g:1461:2: ( rule__Expression_Terminal_Symbol__TextAssignment_1 )
             {
              before(grammarAccess.getExpression_Terminal_SymbolAccess().getTextAssignment_1()); 
-            // InternalEbnfLang.g:1491:2: ( rule__Expression_Terminal_Symbol__TextAssignment_1 )
-            // InternalEbnfLang.g:1491:3: rule__Expression_Terminal_Symbol__TextAssignment_1
+            // InternalEbnfLang.g:1462:2: ( rule__Expression_Terminal_Symbol__TextAssignment_1 )
+            // InternalEbnfLang.g:1462:3: rule__Expression_Terminal_Symbol__TextAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Expression_Terminal_Symbol__TextAssignment_1();
@@ -4525,16 +4451,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Repetition_Group__Group__0"
-    // InternalEbnfLang.g:1500:1: rule__Expression_Repetition_Group__Group__0 : rule__Expression_Repetition_Group__Group__0__Impl rule__Expression_Repetition_Group__Group__1 ;
+    // InternalEbnfLang.g:1471:1: rule__Expression_Repetition_Group__Group__0 : rule__Expression_Repetition_Group__Group__0__Impl rule__Expression_Repetition_Group__Group__1 ;
     public final void rule__Expression_Repetition_Group__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1504:1: ( rule__Expression_Repetition_Group__Group__0__Impl rule__Expression_Repetition_Group__Group__1 )
-            // InternalEbnfLang.g:1505:2: rule__Expression_Repetition_Group__Group__0__Impl rule__Expression_Repetition_Group__Group__1
+            // InternalEbnfLang.g:1475:1: ( rule__Expression_Repetition_Group__Group__0__Impl rule__Expression_Repetition_Group__Group__1 )
+            // InternalEbnfLang.g:1476:2: rule__Expression_Repetition_Group__Group__0__Impl rule__Expression_Repetition_Group__Group__1
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_18);
             rule__Expression_Repetition_Group__Group__0__Impl();
 
             state._fsp--;
@@ -4563,21 +4489,21 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Repetition_Group__Group__0__Impl"
-    // InternalEbnfLang.g:1512:1: rule__Expression_Repetition_Group__Group__0__Impl : ( () ) ;
+    // InternalEbnfLang.g:1483:1: rule__Expression_Repetition_Group__Group__0__Impl : ( () ) ;
     public final void rule__Expression_Repetition_Group__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1516:1: ( ( () ) )
-            // InternalEbnfLang.g:1517:1: ( () )
+            // InternalEbnfLang.g:1487:1: ( ( () ) )
+            // InternalEbnfLang.g:1488:1: ( () )
             {
-            // InternalEbnfLang.g:1517:1: ( () )
-            // InternalEbnfLang.g:1518:2: ()
+            // InternalEbnfLang.g:1488:1: ( () )
+            // InternalEbnfLang.g:1489:2: ()
             {
              before(grammarAccess.getExpression_Repetition_GroupAccess().getExpression_Repetition_GroupAction_0()); 
-            // InternalEbnfLang.g:1519:2: ()
-            // InternalEbnfLang.g:1519:3: 
+            // InternalEbnfLang.g:1490:2: ()
+            // InternalEbnfLang.g:1490:3: 
             {
             }
 
@@ -4600,16 +4526,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Repetition_Group__Group__1"
-    // InternalEbnfLang.g:1527:1: rule__Expression_Repetition_Group__Group__1 : rule__Expression_Repetition_Group__Group__1__Impl rule__Expression_Repetition_Group__Group__2 ;
+    // InternalEbnfLang.g:1498:1: rule__Expression_Repetition_Group__Group__1 : rule__Expression_Repetition_Group__Group__1__Impl rule__Expression_Repetition_Group__Group__2 ;
     public final void rule__Expression_Repetition_Group__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1531:1: ( rule__Expression_Repetition_Group__Group__1__Impl rule__Expression_Repetition_Group__Group__2 )
-            // InternalEbnfLang.g:1532:2: rule__Expression_Repetition_Group__Group__1__Impl rule__Expression_Repetition_Group__Group__2
+            // InternalEbnfLang.g:1502:1: ( rule__Expression_Repetition_Group__Group__1__Impl rule__Expression_Repetition_Group__Group__2 )
+            // InternalEbnfLang.g:1503:2: rule__Expression_Repetition_Group__Group__1__Impl rule__Expression_Repetition_Group__Group__2
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_6);
             rule__Expression_Repetition_Group__Group__1__Impl();
 
             state._fsp--;
@@ -4638,17 +4564,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Repetition_Group__Group__1__Impl"
-    // InternalEbnfLang.g:1539:1: rule__Expression_Repetition_Group__Group__1__Impl : ( '{' ) ;
+    // InternalEbnfLang.g:1510:1: rule__Expression_Repetition_Group__Group__1__Impl : ( '{' ) ;
     public final void rule__Expression_Repetition_Group__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1543:1: ( ( '{' ) )
-            // InternalEbnfLang.g:1544:1: ( '{' )
+            // InternalEbnfLang.g:1514:1: ( ( '{' ) )
+            // InternalEbnfLang.g:1515:1: ( '{' )
             {
-            // InternalEbnfLang.g:1544:1: ( '{' )
-            // InternalEbnfLang.g:1545:2: '{'
+            // InternalEbnfLang.g:1515:1: ( '{' )
+            // InternalEbnfLang.g:1516:2: '{'
             {
              before(grammarAccess.getExpression_Repetition_GroupAccess().getLeftCurlyBracketKeyword_1()); 
             match(input,22,FOLLOW_2); 
@@ -4675,16 +4601,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Repetition_Group__Group__2"
-    // InternalEbnfLang.g:1554:1: rule__Expression_Repetition_Group__Group__2 : rule__Expression_Repetition_Group__Group__2__Impl rule__Expression_Repetition_Group__Group__3 ;
+    // InternalEbnfLang.g:1525:1: rule__Expression_Repetition_Group__Group__2 : rule__Expression_Repetition_Group__Group__2__Impl rule__Expression_Repetition_Group__Group__3 ;
     public final void rule__Expression_Repetition_Group__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1558:1: ( rule__Expression_Repetition_Group__Group__2__Impl rule__Expression_Repetition_Group__Group__3 )
-            // InternalEbnfLang.g:1559:2: rule__Expression_Repetition_Group__Group__2__Impl rule__Expression_Repetition_Group__Group__3
+            // InternalEbnfLang.g:1529:1: ( rule__Expression_Repetition_Group__Group__2__Impl rule__Expression_Repetition_Group__Group__3 )
+            // InternalEbnfLang.g:1530:2: rule__Expression_Repetition_Group__Group__2__Impl rule__Expression_Repetition_Group__Group__3
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_19);
             rule__Expression_Repetition_Group__Group__2__Impl();
 
             state._fsp--;
@@ -4713,21 +4639,21 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Repetition_Group__Group__2__Impl"
-    // InternalEbnfLang.g:1566:1: rule__Expression_Repetition_Group__Group__2__Impl : ( ( rule__Expression_Repetition_Group__ExprAssignment_2 ) ) ;
+    // InternalEbnfLang.g:1537:1: rule__Expression_Repetition_Group__Group__2__Impl : ( ( rule__Expression_Repetition_Group__ExprAssignment_2 ) ) ;
     public final void rule__Expression_Repetition_Group__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1570:1: ( ( ( rule__Expression_Repetition_Group__ExprAssignment_2 ) ) )
-            // InternalEbnfLang.g:1571:1: ( ( rule__Expression_Repetition_Group__ExprAssignment_2 ) )
+            // InternalEbnfLang.g:1541:1: ( ( ( rule__Expression_Repetition_Group__ExprAssignment_2 ) ) )
+            // InternalEbnfLang.g:1542:1: ( ( rule__Expression_Repetition_Group__ExprAssignment_2 ) )
             {
-            // InternalEbnfLang.g:1571:1: ( ( rule__Expression_Repetition_Group__ExprAssignment_2 ) )
-            // InternalEbnfLang.g:1572:2: ( rule__Expression_Repetition_Group__ExprAssignment_2 )
+            // InternalEbnfLang.g:1542:1: ( ( rule__Expression_Repetition_Group__ExprAssignment_2 ) )
+            // InternalEbnfLang.g:1543:2: ( rule__Expression_Repetition_Group__ExprAssignment_2 )
             {
              before(grammarAccess.getExpression_Repetition_GroupAccess().getExprAssignment_2()); 
-            // InternalEbnfLang.g:1573:2: ( rule__Expression_Repetition_Group__ExprAssignment_2 )
-            // InternalEbnfLang.g:1573:3: rule__Expression_Repetition_Group__ExprAssignment_2
+            // InternalEbnfLang.g:1544:2: ( rule__Expression_Repetition_Group__ExprAssignment_2 )
+            // InternalEbnfLang.g:1544:3: rule__Expression_Repetition_Group__ExprAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Expression_Repetition_Group__ExprAssignment_2();
@@ -4760,16 +4686,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Repetition_Group__Group__3"
-    // InternalEbnfLang.g:1581:1: rule__Expression_Repetition_Group__Group__3 : rule__Expression_Repetition_Group__Group__3__Impl rule__Expression_Repetition_Group__Group__4 ;
+    // InternalEbnfLang.g:1552:1: rule__Expression_Repetition_Group__Group__3 : rule__Expression_Repetition_Group__Group__3__Impl rule__Expression_Repetition_Group__Group__4 ;
     public final void rule__Expression_Repetition_Group__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1585:1: ( rule__Expression_Repetition_Group__Group__3__Impl rule__Expression_Repetition_Group__Group__4 )
-            // InternalEbnfLang.g:1586:2: rule__Expression_Repetition_Group__Group__3__Impl rule__Expression_Repetition_Group__Group__4
+            // InternalEbnfLang.g:1556:1: ( rule__Expression_Repetition_Group__Group__3__Impl rule__Expression_Repetition_Group__Group__4 )
+            // InternalEbnfLang.g:1557:2: rule__Expression_Repetition_Group__Group__3__Impl rule__Expression_Repetition_Group__Group__4
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_12);
             rule__Expression_Repetition_Group__Group__3__Impl();
 
             state._fsp--;
@@ -4798,17 +4724,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Repetition_Group__Group__3__Impl"
-    // InternalEbnfLang.g:1593:1: rule__Expression_Repetition_Group__Group__3__Impl : ( '}' ) ;
+    // InternalEbnfLang.g:1564:1: rule__Expression_Repetition_Group__Group__3__Impl : ( '}' ) ;
     public final void rule__Expression_Repetition_Group__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1597:1: ( ( '}' ) )
-            // InternalEbnfLang.g:1598:1: ( '}' )
+            // InternalEbnfLang.g:1568:1: ( ( '}' ) )
+            // InternalEbnfLang.g:1569:1: ( '}' )
             {
-            // InternalEbnfLang.g:1598:1: ( '}' )
-            // InternalEbnfLang.g:1599:2: '}'
+            // InternalEbnfLang.g:1569:1: ( '}' )
+            // InternalEbnfLang.g:1570:2: '}'
             {
              before(grammarAccess.getExpression_Repetition_GroupAccess().getRightCurlyBracketKeyword_3()); 
             match(input,23,FOLLOW_2); 
@@ -4835,14 +4761,14 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Repetition_Group__Group__4"
-    // InternalEbnfLang.g:1608:1: rule__Expression_Repetition_Group__Group__4 : rule__Expression_Repetition_Group__Group__4__Impl ;
+    // InternalEbnfLang.g:1579:1: rule__Expression_Repetition_Group__Group__4 : rule__Expression_Repetition_Group__Group__4__Impl ;
     public final void rule__Expression_Repetition_Group__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1612:1: ( rule__Expression_Repetition_Group__Group__4__Impl )
-            // InternalEbnfLang.g:1613:2: rule__Expression_Repetition_Group__Group__4__Impl
+            // InternalEbnfLang.g:1583:1: ( rule__Expression_Repetition_Group__Group__4__Impl )
+            // InternalEbnfLang.g:1584:2: rule__Expression_Repetition_Group__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Expression_Repetition_Group__Group__4__Impl();
@@ -4868,20 +4794,20 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Repetition_Group__Group__4__Impl"
-    // InternalEbnfLang.g:1619:1: rule__Expression_Repetition_Group__Group__4__Impl : ( ( rule__Expression_Repetition_Group__AtLeastOneAssignment_4 )? ) ;
+    // InternalEbnfLang.g:1590:1: rule__Expression_Repetition_Group__Group__4__Impl : ( ( rule__Expression_Repetition_Group__AtLeastOneAssignment_4 )? ) ;
     public final void rule__Expression_Repetition_Group__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1623:1: ( ( ( rule__Expression_Repetition_Group__AtLeastOneAssignment_4 )? ) )
-            // InternalEbnfLang.g:1624:1: ( ( rule__Expression_Repetition_Group__AtLeastOneAssignment_4 )? )
+            // InternalEbnfLang.g:1594:1: ( ( ( rule__Expression_Repetition_Group__AtLeastOneAssignment_4 )? ) )
+            // InternalEbnfLang.g:1595:1: ( ( rule__Expression_Repetition_Group__AtLeastOneAssignment_4 )? )
             {
-            // InternalEbnfLang.g:1624:1: ( ( rule__Expression_Repetition_Group__AtLeastOneAssignment_4 )? )
-            // InternalEbnfLang.g:1625:2: ( rule__Expression_Repetition_Group__AtLeastOneAssignment_4 )?
+            // InternalEbnfLang.g:1595:1: ( ( rule__Expression_Repetition_Group__AtLeastOneAssignment_4 )? )
+            // InternalEbnfLang.g:1596:2: ( rule__Expression_Repetition_Group__AtLeastOneAssignment_4 )?
             {
              before(grammarAccess.getExpression_Repetition_GroupAccess().getAtLeastOneAssignment_4()); 
-            // InternalEbnfLang.g:1626:2: ( rule__Expression_Repetition_Group__AtLeastOneAssignment_4 )?
+            // InternalEbnfLang.g:1597:2: ( rule__Expression_Repetition_Group__AtLeastOneAssignment_4 )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -4894,7 +4820,7 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
             }
             switch (alt10) {
                 case 1 :
-                    // InternalEbnfLang.g:1626:3: rule__Expression_Repetition_Group__AtLeastOneAssignment_4
+                    // InternalEbnfLang.g:1597:3: rule__Expression_Repetition_Group__AtLeastOneAssignment_4
                     {
                     pushFollow(FOLLOW_2);
                     rule__Expression_Repetition_Group__AtLeastOneAssignment_4();
@@ -4930,16 +4856,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Optional_Group__Group__0"
-    // InternalEbnfLang.g:1635:1: rule__Expression_Optional_Group__Group__0 : rule__Expression_Optional_Group__Group__0__Impl rule__Expression_Optional_Group__Group__1 ;
+    // InternalEbnfLang.g:1606:1: rule__Expression_Optional_Group__Group__0 : rule__Expression_Optional_Group__Group__0__Impl rule__Expression_Optional_Group__Group__1 ;
     public final void rule__Expression_Optional_Group__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1639:1: ( rule__Expression_Optional_Group__Group__0__Impl rule__Expression_Optional_Group__Group__1 )
-            // InternalEbnfLang.g:1640:2: rule__Expression_Optional_Group__Group__0__Impl rule__Expression_Optional_Group__Group__1
+            // InternalEbnfLang.g:1610:1: ( rule__Expression_Optional_Group__Group__0__Impl rule__Expression_Optional_Group__Group__1 )
+            // InternalEbnfLang.g:1611:2: rule__Expression_Optional_Group__Group__0__Impl rule__Expression_Optional_Group__Group__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__Expression_Optional_Group__Group__0__Impl();
 
             state._fsp--;
@@ -4968,21 +4894,21 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Optional_Group__Group__0__Impl"
-    // InternalEbnfLang.g:1647:1: rule__Expression_Optional_Group__Group__0__Impl : ( () ) ;
+    // InternalEbnfLang.g:1618:1: rule__Expression_Optional_Group__Group__0__Impl : ( () ) ;
     public final void rule__Expression_Optional_Group__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1651:1: ( ( () ) )
-            // InternalEbnfLang.g:1652:1: ( () )
+            // InternalEbnfLang.g:1622:1: ( ( () ) )
+            // InternalEbnfLang.g:1623:1: ( () )
             {
-            // InternalEbnfLang.g:1652:1: ( () )
-            // InternalEbnfLang.g:1653:2: ()
+            // InternalEbnfLang.g:1623:1: ( () )
+            // InternalEbnfLang.g:1624:2: ()
             {
              before(grammarAccess.getExpression_Optional_GroupAccess().getExpression_Optional_GroupAction_0()); 
-            // InternalEbnfLang.g:1654:2: ()
-            // InternalEbnfLang.g:1654:3: 
+            // InternalEbnfLang.g:1625:2: ()
+            // InternalEbnfLang.g:1625:3: 
             {
             }
 
@@ -5005,16 +4931,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Optional_Group__Group__1"
-    // InternalEbnfLang.g:1662:1: rule__Expression_Optional_Group__Group__1 : rule__Expression_Optional_Group__Group__1__Impl rule__Expression_Optional_Group__Group__2 ;
+    // InternalEbnfLang.g:1633:1: rule__Expression_Optional_Group__Group__1 : rule__Expression_Optional_Group__Group__1__Impl rule__Expression_Optional_Group__Group__2 ;
     public final void rule__Expression_Optional_Group__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1666:1: ( rule__Expression_Optional_Group__Group__1__Impl rule__Expression_Optional_Group__Group__2 )
-            // InternalEbnfLang.g:1667:2: rule__Expression_Optional_Group__Group__1__Impl rule__Expression_Optional_Group__Group__2
+            // InternalEbnfLang.g:1637:1: ( rule__Expression_Optional_Group__Group__1__Impl rule__Expression_Optional_Group__Group__2 )
+            // InternalEbnfLang.g:1638:2: rule__Expression_Optional_Group__Group__1__Impl rule__Expression_Optional_Group__Group__2
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_6);
             rule__Expression_Optional_Group__Group__1__Impl();
 
             state._fsp--;
@@ -5043,17 +4969,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Optional_Group__Group__1__Impl"
-    // InternalEbnfLang.g:1674:1: rule__Expression_Optional_Group__Group__1__Impl : ( '[' ) ;
+    // InternalEbnfLang.g:1645:1: rule__Expression_Optional_Group__Group__1__Impl : ( '[' ) ;
     public final void rule__Expression_Optional_Group__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1678:1: ( ( '[' ) )
-            // InternalEbnfLang.g:1679:1: ( '[' )
+            // InternalEbnfLang.g:1649:1: ( ( '[' ) )
+            // InternalEbnfLang.g:1650:1: ( '[' )
             {
-            // InternalEbnfLang.g:1679:1: ( '[' )
-            // InternalEbnfLang.g:1680:2: '['
+            // InternalEbnfLang.g:1650:1: ( '[' )
+            // InternalEbnfLang.g:1651:2: '['
             {
              before(grammarAccess.getExpression_Optional_GroupAccess().getLeftSquareBracketKeyword_1()); 
             match(input,24,FOLLOW_2); 
@@ -5080,16 +5006,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Optional_Group__Group__2"
-    // InternalEbnfLang.g:1689:1: rule__Expression_Optional_Group__Group__2 : rule__Expression_Optional_Group__Group__2__Impl rule__Expression_Optional_Group__Group__3 ;
+    // InternalEbnfLang.g:1660:1: rule__Expression_Optional_Group__Group__2 : rule__Expression_Optional_Group__Group__2__Impl rule__Expression_Optional_Group__Group__3 ;
     public final void rule__Expression_Optional_Group__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1693:1: ( rule__Expression_Optional_Group__Group__2__Impl rule__Expression_Optional_Group__Group__3 )
-            // InternalEbnfLang.g:1694:2: rule__Expression_Optional_Group__Group__2__Impl rule__Expression_Optional_Group__Group__3
+            // InternalEbnfLang.g:1664:1: ( rule__Expression_Optional_Group__Group__2__Impl rule__Expression_Optional_Group__Group__3 )
+            // InternalEbnfLang.g:1665:2: rule__Expression_Optional_Group__Group__2__Impl rule__Expression_Optional_Group__Group__3
             {
-            pushFollow(FOLLOW_22);
+            pushFollow(FOLLOW_21);
             rule__Expression_Optional_Group__Group__2__Impl();
 
             state._fsp--;
@@ -5118,21 +5044,21 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Optional_Group__Group__2__Impl"
-    // InternalEbnfLang.g:1701:1: rule__Expression_Optional_Group__Group__2__Impl : ( ( rule__Expression_Optional_Group__ExprAssignment_2 ) ) ;
+    // InternalEbnfLang.g:1672:1: rule__Expression_Optional_Group__Group__2__Impl : ( ( rule__Expression_Optional_Group__ExprAssignment_2 ) ) ;
     public final void rule__Expression_Optional_Group__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1705:1: ( ( ( rule__Expression_Optional_Group__ExprAssignment_2 ) ) )
-            // InternalEbnfLang.g:1706:1: ( ( rule__Expression_Optional_Group__ExprAssignment_2 ) )
+            // InternalEbnfLang.g:1676:1: ( ( ( rule__Expression_Optional_Group__ExprAssignment_2 ) ) )
+            // InternalEbnfLang.g:1677:1: ( ( rule__Expression_Optional_Group__ExprAssignment_2 ) )
             {
-            // InternalEbnfLang.g:1706:1: ( ( rule__Expression_Optional_Group__ExprAssignment_2 ) )
-            // InternalEbnfLang.g:1707:2: ( rule__Expression_Optional_Group__ExprAssignment_2 )
+            // InternalEbnfLang.g:1677:1: ( ( rule__Expression_Optional_Group__ExprAssignment_2 ) )
+            // InternalEbnfLang.g:1678:2: ( rule__Expression_Optional_Group__ExprAssignment_2 )
             {
              before(grammarAccess.getExpression_Optional_GroupAccess().getExprAssignment_2()); 
-            // InternalEbnfLang.g:1708:2: ( rule__Expression_Optional_Group__ExprAssignment_2 )
-            // InternalEbnfLang.g:1708:3: rule__Expression_Optional_Group__ExprAssignment_2
+            // InternalEbnfLang.g:1679:2: ( rule__Expression_Optional_Group__ExprAssignment_2 )
+            // InternalEbnfLang.g:1679:3: rule__Expression_Optional_Group__ExprAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Expression_Optional_Group__ExprAssignment_2();
@@ -5165,14 +5091,14 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Optional_Group__Group__3"
-    // InternalEbnfLang.g:1716:1: rule__Expression_Optional_Group__Group__3 : rule__Expression_Optional_Group__Group__3__Impl ;
+    // InternalEbnfLang.g:1687:1: rule__Expression_Optional_Group__Group__3 : rule__Expression_Optional_Group__Group__3__Impl ;
     public final void rule__Expression_Optional_Group__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1720:1: ( rule__Expression_Optional_Group__Group__3__Impl )
-            // InternalEbnfLang.g:1721:2: rule__Expression_Optional_Group__Group__3__Impl
+            // InternalEbnfLang.g:1691:1: ( rule__Expression_Optional_Group__Group__3__Impl )
+            // InternalEbnfLang.g:1692:2: rule__Expression_Optional_Group__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Expression_Optional_Group__Group__3__Impl();
@@ -5198,17 +5124,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Optional_Group__Group__3__Impl"
-    // InternalEbnfLang.g:1727:1: rule__Expression_Optional_Group__Group__3__Impl : ( ']' ) ;
+    // InternalEbnfLang.g:1698:1: rule__Expression_Optional_Group__Group__3__Impl : ( ']' ) ;
     public final void rule__Expression_Optional_Group__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1731:1: ( ( ']' ) )
-            // InternalEbnfLang.g:1732:1: ( ']' )
+            // InternalEbnfLang.g:1702:1: ( ( ']' ) )
+            // InternalEbnfLang.g:1703:1: ( ']' )
             {
-            // InternalEbnfLang.g:1732:1: ( ']' )
-            // InternalEbnfLang.g:1733:2: ']'
+            // InternalEbnfLang.g:1703:1: ( ']' )
+            // InternalEbnfLang.g:1704:2: ']'
             {
              before(grammarAccess.getExpression_Optional_GroupAccess().getRightSquareBracketKeyword_3()); 
             match(input,25,FOLLOW_2); 
@@ -5235,16 +5161,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Group__Group__0"
-    // InternalEbnfLang.g:1743:1: rule__Expression_Group__Group__0 : rule__Expression_Group__Group__0__Impl rule__Expression_Group__Group__1 ;
+    // InternalEbnfLang.g:1714:1: rule__Expression_Group__Group__0 : rule__Expression_Group__Group__0__Impl rule__Expression_Group__Group__1 ;
     public final void rule__Expression_Group__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1747:1: ( rule__Expression_Group__Group__0__Impl rule__Expression_Group__Group__1 )
-            // InternalEbnfLang.g:1748:2: rule__Expression_Group__Group__0__Impl rule__Expression_Group__Group__1
+            // InternalEbnfLang.g:1718:1: ( rule__Expression_Group__Group__0__Impl rule__Expression_Group__Group__1 )
+            // InternalEbnfLang.g:1719:2: rule__Expression_Group__Group__0__Impl rule__Expression_Group__Group__1
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_22);
             rule__Expression_Group__Group__0__Impl();
 
             state._fsp--;
@@ -5273,21 +5199,21 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Group__Group__0__Impl"
-    // InternalEbnfLang.g:1755:1: rule__Expression_Group__Group__0__Impl : ( () ) ;
+    // InternalEbnfLang.g:1726:1: rule__Expression_Group__Group__0__Impl : ( () ) ;
     public final void rule__Expression_Group__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1759:1: ( ( () ) )
-            // InternalEbnfLang.g:1760:1: ( () )
+            // InternalEbnfLang.g:1730:1: ( ( () ) )
+            // InternalEbnfLang.g:1731:1: ( () )
             {
-            // InternalEbnfLang.g:1760:1: ( () )
-            // InternalEbnfLang.g:1761:2: ()
+            // InternalEbnfLang.g:1731:1: ( () )
+            // InternalEbnfLang.g:1732:2: ()
             {
              before(grammarAccess.getExpression_GroupAccess().getExpression_GroupAction_0()); 
-            // InternalEbnfLang.g:1762:2: ()
-            // InternalEbnfLang.g:1762:3: 
+            // InternalEbnfLang.g:1733:2: ()
+            // InternalEbnfLang.g:1733:3: 
             {
             }
 
@@ -5310,16 +5236,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Group__Group__1"
-    // InternalEbnfLang.g:1770:1: rule__Expression_Group__Group__1 : rule__Expression_Group__Group__1__Impl rule__Expression_Group__Group__2 ;
+    // InternalEbnfLang.g:1741:1: rule__Expression_Group__Group__1 : rule__Expression_Group__Group__1__Impl rule__Expression_Group__Group__2 ;
     public final void rule__Expression_Group__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1774:1: ( rule__Expression_Group__Group__1__Impl rule__Expression_Group__Group__2 )
-            // InternalEbnfLang.g:1775:2: rule__Expression_Group__Group__1__Impl rule__Expression_Group__Group__2
+            // InternalEbnfLang.g:1745:1: ( rule__Expression_Group__Group__1__Impl rule__Expression_Group__Group__2 )
+            // InternalEbnfLang.g:1746:2: rule__Expression_Group__Group__1__Impl rule__Expression_Group__Group__2
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_6);
             rule__Expression_Group__Group__1__Impl();
 
             state._fsp--;
@@ -5348,17 +5274,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Group__Group__1__Impl"
-    // InternalEbnfLang.g:1782:1: rule__Expression_Group__Group__1__Impl : ( '(' ) ;
+    // InternalEbnfLang.g:1753:1: rule__Expression_Group__Group__1__Impl : ( '(' ) ;
     public final void rule__Expression_Group__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1786:1: ( ( '(' ) )
-            // InternalEbnfLang.g:1787:1: ( '(' )
+            // InternalEbnfLang.g:1757:1: ( ( '(' ) )
+            // InternalEbnfLang.g:1758:1: ( '(' )
             {
-            // InternalEbnfLang.g:1787:1: ( '(' )
-            // InternalEbnfLang.g:1788:2: '('
+            // InternalEbnfLang.g:1758:1: ( '(' )
+            // InternalEbnfLang.g:1759:2: '('
             {
              before(grammarAccess.getExpression_GroupAccess().getLeftParenthesisKeyword_1()); 
             match(input,26,FOLLOW_2); 
@@ -5385,16 +5311,16 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Group__Group__2"
-    // InternalEbnfLang.g:1797:1: rule__Expression_Group__Group__2 : rule__Expression_Group__Group__2__Impl rule__Expression_Group__Group__3 ;
+    // InternalEbnfLang.g:1768:1: rule__Expression_Group__Group__2 : rule__Expression_Group__Group__2__Impl rule__Expression_Group__Group__3 ;
     public final void rule__Expression_Group__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1801:1: ( rule__Expression_Group__Group__2__Impl rule__Expression_Group__Group__3 )
-            // InternalEbnfLang.g:1802:2: rule__Expression_Group__Group__2__Impl rule__Expression_Group__Group__3
+            // InternalEbnfLang.g:1772:1: ( rule__Expression_Group__Group__2__Impl rule__Expression_Group__Group__3 )
+            // InternalEbnfLang.g:1773:2: rule__Expression_Group__Group__2__Impl rule__Expression_Group__Group__3
             {
-            pushFollow(FOLLOW_24);
+            pushFollow(FOLLOW_23);
             rule__Expression_Group__Group__2__Impl();
 
             state._fsp--;
@@ -5423,21 +5349,21 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Group__Group__2__Impl"
-    // InternalEbnfLang.g:1809:1: rule__Expression_Group__Group__2__Impl : ( ( rule__Expression_Group__ExprAssignment_2 ) ) ;
+    // InternalEbnfLang.g:1780:1: rule__Expression_Group__Group__2__Impl : ( ( rule__Expression_Group__ExprAssignment_2 ) ) ;
     public final void rule__Expression_Group__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1813:1: ( ( ( rule__Expression_Group__ExprAssignment_2 ) ) )
-            // InternalEbnfLang.g:1814:1: ( ( rule__Expression_Group__ExprAssignment_2 ) )
+            // InternalEbnfLang.g:1784:1: ( ( ( rule__Expression_Group__ExprAssignment_2 ) ) )
+            // InternalEbnfLang.g:1785:1: ( ( rule__Expression_Group__ExprAssignment_2 ) )
             {
-            // InternalEbnfLang.g:1814:1: ( ( rule__Expression_Group__ExprAssignment_2 ) )
-            // InternalEbnfLang.g:1815:2: ( rule__Expression_Group__ExprAssignment_2 )
+            // InternalEbnfLang.g:1785:1: ( ( rule__Expression_Group__ExprAssignment_2 ) )
+            // InternalEbnfLang.g:1786:2: ( rule__Expression_Group__ExprAssignment_2 )
             {
              before(grammarAccess.getExpression_GroupAccess().getExprAssignment_2()); 
-            // InternalEbnfLang.g:1816:2: ( rule__Expression_Group__ExprAssignment_2 )
-            // InternalEbnfLang.g:1816:3: rule__Expression_Group__ExprAssignment_2
+            // InternalEbnfLang.g:1787:2: ( rule__Expression_Group__ExprAssignment_2 )
+            // InternalEbnfLang.g:1787:3: rule__Expression_Group__ExprAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Expression_Group__ExprAssignment_2();
@@ -5470,14 +5396,14 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Group__Group__3"
-    // InternalEbnfLang.g:1824:1: rule__Expression_Group__Group__3 : rule__Expression_Group__Group__3__Impl ;
+    // InternalEbnfLang.g:1795:1: rule__Expression_Group__Group__3 : rule__Expression_Group__Group__3__Impl ;
     public final void rule__Expression_Group__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1828:1: ( rule__Expression_Group__Group__3__Impl )
-            // InternalEbnfLang.g:1829:2: rule__Expression_Group__Group__3__Impl
+            // InternalEbnfLang.g:1799:1: ( rule__Expression_Group__Group__3__Impl )
+            // InternalEbnfLang.g:1800:2: rule__Expression_Group__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Expression_Group__Group__3__Impl();
@@ -5503,17 +5429,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Group__Group__3__Impl"
-    // InternalEbnfLang.g:1835:1: rule__Expression_Group__Group__3__Impl : ( ')' ) ;
+    // InternalEbnfLang.g:1806:1: rule__Expression_Group__Group__3__Impl : ( ')' ) ;
     public final void rule__Expression_Group__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1839:1: ( ( ')' ) )
-            // InternalEbnfLang.g:1840:1: ( ')' )
+            // InternalEbnfLang.g:1810:1: ( ( ')' ) )
+            // InternalEbnfLang.g:1811:1: ( ')' )
             {
-            // InternalEbnfLang.g:1840:1: ( ')' )
-            // InternalEbnfLang.g:1841:2: ')'
+            // InternalEbnfLang.g:1811:1: ( ')' )
+            // InternalEbnfLang.g:1812:2: ')'
             {
              before(grammarAccess.getExpression_GroupAccess().getRightParenthesisKeyword_3()); 
             match(input,27,FOLLOW_2); 
@@ -5540,17 +5466,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EbnfGrammar__LinesAssignment_1"
-    // InternalEbnfLang.g:1851:1: rule__EbnfGrammar__LinesAssignment_1 : ( ruleLine ) ;
+    // InternalEbnfLang.g:1822:1: rule__EbnfGrammar__LinesAssignment_1 : ( ruleLine ) ;
     public final void rule__EbnfGrammar__LinesAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1855:1: ( ( ruleLine ) )
-            // InternalEbnfLang.g:1856:2: ( ruleLine )
+            // InternalEbnfLang.g:1826:1: ( ( ruleLine ) )
+            // InternalEbnfLang.g:1827:2: ( ruleLine )
             {
-            // InternalEbnfLang.g:1856:2: ( ruleLine )
-            // InternalEbnfLang.g:1857:3: ruleLine
+            // InternalEbnfLang.g:1827:2: ( ruleLine )
+            // InternalEbnfLang.g:1828:3: ruleLine
             {
              before(grammarAccess.getEbnfGrammarAccess().getLinesLineParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -5581,17 +5507,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProductionRule__NameAssignment_1"
-    // InternalEbnfLang.g:1866:1: rule__ProductionRule__NameAssignment_1 : ( RULE_NAME ) ;
+    // InternalEbnfLang.g:1837:1: rule__ProductionRule__NameAssignment_1 : ( RULE_NAME ) ;
     public final void rule__ProductionRule__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1870:1: ( ( RULE_NAME ) )
-            // InternalEbnfLang.g:1871:2: ( RULE_NAME )
+            // InternalEbnfLang.g:1841:1: ( ( RULE_NAME ) )
+            // InternalEbnfLang.g:1842:2: ( RULE_NAME )
             {
-            // InternalEbnfLang.g:1871:2: ( RULE_NAME )
-            // InternalEbnfLang.g:1872:3: RULE_NAME
+            // InternalEbnfLang.g:1842:2: ( RULE_NAME )
+            // InternalEbnfLang.g:1843:3: RULE_NAME
             {
              before(grammarAccess.getProductionRuleAccess().getNameNAMETerminalRuleCall_1_0()); 
             match(input,RULE_NAME,FOLLOW_2); 
@@ -5618,17 +5544,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ProductionRule__ExprAssignment_3"
-    // InternalEbnfLang.g:1881:1: rule__ProductionRule__ExprAssignment_3 : ( ruleExpression ) ;
+    // InternalEbnfLang.g:1852:1: rule__ProductionRule__ExprAssignment_3 : ( ruleExpression ) ;
     public final void rule__ProductionRule__ExprAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1885:1: ( ( ruleExpression ) )
-            // InternalEbnfLang.g:1886:2: ( ruleExpression )
+            // InternalEbnfLang.g:1856:1: ( ( ruleExpression ) )
+            // InternalEbnfLang.g:1857:2: ( ruleExpression )
             {
-            // InternalEbnfLang.g:1886:2: ( ruleExpression )
-            // InternalEbnfLang.g:1887:3: ruleExpression
+            // InternalEbnfLang.g:1857:2: ( ruleExpression )
+            // InternalEbnfLang.g:1858:3: ruleExpression
             {
              before(grammarAccess.getProductionRuleAccess().getExprExpressionParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -5659,17 +5585,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Alternative__ElementsAssignment_1_1_1"
-    // InternalEbnfLang.g:1896:1: rule__Expression_Alternative__ElementsAssignment_1_1_1 : ( ruleExpression_Concatenation ) ;
+    // InternalEbnfLang.g:1867:1: rule__Expression_Alternative__ElementsAssignment_1_1_1 : ( ruleExpression_Concatenation ) ;
     public final void rule__Expression_Alternative__ElementsAssignment_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1900:1: ( ( ruleExpression_Concatenation ) )
-            // InternalEbnfLang.g:1901:2: ( ruleExpression_Concatenation )
+            // InternalEbnfLang.g:1871:1: ( ( ruleExpression_Concatenation ) )
+            // InternalEbnfLang.g:1872:2: ( ruleExpression_Concatenation )
             {
-            // InternalEbnfLang.g:1901:2: ( ruleExpression_Concatenation )
-            // InternalEbnfLang.g:1902:3: ruleExpression_Concatenation
+            // InternalEbnfLang.g:1872:2: ( ruleExpression_Concatenation )
+            // InternalEbnfLang.g:1873:3: ruleExpression_Concatenation
             {
              before(grammarAccess.getExpression_AlternativeAccess().getElementsExpression_ConcatenationParserRuleCall_1_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -5700,17 +5626,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Concatenation__ElementsAssignment_1_1_1"
-    // InternalEbnfLang.g:1911:1: rule__Expression_Concatenation__ElementsAssignment_1_1_1 : ( ruleExpression_Exception ) ;
+    // InternalEbnfLang.g:1882:1: rule__Expression_Concatenation__ElementsAssignment_1_1_1 : ( ruleExpression_Exception ) ;
     public final void rule__Expression_Concatenation__ElementsAssignment_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1915:1: ( ( ruleExpression_Exception ) )
-            // InternalEbnfLang.g:1916:2: ( ruleExpression_Exception )
+            // InternalEbnfLang.g:1886:1: ( ( ruleExpression_Exception ) )
+            // InternalEbnfLang.g:1887:2: ( ruleExpression_Exception )
             {
-            // InternalEbnfLang.g:1916:2: ( ruleExpression_Exception )
-            // InternalEbnfLang.g:1917:3: ruleExpression_Exception
+            // InternalEbnfLang.g:1887:2: ( ruleExpression_Exception )
+            // InternalEbnfLang.g:1888:3: ruleExpression_Exception
             {
              before(grammarAccess.getExpression_ConcatenationAccess().getElementsExpression_ExceptionParserRuleCall_1_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -5741,17 +5667,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Exception__RightAssignment_1_2"
-    // InternalEbnfLang.g:1926:1: rule__Expression_Exception__RightAssignment_1_2 : ( ruleExpression_Repetition ) ;
+    // InternalEbnfLang.g:1897:1: rule__Expression_Exception__RightAssignment_1_2 : ( ruleExpression_Repetition ) ;
     public final void rule__Expression_Exception__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1930:1: ( ( ruleExpression_Repetition ) )
-            // InternalEbnfLang.g:1931:2: ( ruleExpression_Repetition )
+            // InternalEbnfLang.g:1901:1: ( ( ruleExpression_Repetition ) )
+            // InternalEbnfLang.g:1902:2: ( ruleExpression_Repetition )
             {
-            // InternalEbnfLang.g:1931:2: ( ruleExpression_Repetition )
-            // InternalEbnfLang.g:1932:3: ruleExpression_Repetition
+            // InternalEbnfLang.g:1902:2: ( ruleExpression_Repetition )
+            // InternalEbnfLang.g:1903:3: ruleExpression_Repetition
             {
              before(grammarAccess.getExpression_ExceptionAccess().getRightExpression_RepetitionParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -5782,17 +5708,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Repetition__RepetitionsAssignment_1_1"
-    // InternalEbnfLang.g:1941:1: rule__Expression_Repetition__RepetitionsAssignment_1_1 : ( RULE_NUMBER ) ;
+    // InternalEbnfLang.g:1912:1: rule__Expression_Repetition__RepetitionsAssignment_1_1 : ( RULE_NUMBER ) ;
     public final void rule__Expression_Repetition__RepetitionsAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1945:1: ( ( RULE_NUMBER ) )
-            // InternalEbnfLang.g:1946:2: ( RULE_NUMBER )
+            // InternalEbnfLang.g:1916:1: ( ( RULE_NUMBER ) )
+            // InternalEbnfLang.g:1917:2: ( RULE_NUMBER )
             {
-            // InternalEbnfLang.g:1946:2: ( RULE_NUMBER )
-            // InternalEbnfLang.g:1947:3: RULE_NUMBER
+            // InternalEbnfLang.g:1917:2: ( RULE_NUMBER )
+            // InternalEbnfLang.g:1918:3: RULE_NUMBER
             {
              before(grammarAccess.getExpression_RepetitionAccess().getRepetitionsNUMBERTerminalRuleCall_1_1_0()); 
             match(input,RULE_NUMBER,FOLLOW_2); 
@@ -5819,17 +5745,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Repetition__ExprAssignment_1_3"
-    // InternalEbnfLang.g:1956:1: rule__Expression_Repetition__ExprAssignment_1_3 : ( ruleExpression_Terminal ) ;
+    // InternalEbnfLang.g:1927:1: rule__Expression_Repetition__ExprAssignment_1_3 : ( ruleExpression_Terminal ) ;
     public final void rule__Expression_Repetition__ExprAssignment_1_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1960:1: ( ( ruleExpression_Terminal ) )
-            // InternalEbnfLang.g:1961:2: ( ruleExpression_Terminal )
+            // InternalEbnfLang.g:1931:1: ( ( ruleExpression_Terminal ) )
+            // InternalEbnfLang.g:1932:2: ( ruleExpression_Terminal )
             {
-            // InternalEbnfLang.g:1961:2: ( ruleExpression_Terminal )
-            // InternalEbnfLang.g:1962:3: ruleExpression_Terminal
+            // InternalEbnfLang.g:1932:2: ( ruleExpression_Terminal )
+            // InternalEbnfLang.g:1933:3: ruleExpression_Terminal
             {
              before(grammarAccess.getExpression_RepetitionAccess().getExprExpression_TerminalParserRuleCall_1_3_0()); 
             pushFollow(FOLLOW_2);
@@ -5860,21 +5786,21 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Rule_Reference__RuleAssignment_1"
-    // InternalEbnfLang.g:1971:1: rule__Expression_Rule_Reference__RuleAssignment_1 : ( ( RULE_NAME ) ) ;
+    // InternalEbnfLang.g:1942:1: rule__Expression_Rule_Reference__RuleAssignment_1 : ( ( RULE_NAME ) ) ;
     public final void rule__Expression_Rule_Reference__RuleAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1975:1: ( ( ( RULE_NAME ) ) )
-            // InternalEbnfLang.g:1976:2: ( ( RULE_NAME ) )
+            // InternalEbnfLang.g:1946:1: ( ( ( RULE_NAME ) ) )
+            // InternalEbnfLang.g:1947:2: ( ( RULE_NAME ) )
             {
-            // InternalEbnfLang.g:1976:2: ( ( RULE_NAME ) )
-            // InternalEbnfLang.g:1977:3: ( RULE_NAME )
+            // InternalEbnfLang.g:1947:2: ( ( RULE_NAME ) )
+            // InternalEbnfLang.g:1948:3: ( RULE_NAME )
             {
              before(grammarAccess.getExpression_Rule_ReferenceAccess().getRuleProductionRuleCrossReference_1_0()); 
-            // InternalEbnfLang.g:1978:3: ( RULE_NAME )
-            // InternalEbnfLang.g:1979:4: RULE_NAME
+            // InternalEbnfLang.g:1949:3: ( RULE_NAME )
+            // InternalEbnfLang.g:1950:4: RULE_NAME
             {
              before(grammarAccess.getExpression_Rule_ReferenceAccess().getRuleProductionRuleNAMETerminalRuleCall_1_0_1()); 
             match(input,RULE_NAME,FOLLOW_2); 
@@ -5905,17 +5831,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Special_Sequence__TextAssignment_1"
-    // InternalEbnfLang.g:1990:1: rule__Expression_Special_Sequence__TextAssignment_1 : ( RULE_SPECIAL_SEQUENCE ) ;
+    // InternalEbnfLang.g:1961:1: rule__Expression_Special_Sequence__TextAssignment_1 : ( RULE_SPECIAL_SEQUENCE ) ;
     public final void rule__Expression_Special_Sequence__TextAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:1994:1: ( ( RULE_SPECIAL_SEQUENCE ) )
-            // InternalEbnfLang.g:1995:2: ( RULE_SPECIAL_SEQUENCE )
+            // InternalEbnfLang.g:1965:1: ( ( RULE_SPECIAL_SEQUENCE ) )
+            // InternalEbnfLang.g:1966:2: ( RULE_SPECIAL_SEQUENCE )
             {
-            // InternalEbnfLang.g:1995:2: ( RULE_SPECIAL_SEQUENCE )
-            // InternalEbnfLang.g:1996:3: RULE_SPECIAL_SEQUENCE
+            // InternalEbnfLang.g:1966:2: ( RULE_SPECIAL_SEQUENCE )
+            // InternalEbnfLang.g:1967:3: RULE_SPECIAL_SEQUENCE
             {
              before(grammarAccess.getExpression_Special_SequenceAccess().getTextSPECIAL_SEQUENCETerminalRuleCall_1_0()); 
             match(input,RULE_SPECIAL_SEQUENCE,FOLLOW_2); 
@@ -5942,17 +5868,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Terminal_Symbol__TextAssignment_1"
-    // InternalEbnfLang.g:2005:1: rule__Expression_Terminal_Symbol__TextAssignment_1 : ( RULE_TERMINAL_SYMBOL ) ;
+    // InternalEbnfLang.g:1976:1: rule__Expression_Terminal_Symbol__TextAssignment_1 : ( RULE_TERMINAL_SYMBOL ) ;
     public final void rule__Expression_Terminal_Symbol__TextAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:2009:1: ( ( RULE_TERMINAL_SYMBOL ) )
-            // InternalEbnfLang.g:2010:2: ( RULE_TERMINAL_SYMBOL )
+            // InternalEbnfLang.g:1980:1: ( ( RULE_TERMINAL_SYMBOL ) )
+            // InternalEbnfLang.g:1981:2: ( RULE_TERMINAL_SYMBOL )
             {
-            // InternalEbnfLang.g:2010:2: ( RULE_TERMINAL_SYMBOL )
-            // InternalEbnfLang.g:2011:3: RULE_TERMINAL_SYMBOL
+            // InternalEbnfLang.g:1981:2: ( RULE_TERMINAL_SYMBOL )
+            // InternalEbnfLang.g:1982:3: RULE_TERMINAL_SYMBOL
             {
              before(grammarAccess.getExpression_Terminal_SymbolAccess().getTextTERMINAL_SYMBOLTerminalRuleCall_1_0()); 
             match(input,RULE_TERMINAL_SYMBOL,FOLLOW_2); 
@@ -5979,17 +5905,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Repetition_Group__ExprAssignment_2"
-    // InternalEbnfLang.g:2020:1: rule__Expression_Repetition_Group__ExprAssignment_2 : ( ruleExpression ) ;
+    // InternalEbnfLang.g:1991:1: rule__Expression_Repetition_Group__ExprAssignment_2 : ( ruleExpression ) ;
     public final void rule__Expression_Repetition_Group__ExprAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:2024:1: ( ( ruleExpression ) )
-            // InternalEbnfLang.g:2025:2: ( ruleExpression )
+            // InternalEbnfLang.g:1995:1: ( ( ruleExpression ) )
+            // InternalEbnfLang.g:1996:2: ( ruleExpression )
             {
-            // InternalEbnfLang.g:2025:2: ( ruleExpression )
-            // InternalEbnfLang.g:2026:3: ruleExpression
+            // InternalEbnfLang.g:1996:2: ( ruleExpression )
+            // InternalEbnfLang.g:1997:3: ruleExpression
             {
              before(grammarAccess.getExpression_Repetition_GroupAccess().getExprExpressionParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -6020,21 +5946,21 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Repetition_Group__AtLeastOneAssignment_4"
-    // InternalEbnfLang.g:2035:1: rule__Expression_Repetition_Group__AtLeastOneAssignment_4 : ( ( '-' ) ) ;
+    // InternalEbnfLang.g:2006:1: rule__Expression_Repetition_Group__AtLeastOneAssignment_4 : ( ( '-' ) ) ;
     public final void rule__Expression_Repetition_Group__AtLeastOneAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:2039:1: ( ( ( '-' ) ) )
-            // InternalEbnfLang.g:2040:2: ( ( '-' ) )
+            // InternalEbnfLang.g:2010:1: ( ( ( '-' ) ) )
+            // InternalEbnfLang.g:2011:2: ( ( '-' ) )
             {
-            // InternalEbnfLang.g:2040:2: ( ( '-' ) )
-            // InternalEbnfLang.g:2041:3: ( '-' )
+            // InternalEbnfLang.g:2011:2: ( ( '-' ) )
+            // InternalEbnfLang.g:2012:3: ( '-' )
             {
              before(grammarAccess.getExpression_Repetition_GroupAccess().getAtLeastOneHyphenMinusKeyword_4_0()); 
-            // InternalEbnfLang.g:2042:3: ( '-' )
-            // InternalEbnfLang.g:2043:4: '-'
+            // InternalEbnfLang.g:2013:3: ( '-' )
+            // InternalEbnfLang.g:2014:4: '-'
             {
              before(grammarAccess.getExpression_Repetition_GroupAccess().getAtLeastOneHyphenMinusKeyword_4_0()); 
             match(input,20,FOLLOW_2); 
@@ -6065,17 +5991,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Optional_Group__ExprAssignment_2"
-    // InternalEbnfLang.g:2054:1: rule__Expression_Optional_Group__ExprAssignment_2 : ( ruleExpression ) ;
+    // InternalEbnfLang.g:2025:1: rule__Expression_Optional_Group__ExprAssignment_2 : ( ruleExpression ) ;
     public final void rule__Expression_Optional_Group__ExprAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:2058:1: ( ( ruleExpression ) )
-            // InternalEbnfLang.g:2059:2: ( ruleExpression )
+            // InternalEbnfLang.g:2029:1: ( ( ruleExpression ) )
+            // InternalEbnfLang.g:2030:2: ( ruleExpression )
             {
-            // InternalEbnfLang.g:2059:2: ( ruleExpression )
-            // InternalEbnfLang.g:2060:3: ruleExpression
+            // InternalEbnfLang.g:2030:2: ( ruleExpression )
+            // InternalEbnfLang.g:2031:3: ruleExpression
             {
              before(grammarAccess.getExpression_Optional_GroupAccess().getExprExpressionParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -6106,17 +6032,17 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Expression_Group__ExprAssignment_2"
-    // InternalEbnfLang.g:2069:1: rule__Expression_Group__ExprAssignment_2 : ( ruleExpression ) ;
+    // InternalEbnfLang.g:2040:1: rule__Expression_Group__ExprAssignment_2 : ( ruleExpression ) ;
     public final void rule__Expression_Group__ExprAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEbnfLang.g:2073:1: ( ( ruleExpression ) )
-            // InternalEbnfLang.g:2074:2: ( ruleExpression )
+            // InternalEbnfLang.g:2044:1: ( ( ruleExpression ) )
+            // InternalEbnfLang.g:2045:2: ( ruleExpression )
             {
-            // InternalEbnfLang.g:2074:2: ( ruleExpression )
-            // InternalEbnfLang.g:2075:3: ruleExpression
+            // InternalEbnfLang.g:2045:2: ( ruleExpression )
+            // InternalEbnfLang.g:2046:3: ruleExpression
             {
              before(grammarAccess.getExpression_GroupAccess().getExprExpressionParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -6145,6 +6071,43 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
     }
     // $ANTLR end "rule__Expression_Group__ExprAssignment_2"
 
+
+    // $ANTLR start "rule__CommentEBNF__ContentCommentAssignment"
+    // InternalEbnfLang.g:2055:1: rule__CommentEBNF__ContentCommentAssignment : ( RULE_EBNF_COMMENT ) ;
+    public final void rule__CommentEBNF__ContentCommentAssignment() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalEbnfLang.g:2059:1: ( ( RULE_EBNF_COMMENT ) )
+            // InternalEbnfLang.g:2060:2: ( RULE_EBNF_COMMENT )
+            {
+            // InternalEbnfLang.g:2060:2: ( RULE_EBNF_COMMENT )
+            // InternalEbnfLang.g:2061:3: RULE_EBNF_COMMENT
+            {
+             before(grammarAccess.getCommentEBNFAccess().getContentCommentEBNF_COMMENTTerminalRuleCall_0()); 
+            match(input,RULE_EBNF_COMMENT,FOLLOW_2); 
+             after(grammarAccess.getCommentEBNFAccess().getContentCommentEBNF_COMMENTTerminalRuleCall_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__CommentEBNF__ContentCommentAssignment"
+
     // Delegated rules
 
 
@@ -6152,27 +6115,26 @@ public class InternalEbnfLangParser extends AbstractInternalContentAssistParser 
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000030L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000032L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x00000000054001E0L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000040002L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000080002L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000100002L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x00000000054001A0L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000110L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000112L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x00000000054000F0L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000040002L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000080002L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000100002L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x00000000054000D0L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000008000000L});
 
 }

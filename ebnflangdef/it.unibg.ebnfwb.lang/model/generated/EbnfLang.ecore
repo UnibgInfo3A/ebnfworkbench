@@ -12,6 +12,9 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UserComment" eSuperTypes="#//Line">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contentComment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression_Alternative" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
         eType="#//Expression" containment="true"/>

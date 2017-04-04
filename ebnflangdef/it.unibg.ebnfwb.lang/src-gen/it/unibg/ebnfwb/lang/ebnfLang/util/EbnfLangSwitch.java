@@ -102,6 +102,14 @@ public class EbnfLangSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EbnfLangPackage.USER_COMMENT:
+      {
+        UserComment userComment = (UserComment)theEObject;
+        T result = caseUserComment(userComment);
+        if (result == null) result = caseLine(userComment);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case EbnfLangPackage.EXPRESSION_ALTERNATIVE:
       {
         Expression_Alternative expression_Alternative = (Expression_Alternative)theEObject;
@@ -246,6 +254,22 @@ public class EbnfLangSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseExpression(Expression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>User Comment</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>User Comment</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUserComment(UserComment object)
   {
     return null;
   }

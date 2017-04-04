@@ -26,20 +26,9 @@ public class EbnfLangSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getEBNF_COMMENTRule())
-			return getEBNF_COMMENTToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
-	/**
-	 * terminal EBNF_COMMENT returns ecore::EString:
-	 *     '(*' -> '*)';
-	 */
-	protected String getEBNF_COMMENTToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "(*";
-	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {

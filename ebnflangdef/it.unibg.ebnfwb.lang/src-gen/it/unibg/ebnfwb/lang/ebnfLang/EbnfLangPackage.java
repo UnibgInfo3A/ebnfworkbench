@@ -161,6 +161,34 @@ public interface EbnfLangPackage extends EPackage
   int EXPRESSION_FEATURE_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link it.unibg.ebnfwb.lang.ebnfLang.impl.UserCommentImpl <em>User Comment</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see it.unibg.ebnfwb.lang.ebnfLang.impl.UserCommentImpl
+   * @see it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfLangPackageImpl#getUserComment()
+   * @generated
+   */
+  int USER_COMMENT = 4;
+
+  /**
+   * The feature id for the '<em><b>Content Comment</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USER_COMMENT__CONTENT_COMMENT = LINE_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>User Comment</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USER_COMMENT_FEATURE_COUNT = LINE_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link it.unibg.ebnfwb.lang.ebnfLang.impl.Expression_AlternativeImpl <em>Expression Alternative</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -168,7 +196,7 @@ public interface EbnfLangPackage extends EPackage
    * @see it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfLangPackageImpl#getExpression_Alternative()
    * @generated
    */
-  int EXPRESSION_ALTERNATIVE = 4;
+  int EXPRESSION_ALTERNATIVE = 5;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -196,7 +224,7 @@ public interface EbnfLangPackage extends EPackage
    * @see it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfLangPackageImpl#getExpression_Concatenation()
    * @generated
    */
-  int EXPRESSION_CONCATENATION = 5;
+  int EXPRESSION_CONCATENATION = 6;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -224,7 +252,7 @@ public interface EbnfLangPackage extends EPackage
    * @see it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfLangPackageImpl#getExpression_Exception()
    * @generated
    */
-  int EXPRESSION_EXCEPTION = 6;
+  int EXPRESSION_EXCEPTION = 7;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -261,7 +289,7 @@ public interface EbnfLangPackage extends EPackage
    * @see it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfLangPackageImpl#getExpression_Repetition()
    * @generated
    */
-  int EXPRESSION_REPETITION = 7;
+  int EXPRESSION_REPETITION = 8;
 
   /**
    * The feature id for the '<em><b>Repetitions</b></em>' attribute.
@@ -298,7 +326,7 @@ public interface EbnfLangPackage extends EPackage
    * @see it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfLangPackageImpl#getExpression_Rule_Reference()
    * @generated
    */
-  int EXPRESSION_RULE_REFERENCE = 8;
+  int EXPRESSION_RULE_REFERENCE = 9;
 
   /**
    * The feature id for the '<em><b>Rule</b></em>' reference.
@@ -326,7 +354,7 @@ public interface EbnfLangPackage extends EPackage
    * @see it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfLangPackageImpl#getExpression_Special_Sequence()
    * @generated
    */
-  int EXPRESSION_SPECIAL_SEQUENCE = 9;
+  int EXPRESSION_SPECIAL_SEQUENCE = 10;
 
   /**
    * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -354,7 +382,7 @@ public interface EbnfLangPackage extends EPackage
    * @see it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfLangPackageImpl#getExpression_Terminal_Symbol()
    * @generated
    */
-  int EXPRESSION_TERMINAL_SYMBOL = 10;
+  int EXPRESSION_TERMINAL_SYMBOL = 11;
 
   /**
    * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -382,7 +410,7 @@ public interface EbnfLangPackage extends EPackage
    * @see it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfLangPackageImpl#getExpression_Repetition_Group()
    * @generated
    */
-  int EXPRESSION_REPETITION_GROUP = 11;
+  int EXPRESSION_REPETITION_GROUP = 12;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -419,7 +447,7 @@ public interface EbnfLangPackage extends EPackage
    * @see it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfLangPackageImpl#getExpression_Optional_Group()
    * @generated
    */
-  int EXPRESSION_OPTIONAL_GROUP = 12;
+  int EXPRESSION_OPTIONAL_GROUP = 13;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -447,7 +475,7 @@ public interface EbnfLangPackage extends EPackage
    * @see it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfLangPackageImpl#getExpression_Group()
    * @generated
    */
-  int EXPRESSION_GROUP = 13;
+  int EXPRESSION_GROUP = 14;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -540,6 +568,27 @@ public interface EbnfLangPackage extends EPackage
    * @generated
    */
   EClass getExpression();
+
+  /**
+   * Returns the meta object for class '{@link it.unibg.ebnfwb.lang.ebnfLang.UserComment <em>User Comment</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>User Comment</em>'.
+   * @see it.unibg.ebnfwb.lang.ebnfLang.UserComment
+   * @generated
+   */
+  EClass getUserComment();
+
+  /**
+   * Returns the meta object for the attribute '{@link it.unibg.ebnfwb.lang.ebnfLang.UserComment#getContentComment <em>Content Comment</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Content Comment</em>'.
+   * @see it.unibg.ebnfwb.lang.ebnfLang.UserComment#getContentComment()
+   * @see #getUserComment()
+   * @generated
+   */
+  EAttribute getUserComment_ContentComment();
 
   /**
    * Returns the meta object for class '{@link it.unibg.ebnfwb.lang.ebnfLang.Expression_Alternative <em>Expression Alternative</em>}'.
@@ -870,6 +919,24 @@ public interface EbnfLangPackage extends EPackage
      * @generated
      */
     EClass EXPRESSION = eINSTANCE.getExpression();
+
+    /**
+     * The meta object literal for the '{@link it.unibg.ebnfwb.lang.ebnfLang.impl.UserCommentImpl <em>User Comment</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see it.unibg.ebnfwb.lang.ebnfLang.impl.UserCommentImpl
+     * @see it.unibg.ebnfwb.lang.ebnfLang.impl.EbnfLangPackageImpl#getUserComment()
+     * @generated
+     */
+    EClass USER_COMMENT = eINSTANCE.getUserComment();
+
+    /**
+     * The meta object literal for the '<em><b>Content Comment</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute USER_COMMENT__CONTENT_COMMENT = eINSTANCE.getUserComment_ContentComment();
 
     /**
      * The meta object literal for the '{@link it.unibg.ebnfwb.lang.ebnfLang.impl.Expression_AlternativeImpl <em>Expression Alternative</em>}' class.

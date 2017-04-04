@@ -17,6 +17,8 @@ import it.unibg.ebnfwb.lang.ebnfLang.Expression_Repetition_Group
 import it.unibg.ebnfwb.lang.ebnfLang.Expression_Rule_Reference
 import it.unibg.ebnfwb.lang.ebnfLang.Expression_Special_Sequence
 import it.unibg.ebnfwb.lang.ebnfLang.Expression_Terminal_Symbol
+import it.unibg.ebnfwb.lang.ebnfLang.UserComment
+import java.util.ArrayList
 
 /**
  * Generates latex from your model files on save.
@@ -67,13 +69,22 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
     «ENDFOR»    
 	\end{document}
 	'''
-
+	
 	def compile(Line line) {
     	if (line instanceof ProductionRule)
-    		(line as ProductionRule).compile	
+    		println(line as ProductionRule).compile	
+    	else if (line instanceof UserComment)
+    		println(line as UserComment).compile	
     	else
-    		println(new ToString().caseLine(line))		
-	}
+    		println(line.toString)		
+}
+//
+//	def compile(Line line) {
+//    	if (line instanceof ProductionRule)
+//    		(line as ProductionRule).compile	
+//    	else
+//    		println(new ToString().caseLine(line))		
+//	}
 
 	def compile(ProductionRule rule) {
 		
@@ -81,9 +92,10 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
 	   
 	    var s = ""
 	    var sf = ""
+	    var SpecialCharMarnager mngr = new SpecialCharMarnager(r)
 	  
-	    s = s.replace("'" , "´");
-	    
+	   // s = s.replace("'" , "´");
+	    r = mngr.latexCharacterManager()
 	    
 		s = s.replace("'∧  (U+2227)'","$\\wedge$");
 		s = s.replace("´âª  (U+222A)´","$\\cap$");
@@ -114,25 +126,10 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
 	\end{lstlisting}
 	
 	'''
-	//	}
-		//else{
-//		 s = rule.name+ '='+ r + ';'
-//		 q = s.replaceAll("[\r\n]+", "")
-//	'''
-//	\begin{lstlisting}
-//	 «q»
-//	\end{lstlisting}
-//	
-//	'''
-//		}
-		
-	
 	
 	}
 	
   	def compile (Expression expr) {
-  		
-  		
   		
   		if (expr instanceof Expression_Alternative)
   		
@@ -220,14 +217,19 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
   		 	«new ToString().doSwitch(expr)»
   		
   		'''		
-  		
-  		
   		 }
   		 
-  		
-  		
-  
-	
+  		 def compile(UserComment comment){
+  		 	var String s = comment.contentComment.substring(2,comment.contentComment.length-2)
+  		 	var SpecialCharMarnager mngr = new SpecialCharMarnager(s);
+  		 	return
+  		 	'''
+  		 	«mngr.substitute()»
+  		 	'''
+  		 	//Per non far stampare i simboli (**)in latex
+  		 }
+  		 
+  		 
 	// the document name (for the tex file)	
 	String fileName
 	

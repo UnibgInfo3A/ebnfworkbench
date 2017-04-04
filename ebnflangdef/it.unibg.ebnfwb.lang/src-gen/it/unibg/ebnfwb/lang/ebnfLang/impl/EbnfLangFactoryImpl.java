@@ -69,6 +69,7 @@ public class EbnfLangFactoryImpl extends EFactoryImpl implements EbnfLangFactory
       case EbnfLangPackage.LINE: return createLine();
       case EbnfLangPackage.PRODUCTION_RULE: return createProductionRule();
       case EbnfLangPackage.EXPRESSION: return createExpression();
+      case EbnfLangPackage.USER_COMMENT: return createUserComment();
       case EbnfLangPackage.EXPRESSION_ALTERNATIVE: return createExpression_Alternative();
       case EbnfLangPackage.EXPRESSION_CONCATENATION: return createExpression_Concatenation();
       case EbnfLangPackage.EXPRESSION_EXCEPTION: return createExpression_Exception();
@@ -126,6 +127,17 @@ public class EbnfLangFactoryImpl extends EFactoryImpl implements EbnfLangFactory
   {
     ExpressionImpl expression = new ExpressionImpl();
     return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UserComment createUserComment()
+  {
+    UserCommentImpl userComment = new UserCommentImpl();
+    return userComment;
   }
 
   /**

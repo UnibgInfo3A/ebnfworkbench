@@ -12,21 +12,21 @@ import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class InternalEbnfLangLexer extends Lexer {
-    public static final int RULE_TERMINAL_SYMBOL=8;
-    public static final int RULE_NAME=5;
+    public static final int RULE_TERMINAL_SYMBOL=7;
+    public static final int RULE_NAME=4;
     public static final int RULE_STRING=11;
     public static final int RULE_SL_COMMENT=13;
     public static final int T__19=19;
     public static final int T__16=16;
     public static final int T__17=17;
-    public static final int RULE_SPECIAL_SEQUENCE=7;
+    public static final int RULE_SPECIAL_SEQUENCE=6;
     public static final int T__18=18;
     public static final int EOF=-1;
     public static final int RULE_ID=9;
     public static final int RULE_WS=14;
-    public static final int RULE_EBNF_COMMENT=4;
+    public static final int RULE_EBNF_COMMENT=8;
     public static final int RULE_ANY_OTHER=15;
-    public static final int RULE_NUMBER=6;
+    public static final int RULE_NUMBER=5;
     public static final int T__26=26;
     public static final int T__27=27;
     public static final int RULE_INT=10;
@@ -296,12 +296,12 @@ public class InternalEbnfLangLexer extends Lexer {
         try {
             int _type = RULE_EBNF_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEbnfLang.g:2084:19: ( '(*' ( options {greedy=false; } : . )* '*)' )
-            // InternalEbnfLang.g:2084:21: '(*' ( options {greedy=false; } : . )* '*)'
+            // InternalEbnfLang.g:2070:19: ( '(*' ( options {greedy=false; } : . )* '*)' )
+            // InternalEbnfLang.g:2070:21: '(*' ( options {greedy=false; } : . )* '*)'
             {
             match("(*"); 
 
-            // InternalEbnfLang.g:2084:26: ( options {greedy=false; } : . )*
+            // InternalEbnfLang.g:2070:26: ( options {greedy=false; } : . )*
             loop1:
             do {
                 int alt1=2;
@@ -326,7 +326,7 @@ public class InternalEbnfLangLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // InternalEbnfLang.g:2084:54: .
+            	    // InternalEbnfLang.g:2070:54: .
             	    {
             	    matchAny(); 
 
@@ -356,11 +356,11 @@ public class InternalEbnfLangLexer extends Lexer {
         try {
             int _type = RULE_NUMBER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEbnfLang.g:2086:13: ( '1' .. '9' ( '0' .. '9' )* )
-            // InternalEbnfLang.g:2086:15: '1' .. '9' ( '0' .. '9' )*
+            // InternalEbnfLang.g:2072:13: ( '1' .. '9' ( '0' .. '9' )* )
+            // InternalEbnfLang.g:2072:15: '1' .. '9' ( '0' .. '9' )*
             {
             matchRange('1','9'); 
-            // InternalEbnfLang.g:2086:24: ( '0' .. '9' )*
+            // InternalEbnfLang.g:2072:24: ( '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -373,7 +373,7 @@ public class InternalEbnfLangLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // InternalEbnfLang.g:2086:25: '0' .. '9'
+            	    // InternalEbnfLang.g:2072:25: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -401,10 +401,10 @@ public class InternalEbnfLangLexer extends Lexer {
         try {
             int _type = RULE_NAME;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEbnfLang.g:2088:11: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ )
-            // InternalEbnfLang.g:2088:13: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
+            // InternalEbnfLang.g:2074:11: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+ )
+            // InternalEbnfLang.g:2074:13: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
             {
-            // InternalEbnfLang.g:2088:13: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
+            // InternalEbnfLang.g:2074:13: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )+
             int cnt3=0;
             loop3:
             do {
@@ -458,10 +458,10 @@ public class InternalEbnfLangLexer extends Lexer {
         try {
             int _type = RULE_TERMINAL_SYMBOL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEbnfLang.g:2090:22: ( ( '\"' (~ ( '\"' ) )+ '\"' | '\\'' (~ ( '\\'' ) )+ '\\'' ) )
-            // InternalEbnfLang.g:2090:24: ( '\"' (~ ( '\"' ) )+ '\"' | '\\'' (~ ( '\\'' ) )+ '\\'' )
+            // InternalEbnfLang.g:2076:22: ( ( '\"' (~ ( '\"' ) )+ '\"' | '\\'' (~ ( '\\'' ) )+ '\\'' ) )
+            // InternalEbnfLang.g:2076:24: ( '\"' (~ ( '\"' ) )+ '\"' | '\\'' (~ ( '\\'' ) )+ '\\'' )
             {
-            // InternalEbnfLang.g:2090:24: ( '\"' (~ ( '\"' ) )+ '\"' | '\\'' (~ ( '\\'' ) )+ '\\'' )
+            // InternalEbnfLang.g:2076:24: ( '\"' (~ ( '\"' ) )+ '\"' | '\\'' (~ ( '\\'' ) )+ '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -479,10 +479,10 @@ public class InternalEbnfLangLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalEbnfLang.g:2090:25: '\"' (~ ( '\"' ) )+ '\"'
+                    // InternalEbnfLang.g:2076:25: '\"' (~ ( '\"' ) )+ '\"'
                     {
                     match('\"'); 
-                    // InternalEbnfLang.g:2090:29: (~ ( '\"' ) )+
+                    // InternalEbnfLang.g:2076:29: (~ ( '\"' ) )+
                     int cnt4=0;
                     loop4:
                     do {
@@ -496,7 +496,7 @@ public class InternalEbnfLangLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalEbnfLang.g:2090:29: ~ ( '\"' )
+                    	    // InternalEbnfLang.g:2076:29: ~ ( '\"' )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -525,10 +525,10 @@ public class InternalEbnfLangLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalEbnfLang.g:2090:41: '\\'' (~ ( '\\'' ) )+ '\\''
+                    // InternalEbnfLang.g:2076:41: '\\'' (~ ( '\\'' ) )+ '\\''
                     {
                     match('\''); 
-                    // InternalEbnfLang.g:2090:46: (~ ( '\\'' ) )+
+                    // InternalEbnfLang.g:2076:46: (~ ( '\\'' ) )+
                     int cnt5=0;
                     loop5:
                     do {
@@ -542,7 +542,7 @@ public class InternalEbnfLangLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalEbnfLang.g:2090:46: ~ ( '\\'' )
+                    	    // InternalEbnfLang.g:2076:46: ~ ( '\\'' )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -589,11 +589,11 @@ public class InternalEbnfLangLexer extends Lexer {
         try {
             int _type = RULE_SPECIAL_SEQUENCE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEbnfLang.g:2092:23: ( '?' (~ ( '?' ) )+ '?' )
-            // InternalEbnfLang.g:2092:25: '?' (~ ( '?' ) )+ '?'
+            // InternalEbnfLang.g:2078:23: ( '?' (~ ( '?' ) )+ '?' )
+            // InternalEbnfLang.g:2078:25: '?' (~ ( '?' ) )+ '?'
             {
             match('?'); 
-            // InternalEbnfLang.g:2092:29: (~ ( '?' ) )+
+            // InternalEbnfLang.g:2078:29: (~ ( '?' ) )+
             int cnt7=0;
             loop7:
             do {
@@ -607,7 +607,7 @@ public class InternalEbnfLangLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalEbnfLang.g:2092:29: ~ ( '?' )
+            	    // InternalEbnfLang.g:2078:29: ~ ( '?' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='>')||(input.LA(1)>='@' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -648,10 +648,10 @@ public class InternalEbnfLangLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEbnfLang.g:2094:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalEbnfLang.g:2094:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalEbnfLang.g:2080:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalEbnfLang.g:2080:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalEbnfLang.g:2094:11: ( '^' )?
+            // InternalEbnfLang.g:2080:11: ( '^' )?
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -660,7 +660,7 @@ public class InternalEbnfLangLexer extends Lexer {
             }
             switch (alt8) {
                 case 1 :
-                    // InternalEbnfLang.g:2094:11: '^'
+                    // InternalEbnfLang.g:2080:11: '^'
                     {
                     match('^'); 
 
@@ -678,7 +678,7 @@ public class InternalEbnfLangLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalEbnfLang.g:2094:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalEbnfLang.g:2080:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop9:
             do {
                 int alt9=2;
@@ -727,10 +727,10 @@ public class InternalEbnfLangLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEbnfLang.g:2096:10: ( ( '0' .. '9' )+ )
-            // InternalEbnfLang.g:2096:12: ( '0' .. '9' )+
+            // InternalEbnfLang.g:2082:10: ( ( '0' .. '9' )+ )
+            // InternalEbnfLang.g:2082:12: ( '0' .. '9' )+
             {
-            // InternalEbnfLang.g:2096:12: ( '0' .. '9' )+
+            // InternalEbnfLang.g:2082:12: ( '0' .. '9' )+
             int cnt10=0;
             loop10:
             do {
@@ -744,7 +744,7 @@ public class InternalEbnfLangLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalEbnfLang.g:2096:13: '0' .. '9'
+            	    // InternalEbnfLang.g:2082:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -776,10 +776,10 @@ public class InternalEbnfLangLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEbnfLang.g:2098:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalEbnfLang.g:2098:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalEbnfLang.g:2084:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalEbnfLang.g:2084:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalEbnfLang.g:2098:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalEbnfLang.g:2084:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -797,10 +797,10 @@ public class InternalEbnfLangLexer extends Lexer {
             }
             switch (alt13) {
                 case 1 :
-                    // InternalEbnfLang.g:2098:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalEbnfLang.g:2084:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalEbnfLang.g:2098:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalEbnfLang.g:2084:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop11:
                     do {
                         int alt11=3;
@@ -816,7 +816,7 @@ public class InternalEbnfLangLexer extends Lexer {
 
                         switch (alt11) {
                     	case 1 :
-                    	    // InternalEbnfLang.g:2098:21: '\\\\' .
+                    	    // InternalEbnfLang.g:2084:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -824,7 +824,7 @@ public class InternalEbnfLangLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalEbnfLang.g:2098:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalEbnfLang.g:2084:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -849,10 +849,10 @@ public class InternalEbnfLangLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalEbnfLang.g:2098:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalEbnfLang.g:2084:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalEbnfLang.g:2098:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalEbnfLang.g:2084:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop12:
                     do {
                         int alt12=3;
@@ -868,7 +868,7 @@ public class InternalEbnfLangLexer extends Lexer {
 
                         switch (alt12) {
                     	case 1 :
-                    	    // InternalEbnfLang.g:2098:54: '\\\\' .
+                    	    // InternalEbnfLang.g:2084:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -876,7 +876,7 @@ public class InternalEbnfLangLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalEbnfLang.g:2098:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalEbnfLang.g:2084:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -919,12 +919,12 @@ public class InternalEbnfLangLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEbnfLang.g:2100:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalEbnfLang.g:2100:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalEbnfLang.g:2086:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalEbnfLang.g:2086:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalEbnfLang.g:2100:24: ( options {greedy=false; } : . )*
+            // InternalEbnfLang.g:2086:24: ( options {greedy=false; } : . )*
             loop14:
             do {
                 int alt14=2;
@@ -949,7 +949,7 @@ public class InternalEbnfLangLexer extends Lexer {
 
                 switch (alt14) {
             	case 1 :
-            	    // InternalEbnfLang.g:2100:52: .
+            	    // InternalEbnfLang.g:2086:52: .
             	    {
             	    matchAny(); 
 
@@ -979,12 +979,12 @@ public class InternalEbnfLangLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEbnfLang.g:2102:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalEbnfLang.g:2102:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalEbnfLang.g:2088:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalEbnfLang.g:2088:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalEbnfLang.g:2102:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalEbnfLang.g:2088:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop15:
             do {
                 int alt15=2;
@@ -997,7 +997,7 @@ public class InternalEbnfLangLexer extends Lexer {
 
                 switch (alt15) {
             	case 1 :
-            	    // InternalEbnfLang.g:2102:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalEbnfLang.g:2088:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1017,7 +1017,7 @@ public class InternalEbnfLangLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalEbnfLang.g:2102:40: ( ( '\\r' )? '\\n' )?
+            // InternalEbnfLang.g:2088:40: ( ( '\\r' )? '\\n' )?
             int alt17=2;
             int LA17_0 = input.LA(1);
 
@@ -1026,9 +1026,9 @@ public class InternalEbnfLangLexer extends Lexer {
             }
             switch (alt17) {
                 case 1 :
-                    // InternalEbnfLang.g:2102:41: ( '\\r' )? '\\n'
+                    // InternalEbnfLang.g:2088:41: ( '\\r' )? '\\n'
                     {
-                    // InternalEbnfLang.g:2102:41: ( '\\r' )?
+                    // InternalEbnfLang.g:2088:41: ( '\\r' )?
                     int alt16=2;
                     int LA16_0 = input.LA(1);
 
@@ -1037,7 +1037,7 @@ public class InternalEbnfLangLexer extends Lexer {
                     }
                     switch (alt16) {
                         case 1 :
-                            // InternalEbnfLang.g:2102:41: '\\r'
+                            // InternalEbnfLang.g:2088:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1069,10 +1069,10 @@ public class InternalEbnfLangLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEbnfLang.g:2104:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalEbnfLang.g:2104:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalEbnfLang.g:2090:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalEbnfLang.g:2090:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalEbnfLang.g:2104:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalEbnfLang.g:2090:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt18=0;
             loop18:
             do {
@@ -1126,8 +1126,8 @@ public class InternalEbnfLangLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEbnfLang.g:2106:16: ( . )
-            // InternalEbnfLang.g:2106:18: .
+            // InternalEbnfLang.g:2092:16: ( . )
+            // InternalEbnfLang.g:2092:18: .
             {
             matchAny(); 
 

@@ -15,6 +15,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EbnfLang.ecore#//ProductionRule/expr"/>
     </genClasses>
     <genClasses ecoreClass="EbnfLang.ecore#//Expression"/>
+    <genClasses ecoreClass="EbnfLang.ecore#//UserComment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EbnfLang.ecore#//UserComment/contentComment"/>
+    </genClasses>
     <genClasses ecoreClass="EbnfLang.ecore#//Expression_Alternative">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EbnfLang.ecore#//Expression_Alternative/elements"/>
     </genClasses>

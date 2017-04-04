@@ -51,26 +51,19 @@ public class EbnfLangGrammarAccess extends AbstractGrammarElementFinder {
 	public class LineElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibg.ebnfwb.lang.EbnfLang.Line");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Action cLineAction_0_0 = (Action)cGroup_0.eContents().get(0);
-		private final RuleCall cEBNF_COMMENTTerminalRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
+		private final RuleCall cCommentEBNFParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cProductionRuleParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
+		////Line:{Line} EBNF_COMMENT | ProductionRule;
 		//Line:
-		//	{Line} EBNF_COMMENT | ProductionRule;
+		//	CommentEBNF | ProductionRule;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Line} EBNF_COMMENT | ProductionRule
+		//CommentEBNF | ProductionRule
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//{Line} EBNF_COMMENT
-		public Group getGroup_0() { return cGroup_0; }
-		
-		//{Line}
-		public Action getLineAction_0_0() { return cLineAction_0_0; }
-		
-		//EBNF_COMMENT
-		public RuleCall getEBNF_COMMENTTerminalRuleCall_0_1() { return cEBNF_COMMENTTerminalRuleCall_0_1; }
+		//CommentEBNF
+		public RuleCall getCommentEBNFParserRuleCall_0() { return cCommentEBNFParserRuleCall_0; }
 		
 		//ProductionRule
 		public RuleCall getProductionRuleParserRuleCall_1() { return cProductionRuleParserRuleCall_1; }
@@ -507,6 +500,22 @@ public class EbnfLangGrammarAccess extends AbstractGrammarElementFinder {
 		//')'
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
 	}
+	public class CommentEBNFElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibg.ebnfwb.lang.EbnfLang.CommentEBNF");
+		private final Assignment cContentCommentAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cContentCommentEBNF_COMMENTTerminalRuleCall_0 = (RuleCall)cContentCommentAssignment.eContents().get(0);
+		
+		////Comments 
+		//CommentEBNF UserComment:
+		//	contentComment=EBNF_COMMENT
+		@Override public ParserRule getRule() { return rule; }
+		
+		//contentComment=EBNF_COMMENT
+		public Assignment getContentCommentAssignment() { return cContentCommentAssignment; }
+		
+		//EBNF_COMMENT
+		public RuleCall getContentCommentEBNF_COMMENTTerminalRuleCall_0() { return cContentCommentEBNF_COMMENTTerminalRuleCall_0; }
+	}
 	
 	
 	private final EbnfGrammarElements pEbnfGrammar;
@@ -524,6 +533,7 @@ public class EbnfLangGrammarAccess extends AbstractGrammarElementFinder {
 	private final Expression_Repetition_GroupElements pExpression_Repetition_Group;
 	private final Expression_Optional_GroupElements pExpression_Optional_Group;
 	private final Expression_GroupElements pExpression_Group;
+	private final CommentEBNFElements pCommentEBNF;
 	private final TerminalRule tEBNF_COMMENT;
 	private final TerminalRule tNUMBER;
 	private final TerminalRule tNAME;
@@ -554,6 +564,7 @@ public class EbnfLangGrammarAccess extends AbstractGrammarElementFinder {
 		this.pExpression_Repetition_Group = new Expression_Repetition_GroupElements();
 		this.pExpression_Optional_Group = new Expression_Optional_GroupElements();
 		this.pExpression_Group = new Expression_GroupElements();
+		this.pCommentEBNF = new CommentEBNFElements();
 		this.tEBNF_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibg.ebnfwb.lang.EbnfLang.EBNF_COMMENT");
 		this.tNUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibg.ebnfwb.lang.EbnfLang.NUMBER");
 		this.tNAME = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibg.ebnfwb.lang.EbnfLang.NAME");
@@ -598,8 +609,9 @@ public class EbnfLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getEbnfGrammarAccess().getRule();
 	}
 	
+	////Line:{Line} EBNF_COMMENT | ProductionRule;
 	//Line:
-	//	{Line} EBNF_COMMENT | ProductionRule;
+	//	CommentEBNF | ProductionRule;
 	public LineElements getLineAccess() {
 		return pLine;
 	}
@@ -752,6 +764,17 @@ public class EbnfLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getExpression_GroupRule() {
 		return getExpression_GroupAccess().getRule();
+	}
+	
+	////Comments 
+	//CommentEBNF UserComment:
+	//	contentComment=EBNF_COMMENT
+	public CommentEBNFElements getCommentEBNFAccess() {
+		return pCommentEBNF;
+	}
+	
+	public ParserRule getCommentEBNFRule() {
+		return getCommentEBNFAccess().getRule();
 	}
 	
 	//terminal EBNF_COMMENT:

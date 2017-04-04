@@ -96,6 +96,11 @@ public class EbnfLangAdapterFactory extends AdapterFactoryImpl
         return createExpressionAdapter();
       }
       @Override
+      public Adapter caseUserComment(UserComment object)
+      {
+        return createUserCommentAdapter();
+      }
+      @Override
       public Adapter caseExpression_Alternative(Expression_Alternative object)
       {
         return createExpression_AlternativeAdapter();
@@ -223,6 +228,21 @@ public class EbnfLangAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link it.unibg.ebnfwb.lang.ebnfLang.UserComment <em>User Comment</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see it.unibg.ebnfwb.lang.ebnfLang.UserComment
+   * @generated
+   */
+  public Adapter createUserCommentAdapter()
   {
     return null;
   }

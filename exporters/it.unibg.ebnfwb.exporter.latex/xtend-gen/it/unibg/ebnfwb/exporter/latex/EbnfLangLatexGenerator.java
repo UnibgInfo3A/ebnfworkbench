@@ -1,6 +1,7 @@
 package it.unibg.ebnfwb.exporter.latex;
 
 import com.google.common.collect.Iterables;
+import it.unibg.ebnfwb.exporter.latex.SpecialCharMarnager;
 import it.unibg.ebnfwb.exporter.latex.ToString;
 import it.unibg.ebnfwb.lang.ebnfLang.EbnfGrammar;
 import it.unibg.ebnfwb.lang.ebnfLang.Expression;
@@ -16,6 +17,7 @@ import it.unibg.ebnfwb.lang.ebnfLang.Expression_Special_Sequence;
 import it.unibg.ebnfwb.lang.ebnfLang.Expression_Terminal_Symbol;
 import it.unibg.ebnfwb.lang.ebnfLang.Line;
 import it.unibg.ebnfwb.lang.ebnfLang.ProductionRule;
+import it.unibg.ebnfwb.lang.ebnfLang.UserComment;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
@@ -107,11 +109,18 @@ public class EbnfLangLatexGenerator implements IGenerator {
   public CharSequence compile(final Line line) {
     CharSequence _xifexpression = null;
     if ((line instanceof ProductionRule)) {
-      _xifexpression = this.compile(((ProductionRule) line));
+      ProductionRule _println = InputOutput.<ProductionRule>println(((ProductionRule) line));
+      _xifexpression = this.compile(_println);
     } else {
-      ToString _toString = new ToString();
-      String _caseLine = _toString.caseLine(line);
-      _xifexpression = InputOutput.<String>println(_caseLine);
+      String _xifexpression_1 = null;
+      if ((line instanceof UserComment)) {
+        UserComment _println_1 = InputOutput.<UserComment>println(((UserComment) line));
+        _xifexpression_1 = this.compile(_println_1);
+      } else {
+        String _string = line.toString();
+        _xifexpression_1 = InputOutput.<String>println(_string);
+      }
+      _xifexpression = _xifexpression_1;
     }
     return _xifexpression;
   }
@@ -123,48 +132,49 @@ public class EbnfLangLatexGenerator implements IGenerator {
       String r = this.compile(_expr);
       String s = "";
       String sf = "";
-      String _replace = s.replace("\'", "´");
+      SpecialCharMarnager mngr = new SpecialCharMarnager(r);
+      String _latexCharacterManager = mngr.latexCharacterManager();
+      r = _latexCharacterManager;
+      String _replace = s.replace("\'∧  (U+2227)\'", "$\\wedge$");
       s = _replace;
-      String _replace_1 = s.replace("\'∧  (U+2227)\'", "$\\wedge$");
+      String _replace_1 = s.replace("´âª  (U+222A)´", "$\\cap$");
       s = _replace_1;
-      String _replace_2 = s.replace("´âª  (U+222A)´", "$\\cap$");
+      String _replace_2 = s.replace("´â©  (U+2229)´", "$\\cup$");
       s = _replace_2;
-      String _replace_3 = s.replace("´â©  (U+2229)´", "$\\cup$");
+      String _replace_3 = s.replace("´\\  (U+2216)´", "$\\setminus$");
       s = _replace_3;
-      String _replace_4 = s.replace("´\\  (U+2216)´", "$\\setminus$");
+      String _replace_4 = s.replace("´=Â Â (U+2260)´", "$\\neq$");
       s = _replace_4;
-      String _replace_5 = s.replace("´=Â Â (U+2260)´", "$\\neq$");
+      String _replace_5 = s.replace("´Â¬  (U+00AC)´", "$\\lnot$");
       s = _replace_5;
-      String _replace_6 = s.replace("´Â¬  (U+00AC)´", "$\\lnot$");
+      String _replace_6 = s.replace("´â§  (U+2227)´", "$\\wedge$");
       s = _replace_6;
-      String _replace_7 = s.replace("´â§  (U+2227)´", "$\\wedge$");
+      String _replace_7 = s.replace("´â¨Â Â (U+2228)´", "$\\vee$");
       s = _replace_7;
-      String _replace_8 = s.replace("´â¨Â Â (U+2228)´", "$\\vee$");
+      String _replace_8 = s.replace("´Â Â (U+22BB)´", "$\\oplus$");
       s = _replace_8;
-      String _replace_9 = s.replace("´Â Â (U+22BB)´", "$\\oplus$");
+      String _replace_9 = s.replace("´â  (U+2192)´", "$\\rightarrow$");
       s = _replace_9;
-      String _replace_10 = s.replace("´â  (U+2192)´", "$\\rightarrow$");
+      String _replace_10 = s.replace("´â (U+2192)´", "$\\rightarrow$");
       s = _replace_10;
-      String _replace_11 = s.replace("´â (U+2192)´", "$\\rightarrow$");
+      String _replace_11 = s.replace("´âÂ Â (U+21D2)´", "$\\Rightarrow$");
       s = _replace_11;
-      String _replace_12 = s.replace("´âÂ Â (U+21D2)´", "$\\Rightarrow$");
+      String _replace_12 = s.replace("´âÂ Â (U+2194)´", "$\\leftrightarrow$");
       s = _replace_12;
-      String _replace_13 = s.replace("´âÂ Â (U+2194)´", "$\\leftrightarrow$");
+      String _replace_13 = s.replace("´â  (U+21D4)´", "$\\Leftrightarrow$");
       s = _replace_13;
-      String _replace_14 = s.replace("´â  (U+21D4)´", "$\\Leftrightarrow$");
+      String _replace_14 = s.replace("´â¤Â (U+2264)´", "$\\leq$");
       s = _replace_14;
-      String _replace_15 = s.replace("´â¤Â (U+2264)´", "$\\leq$");
+      String _replace_15 = s.replace("´â¥Â (U+2265)´", "$\\geq$");
       s = _replace_15;
-      String _replace_16 = s.replace("´â¥Â (U+2265)´", "$\\geq$");
+      String _replace_16 = s.replace("´â´", "$\\in$");
       s = _replace_16;
-      String _replace_17 = s.replace("´â´", "$\\in$");
+      String _replace_17 = s.replace("´â´", "$\\notin$");
       s = _replace_17;
-      String _replace_18 = s.replace("´â´", "$\\notin$");
+      String _replace_18 = s.replace("´â  (U+2282)´", "$\\subset$");
       s = _replace_18;
-      String _replace_19 = s.replace("´â  (U+2282)´", "$\\subset$");
+      String _replace_19 = s.replace("´â  (U+2286)´", "$\\subseteq$");
       s = _replace_19;
-      String _replace_20 = s.replace("´â  (U+2286)´", "$\\subseteq$");
-      s = _replace_20;
       String _name = rule.getName();
       String _plus = (_name + "=");
       String _plus_1 = (_plus + r);
@@ -309,6 +319,20 @@ public class EbnfLangLatexGenerator implements IGenerator {
       return _builder_10.toString();
     }
     return null;
+  }
+  
+  public String compile(final UserComment comment) {
+    String _contentComment = comment.getContentComment();
+    String _contentComment_1 = comment.getContentComment();
+    int _length = _contentComment_1.length();
+    int _minus = (_length - 2);
+    String s = _contentComment.substring(2, _minus);
+    SpecialCharMarnager mngr = new SpecialCharMarnager(s);
+    StringConcatenation _builder = new StringConcatenation();
+    String _substitute = mngr.substitute();
+    _builder.append(_substitute, "");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
   }
   
   private String fileName;

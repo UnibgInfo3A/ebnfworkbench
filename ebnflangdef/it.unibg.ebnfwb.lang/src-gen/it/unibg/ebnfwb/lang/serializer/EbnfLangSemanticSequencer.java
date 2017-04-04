@@ -16,8 +16,8 @@ import it.unibg.ebnfwb.lang.ebnfLang.Expression_Repetition_Group;
 import it.unibg.ebnfwb.lang.ebnfLang.Expression_Rule_Reference;
 import it.unibg.ebnfwb.lang.ebnfLang.Expression_Special_Sequence;
 import it.unibg.ebnfwb.lang.ebnfLang.Expression_Terminal_Symbol;
-import it.unibg.ebnfwb.lang.ebnfLang.Line;
 import it.unibg.ebnfwb.lang.ebnfLang.ProductionRule;
+import it.unibg.ebnfwb.lang.ebnfLang.UserComment;
 import it.unibg.ebnfwb.lang.services.EbnfLangGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -77,16 +77,35 @@ public class EbnfLangSemanticSequencer extends AbstractDelegatingSemanticSequenc
 			case EbnfLangPackage.EXPRESSION_TERMINAL_SYMBOL:
 				sequence_Expression_Terminal_Symbol(context, (Expression_Terminal_Symbol) semanticObject); 
 				return; 
-			case EbnfLangPackage.LINE:
-				sequence_Line(context, (Line) semanticObject); 
-				return; 
 			case EbnfLangPackage.PRODUCTION_RULE:
 				sequence_ProductionRule(context, (ProductionRule) semanticObject); 
+				return; 
+			case EbnfLangPackage.USER_COMMENT:
+				sequence_CommentEBNF(context, (UserComment) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     Line returns UserComment
+	 *     CommentEBNF returns UserComment
+	 *
+	 * Constraint:
+	 *     contentComment=EBNF_COMMENT
+	 */
+	protected void sequence_CommentEBNF(ISerializationContext context, UserComment semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EbnfLangPackage.Literals.USER_COMMENT__CONTENT_COMMENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EbnfLangPackage.Literals.USER_COMMENT__CONTENT_COMMENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCommentEBNFAccess().getContentCommentEBNF_COMMENTTerminalRuleCall_0(), semanticObject.getContentComment());
+		feeder.finish();
+	}
+	
 	
 	/**
 	 * Contexts:
@@ -336,18 +355,6 @@ public class EbnfLangSemanticSequencer extends AbstractDelegatingSemanticSequenc
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getExpression_Terminal_SymbolAccess().getTextTERMINAL_SYMBOLTerminalRuleCall_1_0(), semanticObject.getText());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Line returns Line
-	 *
-	 * Constraint:
-	 *     {Line}
-	 */
-	protected void sequence_Line(ISerializationContext context, Line semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

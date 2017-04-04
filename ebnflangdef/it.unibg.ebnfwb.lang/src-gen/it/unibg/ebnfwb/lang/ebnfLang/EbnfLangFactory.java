@@ -60,6 +60,15 @@ public interface EbnfLangFactory extends EFactory
   Expression createExpression();
 
   /**
+   * Returns a new object of class '<em>User Comment</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>User Comment</em>'.
+   * @generated
+   */
+  UserComment createUserComment();
+
+  /**
    * Returns a new object of class '<em>Expression Alternative</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
