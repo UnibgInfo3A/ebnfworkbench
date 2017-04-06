@@ -132,10 +132,12 @@ public class EbnfLangLatexGenerator implements IGenerator {
       String r = this.compile(_expr);
       String s = "";
       String sf = "";
-      SpecialCharMarnager mngr = new SpecialCharMarnager(r);
-      String _latexCharacterManager = mngr.latexCharacterManager();
-      r = _latexCharacterManager;
-      String _replace = s.replace("\'∧  (U+2227)\'", "$\\wedge$");
+      String _name = rule.getName();
+      String _plus = (_name + "=");
+      String _plus_1 = (_plus + r);
+      String _plus_2 = (_plus_1 + ";");
+      s = _plus_2;
+      String _replace = s.replace("\'", "´");
       s = _replace;
       String _replace_1 = s.replace("´âª  (U+222A)´", "$\\cap$");
       s = _replace_1;
@@ -175,11 +177,6 @@ public class EbnfLangLatexGenerator implements IGenerator {
       s = _replace_18;
       String _replace_19 = s.replace("´â  (U+2286)´", "$\\subseteq$");
       s = _replace_19;
-      String _name = rule.getName();
-      String _plus = (_name + "=");
-      String _plus_1 = (_plus + r);
-      String _plus_2 = (_plus_1 + ";");
-      s = _plus_2;
       String _replaceAll = s.replaceAll("[\r\n]+", "");
       sf = _replaceAll;
       StringConcatenation _builder = new StringConcatenation();
@@ -327,12 +324,94 @@ public class EbnfLangLatexGenerator implements IGenerator {
     int _length = _contentComment_1.length();
     int _minus = (_length - 2);
     String s = _contentComment.substring(2, _minus);
-    SpecialCharMarnager mngr = new SpecialCharMarnager(s);
-    StringConcatenation _builder = new StringConcatenation();
-    String _substitute = mngr.substitute();
-    _builder.append(_substitute, "");
-    _builder.newLineIfNotEmpty();
-    return _builder.toString();
+    String _contentComment_2 = comment.getContentComment();
+    int regex = _contentComment_2.indexOf(" ", 2);
+    String _contentComment_3 = comment.getContentComment();
+    String com = _contentComment_3.substring(2, regex);
+    String _substring = s.substring((regex - 1));
+    SpecialCharMarnager mngr = new SpecialCharMarnager(_substring);
+    boolean _equalsIgnoreCase = com.equalsIgnoreCase("SECTION");
+    if (_equalsIgnoreCase) {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.newLine();
+      _builder.append("\\section{");
+      _builder.append(com, "");
+      _builder.append("}");
+      _builder.newLineIfNotEmpty();
+      _builder.append("  \t\t ");
+      _builder.newLine();
+      String _substitute = mngr.substitute();
+      _builder.append(_substitute, "");
+      _builder.newLineIfNotEmpty();
+      _builder.newLine();
+      return _builder.toString();
+    } else {
+      boolean _equalsIgnoreCase_1 = com.equalsIgnoreCase("SUBSECTION");
+      if (_equalsIgnoreCase_1) {
+        StringConcatenation _builder_1 = new StringConcatenation();
+        _builder_1.newLine();
+        _builder_1.append("\\subsection{");
+        _builder_1.append(com, "");
+        _builder_1.append("}");
+        _builder_1.newLineIfNotEmpty();
+        _builder_1.newLine();
+        String _substitute_1 = mngr.substitute();
+        _builder_1.append(_substitute_1, "");
+        _builder_1.newLineIfNotEmpty();
+        _builder_1.newLine();
+        return _builder_1.toString();
+      } else {
+        boolean _equalsIgnoreCase_2 = com.equalsIgnoreCase("SUBSUBSECTION");
+        if (_equalsIgnoreCase_2) {
+          StringConcatenation _builder_2 = new StringConcatenation();
+          _builder_2.newLine();
+          _builder_2.append("\\subsubsection{");
+          _builder_2.append(com, "");
+          _builder_2.append("}");
+          _builder_2.newLineIfNotEmpty();
+          _builder_2.append("  \t\t ");
+          _builder_2.newLine();
+          String _substitute_2 = mngr.substitute();
+          _builder_2.append(_substitute_2, "");
+          _builder_2.newLineIfNotEmpty();
+          _builder_2.newLine();
+          return _builder_2.toString();
+        } else {
+          boolean _equalsIgnoreCase_3 = com.equalsIgnoreCase("PARAGRAPH");
+          if (_equalsIgnoreCase_3) {
+            StringConcatenation _builder_3 = new StringConcatenation();
+            _builder_3.newLine();
+            _builder_3.append("\\paragraph{");
+            _builder_3.append(com, "");
+            _builder_3.append("}");
+            _builder_3.newLineIfNotEmpty();
+            _builder_3.newLine();
+            String _substitute_3 = mngr.substitute();
+            _builder_3.append(_substitute_3, "");
+            _builder_3.newLineIfNotEmpty();
+            _builder_3.newLine();
+            return _builder_3.toString();
+          } else {
+            boolean _equalsIgnoreCase_4 = com.equalsIgnoreCase("SUBPARAGRAPH");
+            if (_equalsIgnoreCase_4) {
+              StringConcatenation _builder_4 = new StringConcatenation();
+              _builder_4.newLine();
+              _builder_4.append("\\subparagraph{");
+              _builder_4.append(com, "");
+              _builder_4.append("}");
+              _builder_4.newLineIfNotEmpty();
+              _builder_4.newLine();
+              String _substitute_4 = mngr.substitute();
+              _builder_4.append(_substitute_4, "");
+              _builder_4.newLineIfNotEmpty();
+              _builder_4.newLine();
+              return _builder_4.toString();
+            }
+          }
+        }
+      }
+    }
+    return null;
   }
   
   private String fileName;

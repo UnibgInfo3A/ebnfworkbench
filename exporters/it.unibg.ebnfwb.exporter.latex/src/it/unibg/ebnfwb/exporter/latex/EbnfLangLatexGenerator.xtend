@@ -92,12 +92,10 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
 	   
 	    var s = ""
 	    var sf = ""
-	    var SpecialCharMarnager mngr = new SpecialCharMarnager(r)
+	   // var SpecialCharMarnager mngr = new SpecialCharMarnager(r)
 	  
-	   // s = s.replace("'" , "´");
-	    r = mngr.latexCharacterManager()
-	    
-		s = s.replace("'∧  (U+2227)'","$\\wedge$");
+	 	s = rule.name+ '='+ r + ';'
+	    s = s.replace("'", "´")
 		s = s.replace("´âª  (U+222A)´","$\\cap$");
   		s = s.replace("´â©  (U+2229)´","$\\cup$");
 	    s = s.replace("´\\  (U+2216)´","$\\setminus$");
@@ -118,7 +116,7 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
 	    s = s.replace("´â  (U+2282)´","$\\subset$");
 	    s = s.replace("´â  (U+2286)´","$\\subseteq$");
 	      
-	    s = rule.name+ '='+ r + ';'
+	    
 	    sf = s.replaceAll("[\r\n]+", "")
 	'''
 	\begin{lstlisting}[mathescape=true]
@@ -220,14 +218,65 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
   		 }
   		 
   		 def compile(UserComment comment){
-  		 	var String s = comment.contentComment.substring(2,comment.contentComment.length-2)
-  		 	var SpecialCharMarnager mngr = new SpecialCharMarnager(s);
-  		 	return
-  		 	'''
-  		 	«mngr.substitute()»
-  		 	'''
   		 	//Per non far stampare i simboli (**)in latex
-  		 }
+  		 	var String s = comment.contentComment.substring(2,comment.contentComment.length-2)
+  		 	
+  		 	var int regex = comment.contentComment.indexOf(" ",2)
+  		 	var String com = comment.contentComment.substring(2,regex)
+  		 	var SpecialCharMarnager mngr = new SpecialCharMarnager(s.substring(regex-1))
+  		 		if(com.equalsIgnoreCase("SECTION")) {
+  		 			
+  		 			return
+  		 	'''
+  		 	
+  		 	\section{«com»}
+  		 
+  		 	«mngr.substitute()»
+  		 	
+  		 	'''
+  		 		}else if(com.equalsIgnoreCase("SUBSECTION")) {
+  		 			
+  		 			return
+  		 	'''
+  		 	
+  		 	\subsection{«com»}
+  		 	
+  		 	«mngr.substitute()»
+  		 	
+  		 	'''
+  		 		}else if(com.equalsIgnoreCase("SUBSUBSECTION")) {
+  		 			
+  		 			return
+  		 	'''
+  		 	
+  		 	\subsubsection{«com»}
+  		 
+  		 	«mngr.substitute()»
+  		 	
+  		 	'''
+  		 		}else if(com.equalsIgnoreCase("PARAGRAPH")) {
+  		 			
+  		 			return
+  		 	'''
+  		 	
+  		 	\paragraph{«com»}
+  		 	
+  		 	«mngr.substitute()»
+  		 	
+  		 	'''
+  		 		}else if(com.equalsIgnoreCase("SUBPARAGRAPH")) {
+  		 			
+  		 			return
+  		 	'''
+  		 	
+  		 	\subparagraph{«com»}
+  		 	
+  		 	«mngr.substitute()»
+  		 	
+  		 	'''
+  		 		}
+  		 		
+  		 		}
   		 
   		 
 	// the document name (for the tex file)	

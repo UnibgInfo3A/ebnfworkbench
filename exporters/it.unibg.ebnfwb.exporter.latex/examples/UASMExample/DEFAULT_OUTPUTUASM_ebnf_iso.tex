@@ -22,15 +22,15 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     UseDirective= 	'use',ID;
+     UseDirective= 	´use´,ID;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     ImportDirective= 	'import',ID,['(',(IdDomain|IdFunction|IdRule),{',',(IdDomain|IdFunction|IdRule)},')'];
+     ImportDirective= 	´import´,ID,[´(´,(IdDomain|IdFunction|IdRule),{´,´,(IdDomain|IdFunction|IdRule)},´)´];
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     ExportDirective= 	'export',ID,['(',(IdDomain|IdFunction|IdRule),{',',(IdDomain|IdFunction|IdRule)},')'|'*'];
+     ExportDirective= 	´export´,ID,[´(´,(IdDomain|IdFunction|IdRule),{´,´,(IdDomain|IdFunction|IdRule)},´)´|´*´];
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -42,7 +42,7 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     RuleDefinition= 	'rule',ID,[ParameterDefinition],'=',Rule;
+     RuleDefinition= 	´rule´,ID,[ParameterDefinition],´=´,Rule;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -58,23 +58,23 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     SeqNext= 	'seq',Rule,('next',Rule),['endseq'];
+     SeqNext= 	´seq´,Rule,(´next´,Rule),[´endseq´];
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     CaseRule= 	'case',Term,'of',(Term,':',Rule),[('otherwise',Rule)],'endcase';
+     CaseRule= 	´case´,Term,´of´,(Term,´:´,Rule),[(´otherwise´,Rule)],´endcase´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     ChooseRule= 	'choose',VariableTerm,'in',EnumTerm,{(VariableTerm,'in',EnumTerm)},[('with',Term)],'do',Rule,[('ifnone',Rule)],['endchoose'];
+     ChooseRule= 	´choose´,VariableTerm,´in´,EnumTerm,{(VariableTerm,´in´,EnumTerm)},[(´with´,Term)],´do´,Rule,[(´ifnone´,Rule)],[´endchoose´];
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     ConditionalRule= 	'if',Term,'then',Rule,[('else',Rule)],'endif';
+     ConditionalRule= 	´if´,Term,´then´,Rule,[(´else´,Rule)],´endif´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     SkipRule= 	'skip';
+     SkipRule= 	´skip´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -82,31 +82,31 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     ExtendRule= 	'extend',ExtendableDomain,'with',VariableTerm,{(VariableTerm)},[('as',VariableTerm)],'do',Rule,['endextend'];
+     ExtendRule= 	´extend´,ExtendableDomain,´with´,VariableTerm,{(VariableTerm)},[(´as´,VariableTerm)],´do´,Rule,[´endextend´];
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     ForAllRule= 	'forall',VariableTerm,'in',EnumTerm,{(VariableTerm,'in',EnumTerm)},[('with',Term)],'do',Rule,[('ifnone',Rule)],['endforall'];
+     ForAllRule= 	´forall´,VariableTerm,´in´,EnumTerm,{(VariableTerm,´in´,EnumTerm)},[(´with´,Term)],´do´,Rule,[(´ifnone´,Rule)],[´endforall´];
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     ImportRule= 	'import',VariableTerm,'do',Rule,['endimport'];
+     ImportRule= 	´import´,VariableTerm,´do´,Rule,[´endimport´];
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     IterateRule= 	'iterate',Rule,['enditerate'];
+     IterateRule= 	´iterate´,Rule,[´enditerate´];
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     LetRule= 	'let',VariableTerm,'=',Term,{(',',VariableTerm,'=,',Term)},'in',Rule,['endlet'];
+     LetRule= 	´let´,VariableTerm,´=´,Term,{(´,´,VariableTerm,´=,´,Term)},´in´,Rule,[´endlet´];
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     TurboReturnRule= 	LocationTerm,('<-'|'â'),CallRule;
+     TurboReturnRule= 	LocationTerm,(´<-´|´â´),CallRule;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     WhileRule= 	'while',Term,'do',Rule,['endwhile'];
+     WhileRule= 	´while´,Term,´do´,Rule,[´endwhile´];
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -114,11 +114,11 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     LocalRule= 	'local',ID,[ParameterDefinition],[(('->'|'â'),Domain)],[('initially',InitialFunctionDefinition)],{(',',ID,[ParameterDefinition],[(('->'|'â'),Domain)],[('initially',InitialFunctionDefinition)])},'in',Rule,['endlocal'];
+     LocalRule= 	´local´,ID,[ParameterDefinition],[((´->´|´â´),Domain)],[(´initially´,InitialFunctionDefinition)],{(´,´,ID,[ParameterDefinition],[((´->´|´â´),Domain)],[(´initially´,InitialFunctionDefinition)])},´in´,Rule,[´endlocal´];
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     PrintRule= 	'print',Term;
+     PrintRule= 	´print´,Term;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -130,23 +130,23 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     StructuredDomain= 	'SET',[('(Domain)')]|'BAG',[('(Domain)')]|'LIST',[('(Domain)')]|'MAP',[('(Domain , Domain)')];
+     StructuredDomain= 	´SET´,[(´(Domain)´)]|´BAG´,[(´(Domain)´)]|´LIST´,[(´(Domain)´)]|´MAP´,[(´(Domain , Domain)´)];
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     ExtendableDomain= 	'ANY'|'AGENT'|IdDomain;
+     ExtendableDomain= 	´ANY´|´AGENT´|IdDomain;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     BasicDomain= 	'NUMBER'|'INTEGER'|'STRING'|'CHAR'|'BOOLEAN'|'RULE';
+     BasicDomain= 	´NUMBER´|´INTEGER´|´STRING´|´CHAR´|´BOOLEAN´|´RULE´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     EnumerateDefinition= 	'enum',ID,'=','{',EnumTerm,{(',',EnumTerm)},'}';
+     EnumerateDefinition= 	´enum´,ID,´=´,´{´,EnumTerm,{(´,´,EnumTerm)},´}´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     DomainDefinition= 	'domain',ID,[('of',DomainParameterDefinition)],[(InitialDomainDefinition)];
+     DomainDefinition= 	´domain´,ID,[(´of´,DomainParameterDefinition)],[(InitialDomainDefinition)];
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -154,15 +154,15 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     ParameterDefinition= 	'(',(ID,('in'|'â'),Domain|ID|Domain),{(',',(ID,('in'|'â'),Domain|ID|Domain))},')';
+     ParameterDefinition= 	´(´,(ID,(´in´|´â´),Domain|ID|Domain),{(´,´,(ID,(´in´|´â´),Domain|ID|Domain))},´)´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     InitialDomainDefinition= 	'initially','{',(TupleLiteral|Literal),{(',',(TupleLiteral|Literal))},'}';
+     InitialDomainDefinition= 	´initially´,´{´,(TupleLiteral|Literal),{(´,´,(TupleLiteral|Literal))},´}´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     TupleLiteral= 	'(',Literal,(',',Literal),')';
+     TupleLiteral= 	´(´,Literal,(´,´,Literal),´)´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -174,27 +174,27 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     ControlledFunction= 	'controlled'|('function'|('controlled',('function'))),IdFunction,[ParameterDefinition],[('->'|('â'),Domain)],[('initially',InitialFunctionDefinition)];
+     ControlledFunction= 	´controlled´|(´function´|(´controlled´,(´function´))),IdFunction,[ParameterDefinition],[(´->´|(´â´),Domain)],[(´initially´,InitialFunctionDefinition)];
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     StaticFunction= 	'static',['function'],IdFunction,[ParameterDefinition],[('->'|('â'),Domain)],('always',InitialFunctionDefinition);
+     StaticFunction= 	´static´,[´function´],IdFunction,[ParameterDefinition],[(´->´|(´â´),Domain)],(´always´,InitialFunctionDefinition);
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     DerivedFunction= 	'derived',['function'],IdFunction,[ParameterDefinition],[('->'|('â'),Domain)],('=',InitialFunctionDefinition);
+     DerivedFunction= 	´derived´,[´function´],IdFunction,[ParameterDefinition],[(´->´|(´â´),Domain)],(´=´,InitialFunctionDefinition);
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     MonitoredFunction= 	'monitored',['function'],IdFunction,[ParameterDefinition],[('->'|('â'),Domain)];
+     MonitoredFunction= 	´monitored´,[´function´],IdFunction,[ParameterDefinition],[(´->´|(´â´),Domain)];
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     SharedFunction= 	'shared',['function'],IdFunction,[ParameterDefinition],[('->'|('â'),Domain)],('initially',InitialFunctionDefinition);
+     SharedFunction= 	´shared´,[´function´],IdFunction,[ParameterDefinition],[(´->´|(´â´),Domain)],(´initially´,InitialFunctionDefinition);
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     OutFunction= 	'out',['function'],IdFunction,[ParameterDefinition],[('->'|('â'),Domain)],('initially',InitialFunctionDefinition);
+     OutFunction= 	´out´,[´function´],IdFunction,[ParameterDefinition],[(´->´|(´â´),Domain)],(´initially´,InitialFunctionDefinition);
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -206,11 +206,11 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     UnicodeEscape= 	'\u',HexDigit,HexDigit,HexDigit,HexDigit;
+     UnicodeEscape= 	´\u´,HexDigit,HexDigit,HexDigit,HexDigit;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     HexDigit= 	'0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9'|'a'|'b'|'c'|'d'|'e'|'f'|'A'|'B'|'C'|'D'|'E'|'F';
+     HexDigit= 	´0´|´1´|´2´|´3´|´4´|´5´|´6´|´7´|´8´|´9´|´a´|´b´|´c´|´d´|´e´|´f´|´A´|´B´|´C´|´D´|´E´|´F´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -218,15 +218,15 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     LineTerminator= 	'\u000A'|'\u000D'|'\u000A\u000D';
+     LineTerminator= 	´\u000A´|´\u000D´|´\u000A\u000D´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     WhiteSpace= 	'\u0020'|'\u0009'|'\u000C'|LineTerminator;
+     WhiteSpace= 	´\u0020´|´\u0009´|´\u000C´|LineTerminator;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     InputCharacter= 	UnicodeInputCharacter,'but not',WhiteSpace;
+     InputCharacter= 	UnicodeInputCharacter,´but not´,WhiteSpace;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -242,11 +242,11 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     Identifier= 	null,{(null|null|null|null|null|null|null|'â²')};
+     Identifier= 	null,{(null|null|null|null|null|null|null|´â²´)};
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     EscapeSequence= 	'\b',('backspace BS, Unicode \u0008')|'\t',('horizontal tabÂ HT, Unicode \u0009')|'\n',('linefeedÂ LF, UnicodeÂ \u000a')|'\f',('formÂ Â feedÂ FF,Â UnicodeÂ \u000c')|'\r',('carriageÂ returnÂ CR, UnicodeÂ \u000d')|"\'",('doubleÂ quoteÂ "",Â UnicodeÂ \u0022')|'\â',('singleÂ Â quoteÂ Â â,Â Â UnicodeÂ Â \u0027')|'\\',('backslashÂ \,Â UnicodeÂ \u005c');
+     EscapeSequence= 	´\b´,(´backspace BS, Unicode \u0008´)|´\t´,(´horizontal tabÂ HT, Unicode \u0009´)|´\n´,(´linefeedÂ LF, UnicodeÂ \u000a´)|´\f´,(´formÂ Â feedÂ FF,Â UnicodeÂ \u000c´)|´\r´,(´carriageÂ returnÂ CR, UnicodeÂ \u000d´)|"\´",(´doubleÂ quoteÂ "",Â UnicodeÂ \u0022´)|´\â´,(´singleÂ Â quoteÂ Â â,Â Â UnicodeÂ Â \u0027´)|´\\´,(´backslashÂ \,Â UnicodeÂ \u005c´);
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -270,7 +270,7 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     FunctionTerm= 	(Identifier,[('(',Exp,')'|TupleTerm)]);
+     FunctionTerm= 	(Identifier,[(´(´,Exp,´)´|TupleTerm)]);
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -302,7 +302,7 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     RelationOperator= 	'<'|'>'|'<='|'â¤Â (U+2264)'|'>='|'â¥Â (U+2265)';
+     RelationOperator= 	´<´|´>´|´<=´|$\leq$|´>=´|$\geq$;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -310,15 +310,15 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     MembershipOperator= 	'memberof'|'â'|'â';
+     MembershipOperator= 	´memberof´|´â´|$\notin$;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     SubsetTerm= 	(CollectionTerm|null),'subsetof',(CollectionTerm|null);
+     SubsetTerm= 	(CollectionTerm|null),´subsetof´,(CollectionTerm|null);
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     SubsetOperator= 	'subsetof'|'â  (U+2282)'|'subseteqof'|'â  (U+2286)';
+     SubsetOperator= 	´subsetof´|$\subset$|´subseteqof´|$\subseteq$;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -326,7 +326,7 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     RuleAsTerm= 	'@',Identifier;
+     RuleAsTerm= 	´@´,Identifier;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -334,27 +334,27 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     LetTerm= 	'let',VariableTerm,'=',Exp,{(',',VariableTerm,'=',Exp)},'in',Exp;
+     LetTerm= 	´let´,VariableTerm,´=´,Exp,{(´,´,VariableTerm,´=´,Exp)},´in´,Exp;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     ReturnTerm= 	'return',Exp,'in',Rule;
+     ReturnTerm= 	´return´,Exp,´in´,Rule;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     ConditionalTerm= 	Formula,'?',Exp,':',Exp,'if',Formula,'then',Exp,'else',Exp;
+     ConditionalTerm= 	Formula,´?´,Exp,´:´,Exp,´if´,Formula,´then´,Exp,´else´,Exp;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     CaseTerm= 	'case',Exp,'of',(Exp,':',Exp,';'),[('otherwise',Exp)],'endcase';
+     CaseTerm= 	´case´,Exp,´of´,(Exp,´:´,Exp,´;´),[(´otherwise´,Exp)],´endcase´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     PickTerm= 	'pick',VariableTerm,'in',(CollectionTerm|VarTerm),[('with',Formula)];
+     PickTerm= 	´pick´,VariableTerm,´in´,(CollectionTerm|VarTerm),[(´with´,Formula)];
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     CardinalityTerm= 	'|',CollectionTerm,'|';
+     CardinalityTerm= 	´|´,CollectionTerm,´|´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -366,15 +366,15 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     TupleDefTerm= 	'(',Exp,',',Exp,{(',',Exp)},')';
+     TupleDefTerm= 	´(´,Exp,´,´,Exp,{(´,´,Exp)},´)´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     GetComponentTerm= 	'get',null,'at',null;
+     GetComponentTerm= 	´get´,null,´at´,null;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     SetComponentTerm= 	'set',null,'at',null,'to',Exp;
+     SetComponentTerm= 	´set´,null,´at´,null,´to´,Exp;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -382,27 +382,27 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     SetTerm= 	'{',Exp,{(',',Exp)},'}'|'{','}';
+     SetTerm= 	´{´,Exp,{(´,´,Exp)},´}´|´{´,´}´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     BagTerm= 	'<',Exp,{(',',Exp)},'>'|'<','>';
+     BagTerm= 	´<´,Exp,{(´,´,Exp)},´>´|´<´,´>´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     ListTerm= 	'[',Exp,{(',',Exp)},']'|'[',']';
+     ListTerm= 	´[´,Exp,{(´,´,Exp)},´]´|´[´,´]´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     MapTerm= 	'{',Exp,RightArrow,Exp,{(',',Exp,RightArrow,Exp)},'}'|'{',RightArrow,'}';
+     MapTerm= 	´{´,Exp,RightArrow,Exp,{(´,´,Exp,RightArrow,Exp)},´}´|´{´,RightArrow,´}´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     RightArrow= 	'->'|'â (U+2192)';
+     RightArrow= 	´->´|$\rightarrow$;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     PowersetTerm= 	'powerset(',CollectionTerm,')';
+     PowersetTerm= 	´powerset(´,CollectionTerm,´)´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -410,23 +410,23 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     SetComprehensionTerm= 	'{',Exp,'|',VariableTerm,'in',CollectionTerm,{(',',VariableTerm,'in',CollectionTerm)},[('with',Formula)],'}';
+     SetComprehensionTerm= 	´{´,Exp,´|´,VariableTerm,´in´,CollectionTerm,{(´,´,VariableTerm,´in´,CollectionTerm)},[(´with´,Formula)],´}´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     ListComprehensionTerm= 	'[',Exp,'|',VariableTerm,'in',CollectionTerm,{(',',VariableTerm,'in',CollectionTerm)},[('with',Formula)],']';
+     ListComprehensionTerm= 	´[´,Exp,´|´,VariableTerm,´in´,CollectionTerm,{(´,´,VariableTerm,´in´,CollectionTerm)},[(´with´,Formula)],´]´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     BagComprehensionTerm= 	'<',Exp,'|',VariableTerm,'in',CollectionTerm,{(',',VariableTerm,'in',CollectionTerm)},[('with',Formula)],'>';
+     BagComprehensionTerm= 	´<´,Exp,´|´,VariableTerm,´in´,CollectionTerm,{(´,´,VariableTerm,´in´,CollectionTerm)},[(´with´,Formula)],´>´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     MapComprehensionTerm= 	'{',Exp,'->',Exp,'|',VariableTerm,'in',CollectionTerm,{(',',VariableTerm,'in',CollectionTerm)},[('with',Formula)],'}';
+     MapComprehensionTerm= 	´{´,Exp,´->´,Exp,´|´,VariableTerm,´in´,CollectionTerm,{(´,´,VariableTerm,´in´,CollectionTerm)},[(´with´,Formula)],´}´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     NumberRangeTerm= 	'[',null,'..',null,[('step',null)],']'|'{',null,'..',null,[('step',null)],'}';
+     NumberRangeTerm= 	´[´,null,´..´,null,[(´step´,null)],´]´|´{´,null,´..´,null,[(´step´,null)],´}´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -434,7 +434,7 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     CollectionOperator= 	'union'|'âª  (U+222A)'|'intersect'|'â©  (U+2229)'|'difference'|'\  (U+2216)';
+     CollectionOperator= 	´union´|$\cap$|´intersect´|$\cup$|´difference´|$\setminus$;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -446,11 +446,11 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     EqualityOperator= 	'!='|'=Â Â (U+2260)'|'=';
+     EqualityOperator= 	´!=´|$\neq$|´=´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     Negation= 	(´not´|´Â¬  (U+00AC)´),Formula;
+     Negation= 	(´not´|$\lnot$),Formula;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -458,7 +458,7 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     LogicalOperator= 	'and'|'â§  (U+2227)'|'or'|'â¨Â Â (U+2228)'|'xor'|'Â Â (U+22BB)'|'implies'|'â  (U+2192)'|'âÂ Â (U+21D2)'|'iff'|'âÂ Â (U+2194)'|'â  (U+21D4)';
+     LogicalOperator= 	´and´|$\wedge$|´or´|$\vee$|´xor´|$\oplus$|´implies´|$\rightarrow$|$\Rightarrow$|´iff´|$\leftrightarrow$|$\Leftrightarrow$;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -466,23 +466,23 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     ForAllFormula= 	'forall',VariableTerm,'in',CollectionTerm,{(',',VariableTerm,'in',CollectionTerm)},'hold',Formula;
+     ForAllFormula= 	´forall´,VariableTerm,´in´,CollectionTerm,{(´,´,VariableTerm,´in´,CollectionTerm)},´hold´,Formula;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     ExistsFormula= 	'exists',['unique'],VariableTerm,'in',CollectionTerm,{(',',VariableTerm,'in',CollectionTerm)},'with',Formula;
+     ExistsFormula= 	´exists´,[´unique´],VariableTerm,´in´,CollectionTerm,{(´,´,VariableTerm,´in´,CollectionTerm)},´with´,Formula;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     LowerCaseLetter= 	'a'|'b'|'c'|'d'|'e'|'f'|'g'|'h'|'i'|'j'|'k'|'l'|'m'|'n'|'o'|'p'|'q'|'r'|'s'|'t'|'u'|'v'|'w'|'x'|'y'|'z';
+     LowerCaseLetter= 	´a´|´b´|´c´|´d´|´e´|´f´|´g´|´h´|´i´|´j´|´k´|´l´|´m´|´n´|´o´|´p´|´q´|´r´|´s´|´t´|´u´|´v´|´w´|´x´|´y´|´z´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     UpperCaseLetter= 	'A'|'B'|'C'|'D'|'E'|'F'|'G'|'H'|'I'|'J'|'K'|'L'|'M'|'N'|'O'|'P'|'Q'|'R'|'S'|'T'|'U'|'V'|'W'|'X'|'Y'|'Z';
+     UpperCaseLetter= 	´A´|´B´|´C´|´D´|´E´|´F´|´G´|´H´|´I´|´J´|´K´|´L´|´M´|´N´|´O´|´P´|´Q´|´R´|´S´|´T´|´U´|´V´|´W´|´X´|´Y´|´Z´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     DecDigit= 	'0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9';
+     DecDigit= 	´0´|´1´|´2´|´3´|´4´|´5´|´6´|´7´|´8´|´9´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -502,7 +502,7 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     BooleanLiteral= 	'true'|'false';
+     BooleanLiteral= 	´true´|´false´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -510,7 +510,7 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     StringLiteral= 	'"',{'^'|'"'},'"';
+     StringLiteral= 	´"´,{´^´|´"´},´"´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
@@ -518,15 +518,15 @@
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     UndefLiteral= 	'undef';
+     UndefLiteral= 	´undef´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     SelfLiteral= 	'self';
+     SelfLiteral= 	´self´;
     \end{lstlisting}
     
     \begin{lstlisting}[mathescape=true]
-     NumberLiteral= 	{[DecDigit]},['.',{[DecDigit]}],[('E'|'e'),('+'|'-'),{[DecDigit]}];
+     NumberLiteral= 	{[DecDigit]},[´.´,{[DecDigit]}],[(´E´|´e´),(´+´|´-´),{[DecDigit]}];
     \end{lstlisting}
     
 \end{document}

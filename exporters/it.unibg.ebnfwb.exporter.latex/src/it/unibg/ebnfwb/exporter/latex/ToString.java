@@ -99,7 +99,7 @@ public class ToString extends EbnfLangSwitch<String>{
 	public String caseExpression_Repetition_Group(Expression_Repetition_Group object){
 		String s = "";
 		
-		s = "{" +  new ToString().doSwitch(object.getExpr()) + "}";
+		s = "{" +  new ToString().doSwitch(object.getExpr())+ "}";
 		return s;
 		
 	}
@@ -131,32 +131,32 @@ public class ToString extends EbnfLangSwitch<String>{
 		return s;
 	}
 	
-	@Override
-	public String caseUserComment(UserComment object) {
-		String s = "";
-		s = object.getContentComment();
-		
-		//String[] specialCharList = {"{", "}", "&", "%", "$", "#", "^", "_", "~"};
-		ArrayList<String> specialCharList = new ArrayList<>();
-		specialCharList.add("{");
-		specialCharList.add("}");
-		specialCharList.add("&");
-		specialCharList.add("%");
-		specialCharList.add("$");
-		specialCharList.add("#");
-		specialCharList.add("^");
-		specialCharList.add("_");
-		specialCharList.add("~");
-		
-		//	{"{", "}", "&", "%", "$", "#", "^", "_", "~"};
-		for(int i = 0; i<specialCharList.size(); i++){
-			String special = specialCharList.get(i);
-			if(s.contains(special)){
-				s = s.replace(special,"\\"+special);
-			}
-		}
-		return s;
-	}
+//	@Override
+//	public String caseUserComment(UserComment object) {
+//		String s = "";
+//		s = object.getContentComment();
+//		
+//		//String[] specialCharList = {"{", "}", "&", "%", "$", "#", "^", "_", "~"};
+//		ArrayList<String> specialCharList = new ArrayList<>();
+//		specialCharList.add("{");
+//		specialCharList.add("}");
+//		specialCharList.add("&");
+//		specialCharList.add("%");
+//		specialCharList.add("$");
+//		specialCharList.add("#");
+//		specialCharList.add("^");
+//		specialCharList.add("_");
+//		specialCharList.add("~");
+//		
+//		//	{"{", "}", "&", "%", "$", "#", "^", "_", "~"};
+//		for(int i = 0; i<specialCharList.size(); i++){
+//			String special = specialCharList.get(i);
+//			if(s.contains(special)){
+//				s = s.replace(special,"\\"+special);
+//			}
+//		}
+//		return s;
+//	}
 	
 	@Override
 	public String caseLine(Line object) {

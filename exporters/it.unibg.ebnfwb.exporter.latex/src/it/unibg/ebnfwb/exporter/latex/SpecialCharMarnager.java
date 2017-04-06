@@ -29,18 +29,39 @@ public class SpecialCharMarnager {
 			if(s.contains(special)){
 				s = s.replace(special,"\\"+special);
 			}
-		}
-		return s;
-	}
-	//TODO
-	public String latexCharacterManager(){
-		
-		for (int i = 0; i<s.length(); i++){
-			int index = s.indexOf("'");
-			if(index%2 != 0)
-				s = s.replace("'", "´");
+			if(s.charAt(i)=='\''){
+				s = s.replace('\'', '´');
+			}
 		}
 		return s;
 	}
 	
+	
+//	public  String stringManager(String s){
+//
+//		String[] rule = s.split(" ");
+//		String sr = "";
+//
+//		for (int i = 0; i < rule.length; i++) {
+//
+//			if(rule[i].length()>0 && rule[i].charAt(0)== '\''){
+//
+//				String sc = rule[i].replaceFirst("'", "´");
+//				sr = sr +" "+ sc ;
+//
+//			}else if(rule[i].length()>1 && rule[i].charAt(1)=='\''){
+//
+//				String c =(String) rule[i].substring(0, 1);
+//				String sp = rule[i].replaceFirst("'", "´");
+//
+//				sr = sr +" " + c + sp ;
+//
+//			}else sr = sr +" "+rule[i];
+//
+//		}
+//
+//		return sr;
+//
+//	}
+//	
 }
