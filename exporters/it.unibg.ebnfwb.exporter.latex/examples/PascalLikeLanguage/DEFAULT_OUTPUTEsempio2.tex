@@ -2,7 +2,6 @@
 \usepackage{color}
 \definecolor{isabelline}{rgb}{0.96, 0.94, 0.93}
 \pagecolor{isabelline}
-\usepackage[a4paper,top=2cm,bottom=2cm,left=1cm,right=1cm]{geometry}
 \usepackage{listings}
 \lstset{
 	basicstyle=\ttfamily,
@@ -13,40 +12,49 @@
 
 
 \begin{document}
-    \begin{lstlisting}[mathescape=true]
-     program= 	´PROGRAM´,white_spac,identifier,white_spac,´BEGIN´,white_spac,{assignment,";",white_spac},´END.´;
+    \begin{flushleft}
+    \begin{lstlisting}[mathescape=true, breaklines=true]
+      program= 	`PROGRAM',white_spac,identifier,white_spac,'BEGIN',white_spac,{assignment,";",white_spac},'END.';
     \end{lstlisting}
-    
-    \begin{lstlisting}[mathescape=true]
-     identifier= 	alphabetic_character,{alphabetic_character|digit};
+    \end{flushleft}
+    \begin{flushleft}
+    \begin{lstlisting}[mathescape=true, breaklines=true]
+      identifier= 	alphabetic_character,{alphabetic_character|digit};
     \end{lstlisting}
-    
-    \begin{lstlisting}[mathescape=true]
-     number= 	["-"],digit,{digit};
+    \end{flushleft}
+    \begin{flushleft}
+    \begin{lstlisting}[mathescape=true, breaklines=true]
+      number= 	["-"],digit,{digit};
     \end{lstlisting}
-    
-    \begin{lstlisting}[mathescape=true]
-     string= 	´"´,{all_characters-´"´},´"´;
+    \end{flushleft}
+    \begin{flushleft}
+    \begin{lstlisting}[mathescape=true, breaklines=true]
+      string= 	`"',{all_characters-'"'},'"';
     \end{lstlisting}
-    
-    \begin{lstlisting}[mathescape=true]
-     assignment= 	identifier,":=",(number|identifier|string);
+    \end{flushleft}
+    \begin{flushleft}
+    \begin{lstlisting}[mathescape=true, breaklines=true]
+      assignment= 	identifier,":=",(number|identifier|string);
     \end{lstlisting}
-    
-    \begin{lstlisting}[mathescape=true]
-     alphabetic_character= 	"A"|"B"|"C"|"D"|"E"|"F"|"G"|"H"|"I"|"J"|"K"|"L"|"M"|"N"|"O"|"P"|"Q"|"R"|"S"|"T"|"U"|"V"|"W"|"X"|"Y"|"Z";
+    \end{flushleft}
+    \begin{flushleft}
+    \begin{lstlisting}[mathescape=true, breaklines=true]
+      alphabetic_character= 	"A"|"B"|"C"|"D"|"E"|"F"|"G"|"H"|"I"|"J"|"K"|"L"|"M"|"N"|"O"|"P"|"Q"|"R"|"S"|"T"|"U"|"V"|"W"|"X"|"Y"|"Z";
     \end{lstlisting}
-    
-    \begin{lstlisting}[mathescape=true]
-     digit= 	"0"|"1"|"2"|"3"|"4"|"5"|"6"|"7"|"8"|"9";
+    \end{flushleft}
+    \begin{flushleft}
+    \begin{lstlisting}[mathescape=true, breaklines=true]
+      digit= 	"0"|"1"|"2"|"3"|"4"|"5"|"6"|"7"|"8"|"9";
     \end{lstlisting}
-    
-    \begin{lstlisting}[mathescape=true]
-     white_spac= 	? white_spac_characters ?;
+    \end{flushleft}
+    \begin{flushleft}
+    \begin{lstlisting}[mathescape=true, breaklines=true]
+      white_spac= 	? white_spac_characters ?;
     \end{lstlisting}
-    
-    \begin{lstlisting}[mathescape=true]
-     all_characters= 	? all_visible_characters ?;
+    \end{flushleft}
+    \begin{flushleft}
+    \begin{lstlisting}[mathescape=true, breaklines=true]
+      all_characters= 	? all_visible_characters ?;
     \end{lstlisting}
-    
+    \end{flushleft}
 \end{document}

@@ -53,7 +53,6 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
 	\usepackage{color}
 	\definecolor{isabelline}{rgb}{0.96, 0.94, 0.93}
 	\pagecolor{isabelline}
-	\usepackage[a4paper,top=2cm,bottom=2cm,left=1cm,right=1cm]{geometry}
 	\usepackage{listings}
 	\lstset{
 		basicstyle=\ttfamily,
@@ -92,37 +91,46 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
 	   
 	    var s = ""
 	    var sf = ""
-	   // var SpecialCharMarnager mngr = new SpecialCharMarnager(r)
+	    
+	    
+	    var SpecialCharMarnager mngr = new SpecialCharMarnager(r)
 	  
 	 	s = rule.name+ '='+ r + ';'
-	    s = s.replace("'", "´")
-		s = s.replace("´âª  (U+222A)´","$\\cap$");
-  		s = s.replace("´â©  (U+2229)´","$\\cup$");
-	    s = s.replace("´\\  (U+2216)´","$\\setminus$");
-	    s = s.replace("´=Â Â (U+2260)´","$\\neq$");
-	    s = s.replace("´Â¬  (U+00AC)´","$\\lnot$");
-	    s = s.replace("´â§  (U+2227)´","$\\wedge$");
-	    s = s.replace("´â¨Â Â (U+2228)´","$\\vee$");
-	    s = s.replace("´Â Â (U+22BB)´","$\\oplus$");
-	    s = s.replace("´â  (U+2192)´","$\\rightarrow$");
-	    s = s.replace("´â (U+2192)´", "$\\rightarrow$");
-	    s = s.replace("´âÂ Â (U+21D2)´","$\\Rightarrow$");
-	    s = s.replace("´âÂ Â (U+2194)´","$\\leftrightarrow$");
-	    s = s.replace("´â  (U+21D4)´","$\\Leftrightarrow$");
-	    s = s.replace("´â¤Â (U+2264)´","$\\leq$");
-	    s = s.replace("´â¥Â (U+2265)´","$\\geq$");
-	    s = s.replace("´â´", "$\\in$");
-	    s = s.replace("´â´", "$\\notin$");
-	    s = s.replace("´â  (U+2282)´","$\\subset$");
-	    s = s.replace("´â  (U+2286)´","$\\subseteq$");
+	   // s = s.replace("'", "´")
+	    s = mngr.stringManager(s)
+	   
+	  
+		s = s.replace("'âª  (U+222A)'","$\\cap$");
+  		s = s.replace("'â©  (U+2229)'","$\\cup$");
+	    s = s.replace("'\\  (U+2216)'","$\\setminus$");
+	    s = s.replace("'=Â Â (U+2260)'","$\\neq$");
+	    s = s.replace("'Â¬  (U+00AC)'","$\\lnot$");
+	    s = s.replace("'â§  (U+2227)'","$\\wedge$");
+	    s = s.replace("'â¨Â Â (U+2228)'","$\\vee$");
+	    s = s.replace("'Â Â (U+22BB)'","$\\oplus$");
+	    s = s.replace("'â  (U+2192)'","$\\rightarrow$");
+	    s = s.replace("'â (U+2192)´", "$\\rightarrow$");
+	    s = s.replace("'âÂ Â (U+21D2)'","$\\Rightarrow$");
+	    s = s.replace("'âÂ Â (U+2194)'","$\\leftrightarrow$");
+	    s = s.replace("'â  (U+21D4)'","$\\Leftrightarrow$");
+	    s = s.replace("'â¤Â (U+2264)'","$\\leq$");
+	    s = s.replace("'â¥Â (U+2265)'","$\\geq$");
+	    s = s.replace("'â'", "$\\in$");
+	    s = s.replace("'â'", "$\\notin$");
+	    s = s.replace("'â  (U+2282)'","$\\subset$");
+	    s = s.replace("'â  (U+2286)'","$\\subseteq$");
 	      
 	    
 	    sf = s.replaceAll("[\r\n]+", "")
+//	    sf=sf.replaceAll("\\[", "\\"+"\\-\\[")
+//	    sf=sf.replaceAll("\\{", "\\"+"\\-\\{")
+	   
 	'''
-	\begin{lstlisting}[mathescape=true]
+	\begin{flushleft}
+	\begin{lstlisting}[mathescape=true, breaklines=true]
 	 «sf»
 	\end{lstlisting}
-	
+	\end{flushleft}
 	'''
 	
 	}
@@ -259,7 +267,7 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
   		 			return
   		 	'''
   		 	
-  		 	\paragraph{«com»}
+  		 	\paragraph{}
   		 	
   		 	«mngr.substitute()»
   		 	
@@ -269,7 +277,7 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
   		 			return
   		 	'''
   		 	
-  		 	\subparagraph{«com»}
+  		 	\subparagraph{}
   		 	
   		 	«mngr.substitute()»
   		 	
