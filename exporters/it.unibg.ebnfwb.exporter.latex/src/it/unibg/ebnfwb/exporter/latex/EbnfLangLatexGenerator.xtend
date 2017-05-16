@@ -54,10 +54,11 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
 	\definecolor{isabelline}{rgb}{0.96, 0.94, 0.93}
 	\pagecolor{isabelline}
 	\usepackage{listings}
+	\usepackage{upquote}
+	\usepackage[a4paper,top=1cm,bottom=1cm,left=0.5cm,right=0.2cm]{geometry}
 	\lstset{
 		basicstyle=\ttfamily,
 		columns=flexible,
-		breaklines=false,
 		extendedchars= true
 	}
 	
@@ -97,7 +98,7 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
 	  
 	 	s = rule.name+ '='+ r + ';'
 	   // s = s.replace("'", "´")
-	    s = mngr.stringManager(s)
+	   // s = mngr.stringManager(s)
 	   
 	  
 		s = s.replace("'âª  (U+222A)'","$\\cap$");
@@ -109,7 +110,7 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
 	    s = s.replace("'â¨Â Â (U+2228)'","$\\vee$");
 	    s = s.replace("'Â Â (U+22BB)'","$\\oplus$");
 	    s = s.replace("'â  (U+2192)'","$\\rightarrow$");
-	    s = s.replace("'â (U+2192)´", "$\\rightarrow$");
+	    s = s.replace("'â (U+2192)'", "$\\rightarrow$");
 	    s = s.replace("'âÂ Â (U+21D2)'","$\\Rightarrow$");
 	    s = s.replace("'âÂ Â (U+2194)'","$\\leftrightarrow$");
 	    s = s.replace("'â  (U+21D4)'","$\\Leftrightarrow$");

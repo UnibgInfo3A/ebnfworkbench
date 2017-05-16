@@ -69,6 +69,10 @@ public class EbnfLangLatexGenerator implements IGenerator {
     _builder.newLine();
     _builder.append("\\usepackage{listings}");
     _builder.newLine();
+    _builder.append("\\usepackage{upquote}");
+    _builder.newLine();
+    _builder.append("\\usepackage[a4paper,top=1cm,bottom=1cm,left=0.5cm,right=0.2cm]{geometry}");
+    _builder.newLine();
     _builder.append("\\lstset{");
     _builder.newLine();
     _builder.append("\t");
@@ -76,9 +80,6 @@ public class EbnfLangLatexGenerator implements IGenerator {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("columns=flexible,");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("breaklines=false,");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("extendedchars= true");
@@ -136,8 +137,6 @@ public class EbnfLangLatexGenerator implements IGenerator {
       String _plus_1 = (_plus + r);
       String _plus_2 = (_plus_1 + ";");
       s = _plus_2;
-      String _stringManager = mngr.stringManager(s);
-      s = _stringManager;
       String _replace = s.replace("\'âª  (U+222A)\'", "$\\cap$");
       s = _replace;
       String _replace_1 = s.replace("\'â©  (U+2229)\'", "$\\cup$");
@@ -156,7 +155,7 @@ public class EbnfLangLatexGenerator implements IGenerator {
       s = _replace_7;
       String _replace_8 = s.replace("\'â  (U+2192)\'", "$\\rightarrow$");
       s = _replace_8;
-      String _replace_9 = s.replace("\'â (U+2192)´", "$\\rightarrow$");
+      String _replace_9 = s.replace("\'â (U+2192)\'", "$\\rightarrow$");
       s = _replace_9;
       String _replace_10 = s.replace("\'âÂ Â (U+21D2)\'", "$\\Rightarrow$");
       s = _replace_10;

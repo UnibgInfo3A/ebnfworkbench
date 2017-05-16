@@ -3,10 +3,11 @@
 \definecolor{isabelline}{rgb}{0.96, 0.94, 0.93}
 \pagecolor{isabelline}
 \usepackage{listings}
+\usepackage{upquote}
+\usepackage[a4paper,top=1cm,bottom=1cm,left=0.5cm,right=0.2cm]{geometry}
 \lstset{
 	basicstyle=\ttfamily,
 	columns=flexible,
-	breaklines=false,
 	extendedchars= true
 }
 
@@ -14,647 +15,647 @@
 \begin{document}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      Asm= 	(`asm'|'asmmodule'),ID,Header,Body;
+     Asm= 	('asm'|'asmmodule'),ID,Header,Body;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      Header= 	{UseDirective},{ImportDirective},{ExportDirective};
+     Header= 	{UseDirective},{ImportDirective},{ExportDirective};
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      UseDirective= 	`use',ID;
+     UseDirective= 	'use',ID;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      ImportDirective= 	`import',ID,['(',(IdDomain|IdFunction|IdRule),{',',(IdDomain|IdFunction|IdRule)},')'];
+     ImportDirective= 	'import',ID,['(',(IdDomain|IdFunction|IdRule),{',',(IdDomain|IdFunction|IdRule)},')'];
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      ExportDirective= 	`export',ID,['(',(IdDomain|IdFunction|IdRule),{',',(IdDomain|IdFunction|IdRule)},')'|'*'];
+     ExportDirective= 	'export',ID,['(',(IdDomain|IdFunction|IdRule),{',',(IdDomain|IdFunction|IdRule)},')'|'*'];
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      Body= 	{Definition},[('exec',IdRule)];
+     Body= 	{Definition},[('exec',IdRule)];
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      Definition= 	TypeDefinition|FunctionDefinition|RuleDefinition;
+     Definition= 	TypeDefinition|FunctionDefinition|RuleDefinition;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      RuleDefinition= 	`rule',ID,[ParameterDefinition],'=',Rule;
+     RuleDefinition= 	'rule',ID,[ParameterDefinition],'=',Rule;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      Rule= 	ParBlock|SeqBlock|SeqNext|CaseRule|ChooseRule|ConditionalRule|ExtendRule|ForAllRule|ImportRule|IterateRule|LetRule|TurboReturnRule|WhileRule|UpdateRule|SkipRule|CallRule|LocalRule|PrintRule;
+     Rule= 	ParBlock|SeqBlock|SeqNext|CaseRule|ChooseRule|ConditionalRule|ExtendRule|ForAllRule|ImportRule|IterateRule|LetRule|TurboReturnRule|WhileRule|UpdateRule|SkipRule|CallRule|LocalRule|PrintRule;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      ParBlock= 	(`par',Rule,'endpar')|('{',Rule,'}');
+     ParBlock= 	('par',Rule,'endpar')|('{',Rule,'}');
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      SeqBlock= 	(`seq',Rule,'endseq')|('[',Rule,']');
+     SeqBlock= 	('seq',Rule,'endseq')|('[',Rule,']');
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      SeqNext= 	`seq',Rule,('next',Rule),['endseq'];
+     SeqNext= 	'seq',Rule,('next',Rule),['endseq'];
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      CaseRule= 	`case',Term,'of',(Term,':',Rule),[('otherwise',Rule)],'endcase';
+     CaseRule= 	'case',Term,'of',(Term,':',Rule),[('otherwise',Rule)],'endcase';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      ChooseRule= 	`choose',VariableTerm,'in',EnumTerm,{(VariableTerm,'in',EnumTerm)},[('with',Term)],'do',Rule,[('ifnone',Rule)],['endchoose'];
+     ChooseRule= 	'choose',VariableTerm,'in',EnumTerm,{(VariableTerm,'in',EnumTerm)},[('with',Term)],'do',Rule,[('ifnone',Rule)],['endchoose'];
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      ConditionalRule= 	`if',Term,'then',Rule,[('else',Rule)],'endif';
+     ConditionalRule= 	'if',Term,'then',Rule,[('else',Rule)],'endif';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      SkipRule= 	`skip';
+     SkipRule= 	'skip';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      UpdateRule= 	LocationTerm,':=',Term;
+     UpdateRule= 	LocationTerm,':=',Term;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      ExtendRule= 	`extend',ExtendableDomain,'with',VariableTerm,{(VariableTerm)},[('as',VariableTerm)],'do',Rule,['endextend'];
+     ExtendRule= 	'extend',ExtendableDomain,'with',VariableTerm,{(VariableTerm)},[('as',VariableTerm)],'do',Rule,['endextend'];
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      ForAllRule= 	`forall',VariableTerm,'in',EnumTerm,{(VariableTerm,'in',EnumTerm)},[('with',Term)],'do',Rule,[('ifnone',Rule)],['endforall'];
+     ForAllRule= 	'forall',VariableTerm,'in',EnumTerm,{(VariableTerm,'in',EnumTerm)},[('with',Term)],'do',Rule,[('ifnone',Rule)],['endforall'];
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      ImportRule= 	`import',VariableTerm,'do',Rule,['endimport'];
+     ImportRule= 	'import',VariableTerm,'do',Rule,['endimport'];
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      IterateRule= 	`iterate',Rule,['enditerate'];
+     IterateRule= 	'iterate',Rule,['enditerate'];
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      LetRule= 	`let',VariableTerm,'=',Term,{(',',VariableTerm,'=,',Term)},'in',Rule,['endlet'];
+     LetRule= 	'let',VariableTerm,'=',Term,{(',',VariableTerm,'=,',Term)},'in',Rule,['endlet'];
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      TurboReturnRule= 	LocationTerm,('<-'|'â'),CallRule;
+     TurboReturnRule= 	LocationTerm,('<-'|'â'),CallRule;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      WhileRule= 	`while',Term,'do',Rule,['endwhile'];
+     WhileRule= 	'while',Term,'do',Rule,['endwhile'];
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      CallRule= 	IdRule,[('(',Term,{(',',Term)},')')];
+     CallRule= 	IdRule,[('(',Term,{(',',Term)},')')];
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      LocalRule= 	`local',ID,[ParameterDefinition],[(('->'|'â'),Domain)],[('initially',InitialFunctionDefinition)],{(',',ID,[ParameterDefinition],[(('->'|'â'),Domain)],[('initially',InitialFunctionDefinition)])},'in',Rule,['endlocal'];
+     LocalRule= 	'local',ID,[ParameterDefinition],[(('->'|'â'),Domain)],[('initially',InitialFunctionDefinition)],{(',',ID,[ParameterDefinition],[(('->'|'â'),Domain)],[('initially',InitialFunctionDefinition)])},'in',Rule,['endlocal'];
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      PrintRule= 	`print',Term;
+     PrintRule= 	'print',Term;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      TypeDefinition= 	DomainDefinition|EnumerateDefinition;
+     TypeDefinition= 	DomainDefinition|EnumerateDefinition;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      Domain= 	StructuredDomain|BasicDomain|ExtendableDomain;
+     Domain= 	StructuredDomain|BasicDomain|ExtendableDomain;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      StructuredDomain= 	`SET',[('(Domain)')]|'BAG',[('(Domain)')]|'LIST',[('(Domain)')]|'MAP',[('(Domain , Domain)')];
+     StructuredDomain= 	'SET',[('(Domain)')]|'BAG',[('(Domain)')]|'LIST',[('(Domain)')]|'MAP',[('(Domain , Domain)')];
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      ExtendableDomain= 	`ANY'|'AGENT'|IdDomain;
+     ExtendableDomain= 	'ANY'|'AGENT'|IdDomain;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      BasicDomain= 	`NUMBER'|'INTEGER'|'STRING'|'CHAR'|'BOOLEAN'|'RULE';
+     BasicDomain= 	'NUMBER'|'INTEGER'|'STRING'|'CHAR'|'BOOLEAN'|'RULE';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      EnumerateDefinition= 	`enum',ID,'=','{',EnumTerm,{(',',EnumTerm)},'}';
+     EnumerateDefinition= 	'enum',ID,'=','{',EnumTerm,{(',',EnumTerm)},'}';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      DomainDefinition= 	`domain',ID,[('of',DomainParameterDefinition)],[(InitialDomainDefinition)];
+     DomainDefinition= 	'domain',ID,[('of',DomainParameterDefinition)],[(InitialDomainDefinition)];
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      DomainParameterDefinition= 	Domain|ParameterDefinition;
+     DomainParameterDefinition= 	Domain|ParameterDefinition;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      ParameterDefinition= 	`(',(ID,('in'|'â'),Domain|ID|Domain),{(',',(ID,('in'|'â'),Domain|ID|Domain))},')';
+     ParameterDefinition= 	'(',(ID,('in'|'â'),Domain|ID|Domain),{(',',(ID,('in'|'â'),Domain|ID|Domain))},')';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      InitialDomainDefinition= 	`initially','{',(TupleLiteral|Literal),{(',',(TupleLiteral|Literal))},'}';
+     InitialDomainDefinition= 	'initially','{',(TupleLiteral|Literal),{(',',(TupleLiteral|Literal))},'}';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      TupleLiteral= 	`(',Literal,(',',Literal),')';
+     TupleLiteral= 	'(',Literal,(',',Literal),')';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      Literal= 	NumberLiteral|BooleanLiteral|KernelLiteral|StringLiteral|CharLiteral|EnumTerm;
+     Literal= 	NumberLiteral|BooleanLiteral|KernelLiteral|StringLiteral|CharLiteral|EnumTerm;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      FunctionDefinition= 	ControlledFunction|StaticFunction|DerivedFunction|MonitoredFunction|SharedFunction|OutFunction;
+     FunctionDefinition= 	ControlledFunction|StaticFunction|DerivedFunction|MonitoredFunction|SharedFunction|OutFunction;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      ControlledFunction= 	`controlled'|('function'|('controlled',('function'))),IdFunction,[ParameterDefinition],[('->'|('â'),Domain)],[('initially',InitialFunctionDefinition)];
+     ControlledFunction= 	'controlled'|('function'|('controlled',('function'))),IdFunction,[ParameterDefinition],[('->'|('â'),Domain)],[('initially',InitialFunctionDefinition)];
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      StaticFunction= 	`static',['function'],IdFunction,[ParameterDefinition],[('->'|('â'),Domain)],('always',InitialFunctionDefinition);
+     StaticFunction= 	'static',['function'],IdFunction,[ParameterDefinition],[('->'|('â'),Domain)],('always',InitialFunctionDefinition);
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      DerivedFunction= 	`derived',['function'],IdFunction,[ParameterDefinition],[('->'|('â'),Domain)],('=',InitialFunctionDefinition);
+     DerivedFunction= 	'derived',['function'],IdFunction,[ParameterDefinition],[('->'|('â'),Domain)],('=',InitialFunctionDefinition);
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      MonitoredFunction= 	`monitored',['function'],IdFunction,[ParameterDefinition],[('->'|('â'),Domain)];
+     MonitoredFunction= 	'monitored',['function'],IdFunction,[ParameterDefinition],[('->'|('â'),Domain)];
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      SharedFunction= 	`shared',['function'],IdFunction,[ParameterDefinition],[('->'|('â'),Domain)],('initially',InitialFunctionDefinition);
+     SharedFunction= 	'shared',['function'],IdFunction,[ParameterDefinition],[('->'|('â'),Domain)],('initially',InitialFunctionDefinition);
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      OutFunction= 	`out',['function'],IdFunction,[ParameterDefinition],[('->'|('â'),Domain)],('initially',InitialFunctionDefinition);
+     OutFunction= 	'out',['function'],IdFunction,[ParameterDefinition],[('->'|('â'),Domain)],('initially',InitialFunctionDefinition);
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      InitialFunctionDefinition= 	[`from'],Term;
+     InitialFunctionDefinition= 	['from'],Term;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      UnicodeInputCharacter= 	UnicodeEscape|RawInputCharacter;
+     UnicodeInputCharacter= 	UnicodeEscape|RawInputCharacter;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      UnicodeEscape= 	`\u',HexDigit,HexDigit,HexDigit,HexDigit;
+     UnicodeEscape= 	'\u',HexDigit,HexDigit,HexDigit,HexDigit;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      HexDigit= 	`0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9'|'a'|'b'|'c'|'d'|'e'|'f'|'A'|'B'|'C'|'D'|'E'|'F';
+     HexDigit= 	'0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9'|'a'|'b'|'c'|'d'|'e'|'f'|'A'|'B'|'C'|'D'|'E'|'F';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      RawInputCharacter= 	[`Any Unicode Character'];
+     RawInputCharacter= 	['Any Unicode Character'];
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      LineTerminator= 	`\u000A'|'\u000D'|'\u000A\u000D';
+     LineTerminator= 	'\u000A'|'\u000D'|'\u000A\u000D';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      WhiteSpace= 	`\u0020'|'\u0009'|'\u000C'|LineTerminator;
+     WhiteSpace= 	'\u0020'|'\u0009'|'\u000C'|LineTerminator;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      InputCharacter= 	UnicodeInputCharacter,'but not',WhiteSpace;
+     InputCharacter= 	UnicodeInputCharacter,'but not',WhiteSpace;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      Comment= 	LineComment|BlockComment;
+     Comment= 	LineComment|BlockComment;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      LineComment= 	(`--'|'//'),{InputCharacter};
+     LineComment= 	('--'|'//'),{InputCharacter};
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      BlockComment= 	(`{-',{InputCharacter},'-}'|'/*',{InputCharacter},'*/');
+     BlockComment= 	('{-',{InputCharacter},'-}'|'/*',{InputCharacter},'*/');
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      Identifier= 	null,{(null|null|null|null|null|null|null|'â²')};
+     Identifier= 	null,{(null|null|null|null|null|null|null|'â²')};
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      EscapeSequence= 	`\b',('backspace BS, Unicode \u0008')|'\t',('horizontal tabÂ HT, Unicode \u0009')|'\n',('linefeedÂ LF, UnicodeÂ \u000a')|'\f',('formÂ Â feedÂ FF,Â UnicodeÂ \u000c')|'\r',('carriageÂ returnÂ CR, UnicodeÂ \u000d')|"\'",('doubleÂ quoteÂ "",Â UnicodeÂ \u0022')|'\â',('singleÂ Â quoteÂ Â â,Â Â UnicodeÂ Â \u0027')|'\\',('backslashÂ \,Â UnicodeÂ \u005c');
+     EscapeSequence= 	'\b',('backspace BS, Unicode \u0008')|'\t',('horizontal tabÂ HT, Unicode \u0009')|'\n',('linefeedÂ LF, UnicodeÂ \u000a')|'\f',('formÂ Â feedÂ FF,Â UnicodeÂ \u000c')|'\r',('carriageÂ returnÂ CR, UnicodeÂ \u000d')|"\'",('doubleÂ quoteÂ "",Â UnicodeÂ \u0022')|'\â',('singleÂ Â quoteÂ Â â,Â Â UnicodeÂ Â \u0027')|'\\',('backslashÂ \,Â UnicodeÂ \u005c');
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      Term= 	NumberTerm|StringTerm|BooleanTerm|EnumTerm|UndefLiteral|SelfLiteral|RuleAsTerm|ValueTerm|StructureTerm;
+     Term= 	NumberTerm|StringTerm|BooleanTerm|EnumTerm|UndefLiteral|SelfLiteral|RuleAsTerm|ValueTerm|StructureTerm;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      Exp= 	Term|Formula|'(',Exp,')';
+     Exp= 	Term|Formula|'(',Exp,')';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      VarTerm= 	VariableTerm|LocationTerm;
+     VarTerm= 	VariableTerm|LocationTerm;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      VariableTerm= 	Identifier;
+     VariableTerm= 	Identifier;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      LocationTerm= 	FunctionTerm|'result';
+     LocationTerm= 	FunctionTerm|'result';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      FunctionTerm= 	(Identifier,[('(',Exp,')'|TupleTerm)]);
+     FunctionTerm= 	(Identifier,[('(',Exp,')'|TupleTerm)]);
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      NumberTerm= 	NumberLiteral|MathOperationTerm;
+     NumberTerm= 	NumberLiteral|MathOperationTerm;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      MathOperationTerm= 	MathOperand,('+'|'-'|'*'|'div'|'/'|'mod'|'^'),MathOperand;
+     MathOperationTerm= 	MathOperand,('+'|'-'|'*'|'div'|'/'|'mod'|'^'),MathOperand;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      MathOperand= 	NumberTerm|null;
+     MathOperand= 	NumberTerm|null;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      StringTerm= 	[StringLiteral|Exp,'+',Exp];
+     StringTerm= 	[StringLiteral|Exp,'+',Exp];
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      BooleanTerm= 	BooleanLiteral|RelationalTerm|MemberofTerm|SubsetTerm;
+     BooleanTerm= 	BooleanLiteral|RelationalTerm|MemberofTerm|SubsetTerm;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      RelationalTerm= 	RelationOperand|RelationOperator|RelationOperand;
+     RelationalTerm= 	RelationOperand|RelationOperator|RelationOperand;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      RelationOperand= 	NumberTerm|StringTerm|VarTerm;
+     RelationOperand= 	NumberTerm|StringTerm|VarTerm;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      RelationOperator= 	`<'|'>'|'<='|$\leq$|'>='|$\geq$;
+     RelationOperator= 	'<'|'>'|'<='|$\leq$|'>='|$\geq$;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      MemberofTerm= 	Exp,MembershipOperator,(CollectionTerm|null);
+     MemberofTerm= 	Exp,MembershipOperator,(CollectionTerm|null);
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      MembershipOperator= 	`memberof'|'â'|'â';
+     MembershipOperator= 	'memberof'|'â'|'â';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      SubsetTerm= 	(CollectionTerm|null),'subsetof',(CollectionTerm|null);
+     SubsetTerm= 	(CollectionTerm|null),'subsetof',(CollectionTerm|null);
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      SubsetOperator= 	`subsetof'|$\subset$|'subseteqof'|$\subseteq$;
+     SubsetOperator= 	'subsetof'|$\subset$|'subseteqof'|$\subseteq$;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      EnumTerm= 	Identifier;
+     EnumTerm= 	Identifier;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      RuleAsTerm= 	`@',Identifier;
+     RuleAsTerm= 	'@',Identifier;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      ValueTerm= 	VarTerm|LetTerm|ReturnTerm|ConditionalTerm|CaseTerm|PickTerm|CardinalityTerm;
+     ValueTerm= 	VarTerm|LetTerm|ReturnTerm|ConditionalTerm|CaseTerm|PickTerm|CardinalityTerm;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      LetTerm= 	`let',VariableTerm,'=',Exp,{(',',VariableTerm,'=',Exp)},'in',Exp;
+     LetTerm= 	'let',VariableTerm,'=',Exp,{(',',VariableTerm,'=',Exp)},'in',Exp;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      ReturnTerm= 	`return',Exp,'in',Rule;
+     ReturnTerm= 	'return',Exp,'in',Rule;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      ConditionalTerm= 	Formula,'?',Exp,':',Exp,'if',Formula,'then',Exp,'else',Exp;
+     ConditionalTerm= 	Formula,'?',Exp,':',Exp,'if',Formula,'then',Exp,'else',Exp;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      CaseTerm= 	`case',Exp,'of',(Exp,':',Exp,';'),[('otherwise',Exp)],'endcase';
+     CaseTerm= 	'case',Exp,'of',(Exp,':',Exp,';'),[('otherwise',Exp)],'endcase';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      PickTerm= 	`pick',VariableTerm,'in',(CollectionTerm|VarTerm),[('with',Formula)];
+     PickTerm= 	'pick',VariableTerm,'in',(CollectionTerm|VarTerm),[('with',Formula)];
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      CardinalityTerm= 	`|',CollectionTerm,'|';
+     CardinalityTerm= 	'|',CollectionTerm,'|';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      StructureTerm= 	TupleTerm|CollectionTerm;
+     StructureTerm= 	TupleTerm|CollectionTerm;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      TupleTerm= 	TupleDefTerm|GetComponentTerm|SetComponentTerm;
+     TupleTerm= 	TupleDefTerm|GetComponentTerm|SetComponentTerm;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      TupleDefTerm= 	`(',Exp,',',Exp,{(',',Exp)},')';
+     TupleDefTerm= 	'(',Exp,',',Exp,{(',',Exp)},')';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      GetComponentTerm= 	`get',null,'at',null;
+     GetComponentTerm= 	'get',null,'at',null;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      SetComponentTerm= 	`set',null,'at',null,'to',Exp;
+     SetComponentTerm= 	'set',null,'at',null,'to',Exp;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      CollectionTerm= 	Domain|SetTerm|BagTerm|ListTerm|MapTerm|PowersetTerm|ComprehensionTerm;
+     CollectionTerm= 	Domain|SetTerm|BagTerm|ListTerm|MapTerm|PowersetTerm|ComprehensionTerm;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      SetTerm= 	`{',Exp,{(',',Exp)},'}'|'{','}';
+     SetTerm= 	'{',Exp,{(',',Exp)},'}'|'{','}';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      BagTerm= 	`<',Exp,{(',',Exp)},'>'|'<','>';
+     BagTerm= 	'<',Exp,{(',',Exp)},'>'|'<','>';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      ListTerm= 	`[',Exp,{(',',Exp)},']'|'[',']';
+     ListTerm= 	'[',Exp,{(',',Exp)},']'|'[',']';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      MapTerm= 	`{',Exp,RightArrow,Exp,{(',',Exp,RightArrow,Exp)},'}'|'{',RightArrow,'}';
+     MapTerm= 	'{',Exp,RightArrow,Exp,{(',',Exp,RightArrow,Exp)},'}'|'{',RightArrow,'}';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      RightArrow= 	`->'|'â (U+2192)';
+     RightArrow= 	'->'|$\rightarrow$;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      PowersetTerm= 	`powerset(',CollectionTerm,')';
+     PowersetTerm= 	'powerset(',CollectionTerm,')';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      ComprehensionTerm= 	SetComprehensionTerm|ListComprehensionTerm|MapComprehensionTerm|BagComprehensionTerm|NumberRangeTerm;
+     ComprehensionTerm= 	SetComprehensionTerm|ListComprehensionTerm|MapComprehensionTerm|BagComprehensionTerm|NumberRangeTerm;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      SetComprehensionTerm= 	`{',Exp,'|',VariableTerm,'in',CollectionTerm,{(',',VariableTerm,'in',CollectionTerm)},[('with',Formula)],'}';
+     SetComprehensionTerm= 	'{',Exp,'|',VariableTerm,'in',CollectionTerm,{(',',VariableTerm,'in',CollectionTerm)},[('with',Formula)],'}';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      ListComprehensionTerm= 	`[',Exp,'|',VariableTerm,'in',CollectionTerm,{(',',VariableTerm,'in',CollectionTerm)},[('with',Formula)],']';
+     ListComprehensionTerm= 	'[',Exp,'|',VariableTerm,'in',CollectionTerm,{(',',VariableTerm,'in',CollectionTerm)},[('with',Formula)],']';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      BagComprehensionTerm= 	`<',Exp,'|',VariableTerm,'in',CollectionTerm,{(',',VariableTerm,'in',CollectionTerm)},[('with',Formula)],'>';
+     BagComprehensionTerm= 	'<',Exp,'|',VariableTerm,'in',CollectionTerm,{(',',VariableTerm,'in',CollectionTerm)},[('with',Formula)],'>';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      MapComprehensionTerm= 	`{',Exp,'->',Exp,'|',VariableTerm,'in',CollectionTerm,{(',',VariableTerm,'in',CollectionTerm)},[('with',Formula)],'}';
+     MapComprehensionTerm= 	'{',Exp,'->',Exp,'|',VariableTerm,'in',CollectionTerm,{(',',VariableTerm,'in',CollectionTerm)},[('with',Formula)],'}';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      NumberRangeTerm= 	`[',null,'..',null,[('step',null)],']'|'{',null,'..',null,[('step',null)],'}';
+     NumberRangeTerm= 	'[',null,'..',null,[('step',null)],']'|'{',null,'..',null,[('step',null)],'}';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      CollectionOperationTerm= 	CollectionTerm,CollectionOperator,CollectionTerm;
+     CollectionOperationTerm= 	CollectionTerm,CollectionOperator,CollectionTerm;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      CollectionOperator= 	`union'|$\cap$|'intersect'|$\cup$|'difference'|$\setminus$;
+     CollectionOperator= 	'union'|$\cap$|'intersect'|$\cup$|'difference'|$\setminus$;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      Formula= 	Equation|Negation|LogicFormula|QuantifierFormula|BooleanTerm|null;
+     Formula= 	Equation|Negation|LogicFormula|QuantifierFormula|BooleanTerm|null;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      Equation= 	(Exp,EqualityOperator,Exp);
+     Equation= 	(Exp,EqualityOperator,Exp);
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      EqualityOperator= 	`!='|$\neq$|'=';
+     EqualityOperator= 	'!='|$\neq$|'=';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      Negation= 	(`not'|$\lnot$),Formula;
+     Negation= 	('not'|$\lnot$),Formula;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      LogicFormula= 	Formula,LogicalOperator,Formula;
+     LogicFormula= 	Formula,LogicalOperator,Formula;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      LogicalOperator= 	`and'|$\wedge$|'or'|$\vee$|'xor'|$\oplus$|'implies'|$\rightarrow$|$\Rightarrow$|'iff'|$\leftrightarrow$|$\Leftrightarrow$;
+     LogicalOperator= 	'and'|$\wedge$|'or'|$\vee$|'xor'|$\oplus$|'implies'|$\rightarrow$|$\Rightarrow$|'iff'|$\leftrightarrow$|$\Leftrightarrow$;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      QuantifierFormula= 	ForAllFormula|ExistsFormula;
+     QuantifierFormula= 	ForAllFormula|ExistsFormula;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      ForAllFormula= 	`forall',VariableTerm,'in',CollectionTerm,{(',',VariableTerm,'in',CollectionTerm)},'hold',Formula;
+     ForAllFormula= 	'forall',VariableTerm,'in',CollectionTerm,{(',',VariableTerm,'in',CollectionTerm)},'hold',Formula;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      ExistsFormula= 	`exists',['unique'],VariableTerm,'in',CollectionTerm,{(',',VariableTerm,'in',CollectionTerm)},'with',Formula;
+     ExistsFormula= 	'exists',['unique'],VariableTerm,'in',CollectionTerm,{(',',VariableTerm,'in',CollectionTerm)},'with',Formula;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      LowerCaseLetter= 	`a'|'b'|'c'|'d'|'e'|'f'|'g'|'h'|'i'|'j'|'k'|'l'|'m'|'n'|'o'|'p'|'q'|'r'|'s'|'t'|'u'|'v'|'w'|'x'|'y'|'z';
+     LowerCaseLetter= 	'a'|'b'|'c'|'d'|'e'|'f'|'g'|'h'|'i'|'j'|'k'|'l'|'m'|'n'|'o'|'p'|'q'|'r'|'s'|'t'|'u'|'v'|'w'|'x'|'y'|'z';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      UpperCaseLetter= 	`A'|'B'|'C'|'D'|'E'|'F'|'G'|'H'|'I'|'J'|'K'|'L'|'M'|'N'|'O'|'P'|'Q'|'R'|'S'|'T'|'U'|'V'|'W'|'X'|'Y'|'Z';
+     UpperCaseLetter= 	'A'|'B'|'C'|'D'|'E'|'F'|'G'|'H'|'I'|'J'|'K'|'L'|'M'|'N'|'O'|'P'|'Q'|'R'|'S'|'T'|'U'|'V'|'W'|'X'|'Y'|'Z';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      DecDigit= 	`0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9';
+     DecDigit= 	'0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      ID= 	[[LowerCaseLetter],[UpperCaseLetter]],{[LowerCaseLetter],[UpperCaseLetter],[DecDigit]};
+     ID= 	[[LowerCaseLetter],[UpperCaseLetter]],{[LowerCaseLetter],[UpperCaseLetter],[DecDigit]};
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      IdRule= 	ID;
+     IdRule= 	ID;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      IdFunction= 	ID;
+     IdFunction= 	ID;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      IdDomain= 	ID;
+     IdDomain= 	ID;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      BooleanLiteral= 	`true'|'false';
+     BooleanLiteral= 	'true'|'false';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      KernelLiteral= 	UndefLiteral|SelfLiteral;
+     KernelLiteral= 	UndefLiteral|SelfLiteral;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      StringLiteral= 	`"',{'^'|'"'},'"';
+     StringLiteral= 	'"',{'^'|'"'},'"';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      CharLiteral= 	"`",{'^'|"'"},"'";
+     CharLiteral= 	"'",{'^'|"'"},"'";
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      UndefLiteral= 	`undef';
+     UndefLiteral= 	'undef';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      SelfLiteral= 	`self';
+     SelfLiteral= 	'self';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      NumberLiteral= 	{[DecDigit]},['.',{[DecDigit]}],[('E'|'e'),('+'|'-'),{[DecDigit]}];
+     NumberLiteral= 	{[DecDigit]},['.',{[DecDigit]}],[('E'|'e'),('+'|'-'),{[DecDigit]}];
     \end{lstlisting}
     \end{flushleft}
 \end{document}

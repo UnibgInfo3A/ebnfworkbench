@@ -3,10 +3,11 @@
 \definecolor{isabelline}{rgb}{0.96, 0.94, 0.93}
 \pagecolor{isabelline}
 \usepackage{listings}
+\usepackage{upquote}
+\usepackage[a4paper,top=1cm,bottom=1cm,left=0.5cm,right=0.2cm]{geometry}
 \lstset{
 	basicstyle=\ttfamily,
 	columns=flexible,
-	breaklines=false,
 	extendedchars= true
 }
 
@@ -14,47 +15,47 @@
 \begin{document}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      program= 	`PROGRAM',white_spac,identifier,white_spac,'BEGIN',white_spac,{assignment,";",white_spac},'END.';
+     program= 	'PROGRAM',white_spac,identifier,white_spac,'BEGIN',white_spac,{assignment,";",white_spac},'END.';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      identifier= 	alphabetic_character,{alphabetic_character|digit};
+     identifier= 	alphabetic_character,{alphabetic_character|digit};
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      number= 	["-"],digit,{digit};
+     number= 	["-"],digit,{digit};
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      string= 	`"',{all_characters-'"'},'"';
+     string= 	'"',{all_characters-'"'},'"';
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      assignment= 	identifier,":=",(number|identifier|string);
+     assignment= 	identifier,":=",(number|identifier|string);
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      alphabetic_character= 	"A"|"B"|"C"|"D"|"E"|"F"|"G"|"H"|"I"|"J"|"K"|"L"|"M"|"N"|"O"|"P"|"Q"|"R"|"S"|"T"|"U"|"V"|"W"|"X"|"Y"|"Z";
+     alphabetic_character= 	"A"|"B"|"C"|"D"|"E"|"F"|"G"|"H"|"I"|"J"|"K"|"L"|"M"|"N"|"O"|"P"|"Q"|"R"|"S"|"T"|"U"|"V"|"W"|"X"|"Y"|"Z";
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      digit= 	"0"|"1"|"2"|"3"|"4"|"5"|"6"|"7"|"8"|"9";
+     digit= 	"0"|"1"|"2"|"3"|"4"|"5"|"6"|"7"|"8"|"9";
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      white_spac= 	? white_spac_characters ?;
+     white_spac= 	? white_spac_characters ?;
     \end{lstlisting}
     \end{flushleft}
     \begin{flushleft}
     \begin{lstlisting}[mathescape=true, breaklines=true]
-      all_characters= 	? all_visible_characters ?;
+     all_characters= 	? all_visible_characters ?;
     \end{lstlisting}
     \end{flushleft}
 \end{document}
