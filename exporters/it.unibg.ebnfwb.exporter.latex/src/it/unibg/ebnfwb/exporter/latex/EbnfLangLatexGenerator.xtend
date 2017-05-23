@@ -39,7 +39,9 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
 	
 	
 	override doGenerate(Resource input, IFileSystemAccess fsa) {
+
 		for (e : input.allContents.toIterable.filter(EbnfGrammar)) {
+				
 			fsa.generateFile(fileName.toFirstUpper + ".tex", e.compile)
 		}
 	}
@@ -54,6 +56,7 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
 	\definecolor{isabelline}{rgb}{0.96, 0.94, 0.93}
 	\pagecolor{isabelline}
 	\usepackage{listings}
+	\usepackage{textcomp}
 	\usepackage{upquote}
 	\usepackage[a4paper,top=1cm,bottom=1cm,left=0.5cm,right=0.2cm]{geometry}
 	\lstset{
@@ -120,12 +123,11 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
 	    s = s.replace("'â'", "$\\notin$");
 	    s = s.replace("'â  (U+2282)'","$\\subset$");
 	    s = s.replace("'â  (U+2286)'","$\\subseteq$");
+	    s = s.replace("'â²'", "'′'")
 	      
-	    
+	    //evita di spezzare una regola dopo il segno di uguaglianza
 	    sf = s.replaceAll("[\r\n]+", "")
-//	    sf=sf.replaceAll("\\[", "\\"+"\\-\\[")
-//	    sf=sf.replaceAll("\\{", "\\"+"\\-\\{")
-	   
+
 	'''
 	\begin{flushleft}
 	\begin{lstlisting}[mathescape=true, breaklines=true]
@@ -233,6 +235,7 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
   		 	var int regex = comment.contentComment.indexOf(" ",2)
   		 	var String com = comment.contentComment.substring(2,regex)
   		 	var SpecialCharMarnager mngr = new SpecialCharMarnager(s.substring(regex-1))
+  		 	
   		 		if(com.equalsIgnoreCase("SECTION")) {
   		 			
   		 			return
@@ -289,11 +292,10 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
   		 
   		 
 	// the document name (for the tex file)	
-	String fileName
+	String fileName 
 	
-//	String expression
 
-	def setFileName(String pn) {
+   def setFileName(String pn) {
 		fileName = pn;
 	}
 

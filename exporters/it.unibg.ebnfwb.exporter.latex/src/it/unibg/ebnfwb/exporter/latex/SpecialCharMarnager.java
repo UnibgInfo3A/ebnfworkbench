@@ -29,9 +29,7 @@ public class SpecialCharMarnager {
 			if(s.contains(special)){
 				s = s.replace(special,"\\"+special);
 			}
-//			if(s.charAt(i)=='\''){
-//				s = s.replace('\'', '´');
-//			}
+
 		}
 		return s;
 	}

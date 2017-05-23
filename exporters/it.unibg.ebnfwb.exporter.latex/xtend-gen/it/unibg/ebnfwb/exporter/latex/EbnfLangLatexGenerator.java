@@ -69,6 +69,8 @@ public class EbnfLangLatexGenerator implements IGenerator {
     _builder.newLine();
     _builder.append("\\usepackage{listings}");
     _builder.newLine();
+    _builder.append("\\usepackage{textcomp}");
+    _builder.newLine();
     _builder.append("\\usepackage{upquote}");
     _builder.newLine();
     _builder.append("\\usepackage[a4paper,top=1cm,bottom=1cm,left=0.5cm,right=0.2cm]{geometry}");
@@ -175,6 +177,8 @@ public class EbnfLangLatexGenerator implements IGenerator {
       s = _replace_17;
       String _replace_18 = s.replace("\'â  (U+2286)\'", "$\\subseteq$");
       s = _replace_18;
+      String _replace_19 = s.replace("\'â²\'", "\'′\'");
+      s = _replace_19;
       String _replaceAll = s.replaceAll("[\r\n]+", "");
       sf = _replaceAll;
       StringConcatenation _builder = new StringConcatenation();
