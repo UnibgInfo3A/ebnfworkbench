@@ -177,8 +177,12 @@ public class EbnfLangLatexGenerator implements IGenerator {
       s = _replace_17;
       String _replace_18 = s.replace("\'â  (U+2286)\'", "$\\subseteq$");
       s = _replace_18;
-      String _replace_19 = s.replace("\'â²\'", "\'′\'");
+      String _replace_19 = s.replace("\'â (U+2208)\'", "$\\in$");
       s = _replace_19;
+      String _replace_20 = s.replace("\'â (U+2209)\'", "$\\notin$");
+      s = _replace_20;
+      String _replace_21 = s.replace("\'â²\'", "\'′\'");
+      s = _replace_21;
       String _replaceAll = s.replaceAll("[\r\n]+", "");
       sf = _replaceAll;
       StringConcatenation _builder = new StringConcatenation();

@@ -271,7 +271,7 @@ RelationOperator =  '<'
 
 MemberofTerm = Exp, MembershipOperator, ( CollectionTerm | VarTermC );
 
-MembershipOperator = 'memberof' | '∈'  | '∉' ;
+MembershipOperator = 'memberof' | '∈ (U+2208)'  | '∉ (U+2209)' ;
 
 // SubsetofTerm
 

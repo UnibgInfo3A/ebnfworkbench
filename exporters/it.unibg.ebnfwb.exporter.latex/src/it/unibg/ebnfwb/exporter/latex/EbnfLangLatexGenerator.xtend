@@ -123,6 +123,8 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
 	    s = s.replace("'â'", "$\\notin$");
 	    s = s.replace("'â  (U+2282)'","$\\subset$");
 	    s = s.replace("'â  (U+2286)'","$\\subseteq$");
+	    s = s.replace("'â (U+2208)'","$\\in$")
+	    s = s.replace("'â (U+2209)'","$\\notin$")
 	    s = s.replace("'â²'", "'′'")
 	      
 	    //evita di spezzare una regola dopo il segno di uguaglianza
