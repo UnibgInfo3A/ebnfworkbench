@@ -100,9 +100,7 @@ class EbnfLangLatexGenerator implements IGenerator { //extends AbstractGenerator
 	    var SpecialCharMarnager mngr = new SpecialCharMarnager(r)
 	  
 	 	s = rule.name+ '='+ r + ';'
-	   // s = s.replace("'", "´")
-	   // s = mngr.stringManager(s)
-	   
+	  
 	  
 		s = s.replace("'âª  (U+222A)'","$\\cap$");
   		s = s.replace("'â©  (U+2229)'","$\\cup$");

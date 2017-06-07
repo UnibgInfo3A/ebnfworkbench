@@ -32,28 +32,22 @@ public class ToString extends EbnfLangSwitch<String>{
 		String s="";
 		
 		for (int i=0; i<object.getElements().size()-1; i++)
-			s+=new ToString().doSwitch(object.getElements().get(i)) + "|";
+		s+=new ToString().doSwitch(object.getElements().get(i)) + "|";
 		s+= new ToString().doSwitch(object.getElements().get(object.getElements().size()-1)).toString();
 	
-		
 		return s;
 	}
 
 
 	@Override
 	public String caseExpression_Concatenation(Expression_Concatenation object) {
-		
 		String s="";
 		for (int i=0; i<object.getElements().size()-1; i++)
 			
-			s+=new ToString().doSwitch(object.getElements().get(i)) + ",";
-			
-		
+		s+=new ToString().doSwitch(object.getElements().get(i)) + ",";
 		s+= new ToString().doSwitch(object.getElements().get(object.getElements().size()-1)).toString();
-	
-		
-		return s;
 
+		return s;
 	}
 	
 	@Override
@@ -61,19 +55,15 @@ public class ToString extends EbnfLangSwitch<String>{
 		String s = "";
 		s+=new ToString().doSwitch(object.getLeft()) + "-" ;
 		s+= new ToString().doSwitch(object.getRight());
-		return s;
-		
+		return s;	
 	}
 	
 	@Override
 	public String caseExpression_Group(Expression_Group object){
 		String s = "";
-		
 		s = "(" + new ToString().doSwitch(object.getExpr())+ ")";
 		
-		return s;
-		
-		
+		return s;	
 	}
 	
 	@Override
@@ -81,18 +71,15 @@ public class ToString extends EbnfLangSwitch<String>{
 		String s = "";
 		
 		s = "["+ new ToString().doSwitch(object.getExpr())+ "]";
-		return s;
-		
+		return s;	
 	}
 	
 	@Override
 	public String caseExpression_Repetition(Expression_Repetition object){
 		String s = "";
 		s= object.getRepetitions()+"*"+new ToString().doSwitch(object.getExpr()) ;
-
-		
-		return s;
-		
+	
+		return s;	
 	}
 	
 	@Override
@@ -100,18 +87,15 @@ public class ToString extends EbnfLangSwitch<String>{
 		String s = "";
 		
 		s = "{" +  new ToString().doSwitch(object.getExpr())+ "}";
-		return s;
-		
+		return s;	
 	}
 	
 	@Override
 	public String caseExpression_Rule_Reference(Expression_Rule_Reference object){
 		String s = "";
-		
 		s= ""+object.getRule().getName()+"";
 		
 		return s;
-		
 	}
 	
 	@Override
@@ -120,43 +104,15 @@ public class ToString extends EbnfLangSwitch<String>{
 		
 		s = object.getText().toString();
 		return s;
-		
 	}
 	
 	@Override
 	public String caseExpression_Terminal_Symbol(Expression_Terminal_Symbol object){
 		String s = "";
 		s = object.getText().toString();
-		
 		return s;
 	}
 	
-//	@Override
-//	public String caseUserComment(UserComment object) {
-//		String s = "";
-//		s = object.getContentComment();
-//		
-//		//String[] specialCharList = {"{", "}", "&", "%", "$", "#", "^", "_", "~"};
-//		ArrayList<String> specialCharList = new ArrayList<>();
-//		specialCharList.add("{");
-//		specialCharList.add("}");
-//		specialCharList.add("&");
-//		specialCharList.add("%");
-//		specialCharList.add("$");
-//		specialCharList.add("#");
-//		specialCharList.add("^");
-//		specialCharList.add("_");
-//		specialCharList.add("~");
-//		
-//		//	{"{", "}", "&", "%", "$", "#", "^", "_", "~"};
-//		for(int i = 0; i<specialCharList.size(); i++){
-//			String special = specialCharList.get(i);
-//			if(s.contains(special)){
-//				s = s.replace(special,"\\"+special);
-//			}
-//		}
-//		return s;
-//	}
 	
 	@Override
 	public String caseLine(Line object) {
