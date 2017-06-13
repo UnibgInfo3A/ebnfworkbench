@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.xtext.uasmlt.mydsl.diagrams/src" modelPluginID="org.xtext.uasmlt.mydsl.diagrams"
+    modelName="Uasmlt" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>../../org.xtext.uasmlt.mydsl/model/generated/MyDsl.ecore</foreignModel>
+  <genPackages prefix="MyDsl" disposableProviderFactory="true" loadInitialization="true"
+      literalsInterface="false" ecorePackage="MyDsl.ecore#/">
+    <genClasses ecoreClass="MyDsl.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Model/uasm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Model/comments"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//UAsm">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//UAsm/uasm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//UAsm/header"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//UAsm/body"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Asm">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Asm/asm"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//AsmModule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//AsmModule/asmmodule"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Header">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Header/use"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Header/imp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Header/exp"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//UseDirective">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//UseDirective/name"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ImportDirective">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ImportDirective/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ImportDirective/task"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ExportDirective">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ExportDirective/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ExportDirective/task"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Task">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Task/action"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Action"/>
+    <genClasses ecoreClass="MyDsl.ecore#//Body">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Body/def"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Body/id"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Definition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Definition/definition"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Definition_options"/>
+    <genClasses ecoreClass="MyDsl.ecore#//RuleDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//RuleDefinition/param"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//RuleDefinition/rule"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Rule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Rule/parblock"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Rule/seqblock"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Rule/seqnext"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Rule/caserule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Rule/chooserule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Rule/conditionalrule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Rule/extendrule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Rule/forallrule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Rule/importrule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Rule/iteraterule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Rule/letrule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Rule/turboreturnrule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Rule/whilerule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Rule/updaterule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Rule/skiprule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Rule/callrule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Rule/localrule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Rule/printrule"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ParBlock">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ParBlock/par"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ParBlock/rule"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ParBlock/endpar"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//SeqBlock">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//SeqBlock/seq"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//SeqBlock/rule"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//SeqNext">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//SeqNext/rule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//SeqNext/rule2"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//CaseRule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//CaseRule/term"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//CaseRule/term2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//CaseRule/rule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//CaseRule/rule2"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ChooseRule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ChooseRule/enumterm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ChooseRule/variableterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ChooseRule/enumterm2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ChooseRule/term"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ChooseRule/rule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ChooseRule/rule2"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ConditionalRule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ConditionalRule/ifterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ConditionalRule/rule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ConditionalRule/rule2"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//SkipRule"/>
+    <genClasses ecoreClass="MyDsl.ecore#//UpdateRule"/>
+    <genClasses ecoreClass="MyDsl.ecore#//ExtendRule"/>
+    <genClasses ecoreClass="MyDsl.ecore#//ForAllRule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ForAllRule/enumterm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ForAllRule/variableterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ForAllRule/enumterm2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ForAllRule/term"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ForAllRule/rule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ForAllRule/rule2"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ImportRule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ImportRule/rule"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//IterateRule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//IterateRule/rule"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//LetRule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LetRule/term"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//LetRule/variableterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LetRule/term2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LetRule/rule"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//TurboReturnRule"/>
+    <genClasses ecoreClass="MyDsl.ecore#//WhileRule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//WhileRule/whileterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//WhileRule/rule3"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//CallRule"/>
+    <genClasses ecoreClass="MyDsl.ecore#//LocalRule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LocalRule/domain"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LocalRule/initialfunctionderivation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LocalRule/parameterdefinition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LocalRule/domain2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LocalRule/initialfunctiondefinition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LocalRule/rule"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//PrintRule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//PrintRule/term"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//TypeDefinition"/>
+    <genClasses ecoreClass="MyDsl.ecore#//DomainDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//DomainDefinition/domparamdef"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//DomainDefinition/initdomdef"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//DomainParameterDefinition"/>
+    <genClasses ecoreClass="MyDsl.ecore#//Domain">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Domain/structureddomain"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Domain/basicdomain"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Domain/extendabledomain"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ExtendableDomain">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ExtendableDomain/variableterm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ExtendableDomain/variableterm2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ExtendableDomain/variableterm3"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ExtendableDomain/rule"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ExtendableDomain/any"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ExtendableDomain/agent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ExtendableDomain/iddomain"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//BasicDomain">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//BasicDomain/basic"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//StructuredDomain">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//StructuredDomain/set"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//StructuredDomain/bag"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//StructuredDomain/list"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//StructuredDomain/dom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//StructuredDomain/map"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//StructuredDomain/dom2"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//InitialDomainDefinition"/>
+    <genClasses ecoreClass="MyDsl.ecore#//TupleLiteral"/>
+    <genClasses ecoreClass="MyDsl.ecore#//NumbBoolLiteral">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//NumbBoolLiteral/numberliteral"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//NumbBoolLiteral/booleanliteral"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Literal">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Literal/tuple_literal"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Literal/lit"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Literal/numberliteral"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Literal/booleanliteral"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Literal/kernelliteral"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Literal/stringliteral"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Literal/charliteral"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Literal/enumterm"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//KernelLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//KernelLiteral/undef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//KernelLiteral/self"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//NumberLiteral">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//NumberLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//EnumerateDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//EnumerateDefinition/_enum"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//EnumerateDefinition/enumterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//EnumerateDefinition/enumterm2"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//EnumTerm">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//EnumTerm/enumterm"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//FunctionDefinition"/>
+    <genClasses ecoreClass="MyDsl.ecore#//ControlledFunction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ControlledFunction/controlled"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//StaticFunction"/>
+    <genClasses ecoreClass="MyDsl.ecore#//DerivedFunction"/>
+    <genClasses ecoreClass="MyDsl.ecore#//MonitoredFunction"/>
+    <genClasses ecoreClass="MyDsl.ecore#//SharedFunction"/>
+    <genClasses ecoreClass="MyDsl.ecore#//OutFunction"/>
+    <genClasses ecoreClass="MyDsl.ecore#//ParameterDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ParameterDefinition/dom"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//InitialFunctionDefinition"/>
+    <genClasses ecoreClass="MyDsl.ecore#//NumberTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//NumberTerm/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//NumberTerm/right"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//IdDomain">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//IdDomain/id_domain"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//IdFunction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//IdFunction/param"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//IdFunction/domain"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//IdFunction/initial"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//IdFunction/initfundef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//IdFunction/id_function"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//IdRule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//IdRule/term"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//IdRule/id_rule"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//VarTerm">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//VarTerm/variableterm"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//LocationTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LocationTerm/term"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LocationTerm/callrule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LocationTerm/functionterm"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//FunctionTerm">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//FunctionTerm/identifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//FunctionTerm/exp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//FunctionTerm/tupleterm"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//LetTerm">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//LetTerm/variableterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LetTerm/exp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//LetTerm/variableterm2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LetTerm/exp2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LetTerm/exp3"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ReturnTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ReturnTerm/exp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ReturnTerm/rule"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//CaseTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//CaseTerm/exp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//CaseTerm/exp2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//CaseTerm/exp3"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//CaseTerm/exp4"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//PickTerm">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//PickTerm/variableterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//PickTerm/collectionterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//PickTerm/varterm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//PickTerm/_with"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//CardinalityTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//CardinalityTerm/collectionterm"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//StructureTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//StructureTerm/tupleterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//StructureTerm/collectionterm"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Negation"/>
+    <genClasses ecoreClass="MyDsl.ecore#//QuantifierFormula">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//QuantifierFormula/forallformula"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//QuantifierFormula/exitsformula"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ForAllFormula">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ForAllFormula/variableterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ForAllFormula/collectionterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ForAllFormula/collectionterm2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ForAllFormula/formula"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ExistsFormula">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ExistsFormula/unique"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ExistsFormula/variableterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ExistsFormula/collectionterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ExistsFormula/collectionterm2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ExistsFormula/formula"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//SubsetTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//SubsetTerm/collectionterm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//SubsetTerm/subsetof"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//SubsetTerm/collectionterm2"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//TupleTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//TupleTerm/tupledefterm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//TupleTerm/getcomponentterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//TupleTerm/setcomponentterm"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//TupleDefTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//TupleDefTerm/exp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//TupleDefTerm/exp2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//TupleDefTerm/exp3"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//SetComponentTerm"/>
+    <genClasses ecoreClass="MyDsl.ecore#//CollectionTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//CollectionTerm/domain"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//CollectionTerm/setterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//CollectionTerm/bagterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//CollectionTerm/listterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//CollectionTerm/mapterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//CollectionTerm/powersetterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//CollectionTerm/comprehensionterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//CollectionTerm/collectionterm"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//SetTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//SetTerm/exp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//SetTerm/exp2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//SetTerm/p"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//BagTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BagTerm/exp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BagTerm/exp2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//BagTerm/q"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ListTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ListTerm/exp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ListTerm/exp2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ListTerm/t"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//MapTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//MapTerm/exp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//MapTerm/rightarrow"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//MapTerm/exp2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//MapTerm/exp3"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//MapTerm/rightarrow2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//MapTerm/exp4"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//PowersetTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//PowersetTerm/collectionterm"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ComprehensionTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ComprehensionTerm/setcomprehensionterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ComprehensionTerm/listcomprehensionterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ComprehensionTerm/mapcomprehensionterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ComprehensionTerm/bagcomprehensionterm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ComprehensionTerm/numberrangeterm"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//SetComprehensionTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//SetComprehensionTerm/exp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//SetComprehensionTerm/variableterm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//SetComprehensionTerm/in"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//SetComprehensionTerm/collectionterm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//SetComprehensionTerm/variableterm2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//SetComprehensionTerm/in2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//SetComprehensionTerm/collectionterm2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//SetComprehensionTerm/_with"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//SetComprehensionTerm/formula"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ListComprehensionTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ListComprehensionTerm/exp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ListComprehensionTerm/variableterm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ListComprehensionTerm/in"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ListComprehensionTerm/collectionterm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ListComprehensionTerm/variableterm2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ListComprehensionTerm/in2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ListComprehensionTerm/collectionterm2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ListComprehensionTerm/_with"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ListComprehensionTerm/formula"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//BagComprehensionTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BagComprehensionTerm/exp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//BagComprehensionTerm/variableterm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//BagComprehensionTerm/in"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BagComprehensionTerm/collectionterm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//BagComprehensionTerm/variableterm2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//BagComprehensionTerm/in2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BagComprehensionTerm/collectionterm2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//BagComprehensionTerm/_with"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BagComprehensionTerm/formula"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//MapComprehensionTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//MapComprehensionTerm/exp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//MapComprehensionTerm/exp2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//MapComprehensionTerm/variableterm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//MapComprehensionTerm/in"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//MapComprehensionTerm/collectionterm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//MapComprehensionTerm/_variableterm2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//MapComprehensionTerm/in2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//MapComprehensionTerm/collectionterm2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//MapComprehensionTerm/_with"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//MapComprehensionTerm/formula"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Expression"/>
+    <genClasses ecoreClass="MyDsl.ecore#//BasicTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BasicTerm/tupleterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BasicTerm/localtionterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BasicTerm/comprehensionterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BasicTerm/structureterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BasicTerm/pickterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BasicTerm/conditionalterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BasicTerm/caseterm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//BasicTerm/ruleasterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BasicTerm/returnterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BasicTerm/forall"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BasicTerm/exists"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BasicTerm/letterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BasicTerm/literal"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BasicTerm/tupleliteral"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BasicTerm/sizeofenumerableterm"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//SizeOfEnumerableTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//SizeOfEnumerableTerm/enumTerm"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//EnumerableTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//EnumerableTerm/dom"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//StringTerm">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//StringTerm/string"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//StringTerm/exp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//StringTerm/exp2"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//MemberofTerm"/>
+    <genClasses ecoreClass="MyDsl.ecore#//Exp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp/collnterm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp/exp11"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp/formula1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp/exp7"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp/exp8"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp/formula2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp/exp9"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp/exp10"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp/str_exp2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp/str_exp1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp/equa_exp7"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp/equa_formula"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp/equa_logicformula2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp/equa_logicformula3"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp/equa_exp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp/equa_exp8"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp/equa_formula3"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp/equa_exp9"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp/equa_exp10"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp/equa_exp11"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Exp1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp1/memb_formula1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp1/memb_logicformula1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp1/memb_exp3"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp1/memb_exp4"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp1/memb_formula"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp1/memb_exp5"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp1/memb_exp6"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp1/memb_exp2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exp1/memb_exp1"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Exp2"/>
+    <genClasses ecoreClass="MyDsl.ecore#//Formula">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Formula/euqation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Formula/negation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Formula/logicformula"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Formula/quantformula"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Formula/booleanterm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Formula/vartermb"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Formula/exp1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Formula/exp2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Formula/formula"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Formula/exp3"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Formula/exp4"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Equation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Equation/exp1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Equation/exp2"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//LogicFormula">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LogicFormula/formula"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LogicFormula/logicformula1"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//LogicFormula1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LogicFormula1/formula"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LogicFormula1/logicformula1"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//BooleanTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BooleanTerm/formula4"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BooleanTerm/logicformula2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//BooleanTerm/booleanliteral"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//RelationalTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//RelationalTerm/relationoperand"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//RelationalTerm/relationoperator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//RelationalTerm/relationoperand2"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//RelationOperand"/>
+    <genClasses ecoreClass="MyDsl.ecore#//ConditionalTerm"/>
+    <genClasses ecoreClass="MyDsl.ecore#//ValueTerm"/>
+    <genClasses ecoreClass="MyDsl.ecore#//Escapesequence">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Escapesequence/backspace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Escapesequence/horizontal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Escapesequence/linefeed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Escapesequence/from"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Escapesequence/carriage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Escapesequence/doublequote"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Escapesequence/singlequote"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Escapesequence/backslash"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//CollectionOperationTerm"/>
+    <genClasses ecoreClass="MyDsl.ecore#//Term_return">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Term_return/condternexpr"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//CondTernaryExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//CondTernaryExpression/cond"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//CondTernaryExpression/then"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//CondTernaryExpression/else"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//BinaryExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BinaryExpression/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//BinaryExpression/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BinaryExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//BooleanNegation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//BooleanNegation/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BooleanNegation/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ArithmeticSigned">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ArithmeticSigned/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ArithmeticSigned/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//BasicTermExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//BasicTermExpr/basicT"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ParenthesisTermExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ParenthesisTermExpr/term"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
